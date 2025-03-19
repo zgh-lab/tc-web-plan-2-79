@@ -49,6 +49,8 @@ const Projects = () => {
       (entries) => {
         if (entries[0].isIntersecting) {
           entries[0].target.classList.add('animate-fade-in');
+          // Make sure the element remains visible after animation
+          (entries[0].target as HTMLElement).style.opacity = '1';
           observer.unobserve(entries[0].target);
         }
       },
