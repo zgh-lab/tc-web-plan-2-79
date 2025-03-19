@@ -7,42 +7,42 @@ const projects = [
   {
     id: 1,
     title: "Smart Uniform",
-    partner: "Blåkläder Collaboration",
-    description: "Integrated sensors in workwear that enhance safety and productivity with real-time data on worker movements and health metrics, featuring AI analytics and robust sensor technology.",
+    brand: "Wabooba Innovation",
+    description: "Integrated AI sensors in smart uniforms that enhance safety and productivity with real-time data analytics, providing comprehensive health and movement tracking for industrial applications.",
     tags: ["Motion Sensors", "Health Monitoring", "Industrial", "Cloud Analytics"],
-    imageUrl: "https://images.unsplash.com/photo-1635317859483-0de97e9f503a?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "/placeholder.svg"
   },
   {
     id: 2,
     title: "Multi-Sensor Security Device",
-    partner: "Security Solutions",
-    description: "A highly durable sensor solution combining heart rate monitoring, impact detection, GPS tracking, and 5G connectivity with real-time data streaming and administrative tools.",
+    brand: "Wabooba Secure",
+    description: "Advanced security solution developed with Wabooba featuring heart rate monitoring, impact detection, GPS tracking, and 5G connectivity with powerful real-time analytics.",
     tags: ["Security", "GPS Tracking", "5G", "Real-time Monitoring"],
-    imageUrl: "https://images.unsplash.com/photo-1558959704-2509e0memsb?q=80&w=2080&auto=format&fit=crop"
+    imageUrl: "/placeholder.svg"
   },
   {
     id: 3,
     title: "Off-Ice Training Sensors",
-    partner: "Sports Brands",
-    description: "Devices incorporating speed radars, interactive targets, and a gamification engine, providing performance data through app-based dashboards for engaging training experiences.",
+    brand: "Wabooba Sports",
+    description: "Innovative training devices created for Wabooba incorporating speed radars, interactive targets, and a gamification engine to provide engaging performance analytics.",
     tags: ["Sports", "Performance Analytics", "Gamification", "Mobile Integration"],
-    imageUrl: "https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "/placeholder.svg"
   },
   {
     id: 4,
     title: "Direction Finder",
-    partner: "Navigation Systems",
-    description: "A miniaturized sensor featuring a 9-axis motion sensor, Bluetooth connectivity, and automatic calibration, optimized for precision in orientation and navigation applications.",
+    brand: "Wabooba Navigation",
+    description: "Precision navigation solution developed with Wabooba featuring a miniaturized 9-axis motion sensor, Bluetooth connectivity, and intelligent automatic calibration systems.",
     tags: ["Navigation", "Bluetooth", "Miniaturized", "Precision"],
-    imageUrl: "https://images.unsplash.com/photo-1509475826633-fed577a2c71b?q=80&w=2071&auto=format&fit=crop"
+    imageUrl: "/placeholder.svg"
   },
   {
     id: 5,
     title: "Health & Safety Sensor",
-    partner: "Diar Health",
-    description: "Compact sensor technology providing comprehensive monitoring including heart rate, temperature, fall detection, and activity tracking, with a magnetic charging solution.",
+    brand: "Wabooba Health",
+    description: "Comprehensive health monitoring system created for Wabooba providing heart rate, temperature, fall detection, and activity tracking with seamless cloud integration.",
     tags: ["Healthcare", "Elderly Care", "Monitoring", "Safety"],
-    imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "/placeholder.svg"
   }
 ];
 
@@ -72,11 +72,11 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-wrlds-light to-transparent"></div>
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
       
       <div className="section-container" ref={projectsRef} style={{ opacity: 0 }}>
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-block mb-3 px-3 py-1 bg-wrlds-teal/10 text-wrlds-teal rounded-full text-sm font-medium">
+          <div className="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
             Our Projects
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -96,8 +96,8 @@ const Projects = () => {
                 className={cn(
                   "w-full text-left p-5 rounded-lg transition-all duration-300 border",
                   activeProject === project.id 
-                    ? "bg-wrlds-teal text-white border-wrlds-teal shadow-lg" 
-                    : "bg-white text-wrlds-dark border-gray-200 hover:border-wrlds-teal/50"
+                    ? "bg-blue-500 text-white border-blue-500 shadow-lg" 
+                    : "bg-white text-gray-800 border-gray-200 hover:border-blue-300"
                 )}
               >
                 <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
@@ -105,7 +105,7 @@ const Projects = () => {
                   "text-sm",
                   activeProject === project.id ? "text-white/80" : "text-gray-500"
                 )}>
-                  {project.partner}
+                  {project.brand}
                 </p>
               </button>
             ))}
@@ -120,17 +120,8 @@ const Projects = () => {
                   activeProject === project.id ? "opacity-100 translate-y-0" : "opacity-0 absolute pointer-events-none translate-y-4"
                 )}
               >
-                <div className="mb-6 overflow-hidden rounded-lg">
-                  <AspectRatio ratio={16/9} className="bg-muted">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title}
-                      className="object-cover w-full h-full rounded-lg" 
-                    />
-                  </AspectRatio>
-                </div>
-                <h2 className="text-2xl font-bold mb-2 text-wrlds-dark">{project.title}</h2>
-                <p className="text-wrlds-teal mb-4">{project.partner}</p>
+                <h2 className="text-2xl font-bold mb-2 text-gray-800">{project.title}</h2>
+                <p className="text-blue-500 mb-4">{project.brand}</p>
                 <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                   {project.description}
                 </p>
@@ -138,7 +129,7 @@ const Projects = () => {
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-wrlds-muted text-wrlds-teal rounded-full text-sm"
+                      className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm"
                     >
                       {tag}
                     </span>
@@ -150,7 +141,7 @@ const Projects = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-wrlds-muted to-transparent"></div>
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-blue-50 to-transparent"></div>
     </section>
   );
 };
