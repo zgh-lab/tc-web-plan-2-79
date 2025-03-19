@@ -1,6 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const projects = [
   {
@@ -8,35 +9,40 @@ const projects = [
     title: "Smart Uniform",
     partner: "Blåkläder Collaboration",
     description: "Integrated sensors in workwear that enhance safety and productivity with real-time data on worker movements and health metrics, featuring AI analytics and robust sensor technology.",
-    tags: ["Motion Sensors", "Health Monitoring", "Industrial", "Cloud Analytics"]
+    tags: ["Motion Sensors", "Health Monitoring", "Industrial", "Cloud Analytics"],
+    imageUrl: "https://images.unsplash.com/photo-1635317859483-0de97e9f503a?q=80&w=2070&auto=format&fit=crop"
   },
   {
     id: 2,
     title: "Multi-Sensor Security Device",
     partner: "Security Solutions",
     description: "A highly durable sensor solution combining heart rate monitoring, impact detection, GPS tracking, and 5G connectivity with real-time data streaming and administrative tools.",
-    tags: ["Security", "GPS Tracking", "5G", "Real-time Monitoring"]
+    tags: ["Security", "GPS Tracking", "5G", "Real-time Monitoring"],
+    imageUrl: "https://images.unsplash.com/photo-1558959704-2509e0memsb?q=80&w=2080&auto=format&fit=crop"
   },
   {
     id: 3,
     title: "Off-Ice Training Sensors",
     partner: "Sports Brands",
     description: "Devices incorporating speed radars, interactive targets, and a gamification engine, providing performance data through app-based dashboards for engaging training experiences.",
-    tags: ["Sports", "Performance Analytics", "Gamification", "Mobile Integration"]
+    tags: ["Sports", "Performance Analytics", "Gamification", "Mobile Integration"],
+    imageUrl: "https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2070&auto=format&fit=crop"
   },
   {
     id: 4,
     title: "Direction Finder",
     partner: "Navigation Systems",
     description: "A miniaturized sensor featuring a 9-axis motion sensor, Bluetooth connectivity, and automatic calibration, optimized for precision in orientation and navigation applications.",
-    tags: ["Navigation", "Bluetooth", "Miniaturized", "Precision"]
+    tags: ["Navigation", "Bluetooth", "Miniaturized", "Precision"],
+    imageUrl: "https://images.unsplash.com/photo-1509475826633-fed577a2c71b?q=80&w=2071&auto=format&fit=crop"
   },
   {
     id: 5,
     title: "Health & Safety Sensor",
     partner: "Diar Health",
     description: "Compact sensor technology providing comprehensive monitoring including heart rate, temperature, fall detection, and activity tracking, with a magnetic charging solution.",
-    tags: ["Healthcare", "Elderly Care", "Monitoring", "Safety"]
+    tags: ["Healthcare", "Elderly Care", "Monitoring", "Safety"],
+    imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
   }
 ];
 
@@ -114,6 +120,15 @@ const Projects = () => {
                   activeProject === project.id ? "opacity-100 translate-y-0" : "opacity-0 absolute pointer-events-none translate-y-4"
                 )}
               >
+                <div className="mb-6 overflow-hidden rounded-lg">
+                  <AspectRatio ratio={16/9} className="bg-muted">
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="object-cover w-full h-full rounded-lg" 
+                    />
+                  </AspectRatio>
+                </div>
                 <h2 className="text-2xl font-bold mb-2 text-wrlds-dark">{project.title}</h2>
                 <p className="text-wrlds-teal mb-4">{project.partner}</p>
                 <p className="text-gray-600 mb-6 text-lg leading-relaxed">
