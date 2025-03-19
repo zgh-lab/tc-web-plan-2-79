@@ -11,6 +11,8 @@ const Features = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
+            // Make sure the element remains visible after animation
+            (entry.target as HTMLElement).style.opacity = '1';
             observer.unobserve(entry.target);
           }
         });
@@ -21,11 +23,11 @@ const Features = () => {
     if (featuresRef.current) {
       const elements = featuresRef.current.querySelectorAll('.feature-item');
       elements.forEach(el => {
-        el.classList.remove('animate-fade-in');
-        // Fix for the error TS2339: Property 'style' does not exist on type 'Element'
-        // We need to cast el to HTMLElement to access the style property
-        (el as HTMLElement).style.opacity = '0';
-        observer.observe(el);
+        // Only set initial opacity if not already animated
+        if (!el.classList.contains('animate-fade-in')) {
+          (el as HTMLElement).style.opacity = '0';
+          observer.observe(el);
+        }
       });
     }
     
