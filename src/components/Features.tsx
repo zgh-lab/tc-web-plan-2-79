@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from 'react';
-import { Server, Database, BrainCircuit, Cloud, Rocket } from "lucide-react";
+import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket } from "lucide-react";
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -22,7 +22,9 @@ const Features = () => {
       const elements = featuresRef.current.querySelectorAll('.feature-item');
       elements.forEach(el => {
         el.classList.remove('animate-fade-in');
-        el.style.opacity = '0';
+        // Fix for the error TS2339: Property 'style' does not exist on type 'Element'
+        // We need to cast el to HTMLElement to access the style property
+        (el as HTMLElement).style.opacity = '0';
         observer.observe(el);
       });
     }
