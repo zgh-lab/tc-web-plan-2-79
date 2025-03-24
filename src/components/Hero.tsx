@@ -6,7 +6,7 @@ const Hero = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className="relative">
+    <div className="relative mt-16 md:mt-0"> {/* Added explicit top margin to create space below navbar */}
       {/* Banner with the provided image */}
       <div className="banner-container bg-white relative overflow-hidden h-[450px] md:h-[500px]">
         {/* Background Image with white fade overlay */}
@@ -20,7 +20,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
         </div>
         
-        <div className="banner-overlay bg-transparent pt-32 md:pt-28">
+        <div className="banner-overlay bg-transparent pt-28 md:pt-28"> {/* Adjusted padding top for both mobile and desktop */}
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center h-full">
             <div className="max-w-xl text-left">
               <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
