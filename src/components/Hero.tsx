@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         
         <div className="banner-overlay bg-transparent pt-28 md:pt-28"> {/* Adjusted padding top for both mobile and desktop */}
-          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center h-full">
+          <div className={`max-w-7xl w-full mx-auto ${isMobile ? 'px-0 pl-0 pr-4' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
             <div className={`${isMobile ? 'pr-0' : 'max-w-xl'} text-left`}> {/* Adjusted max-width based on mobile */}
               <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
                 Revolutionary Textile <span className="text-blue-600 text-[1.1em]">Sensor</span> Technology
