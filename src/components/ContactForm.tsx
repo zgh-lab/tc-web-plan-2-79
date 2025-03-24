@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, Mail, User, MessageSquare } from 'lucide-react';
+import { Send, Mail, User, MessageSquare, Linkedin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 import {
@@ -41,9 +41,17 @@ const ContactForm = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate API call with a timeout
-    setTimeout(() => {
+    try {
+      // This would be replaced with actual email sending code
       console.log('Form submitted:', data);
+      
+      // To make this form actually send emails, you would need:
+      // 1. A backend service (like Supabase Edge Functions, AWS Lambda, or a dedicated email API)
+      // 2. Integration with an email service (like SendGrid, Mailgun, etc.)
+      // 3. CORS configuration if using a third-party service directly
+      
+      // Simulate API call with a timeout
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       // Show success toast
       toast({
@@ -54,14 +62,20 @@ const ContactForm = () => {
       
       // Reset form
       form.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
     <section id="contact" className="py-24 bg-blue-50 relative">
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white to-transparent"></div>
-      
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
@@ -168,9 +182,9 @@ const ContactForm = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">For general inquiries:</p>
-              <a href="mailto:info@wabooba.com" className="text-blue-500 hover:underline">info@wabooba.com</a>
+              <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">info@wrlds.com</a>
               <p className="text-gray-600 mt-2 mb-2">For support:</p>
-              <a href="mailto:support@wabooba.com" className="text-blue-500 hover:underline">support@wabooba.com</a>
+              <a href="mailto:support@wrlds.com" className="text-blue-500 hover:underline">support@wrlds.com</a>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md border border-blue-100">
@@ -185,8 +199,6 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 };

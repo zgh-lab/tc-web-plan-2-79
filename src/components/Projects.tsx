@@ -1,7 +1,9 @@
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight } from 'lucide-react';
 
 const projects = [
   {
@@ -47,34 +49,9 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [activeProject, setActiveProject] = useState(projects[0].id);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          entries[0].target.classList.add('animate-fade-in');
-          // Make sure the element remains visible after animation
-          (entries[0].target as HTMLElement).style.opacity = '1';
-          observer.unobserve(entries[0].target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="projects" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-blue-50 to-transparent"></div>
-      
-      <div className="section-container" ref={projectsRef} style={{ opacity: 0 }}>
+    <section id="projects" className="py-24 bg-white relative">
+      <div className="section-container">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
             Our Projects
@@ -87,61 +64,41 @@ const Projects = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1 space-y-4">
-            {projects.map((project) => (
-              <button
-                key={project.id}
-                onClick={() => setActiveProject(project.id)}
-                className={cn(
-                  "w-full text-left p-5 rounded-lg transition-all duration-300 border",
-                  activeProject === project.id 
-                    ? "bg-blue-500 text-white border-blue-500 shadow-lg" 
-                    : "bg-white text-gray-800 border-gray-200 hover:border-blue-300"
-                )}
-              >
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className={cn(
-                  "text-sm",
-                  activeProject === project.id ? "text-white/80" : "text-gray-500"
-                )}>
-                  {project.brand}
-                </p>
-              </button>
-            ))}
-          </div>
-          
-          <div className="lg:col-span-2">
-            {projects.map((project) => (
-              <div 
-                key={project.id}
-                className={cn(
-                  "bg-white rounded-xl p-8 shadow-lg border border-gray-200 transition-all duration-500",
-                  activeProject === project.id ? "opacity-100 translate-y-0" : "opacity-0 absolute pointer-events-none translate-y-4"
-                )}
-              >
-                <h2 className="text-2xl font-bold mb-2 text-gray-800">{project.title}</h2>
-                <p className="text-blue-500 mb-4">{project.brand}</p>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                  {project.description}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <Card 
+              key={project.id} 
+              className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-blue-100"
+            >
+              <div className="bg-blue-50 p-6 flex items-center justify-center h-48">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-blue-500 text-4xl font-bold">{project.id}</span>
+                </div>
+              </div>
+              <CardHeader>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription className="text-blue-500">{project.brand}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, index) => (
-                    <span 
-                      key={index} 
-                      className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm"
-                    >
+                    <span key={index} className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
+              </CardContent>
+              <CardFooter>
+                <a href="#contact" className="text-blue-500 flex items-center hover:underline">
+                  Learn more
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              </CardFooter>
+            </Card>
+          ))}
         </div>
       </div>
-      
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-blue-50 to-transparent"></div>
     </section>
   );
 };

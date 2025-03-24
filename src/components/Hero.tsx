@@ -51,7 +51,7 @@ const Hero = () => {
       </div>
       
       <div className="section-container relative z-10">
-        <div className="max-w-3xl mx-auto text-center fade-in-stagger">
+        <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
             AI-Powered Smart Sensors
           </div>
@@ -108,8 +108,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Animated gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
+      {/* Bottom gradient removed to eliminate blue fade */}
     </div>
   );
 };
