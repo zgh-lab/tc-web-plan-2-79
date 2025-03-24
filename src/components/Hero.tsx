@@ -26,7 +26,7 @@ const Hero = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 animate-fade-in animation-delay-400"> {/* Adjusted spacing to 20-30px */}
                 <a href="#projects" className="px-6 md:px-8 py-2 md:py-3 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group text-sm md:text-base">
-                  Explore Applications
+                  Explore Projects
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a href="#process" className="px-6 md:px-8 py-2 md:py-3 bg-white border border-blue-200 text-gray-800 rounded-md hover:bg-blue-50 transition-all flex items-center justify-center text-sm md:text-base">
