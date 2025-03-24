@@ -13,12 +13,12 @@ const Hero = () => {
         </div>
         
         <div className="banner-overlay bg-transparent pt-28 md:pt-28"> {/* Adjusted padding top for both mobile and desktop */}
-          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center h-full">
+          <div className="max-w-7xl w-full mx-auto sm:px-6 lg:px-8 flex flex-col items-start justify-left h-full px-0">
             <div className=""> {/* Adjusted max-width based on mobile */}
-              <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
+              <h1 className="banner-title text-black animate-fade-in md:text-5xl lg:text-6xl font-bold text-left text-4xl">
                 Revolutionary Textile Sensor Technology
               </h1>
-              <p className="banner-subtitle text-black animate-fade-in animation-delay-200 mt-4 md:mt-6 text-sm md:text-base text-left"> {/* Adjusted spacing to 20-30px */}
+              <p className="banner-subtitle text-black animate-fade-in animation-delay-200 mt-4 md:mt-6 md:text-base text-left text-xs"> {/* Adjusted spacing to 20-30px */}
                 We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 animate-fade-in animation-delay-400"> {/* Adjusted spacing to 20-30px */}
