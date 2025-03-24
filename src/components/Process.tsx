@@ -64,6 +64,12 @@ const processes = [
 const Process = () => {
   const [activeProcess, setActiveProcess] = useState(1);
   const processRef = useRef<HTMLDivElement>(null);
+  const processItemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  // Set up refs for each process item
+  useEffect(() => {
+    processItemRefs.current = Array(processes.length).fill(null);
+  }, []);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,6 +89,41 @@ const Process = () => {
     }
     
     return () => observer.disconnect();
+  }, []);
+
+  // New observer for process items to auto-select the active process based on scroll position
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6, // Process is considered "visible" when 60% of it is in viewport
+    };
+
+    const processObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.getAttribute('data-index'));
+          if (!isNaN(index)) {
+            setActiveProcess(index + 1); // +1 because process IDs start from 1
+          }
+        }
+      });
+    }, options);
+
+    // Observe all process items
+    processItemRefs.current.forEach((ref) => {
+      if (ref) {
+        processObserver.observe(ref);
+      }
+    });
+
+    return () => {
+      processItemRefs.current.forEach((ref) => {
+        if (ref) {
+          processObserver.unobserve(ref);
+        }
+      });
+    };
   }, []);
 
   return (
@@ -112,6 +153,8 @@ const Process = () => {
                   "relative flex flex-col md:flex-row md:items-center gap-6",
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse text-right"
                 )}
+                ref={el => processItemRefs.current[index] = el}
+                data-index={index}
               >
                 <div className="md:w-1/2">
                   <div 
@@ -121,7 +164,6 @@ const Process = () => {
                         ? "bg-wrlds-teal text-white" 
                         : "bg-white text-wrlds-teal border border-wrlds-teal/30"
                     )}
-                    onClick={() => setActiveProcess(process.id)}
                   >
                     <span className="font-bold">{process.id}</span>
                   </div>
@@ -129,15 +171,14 @@ const Process = () => {
                   <h3 className="text-xl font-bold mb-2 mt-3 md:mt-0">{process.title}</h3>
                   <p className="text-gray-600 mb-3 text-sm">{process.description}</p>
                   
-                  <button 
-                    onClick={() => setActiveProcess(process.id)}
+                  <div 
                     className={cn(
                       "text-sm font-medium transition-colors",
-                      activeProcess === process.id ? "text-wrlds-teal" : "text-gray-500 hover:text-wrlds-teal"
+                      activeProcess === process.id ? "text-wrlds-teal" : "text-gray-500"
                     )}
                   >
-                    {activeProcess === process.id ? "Currently Viewing" : "View Details"}
-                  </button>
+                    {activeProcess === process.id ? "Currently Viewing" : ""}
+                  </div>
                 </div>
                 
                 <div 
@@ -145,9 +186,8 @@ const Process = () => {
                     "md:w-1/2 bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-all duration-300",
                     activeProcess === process.id 
                       ? "opacity-100 translate-y-0" 
-                      : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer"
+                      : "opacity-50 md:opacity-30"
                   )}
-                  onClick={() => setActiveProcess(process.id)}
                 >
                   <h4 className="font-semibold mb-3 text-wrlds-teal">Key Activities:</h4>
                   <ul className="space-y-2">
