@@ -20,7 +20,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
         </div>
         
-        <div className="banner-overlay bg-transparent pt-24 md:pt-28">
+        <div className="banner-overlay bg-transparent pt-32 md:pt-28">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center h-full">
             <div className="max-w-xl text-left">
               <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
