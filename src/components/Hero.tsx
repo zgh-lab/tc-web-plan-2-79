@@ -7,16 +7,48 @@ const Hero = () => {
 
   return (
     <div className="relative pt-16">
-      {/* Banner Image */}
-      <div className="banner-container">
-        <img 
-          src="https://images.unsplash.com/photo-1580584126903-c17d41830450?q=80&w=2079&auto=format&fit=crop" 
-          alt="AI-Powered Sensor Technology" 
-          className="banner-image"
-        />
-        <div className="banner-overlay">
-          <h1 className="banner-title">End-to-End AI-Powered Sensor Solutions</h1>
-          <p className="banner-subtitle">
+      {/* Banner with Abstract Blue Shapes */}
+      <div className="banner-container bg-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            {/* Gradient Definitions */}
+            <defs>
+              <linearGradient id="blue-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#E0F2FE" />
+                <stop offset="100%" stopColor="#3B82F6" />
+              </linearGradient>
+              <linearGradient id="blue-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#93C5FD" />
+                <stop offset="100%" stopColor="#1E40AF" />
+              </linearGradient>
+              <linearGradient id="blue-gradient-3" x1="50%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stopColor="#DBEAFE" />
+                <stop offset="100%" stopColor="#2563EB" />
+              </linearGradient>
+            </defs>
+            
+            {/* Abstract Shapes */}
+            <path d="M300,220 Q350,180 400,220 T500,180 T600,220 T700,180" fill="none" stroke="#BFDBFE" strokeWidth="1" />
+            <path d="M200,250 Q300,200 400,250 T600,200 T800,250" fill="none" stroke="#93C5FD" strokeWidth="1" />
+            
+            {/* Shapes */}
+            <circle cx="200" cy="150" r="60" fill="url(#blue-gradient-1)" opacity="0.7" />
+            <circle cx="400" cy="220" r="40" fill="url(#blue-gradient-2)" opacity="0.6" />
+            <circle cx="600" cy="180" r="50" fill="url(#blue-gradient-3)" opacity="0.8" />
+            <circle cx="800" cy="220" r="45" fill="url(#blue-gradient-1)" opacity="0.7" />
+            <circle cx="950" cy="150" r="55" fill="url(#blue-gradient-2)" opacity="0.6" />
+            
+            {/* Connecting Lines */}
+            <path d="M200,150 C300,100 350,240 400,220" fill="none" stroke="#BFDBFE" strokeWidth="1.5" />
+            <path d="M400,220 C500,180 550,200 600,180" fill="none" stroke="#BFDBFE" strokeWidth="1.5" />
+            <path d="M600,180 C700,150 750,190 800,220" fill="none" stroke="#BFDBFE" strokeWidth="1.5" />
+            <path d="M800,220 C850,250 900,180 950,150" fill="none" stroke="#BFDBFE" strokeWidth="1.5" />
+          </svg>
+        </div>
+        
+        <div className="banner-overlay bg-transparent">
+          <h1 className="banner-title text-gray-800">End-to-End AI-Powered Sensor Solutions</h1>
+          <p className="banner-subtitle text-gray-600">
             We build prototypes, handle manufacturing and licensing, and provide continuous support—giving you 100% ownership of your product.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
