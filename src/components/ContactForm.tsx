@@ -134,20 +134,13 @@ const ContactForm = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">For general inquiries:</p>
-              <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">info@wrlds.com</a>
-              <p className="text-gray-600 mt-2 mb-2">For support:</p>
-              <a href="mailto:support@wrlds.com" className="text-blue-500 hover:underline">support@wrlds.com</a>
+              <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">hello@wrlds.com</a>
+              <p className="text-gray-600 mt-2 mb-2">
+            </p>
+              
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md border border-blue-100">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mb-4">
-                <MessageSquare className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Office Hours</h3>
-              <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-              <p className="text-gray-600">Saturday: 10:00 AM - 2:00 PM</p>
-              <p className="text-gray-600">Sunday: Closed</p>
-            </div>
+            
           </div>
         </div>
       </div>
