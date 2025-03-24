@@ -14,7 +14,7 @@ const Hero = () => {
           <img 
             src="/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png" 
             alt="WRLDS Technologies Connected People" 
-            className="w-full h-full object-cover object-center"
+            className={`w-full h-full object-cover ${isMobile ? 'object-right' : 'object-center'}`}
           />
           {/* White fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
