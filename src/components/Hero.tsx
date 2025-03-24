@@ -9,28 +9,30 @@ const Hero = () => {
     <div className="relative">
       {/* Banner with the provided image */}
       <div className="banner-container bg-white relative overflow-hidden h-[450px] md:h-[500px]">
-        {/* Background Image */}
+        {/* Background Image with white fade overlay */}
         <div className="absolute inset-0 bg-white">
           <img 
             src="/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png" 
             alt="WRLDS Technologies Connected People" 
             className="w-full h-full object-cover object-center"
           />
+          {/* White fade overlay - positioned at the bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
         </div>
         
-        <div className="banner-overlay bg-transparent pt-8">
+        <div className="banner-overlay bg-transparent pt-24 md:pt-28">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center h-full">
             <div className="max-w-xl text-left">
-              <h1 className="banner-title text-gray-800 animate-fade-in text-4xl md:text-5xl lg:text-6xl font-bold">
+              <h1 className="banner-title text-black animate-fade-in text-4xl md:text-5xl lg:text-6xl font-bold">
                 End-to-End AI-Powered Sensor Solutions
               </h1>
-              <p className="banner-subtitle text-gray-600 animate-fade-in animation-delay-200 mt-4">
+              <p className="banner-subtitle text-black animate-fade-in animation-delay-200 mt-4">
                 We build prototypes, handle manufacturing and licensing, and provide continuous support—giving you 100% ownership of your product.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-6 animate-fade-in animation-delay-400">
                 <a 
                   href="#projects" 
-                  className="px-8 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group"
+                  className="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group"
                 >
                   View Our Projects
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -48,7 +50,7 @@ const Hero = () => {
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-white p-5 rounded-xl shadow-sm border border-blue-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
             <div className="w-12 h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-500 mb-3">
               <Cpu className="w-6 h-6" />
