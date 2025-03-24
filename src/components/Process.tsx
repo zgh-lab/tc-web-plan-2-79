@@ -108,7 +108,7 @@ const Process = () => {
                         <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-2">
                           <Check className="w-3 h-3 text-wrlds-teal" />
                         </span>
-                        <span className="text-gray-700 text-sm">{step}</span>
+                        <span className="text-gray-700 text-sm text-left">{step}</span>
                       </li>)}
                   </ul>
                 </div>
