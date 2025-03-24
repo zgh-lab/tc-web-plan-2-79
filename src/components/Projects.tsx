@@ -163,8 +163,8 @@ const Projects = () => {
             ))}
           </div>
           
-          {/* Controls - Moved below for better visibility */}
-          <div className="absolute bottom-[-5px] left-0 right-0 flex justify-center items-center space-x-3 z-30">
+          {/* Controls */}
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
             {projects.map((_, idx) => (
               <button
                 key={idx}
@@ -172,16 +172,14 @@ const Projects = () => {
                   activeProject === idx ? 'bg-blue-500 w-6' : 'bg-blue-200 hover:bg-blue-300'
                 }`}
                 onClick={() => setActiveProject(idx)}
-                aria-label={`Go to project ${idx + 1}`}
               />
             ))}
           </div>
           
-          {/* Navigation Arrows - Moved to sides and made more visible */}
+          {/* Navigation Arrows */}
           <button 
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-500 hover:bg-blue-50 shadow-md z-40"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30"
             onClick={() => setActiveProject((prev) => (prev - 1 + projects.length) % projects.length)}
-            aria-label="Previous project"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="m15 18-6-6 6-6"/>
@@ -189,9 +187,8 @@ const Projects = () => {
           </button>
           
           <button 
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-500 hover:bg-blue-50 shadow-md z-40"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30"
             onClick={() => setActiveProject((prev) => (prev + 1) % projects.length)}
-            aria-label="Next project"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="m9 18 6-6-6-6"/>
