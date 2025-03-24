@@ -1,8 +1,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight } from 'lucide-react';
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const projects = [
   {
@@ -51,17 +51,6 @@ const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
   const projectsRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-
-  // Auto-rotate carousel unless user is interacting
-  useEffect(() => {
-    if (isInView && !isHovering) {
-      const interval = setInterval(() => {
-        setActiveProject((prev) => (prev + 1) % projects.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isInView, isHovering]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -82,14 +71,6 @@ const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Animation for cards
-  const getCardAnimationClass = (index: number) => {
-    if (index === activeProject) return "scale-100 opacity-100 z-20";
-    if (index === (activeProject + 1) % projects.length) return "translate-x-[40%] scale-95 opacity-60 z-10";
-    if (index === (activeProject - 1 + projects.length) % projects.length) return "translate-x-[-40%] scale-95 opacity-60 z-10";
-    return "scale-90 opacity-0";
-  };
-
   return (
     <section id="projects" className="py-16 bg-white" ref={projectsRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,20 +86,14 @@ const Projects = () => {
           </p>
         </div>
         
-        <div 
-          className="relative h-[550px] overflow-hidden"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          {/* Main Carousel - New Dynamic Display */}
-          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            {projects.map((project, index) => (
-              <div
+        <ScrollArea className="w-full h-[550px] pb-8">
+          <div className="flex flex-nowrap gap-4 pb-6 px-2">
+            {projects.map((project) => (
+              <div 
                 key={project.id}
-                className={`absolute top-0 w-full max-w-md transform transition-all duration-500 ${getCardAnimationClass(index)}`}
-                style={{ transitionDelay: `${index * 50}ms` }}
+                className="w-[300px] md:w-[350px] flex-shrink-0"
               >
-                <Card className="overflow-hidden h-[500px] border border-blue-100 shadow-sm hover:shadow-md flex flex-col">
+                <Card className="overflow-hidden h-[500px] border border-blue-100 shadow-sm hover:shadow-md flex flex-col group transition-all duration-300 hover:-translate-y-1">
                   <div className="bg-blue-50 p-6 flex items-center justify-center h-48">
                     <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center transform transition-all duration-500 animate-pulse-slow">
                       <span className="text-blue-500 text-4xl font-bold">{project.id}</span>
@@ -163,8 +138,8 @@ const Projects = () => {
             ))}
           </div>
           
-          {/* Controls */}
-          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
+          {/* Pagination indicators */}
+          <div className="flex justify-center items-center space-x-3 mt-4">
             {projects.map((_, idx) => (
               <button
                 key={idx}
@@ -172,29 +147,11 @@ const Projects = () => {
                   activeProject === idx ? 'bg-blue-500 w-6' : 'bg-blue-200 hover:bg-blue-300'
                 }`}
                 onClick={() => setActiveProject(idx)}
+                aria-label={`Go to project ${idx + 1}`}
               />
             ))}
           </div>
-          
-          {/* Navigation Arrows */}
-          <button 
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30"
-            onClick={() => setActiveProject((prev) => (prev - 1 + projects.length) % projects.length)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
-          </button>
-          
-          <button 
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30"
-            onClick={() => setActiveProject((prev) => (prev + 1) % projects.length)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="m9 18 6-6-6-6"/>
-            </svg>
-          </button>
-        </div>
+        </ScrollArea>
       </div>
     </section>
   );
