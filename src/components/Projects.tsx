@@ -1,7 +1,4 @@
 
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
 
