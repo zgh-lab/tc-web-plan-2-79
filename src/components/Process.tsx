@@ -64,7 +64,14 @@ const processes = [
 const Process = () => {
   const [activeProcess, setActiveProcess] = useState(1);
   const processRef = useRef<HTMLDivElement>(null);
+  const processSectionsRef = useRef<(HTMLDivElement | null)[]>([]);
   
+  // Set up the refs array for each process section
+  useEffect(() => {
+    processSectionsRef.current = processes.map((_, i) => processSectionsRef.current[i] || null);
+  }, []);
+  
+  // Handle animation on scroll into view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,6 +91,30 @@ const Process = () => {
     
     return () => observer.disconnect();
   }, []);
+  
+  // Monitor scroll position to set active process
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      
+      processSectionsRef.current.forEach((section, index) => {
+        if (!section) return;
+        
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          setActiveProcess(index + 1);
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section id="process" className="py-16 bg-white relative overflow-hidden">
@@ -95,7 +126,7 @@ const Process = () => {
           <h2 className="text-3xl font-bold mb-3">
             From Concept to Reality
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 mt-4">
             Our comprehensive development process ensures your idea transforms into a market-ready product with cutting-edge technology.
           </p>
         </div>
@@ -107,7 +138,8 @@ const Process = () => {
           <div className="space-y-10 relative">
             {processes.map((process, index) => (
               <div 
-                key={process.id} 
+                key={process.id}
+                ref={el => processSectionsRef.current[index] = el}
                 className={cn(
                   "relative flex flex-col md:flex-row md:items-center gap-6",
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse text-right"
@@ -144,7 +176,7 @@ const Process = () => {
                   className={cn(
                     "md:w-1/2 bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-all duration-300",
                     activeProcess === process.id 
-                      ? "opacity-100 translate-y-0" 
+                      ? "opacity-100 translate-y-0 shadow-md border-blue-100" 
                       : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer"
                   )}
                   onClick={() => setActiveProcess(process.id)}

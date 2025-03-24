@@ -44,6 +44,11 @@
     @apply border-border;
   }
 
+  html, body {
+    @apply m-0 p-0 overflow-x-hidden w-full;
+    max-width: 100vw;
+  }
+
   body {
     @apply bg-white text-foreground font-space;
   }
@@ -90,7 +95,7 @@
 .banner-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Adjusted to match 20-30px spacing */
 }
 
 .banner-subtitle {

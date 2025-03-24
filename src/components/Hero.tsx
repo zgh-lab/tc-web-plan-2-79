@@ -22,14 +22,14 @@ const Hero = () => {
         
         <div className="banner-overlay bg-transparent pt-28 md:pt-28"> {/* Adjusted padding top for both mobile and desktop */}
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center h-full">
-            <div className="max-w-xl text-left">
+            <div className={`${isMobile ? 'pr-0' : 'max-w-xl'} text-left`}> {/* Adjusted max-width based on mobile */}
               <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
                 End-to-End AI-Powered Sensor Solutions
               </h1>
-              <p className="banner-subtitle text-black animate-fade-in animation-delay-200 mt-3 md:mt-4 text-sm md:text-base">
+              <p className="banner-subtitle text-black animate-fade-in animation-delay-200 mt-4 md:mt-6 text-sm md:text-base"> {/* Adjusted spacing to 20-30px */}
                 We build prototypes, handle manufacturing and licensing, and provide continuous support—giving you 100% ownership of your product.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-4 md:mt-6 animate-fade-in animation-delay-400">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 animate-fade-in animation-delay-400"> {/* Adjusted spacing to 20-30px */}
                 <a 
                   href="#projects" 
                   className="px-6 md:px-8 py-2 md:py-3 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group text-sm md:text-base"

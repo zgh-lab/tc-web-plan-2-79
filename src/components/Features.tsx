@@ -77,9 +77,8 @@ const Features = () => {
           </div>
           <h2 className="text-3xl font-bold mb-3 relative">
             Comprehensive Technologies for Smart Products
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full animate-pulse-slow"></div>
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 mt-4">
             We combine cutting-edge AI, sensor technology, and engineering expertise to create intelligent products that transform industries.
           </p>
         </div>
