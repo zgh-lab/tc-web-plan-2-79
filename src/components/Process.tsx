@@ -86,32 +86,30 @@ const Process = () => {
   }, []);
 
   return (
-    <section id="process" className="py-24 bg-wrlds-muted relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white to-transparent"></div>
-      
-      <div className="section-container" ref={processRef} style={{ opacity: 0 }}>
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-block mb-3 px-3 py-1 bg-wrlds-teal/10 text-wrlds-teal rounded-full text-sm font-medium">
+    <section id="process" className="py-16 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={processRef} style={{ opacity: 0 }}>
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-wrlds-teal rounded-full text-sm font-medium">
             Our Process
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-3">
             From Concept to Reality
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600">
             Our comprehensive development process ensures your idea transforms into a market-ready product with cutting-edge technology.
           </p>
         </div>
         
-        <div className="relative mt-20">
+        <div className="relative mt-12">
           {/* Process timeline */}
-          <div className="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-wrlds-teal/20 -translate-x-1/2"></div>
+          <div className="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-blue-200 -translate-x-1/2"></div>
           
-          <div className="space-y-12 relative">
+          <div className="space-y-10 relative">
             {processes.map((process, index) => (
               <div 
                 key={process.id} 
                 className={cn(
-                  "relative flex flex-col md:flex-row md:items-center gap-8",
+                  "relative flex flex-col md:flex-row md:items-center gap-6",
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse text-right"
                 )}
               >
@@ -128,8 +126,8 @@ const Process = () => {
                     <span className="font-bold">{process.id}</span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold mb-3 mt-3 md:mt-0">{process.title}</h3>
-                  <p className="text-gray-600 mb-4">{process.description}</p>
+                  <h3 className="text-xl font-bold mb-2 mt-3 md:mt-0">{process.title}</h3>
+                  <p className="text-gray-600 mb-3 text-sm">{process.description}</p>
                   
                   <button 
                     onClick={() => setActiveProcess(process.id)}
@@ -144,21 +142,21 @@ const Process = () => {
                 
                 <div 
                   className={cn(
-                    "md:w-1/2 bg-white rounded-xl p-6 shadow-lg border border-gray-100 transition-all duration-300",
+                    "md:w-1/2 bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-all duration-300",
                     activeProcess === process.id 
                       ? "opacity-100 translate-y-0" 
                       : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer"
                   )}
                   onClick={() => setActiveProcess(process.id)}
                 >
-                  <h4 className="font-semibold mb-4 text-wrlds-teal">Key Activities:</h4>
-                  <ul className="space-y-3">
+                  <h4 className="font-semibold mb-3 text-wrlds-teal">Key Activities:</h4>
+                  <ul className="space-y-2">
                     {process.steps.map((step, stepIndex) => (
                       <li key={stepIndex} className="flex items-start">
-                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-wrlds-teal/10 flex items-center justify-center mt-0.5 mr-3">
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-2">
                           <Check className="w-3 h-3 text-wrlds-teal" />
                         </span>
-                        <span className="text-gray-700">{step}</span>
+                        <span className="text-gray-700 text-sm">{step}</span>
                       </li>
                     ))}
                   </ul>
@@ -168,8 +166,6 @@ const Process = () => {
           </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 };
