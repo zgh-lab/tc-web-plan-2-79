@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wrlds: {
-					teal: '#3B82F6', // Changed to blue
+					teal: '#3B82F6', // Blue color
 					dark: '#1E3A8A',
 					light: '#F0F7FF',
 					accent: '#93C5FD',
