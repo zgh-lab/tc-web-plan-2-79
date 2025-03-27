@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -7,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    --background: 214 100% 97%;
+    --foreground: 224 80% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 214 100% 99%;
+    --card-foreground: 224 80% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 214 100% 99%;
+    --popover-foreground: 224 80% 10%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 214 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 30% 95%;
+    --secondary: 214 95% 93%;
     --secondary-foreground: 210 100% 45%;
 
-    --muted: 210 20% 95%;
+    --muted: 214 95% 93%;
     --muted-foreground: 220 10% 40%;
 
-    --accent: 210 100% 85%;
-    --accent-foreground: 220 15% 15%;
+    --accent: 214 100% 85%;
+    --accent-foreground: 224 80% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 10% 90%;
-    --input: 210 10% 90%;
-    --ring: 210 90% 50%;
+    --border: 214 60% 85%;
+    --input: 214 60% 85%;
+    --ring: 214 90% 50%;
 
     --radius: 0.5rem;
   }
@@ -46,17 +45,17 @@
 
   html, body {
     @apply m-0 p-0 overflow-x-hidden;
-    width: 100vw; /* Changed from w-full to 100vw */
-    max-width: 100%; /* Added max-width */
+    width: 100vw;
+    max-width: 100%;
   }
 
   body {
-    @apply bg-white text-foreground font-space;
+    @apply bg-blue-50 text-foreground font-space;
   }
 }
 
 .section-container {
-  @apply w-full px-4 sm:px-6 lg:px-8 py-12; /* Removed max-w-7xl mx-auto */
+  @apply w-full px-4 sm:px-6 lg:px-8 py-12;
 }
 
 .hover-lift {
@@ -74,7 +73,7 @@
 /* Banner styles */
 .banner-container {
   position: relative;
-  width: 100vw; /* Changed from 100% to 100vw */
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -96,7 +95,7 @@
 .banner-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem; /* Adjusted to match 20-30px spacing */
+  margin-bottom: 1.5rem;
 }
 
 .banner-subtitle {
