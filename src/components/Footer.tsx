@@ -10,7 +10,7 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
               alt="WRLDS Technologies Logo" 
-              className="h-10 w-auto mb-6"
+              className="h-10 w-auto mb-6 filter brightness-0 invert" // Added filter to make logo white
             />
             <p className="text-white mb-6">
               WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
