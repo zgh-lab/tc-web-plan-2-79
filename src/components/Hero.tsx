@@ -13,8 +13,8 @@ const Hero = () => {
           <img 
             src="/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png" 
             alt="WRLDS Technologies Connected People" 
-            className={`w-full h-full object-cover opacity-30 contrast-125 brightness-90 ${isMobile ? 'object-right' : 'object-center'}`} 
-            // Added contrast-125 and brightness-90, reduced opacity for better contrast
+            className={`w-full h-full object-cover opacity-40 contrast-150 brightness-110 ${isMobile ? 'object-right' : 'object-center'}`} 
+            // Increased contrast-150 (from 125), brightness-110 (from 90), and reduced opacity-40 (from 30)
           />
           {/* Blue fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-500"></div>
