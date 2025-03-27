@@ -28,7 +28,7 @@ const Navbar = () => {
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
       isScrolled ? "bg-white shadow-sm" : "bg-transparent"
     )}>
-      <div className="w-full px-4 sm:px-6 lg:px-8"> {/* Removed max-w-7xl mx-auto */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
@@ -53,7 +53,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={cn("md:hidden transition-all duration-300 overflow-hidden", isMenuOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0")}>
+      <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0")}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-sm">
           <a href="#" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Home</a>
           <a href="#features" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Services</a>

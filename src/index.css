@@ -45,8 +45,9 @@
   }
 
   html, body {
-    @apply m-0 p-0 overflow-x-hidden w-full;
-    max-width: 100vw;
+    @apply m-0 p-0 overflow-x-hidden;
+    width: 100vw; /* Changed from w-full to 100vw */
+    max-width: 100%; /* Added max-width */
   }
 
   body {
@@ -55,7 +56,7 @@
 }
 
 .section-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  @apply w-full px-4 sm:px-6 lg:px-8 py-12; /* Removed max-w-7xl mx-auto */
 }
 
 .hover-lift {
@@ -73,7 +74,7 @@
 /* Banner styles */
 .banner-container {
   position: relative;
-  width: 100%;
+  width: 100vw; /* Changed from 100% to 100vw */
   overflow: hidden;
 }
 
