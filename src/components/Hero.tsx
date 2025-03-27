@@ -45,7 +45,7 @@ const Hero = () => {
               <Cpu className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Smart Textiles</h3>
-            <p className="text-blue-100 text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
+            <p className="text-white text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
           </div>
           
           <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-100">
@@ -53,7 +53,7 @@ const Hero = () => {
               <Code className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Adaptive AI</h3>
-            <p className="text-blue-100 text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
+            <p className="text-white text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
           </div>
           
           <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-200">
@@ -61,7 +61,7 @@ const Hero = () => {
               <Layers className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Cross-Industry</h3>
-            <p className="text-blue-100 text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
+            <p className="text-white text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
           </div>
         </div>
       </div>

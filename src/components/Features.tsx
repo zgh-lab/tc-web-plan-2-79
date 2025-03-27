@@ -67,22 +67,22 @@ const Features = () => {
     }
   ];
   
-  return <section id="features" className="relative bg-blue-600 overflow-hidden py-[50px] w-full">
+  return <section id="features" className="relative bg-blue-500 overflow-hidden py-[50px] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}>
         <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
-          <div className="inline-block mb-2 px-3 py-1 bg-blue-700 text-white rounded-full text-sm font-medium">
+          <div className="inline-block mb-2 px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">
             Textile Sensor Applications
           </div>
           <h2 className="text-3xl font-bold mb-3 relative text-white">
             Innovative Solutions Across All Industries
           </h2>
-          <p className="text-blue-100 mt-4">
+          <p className="text-white mt-4">
             Our textile sensor technology transforms ordinary fabrics into intelligent interfaces that collect data, monitor conditions, and enhance performance across diverse sectors.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((feature, index) => <div key={index} className="feature-item bg-blue-500 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-blue-400 transform hover:-translate-y-1" style={{
+          {features.map((feature, index) => <div key={index} className="feature-item bg-blue-600 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-blue-400 transform hover:-translate-y-1" style={{
           transitionDelay: `${index * 100}ms`
         }} onMouseEnter={() => setHoveredFeature(index)} onMouseLeave={() => setHoveredFeature(null)}>
               <div className="mb-3 inline-block p-3 bg-blue-700 rounded-lg transition-all duration-300 transform hover:scale-110">
@@ -91,7 +91,7 @@ const Features = () => {
                 </div>
               </div>
               <h3 className="text-lg font-semibold mb-2 text-white">{feature.title}</h3>
-              <p className="text-blue-100 text-sm">{feature.description}</p>
+              <p className="text-white text-sm">{feature.description}</p>
               <div className={`w-0 h-0.5 bg-white mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : ''}`}></div>
             </div>)}
         </div>
