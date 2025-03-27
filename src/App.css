@@ -1,11 +1,11 @@
+
 #root {
-  width: 100vw;
-  max-width: 100%;
+  width: 100vw; /* Changed from width: 100% to 100vw */
+  max-width: 100%; /* Added max-width to prevent horizontal scrolling */
   margin: 0;
   padding: 0;
   text-align: center;
-  overflow-x: hidden;
-  background-color: #E3F2FD;
+  overflow-x: hidden; /* Added to prevent horizontal scrollbar */
 }
 
 .logo {
@@ -15,10 +15,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #1E88E5);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #64B5F6);
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {

@@ -64,11 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wrlds: {
-					teal: '#1E88E5', // Brightened blue
-					dark: '#0D47A1', // Darker blue
-					light: '#E3F2FD', // Very light blue
-					accent: '#64B5F6', // Medium blue accent
-					muted: '#BBDEFB'  // Light blue background
+					teal: '#3B82F6', // Changed to blue
+					dark: '#1E3A8A',
+					light: '#F0F7FF',
+					accent: '#93C5FD',
+					muted: '#E0F2FE'
 				}
 			},
 			borderRadius: {

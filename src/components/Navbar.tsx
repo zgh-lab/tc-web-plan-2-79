@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-      isScrolled ? "bg-blue-100 shadow-sm" : "bg-transparent"
+      isScrolled ? "bg-white shadow-sm" : "bg-transparent"
     )}>
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
@@ -37,15 +37,15 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <a href="#" className="text-blue-900 hover:text-blue-600 transition-colors font-medium">Home</a>
-              <a href="#features" className="text-blue-900 hover:text-blue-600 transition-colors font-medium">Services</a>
-              <a href="#projects" className="text-blue-900 hover:text-blue-600 transition-colors font-medium">Projects</a>
-              <a href="#process" className="text-blue-900 hover:text-blue-600 transition-colors font-medium">Process</a>
-              <a href="#contact" className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md transition-colors">Contact Us</a>
+              <a href="#" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Home</a>
+              <a href="#features" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Services</a>
+              <a href="#projects" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Projects</a>
+              <a href="#process" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Process</a>
+              <a href="#contact" className="bg-wrlds-teal text-white hover:bg-wrlds-teal/90 px-4 py-2 rounded-md transition-colors">Contact Us</a>
             </div>
           </div>
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-blue-900 focus:outline-none">
+            <button onClick={toggleMenu} className="text-wrlds-dark focus:outline-none">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -54,12 +54,12 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0")}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-100 shadow-sm">
-          <a href="#" className="block px-3 py-2 text-blue-900 hover:bg-blue-200 rounded-md" onClick={() => setIsMenuOpen(false)}>Home</a>
-          <a href="#features" className="block px-3 py-2 text-blue-900 hover:bg-blue-200 rounded-md" onClick={() => setIsMenuOpen(false)}>Services</a>
-          <a href="#projects" className="block px-3 py-2 text-blue-900 hover:bg-blue-200 rounded-md" onClick={() => setIsMenuOpen(false)}>Projects</a>
-          <a href="#process" className="block px-3 py-2 text-blue-900 hover:bg-blue-200 rounded-md" onClick={() => setIsMenuOpen(false)}>Process</a>
-          <a href="#contact" className="block px-3 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-sm">
+          <a href="#" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Home</a>
+          <a href="#features" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Services</a>
+          <a href="#projects" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Projects</a>
+          <a href="#process" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Process</a>
+          <a href="#contact" className="block px-3 py-2 text-white bg-wrlds-teal hover:bg-wrlds-teal/90 rounded-md" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
         </div>
       </div>
     </nav>
