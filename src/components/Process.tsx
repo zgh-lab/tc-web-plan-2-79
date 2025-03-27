@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from "lucide-react";
@@ -94,48 +95,48 @@ const Process = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  return <section id="process" className="bg-white relative overflow-hidden py-[50px] w-full">
+  return <section id="process" className="bg-blue-500 relative overflow-hidden py-[50px] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={processRef} style={{
       opacity: 0
     }}>
         <div className="text-center mb-10 max-w-3xl mx-auto">
-          <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-wrlds-teal rounded-full text-sm font-medium">
+          <div className="inline-block mb-2 px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">
             Our Approach
           </div>
-          <h2 className="text-3xl font-bold mb-3">
+          <h2 className="text-3xl font-bold mb-3 text-white">
             From Textile to Intelligence
           </h2>
-          <p className="text-gray-600 mt-4">
+          <p className="text-white mt-4">
             Our comprehensive process ensures seamless integration of textile sensors into your specific industry application with maximum effectiveness.
           </p>
         </div>
         
         <div className="relative mt-12">
-          <div className="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-blue-200 -translate-x-1/2"></div>
+          <div className="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-blue-400 -translate-x-1/2"></div>
           
           <div className="space-y-10 relative">
             {processes.map((process, index) => <div key={process.id} ref={el => processSectionsRef.current[index] = el} className={cn("relative flex flex-col md:flex-row md:items-center gap-6", index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse text-right")}>
                 <div className="md:w-1/2">
-                  <div className={cn("md:absolute top-0 left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10 transition-all duration-300", activeProcess === process.id ? "bg-wrlds-teal text-white scale-110" : "bg-white text-wrlds-teal border border-wrlds-teal/30")} onClick={() => setActiveProcess(process.id)}>
+                  <div className={cn("md:absolute top-0 left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center z-10 transition-all duration-300", activeProcess === process.id ? "bg-blue-600 text-white scale-110" : "bg-blue-700 text-white border border-blue-400")} onClick={() => setActiveProcess(process.id)}>
                     <span className="font-bold">{process.id}</span>
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-2 mt-3 md:mt-0">{process.title}</h3>
-                  <p className="text-gray-600 mb-3 text-sm">{process.description}</p>
+                  <h3 className="text-xl font-bold mb-2 mt-3 md:mt-0 text-white">{process.title}</h3>
+                  <p className="text-blue-200 mb-3 text-sm">{process.description}</p>
                   
-                  <button onClick={() => setActiveProcess(process.id)} className={cn("text-sm font-medium transition-colors", activeProcess === process.id ? "text-wrlds-teal" : "text-gray-500 hover:text-wrlds-teal")}>
+                  <button onClick={() => setActiveProcess(process.id)} className={cn("text-sm font-medium transition-colors", activeProcess === process.id ? "text-white" : "text-blue-200 hover:text-white")}>
                     {activeProcess === process.id ? "Currently Viewing" : "View Details"}
                   </button>
                 </div>
                 
-                <div className={cn("md:w-1/2 bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-all duration-300", activeProcess === process.id ? "opacity-100 translate-y-0 shadow-md border-blue-100" : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer")} onClick={() => setActiveProcess(process.id)}>
-                  <h4 className="font-semibold mb-3 text-wrlds-teal">Key Activities:</h4>
+                <div className={cn("md:w-1/2 bg-blue-600 rounded-xl p-5 shadow-sm border border-blue-400 transition-all duration-300", activeProcess === process.id ? "opacity-100 translate-y-0 shadow-md border-blue-300" : "opacity-50 md:opacity-30 hover:opacity-70 cursor-pointer")} onClick={() => setActiveProcess(process.id)}>
+                  <h4 className="font-semibold mb-3 text-white">Key Activities:</h4>
                   <ul className="space-y-2">
                     {process.steps.map((step, stepIndex) => <li key={stepIndex} className="flex items-start">
-                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-2">
-                          <Check className="w-3 h-3 text-wrlds-teal" />
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-700 flex items-center justify-center mt-0.5 mr-2">
+                          <Check className="w-3 h-3 text-white" />
                         </span>
-                        <span className="text-gray-700 text-sm text-left">{step}</span>
+                        <span className="text-white text-sm text-left">{step}</span>
                       </li>)}
                   </ul>
                 </div>
