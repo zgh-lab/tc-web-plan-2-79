@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
         
         <div className="banner-overlay bg-transparent pt-28 md:pt-28 w-full">
-          <div className={`w-full mx-auto ${isMobile ? 'px-4' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
+          <div className={`w-full mx-auto ${isMobile ? 'px-0 pr-4' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
             <div className={`${isMobile ? 'w-full' : 'max-w-xl'} text-left`}>
               <h1 className="banner-title text-white animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
                 Revolutionary Textile <span className="text-white text-[1.1em] font-extrabold">Sensor</span> Technology
