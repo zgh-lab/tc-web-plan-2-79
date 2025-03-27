@@ -3,8 +3,8 @@ import { ArrowRight, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer id="contact" className="bg-white pt-16 pb-8 w-full"> {/* Added w-full */}
+      <div className="w-full px-4 sm:px-6 lg:px-8"> {/* Removed max-w-7xl mx-auto */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 pb-10 border-b border-gray-200">
           <div className="lg:col-span-2">
             <img 

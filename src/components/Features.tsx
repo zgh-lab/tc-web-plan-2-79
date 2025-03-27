@@ -67,8 +67,8 @@ const Features = () => {
     }
   ];
   
-  return <section id="features" className="relative bg-white overflow-hidden py-[50px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={featuresRef}>
+  return <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> {/* Removed max-w-7xl mx-auto */}
         <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
           <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-wrlds-teal rounded-full text-sm font-medium">
             Textile Sensor Applications

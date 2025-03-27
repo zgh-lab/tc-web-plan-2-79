@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
@@ -52,7 +51,6 @@ const Projects = () => {
   const [isInView, setIsInView] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Auto-rotate carousel unless user is interacting
   useEffect(() => {
     if (isInView && !isHovering) {
       const interval = setInterval(() => {
@@ -80,7 +78,6 @@ const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Animation for cards
   const getCardAnimationClass = (index: number) => {
     if (index === activeProject) return "scale-100 opacity-100 z-20";
     if (index === (activeProject + 1) % projects.length) return "translate-x-[40%] scale-95 opacity-60 z-10";
@@ -88,8 +85,8 @@ const Projects = () => {
     return "scale-90 opacity-0";
   };
   
-  return <section id="projects" ref={projectsRef} className="bg-white py-[50px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return <section id="projects" ref={projectsRef} className="bg-white py-[50px] w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-10 max-w-3xl mx-auto transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
             Industry Projects
@@ -103,7 +100,6 @@ const Projects = () => {
         </div>
         
         <div className="relative h-[550px] overflow-hidden" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-          {/* Main Carousel - New Dynamic Display */}
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             {projects.map((project, index) => <div key={project.id} className={`absolute top-0 w-full max-w-md transform transition-all duration-500 ${getCardAnimationClass(index)}`} style={{
             transitionDelay: `${index * 50}ms`
@@ -145,12 +141,10 @@ const Projects = () => {
               </div>)}
           </div>
           
-          {/* Controls */}
           <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
             {projects.map((_, idx) => <button key={idx} className={`w-3 h-3 rounded-full transition-all duration-300 ${activeProject === idx ? 'bg-blue-500 w-6' : 'bg-blue-200 hover:bg-blue-300'}`} onClick={() => setActiveProject(idx)} />)}
           </div>
           
-          {/* Navigation Arrows */}
           <button className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30" onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="m15 18-6-6 6-6" />

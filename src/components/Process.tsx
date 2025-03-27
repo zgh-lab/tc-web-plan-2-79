@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from "lucide-react";
@@ -95,8 +94,8 @@ const Process = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  return <section id="process" className="bg-white relative overflow-hidden py-[50px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={processRef} style={{
+  return <section id="process" className="bg-white relative overflow-hidden py-[50px] w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8" ref={processRef} style={{
       opacity: 0
     }}>
         <div className="text-center mb-10 max-w-3xl mx-auto">
