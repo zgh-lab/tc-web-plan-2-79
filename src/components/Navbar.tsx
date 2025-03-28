@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -33,18 +32,10 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-        isScrolled ? "bg-white shadow-sm" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full bg-white shadow-sm"
       )}
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ 
-        opacity: 1, 
-        y: 0,
-        transition: { 
-          delay: 2.6,  // Start after loading animation
-          duration: 0.6
-        }
-      }}
+      initial={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
@@ -53,32 +44,24 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
                 alt="WRLDS Technologies Logo" 
-                className={cn(
-                  "h-8 w-auto transition-all duration-300",
-                  isScrolled ? "" : "filter brightness-0 invert" // Make logo white when navbar is transparent
-                )}
+                className="h-8 w-auto"
               />
             </Link>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <Link to="/" className={cn(
-                "transition-colors font-medium",
-                isScrolled ? "text-wrlds-dark hover:text-wrlds-teal" : "text-white hover:text-wrlds-teal"
-              )}>Home</Link>
+              <Link to="/" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">
+                Home
+              </Link>
               
-              <Link to="/#features" className={cn(
-                "transition-colors font-medium",
-                isScrolled ? "text-wrlds-dark hover:text-wrlds-teal" : "text-white hover:text-wrlds-teal"
-              )}>Services</Link>
+              <Link to="/#features" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">
+                Services
+              </Link>
               
               <div className="relative">
                 <button 
                   onClick={toggleProjectsDropdown}
-                  className={cn(
-                    "flex items-center transition-colors font-medium",
-                    isScrolled ? "text-wrlds-dark hover:text-wrlds-teal" : "text-white hover:text-wrlds-teal"
-                  )}
+                  className="flex items-center text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium"
                 >
                   <span>Projects</span>
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
@@ -132,37 +115,31 @@ const Navbar = () => {
                 )}
               </div>
               
-              <Link to="/#process" className={cn(
-                "transition-colors font-medium",
-                isScrolled ? "text-wrlds-dark hover:text-wrlds-teal" : "text-white hover:text-wrlds-teal"
-              )}>Process</Link>
+              <Link to="/#process" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">
+                Process
+              </Link>
               
-              <Link to="/#contact" className={cn(
-                "px-4 py-2 rounded-md transition-colors",
-                isScrolled 
-                  ? "bg-wrlds-teal text-white hover:bg-wrlds-teal/90" 
-                  : "bg-white text-wrlds-teal hover:bg-white/90"
-              )}>Contact Us</Link>
+              <Link to="/#contact" className="bg-wrlds-teal text-white hover:bg-wrlds-teal/90 px-4 py-2 rounded-md transition-colors">
+                Contact Us
+              </Link>
             </div>
           </div>
           <div className="md:hidden">
-            <button onClick={toggleMenu} className={cn(
-              "focus:outline-none",
-              isScrolled ? "text-wrlds-dark" : "text-white"
-            )}>
+            <button onClick={toggleMenu} className="text-wrlds-dark focus:outline-none">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0")}>
+      <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", 
+        isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0")}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-sm">
-          <Link to="/" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/#features" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Services</Link>
+          <Link to="/" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" 
+            onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link to="/#features" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" 
+            onClick={() => setIsMenuOpen(false)}>Services</Link>
           
-          {/* Projects dropdown for mobile */}
           <div className="block px-3 py-2">
             <button 
               onClick={(e) => {
@@ -210,8 +187,10 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link to="/#process" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" onClick={() => setIsMenuOpen(false)}>Process</Link>
-          <Link to="/#contact" className="block px-3 py-2 text-white bg-wrlds-teal hover:bg-wrlds-teal/90 rounded-md" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+          <Link to="/#process" className="block px-3 py-2 text-wrlds-dark hover:bg-blue-50 rounded-md" 
+            onClick={() => setIsMenuOpen(false)}>Process</Link>
+          <Link to="/#contact" className="block px-3 py-2 text-white bg-wrlds-teal hover:bg-wrlds-teal/90 rounded-md" 
+            onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
         </div>
       </div>
     </motion.nav>

@@ -1,18 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const LoadingAnimation = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  
-  useEffect(() => {
-    // Show loading animation for 2.5 seconds
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500);
-    
-    return () => clearTimeout(timer);
-  }, []);
+  // Set isLoading to false to effectively disable the loading animation
+  const [isLoading] = useState(false);
   
   return (
     <AnimatePresence>
