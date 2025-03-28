@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket, Shield, Activity, Zap, HardHat, Shirt, UserCheck } from "lucide-react";
 
@@ -37,38 +38,32 @@ const Features = () => {
     {
       icon: <Shirt className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Smart Apparel",
-      description: "Advanced textile sensors integrated into clothing for real-time biometric monitoring and motion analysis.",
-      backgroundImage: "https://images.unsplash.com/photo-1561214078-f3247647fc5e?auto=format&fit=crop&q=80"
+      description: "Advanced textile sensors integrated into clothing for real-time biometric monitoring and motion analysis."
     },
     {
       icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Sports Performance",
-      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
-      backgroundImage: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80"
+      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment."
     },
     {
       icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Military & Defense",
-      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
-      backgroundImage: "https://images.unsplash.com/photo-1542457927-8b82e6e0b48c?auto=format&fit=crop&q=80"
+      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety."
     },
     {
       icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Industrial Safety",
-      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
-      backgroundImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80"
+      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention."
     },
     {
       icon: <UserCheck className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Professional Wellness",
-      description: "Office attire integrated with sensors that encourage movement, proper posture, and stress reduction for white-collar workers.",
-      backgroundImage: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80"
+      description: "Office attire integrated with sensors that encourage movement, proper posture, and stress reduction for white-collar workers."
     },
     {
       icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Thermal Regulation",
-      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
-      backgroundImage: "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?auto=format&fit=crop&q=80"
+      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions."
     }
   ];
   
@@ -87,38 +82,18 @@ const Features = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="feature-item bg-blue-600 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-blue-400 transform hover:-translate-y-1 relative overflow-hidden" 
-              style={{
-                transitionDelay: `${index * 100}ms`
-              }} 
-              onMouseEnter={() => setHoveredFeature(index)} 
-              onMouseLeave={() => setHoveredFeature(null)}
-            >
-              <div className="absolute inset-0 opacity-20">
-                <div 
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url('${feature.backgroundImage}')` }}
-                ></div>
-              </div>
-              <div className="relative z-10">
-                <div className="flex flex-col mb-3">
-                  <div className="flex items-start justify-between">
-                    <div className="mb-3 inline-block p-3 bg-blue-700 rounded-lg transition-all duration-300 transform hover:scale-110">
-                      <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
-                        {feature.icon}
-                      </div>
-                    </div>
-                  </div>
+          {features.map((feature, index) => <div key={index} className="feature-item bg-blue-600 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-blue-400 transform hover:-translate-y-1" style={{
+          transitionDelay: `${index * 100}ms`
+        }} onMouseEnter={() => setHoveredFeature(index)} onMouseLeave={() => setHoveredFeature(null)}>
+              <div className="mb-3 inline-block p-3 bg-blue-700 rounded-lg transition-all duration-300 transform hover:scale-110">
+                <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
+                  {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-white">{feature.title}</h3>
-                <p className="text-white text-sm">{feature.description}</p>
-                <div className={`w-0 h-0.5 bg-white mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : ''}`}></div>
               </div>
-            </div>
-          ))}
+              <h3 className="text-lg font-semibold mb-2 text-white">{feature.title}</h3>
+              <p className="text-white text-sm">{feature.description}</p>
+              <div className={`w-0 h-0.5 bg-white mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : ''}`}></div>
+            </div>)}
         </div>
       </div>
     </section>;
