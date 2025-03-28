@@ -10,12 +10,10 @@ const Hero = () => {
       <div className="banner-container bg-blue-500 relative overflow-hidden h-[450px] md:h-[500px] w-full">
         {/* Background Image with blue fade overlay */}
         <div className="absolute inset-0 bg-blue-500 w-full">
-          <img 
-            src="/lovable-uploads/349aa2f1-f6a2-4d48-a3b6-0a462ffcbd3f.png" 
-            alt="WRLDS Technologies Connected People" 
-            className={`w-full h-full object-cover opacity-40 contrast-150 brightness-110 ${isMobile ? 'object-right' : 'object-center'}`} 
-            // Using new image with same contrast and brightness settings
-          />
+          <div 
+            className={`w-full h-full opacity-40 contrast-150 brightness-110 bg-cover bg-center ${isMobile ? 'bg-right' : 'bg-center'}`}
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&q=80')" }}
+          ></div>
           {/* Blue fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-500"></div>
         </div>
@@ -45,49 +43,58 @@ const Hero = () => {
       
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-            <div className="flex items-start justify-between mb-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
-                <Cpu className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <img 
-                src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
-                alt="Smart Textiles" 
-                className="w-14 h-14 object-cover rounded-lg opacity-80 border border-blue-400"
-              />
+          <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md overflow-hidden relative">
+            <div className="absolute inset-0 opacity-20">
+              <div 
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80')" }}
+              ></div>
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Smart Textiles</h3>
-            <p className="text-white text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
+                  <Cpu className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+              </div>
+              <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Smart Textiles</h3>
+              <p className="text-white text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
+            </div>
           </div>
           
-          <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-100">
-            <div className="flex items-start justify-between mb-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
-                <Code className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <img 
-                src="/lovable-uploads/761e2d9d-3a1c-458b-9848-dd1d7b42d1b9.png" 
-                alt="Adaptive AI" 
-                className="w-14 h-14 object-cover rounded-lg opacity-80 border border-blue-400"
-              />
+          <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-100 overflow-hidden relative">
+            <div className="absolute inset-0 opacity-20">
+              <div 
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&q=80')" }}
+              ></div>
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Adaptive AI</h3>
-            <p className="text-white text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
+                  <Code className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+              </div>
+              <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Adaptive AI</h3>
+              <p className="text-white text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
+            </div>
           </div>
           
-          <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-200">
-            <div className="flex items-start justify-between mb-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
-                <Layers className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <img 
-                src="/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png" 
-                alt="Cross-Industry Applications" 
-                className="w-14 h-14 object-cover rounded-lg opacity-80 border border-blue-400"
-              />
+          <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-200 overflow-hidden relative">
+            <div className="absolute inset-0 opacity-20">
+              <div 
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80')" }}
+              ></div>
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Cross-Industry</h3>
-            <p className="text-white text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
+                  <Layers className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+              </div>
+              <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Cross-Industry</h3>
+              <p className="text-white text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
+            </div>
           </div>
         </div>
       </div>
