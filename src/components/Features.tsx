@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket, Shield, Activity, Zap, HardHat, Shirt, UserCheck } from "lucide-react";
+import { cn } from '@/lib/utils';
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -36,39 +37,45 @@ const Features = () => {
   
   const features = [
     {
-      icon: <Shirt className="w-10 h-10 text-wrlds-teal transition-transform duration-300 transform" />,
+      icon: <Shirt className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Smart Apparel",
-      description: "Advanced textile sensors integrated into clothing for real-time biometric monitoring and motion analysis."
+      description: "Advanced textile sensors integrated into clothing for real-time biometric monitoring and motion analysis.",
+      image: "/lovable-uploads/e2f944f7-0d40-4c33-8ce1-30ef7cd3a4b0.png"
     },
     {
-      icon: <Activity className="w-10 h-10 text-wrlds-teal transition-transform duration-300 transform" />,
+      icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Sports Performance",
-      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment."
+      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
+      image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png"
     },
     {
-      icon: <Shield className="w-10 h-10 text-wrlds-teal transition-transform duration-300 transform" />,
+      icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Military & Defense",
-      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety."
+      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
+      image: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
     },
     {
-      icon: <HardHat className="w-10 h-10 text-wrlds-teal transition-transform duration-300 transform" />,
+      icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Industrial Safety",
-      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention."
+      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
+      image: "/lovable-uploads/cf8966e3-de0d-445f-9fbd-ee6c48daa7ff.png"
     },
     {
-      icon: <UserCheck className="w-10 h-10 text-wrlds-teal transition-transform duration-300 transform" />,
+      icon: <UserCheck className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Professional Wellness",
-      description: "Office attire integrated with sensors that encourage movement, proper posture, and stress reduction for white-collar workers."
+      description: "Office attire integrated with sensors that encourage movement, proper posture, and stress reduction for white-collar workers.",
+      image: "/lovable-uploads/6fdd3d0d-5dca-470a-a845-bd7b07bff599.png"
     },
     {
-      icon: <Zap className="w-10 h-10 text-wrlds-teal transition-transform duration-300 transform" />,
+      icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Thermal Regulation",
-      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions."
+      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
+      image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
     }
   ];
   
   return <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> {/* Removed max-w-7xl mx-auto */}
+      <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
         <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
           <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-wrlds-teal rounded-full text-sm font-medium">
             Textile Sensor Applications
@@ -82,18 +89,44 @@ const Features = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((feature, index) => <div key={index} className="feature-item bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 transform hover:-translate-y-1" style={{
-          transitionDelay: `${index * 100}ms`
-        }} onMouseEnter={() => setHoveredFeature(index)} onMouseLeave={() => setHoveredFeature(null)}>
-              <div className="mb-3 inline-block p-3 bg-blue-50 rounded-lg transition-all duration-300 transform hover:scale-110">
-                <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
-                  {feature.icon}
-                </div>
+          {features.map((feature, index) => (
+            <div 
+              key={index} 
+              className="feature-item rounded-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 h-[280px] relative shadow-lg" 
+              style={{
+                transitionDelay: `${index * 100}ms`,
+              }}
+              onMouseEnter={() => setHoveredFeature(index)} 
+              onMouseLeave={() => setHoveredFeature(null)}
+            >
+              {/* Background image with blue overlay */}
+              <div className="absolute inset-0 w-full h-full">
+                <img 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  className="w-full h-full object-cover"
+                />
+                <div className={cn(
+                  "absolute inset-0 bg-blue-700/60 transition-opacity duration-300",
+                  hoveredFeature === index ? "opacity-50" : "opacity-70"
+                )}></div>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-sm">{feature.description}</p>
-              <div className={`w-0 h-0.5 bg-blue-500 mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : ''}`}></div>
-            </div>)}
+              
+              {/* Content */}
+              <div className="relative z-10 p-6 flex flex-col h-full justify-between">
+                <div>
+                  <div className="mb-4 inline-block p-3 bg-blue-600/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform hover:scale-110">
+                    <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
+                      {feature.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+                  <p className="text-white/90 text-sm">{feature.description}</p>
+                </div>
+                <div className={`h-0.5 bg-white/70 mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : 'w-0'}`}></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>;
