@@ -12,13 +12,9 @@ const Index = () => {
     <div className="min-h-screen bg-blue-500 w-full max-w-[100vw] overflow-x-hidden text-white">
       <Navbar />
       <Hero />
-      <div className="h-8"></div> {/* Spacer between Hero and Features */}
       <Features />
-      <div className="h-8"></div> {/* Spacer between Features and Projects */}
       <Projects />
-      <div className="h-8"></div> {/* Spacer between Projects and Process */}
       <Process />
-      <div className="h-8"></div> {/* Spacer between Process and ContactForm */}
       <ContactForm />
       <Footer />
     </div>
