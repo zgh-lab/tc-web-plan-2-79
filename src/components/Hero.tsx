@@ -12,7 +12,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-blue-500 w-full">
           <div 
             className={`w-full h-full opacity-40 contrast-150 brightness-110 bg-cover bg-center ${isMobile ? 'bg-right' : 'bg-center'}`}
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1624373753858-3cffe461744c?auto=format&fit=crop&q=80')" }}
+            style={{ backgroundImage: "url('public/lovable-uploads/c40b8a89-9f51-4cfb-b06e-d9c4acecba64.png')" }}
           ></div>
           {/* Blue fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-500"></div>
