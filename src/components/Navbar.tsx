@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,15 +25,30 @@ const Navbar = () => {
   };
   
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-      isScrolled ? "bg-white shadow-sm" : "bg-transparent"
-    )}>
+    <motion.nav 
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
+        isScrolled ? "bg-white shadow-sm" : "bg-transparent"
+      )}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ 
+        opacity: 1, 
+        y: 0,
+        transition: { 
+          delay: 2.6,  // Start after loading animation
+          duration: 0.6
+        }
+      }}
+    >
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
-              <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="WRLDS Technologies Logo" className="h-8 w-auto" />
+              <img 
+                src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
+                alt="WRLDS Technologies Logo" 
+                className="h-8 w-auto filter brightness-0 invert"
+              />
             </a>
           </div>
           <div className="hidden md:block">
@@ -62,7 +78,7 @@ const Navbar = () => {
           <a href="#contact" className="block px-3 py-2 text-white bg-wrlds-teal hover:bg-wrlds-teal/90 rounded-md" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
