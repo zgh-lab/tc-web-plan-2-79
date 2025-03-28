@@ -33,7 +33,8 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full bg-white shadow-sm"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
+        isScrolled ? "bg-white shadow-sm" : "bg-black"
       )}
       initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
@@ -45,24 +46,27 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
                 alt="WRLDS Technologies Logo" 
-                className="h-8 w-auto"
+                className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")}
               />
             </Link>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-gray-500 transition-colors font-medium">
+              <Link to="/" className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}>
                 Home
               </Link>
               
-              <Link to="/#features" className="text-gray-700 hover:text-gray-500 transition-colors font-medium">
+              <Link to="/#features" className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}>
                 Services
               </Link>
               
               <div className="relative">
                 <button 
                   onClick={toggleProjectsDropdown}
-                  className="flex items-center text-gray-700 hover:text-gray-500 transition-colors font-medium"
+                  className={cn("flex items-center hover:text-gray-500 transition-colors font-medium", 
+                    isScrolled ? "text-gray-700" : "text-gray-200")}
                 >
                   <span>Projects</span>
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
@@ -116,17 +120,24 @@ const Navbar = () => {
                 )}
               </div>
               
-              <Link to="/#process" className="text-gray-700 hover:text-gray-500 transition-colors font-medium">
+              <Link to="/#process" className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}>
                 Process
               </Link>
               
-              <Link to="/#contact" className="bg-gray-200 text-gray-700 hover:bg-gray-300 px-4 py-2 rounded-md transition-colors">
+              <Link to="/#contact" className={cn(
+                "px-4 py-2 rounded-md transition-colors", 
+                isScrolled 
+                  ? "bg-gray-200 text-gray-700 hover:bg-gray-300" 
+                  : "bg-gray-700 text-white hover:bg-gray-600"
+              )}>
                 Contact Us
               </Link>
             </div>
           </div>
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
+            <button onClick={toggleMenu} className={cn("focus:outline-none", 
+              isScrolled ? "text-gray-700" : "text-white")}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -135,10 +146,13 @@ const Navbar = () => {
 
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", 
         isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0")}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-sm">
-          <Link to="/" className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md" 
+        <div className={cn("px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-sm", 
+          isScrolled ? "bg-white" : "bg-black")}>
+          <Link to="/" className={cn("block px-3 py-2 rounded-md hover:bg-gray-50", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
             onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/#features" className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md" 
+          <Link to="/#features" className={cn("block px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
             onClick={() => setIsMenuOpen(false)}>Services</Link>
           
           <div className="block px-3 py-2">
@@ -147,7 +161,8 @@ const Navbar = () => {
                 e.preventDefault();
                 toggleProjectsDropdown();
               }}
-              className="flex w-full justify-between items-center text-gray-700 hover:bg-gray-50 rounded-md"
+              className={cn("flex w-full justify-between items-center rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
             >
               <span>Projects</span>
               <ChevronDown className={`h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
@@ -159,28 +174,32 @@ const Navbar = () => {
             )}>
               <Link 
                 to="/#projects" 
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+                className={cn("block px-3 py-2 rounded-md", 
+                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
                 onClick={() => setIsMenuOpen(false)}
               >
                 All Projects
               </Link>
               <Link 
                 to="/projects/firecat" 
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+                className={cn("block px-3 py-2 rounded-md", 
+                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
                 onClick={() => setIsMenuOpen(false)}
               >
                 FireCat 6th SENSE
               </Link>
               <Link 
                 to="/#projects" 
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+                className={cn("block px-3 py-2 rounded-md", 
+                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sports Performance
               </Link>
               <Link 
                 to="/#projects" 
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+                className={cn("block px-3 py-2 rounded-md", 
+                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Military Applications
@@ -188,9 +207,13 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link to="/#process" className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md" 
+          <Link to="/#process" className={cn("block px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
             onClick={() => setIsMenuOpen(false)}>Process</Link>
-          <Link to="/#contact" className="block px-3 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-md" 
+          <Link to="/#contact" className={cn("block px-3 py-2 rounded-md", 
+            isScrolled 
+              ? "text-gray-700 bg-gray-200 hover:bg-gray-300" 
+              : "text-white bg-gray-700 hover:bg-gray-600")} 
             onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
         </div>
       </div>
