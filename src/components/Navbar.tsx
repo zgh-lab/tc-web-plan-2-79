@@ -29,6 +29,15 @@ const Navbar = () => {
   const toggleProjectsDropdown = () => {
     setIsProjectsDropdownOpen(!isProjectsDropdownOpen);
   };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+    setIsProjectsDropdownOpen(false);
+  };
   
   return (
     <motion.nav 
@@ -52,15 +61,22 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <Link to="/" className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}>
+              <Link 
+                to="/" 
+                className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Home
               </Link>
               
-              <Link to="/#features" className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}>
+              <button 
+                onClick={() => scrollToSection('features')} 
+                className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}
+              >
                 Services
-              </Link>
+              </button>
               
               <div className="relative">
                 <button 
@@ -75,64 +91,58 @@ const Navbar = () => {
                 {isProjectsDropdownOpen && (
                   <div className="absolute top-full left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
                     <div className="py-1">
-                      <Link 
-                        to="/#projects" 
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => setIsProjectsDropdownOpen(false)}
+                      <button 
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => scrollToSection('projects')}
                       >
                         All Projects
-                      </Link>
+                      </button>
                       <Link 
                         to="/projects/firecat" 
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => setIsProjectsDropdownOpen(false)}
+                        onClick={() => {
+                          setIsProjectsDropdownOpen(false);
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         FireCat 6th SENSE
                       </Link>
-                      <Link 
-                        to="/#projects" 
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => {
-                          setIsProjectsDropdownOpen(false);
-                          const projectsSection = document.getElementById('projects');
-                          if (projectsSection) {
-                            projectsSection.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }}
+                      <button 
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => scrollToSection('projects')}
                       >
                         Sports Performance
-                      </Link>
-                      <Link 
-                        to="/#projects" 
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => {
-                          setIsProjectsDropdownOpen(false);
-                          const projectsSection = document.getElementById('projects');
-                          if (projectsSection) {
-                            projectsSection.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }}
+                      </button>
+                      <button 
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => scrollToSection('projects')}
                       >
                         Military Applications
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 )}
               </div>
               
-              <Link to="/#process" className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}>
+              <button 
+                onClick={() => scrollToSection('process')} 
+                className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}
+              >
                 Process
-              </Link>
+              </button>
               
-              <Link to="/#contact" className={cn(
-                "px-4 py-2 rounded-md transition-colors", 
-                isScrolled 
-                  ? "bg-gray-200 text-gray-700 hover:bg-gray-300" 
-                  : "bg-gray-700 text-white hover:bg-gray-600"
-              )}>
+              <button 
+                onClick={() => scrollToSection('contact')} 
+                className={cn(
+                  "px-4 py-2 rounded-md transition-colors", 
+                  isScrolled 
+                    ? "bg-gray-200 text-gray-700 hover:bg-gray-300" 
+                    : "bg-gray-700 text-white hover:bg-gray-600"
+                )}
+              >
                 Contact Us
-              </Link>
+              </button>
             </div>
           </div>
           <div className="md:hidden">
@@ -148,12 +158,25 @@ const Navbar = () => {
         isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0")}>
         <div className={cn("px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-sm", 
           isScrolled ? "bg-white" : "bg-black")}>
-          <Link to="/" className={cn("block px-3 py-2 rounded-md hover:bg-gray-50", 
+          <Link 
+            to="/" 
+            className={cn("block px-3 py-2 rounded-md hover:bg-gray-50", 
             isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
-            onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/#features" className={cn("block px-3 py-2 rounded-md", 
-            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
-            onClick={() => setIsMenuOpen(false)}>Services</Link>
+            onClick={() => {
+              setIsMenuOpen(false);
+              window.scrollTo(0, 0);
+            }}
+          >
+            Home
+          </Link>
+          
+          <button 
+            onClick={() => scrollToSection('features')}
+            className={cn("block w-full text-left px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+          >
+            Services
+          </button>
           
           <div className="block px-3 py-2">
             <button 
@@ -172,49 +195,58 @@ const Navbar = () => {
               "ml-4 mt-1 space-y-1 transition-all duration-300", 
               isProjectsDropdownOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
             )}>
-              <Link 
-                to="/#projects" 
-                className={cn("block px-3 py-2 rounded-md", 
-                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-                onClick={() => setIsMenuOpen(false)}
+              <button 
+                onClick={() => scrollToSection('projects')}
+                className={cn("block w-full text-left px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
               >
                 All Projects
-              </Link>
+              </button>
               <Link 
                 to="/projects/firecat" 
                 className={cn("block px-3 py-2 rounded-md", 
                   isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
               >
                 FireCat 6th SENSE
               </Link>
-              <Link 
-                to="/#projects" 
-                className={cn("block px-3 py-2 rounded-md", 
-                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-                onClick={() => setIsMenuOpen(false)}
+              <button 
+                onClick={() => scrollToSection('projects')}
+                className={cn("block w-full text-left px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
               >
                 Sports Performance
-              </Link>
-              <Link 
-                to="/#projects" 
-                className={cn("block px-3 py-2 rounded-md", 
-                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button 
+                onClick={() => scrollToSection('projects')}
+                className={cn("block w-full text-left px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
               >
                 Military Applications
-              </Link>
+              </button>
             </div>
           </div>
           
-          <Link to="/#process" className={cn("block px-3 py-2 rounded-md", 
-            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
-            onClick={() => setIsMenuOpen(false)}>Process</Link>
-          <Link to="/#contact" className={cn("block px-3 py-2 rounded-md", 
+          <button 
+            onClick={() => scrollToSection('process')}
+            className={cn("block w-full text-left px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+          >
+            Process
+          </button>
+          
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className={cn("block w-full text-left px-3 py-2 rounded-md", 
             isScrolled 
               ? "text-gray-700 bg-gray-200 hover:bg-gray-300" 
-              : "text-white bg-gray-700 hover:bg-gray-600")} 
-            onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+              : "text-white bg-gray-700 hover:bg-gray-600")}
+          >
+            Contact Us
+          </button>
         </div>
       </div>
     </motion.nav>
