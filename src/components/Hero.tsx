@@ -1,5 +1,5 @@
 
-import { ArrowRight, Code, Cpu, Layers, MousePointer, ArrowDown } from "lucide-react";
+import { ArrowRight, Code, Cpu, Layers, ArrowDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
 
@@ -47,7 +47,7 @@ const Hero = () => {
   ];
   
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-black to-blue-900">
+    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-b from-black to-blue-900">
       {/* Interactive background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-full h-full opacity-30">
@@ -85,7 +85,7 @@ const Hero = () => {
       </div>
       
       {/* Main content container */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-24 md:py-0 min-h-screen">
         <div className="max-w-5xl mx-auto text-center">
           {/* Animated logo appearance */}
           <div className="mb-8 transform transition-all duration-700 hover:scale-110">
@@ -97,11 +97,11 @@ const Hero = () => {
           </div>
           
           {/* Animated title with typing effect */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 relative overflow-hidden">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-6 relative overflow-hidden px-2">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-300 to-white">
               Revolutionary Textile 
             </span>
-            <br />
+            <br className="md:hidden" />
             <span className="text-blue-500 relative inline-block">
               Sensor
               <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 animate-pulse"></span>
@@ -109,12 +109,12 @@ const Hero = () => {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-300 to-white"> Technology</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-blue-100 mb-12 max-w-3xl mx-auto px-2">
             We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
           </p>
           
           {/* Interactive CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 px-2">
             <a 
               href="#projects" 
               className="group relative px-8 py-4 bg-blue-600 text-white rounded-lg overflow-hidden transition-all hover:bg-blue-500 shadow-lg hover:shadow-blue-500/50"
@@ -138,22 +138,22 @@ const Hero = () => {
           </div>
           
           {/* Interactive card showcase */}
-          <div className="relative h-72 w-full max-w-3xl mx-auto">
+          <div className="relative h-72 w-full max-w-3xl mx-auto mt-8 md:mt-0">
             {cards.map((card, index) => (
               <div 
                 key={index}
-                className={`absolute top-0 left-0 w-full h-full transition-all duration-500 flex flex-col items-center justify-center p-8 rounded-2xl backdrop-blur-md border border-blue-500/30 
+                className={`absolute top-0 left-0 w-full h-full transition-all duration-500 flex flex-col items-center justify-center p-4 md:p-8 rounded-2xl backdrop-blur-md border border-blue-500/30 
                   ${index === activeCard 
                     ? 'opacity-100 transform-none z-30' 
                     : index === (activeCard + 1) % 3 
-                      ? 'opacity-60 translate-x-[40%] scale-90 z-20' 
-                      : 'opacity-60 -translate-x-[40%] scale-90 z-20'}`}
+                      ? 'opacity-60 translate-x-[40%] scale-90 z-20 hidden md:flex' 
+                      : 'opacity-60 -translate-x-[40%] scale-90 z-20 hidden md:flex'}`}
                 style={{ 
                   background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(30, 58, 138, 0.4) 100%)'
                 }}
                 onClick={() => setActiveCard(index)}
               >
-                <div className="w-20 h-20 rounded-full flex items-center justify-center bg-blue-600 mb-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-blue-600 mb-4 transform transition-transform hover:scale-110 hover:rotate-12">
                   {card.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{card.title}</h3>
@@ -161,7 +161,7 @@ const Hero = () => {
               </div>
             ))}
             
-            {/* Card navigation */}
+            {/* Card navigation - make it more mobile friendly */}
             <div className="absolute -bottom-12 left-0 right-0 flex justify-center gap-3">
               {cards.map((_, index) => (
                 <button 

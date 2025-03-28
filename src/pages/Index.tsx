@@ -39,25 +39,6 @@ const Index = () => {
   
   return (
     <div className={`min-h-screen bg-gradient-to-b from-blue-900 to-black text-white w-full max-w-[100vw] overflow-x-hidden transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-      <div className="fixed top-0 left-0 w-1 h-full z-50">
-        <div className="h-full bg-blue-900/50 relative">
-          {['hero', 'features', 'projects', 'process', 'contact'].map((section, index) => (
-            <a 
-              key={section} 
-              href={`#${section}`}
-              className="absolute w-3 h-3 -right-1 transform -translate-y-1/2 transition-all duration-300"
-              style={{ top: `${(index + 1) * 20}%` }}
-            >
-              <div 
-                className={`w-full h-full rounded-full transition-all duration-300 
-                  ${currentSection === section ? 'bg-blue-500 scale-150' : 'bg-blue-300 scale-100'}
-                `}
-              />
-            </a>
-          ))}
-        </div>
-      </div>
-      
       <Navbar />
       
       <div id="hero" className="section">
