@@ -10,14 +10,14 @@ const Hero = () => {
       <div className="banner-container bg-white relative overflow-hidden h-[450px] md:h-[500px] w-full">
         {/* Background Image with white fade overlay */}
         <div className="absolute inset-0 bg-white w-full">
-          <img src="/lovable-uploads/11e92b89-ed02-453a-9888-56cd91807f2d.png" alt="WRLDS Technologies Connected People" className={`w-full h-full object-cover ${isMobile ? 'object-right' : 'object-center'}`} />
+          <img src="/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png" alt="WRLDS Technologies Connected People" className={`w-full h-full object-cover ${isMobile ? 'object-right' : 'object-center'}`} />
           {/* White fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
         </div>
         
         <div className="banner-overlay bg-transparent pt-28 md:pt-28 w-full">
-          <div className={`w-full mx-auto ${isMobile ? 'px-0' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
-            <div className={`${isMobile ? 'w-full px-4' : 'max-w-xl'} text-left`}>
+          <div className={`w-full mx-auto ${isMobile ? 'px-4' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
+            <div className={`${isMobile ? 'w-full' : 'max-w-xl'} text-left`}>
               <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
                 Revolutionary Textile <span className="text-blue-600 text-[1.1em]">Sensor</span> Technology
               </h1>
