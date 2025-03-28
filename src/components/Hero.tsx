@@ -35,21 +35,25 @@ const Hero = () => {
       variants={containerVariants}
     >
       {/* Banner with the provided image */}
-      <div className="banner-container bg-white relative overflow-hidden h-[450px] md:h-[500px] w-full">
-        {/* Background Image with white fade overlay */}
-        <div className="absolute inset-0 bg-white w-full">
-          <img src="/lovable-uploads/11e92b89-ed02-453a-9888-56cd91807f2d.png" alt="WRLDS Technologies Connected People" className={`w-full h-full object-cover opacity-70 ${isMobile ? 'object-right' : 'object-center'}`} />
-          {/* White fade overlay - positioned at the bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
+      <div className="banner-container bg-black relative overflow-hidden h-[450px] md:h-[500px] w-full">
+        {/* Background Image with black fade overlay */}
+        <div className="absolute inset-0 bg-black w-full">
+          <img 
+            src="/lovable-uploads/11e92b89-ed02-453a-9888-56cd91807f2d.png" 
+            alt="WRLDS Technologies Connected People" 
+            className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`} 
+          />
+          {/* Black fade overlay - positioned at the bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black"></div>
         </div>
         
         <div className="banner-overlay bg-transparent pt-28 md:pt-28 w-full">
           <div className={`w-full mx-auto ${isMobile ? 'px-4' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
             <motion.div className={`${isMobile ? 'w-full' : 'max-w-xl'} text-left`} variants={itemVariants}>
-              <motion.h1 className="banner-title text-gray-800 text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>
-                Revolutionary Textile <span className="text-gray-600 text-[1.1em]">Sensor</span> Technology
+              <motion.h1 className="banner-title text-white text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>
+                Revolutionary Textile <span className="text-white bg-black px-2 py-1 inline-block">Sensor</span> Technology
               </motion.h1>
-              <motion.p className="banner-subtitle text-gray-600 mt-4 md:mt-6 text-sm md:text-base" variants={itemVariants}>
+              <motion.p className="banner-subtitle text-gray-300 mt-4 md:mt-6 text-sm md:text-base" variants={itemVariants}>
                 We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
               </motion.p>
               <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8" variants={itemVariants}>

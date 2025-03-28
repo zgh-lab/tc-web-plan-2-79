@@ -77,7 +77,7 @@ const Features = () => {
   return <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
         <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
-          <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-wrlds-teal rounded-full text-sm font-medium">
+          <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
             Textile Sensor Applications
           </div>
           <h2 className="text-3xl font-bold mb-3 relative">
@@ -99,15 +99,15 @@ const Features = () => {
               onMouseEnter={() => setHoveredFeature(index)} 
               onMouseLeave={() => setHoveredFeature(null)}
             >
-              {/* Background image with blue overlay */}
+              {/* Background image with black overlay */}
               <div className="absolute inset-0 w-full h-full">
                 <img 
                   src={feature.image} 
                   alt={feature.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover grayscale"
                 />
                 <div className={cn(
-                  "absolute inset-0 bg-blue-700/60 transition-opacity duration-300",
+                  "absolute inset-0 bg-black/60 transition-opacity duration-300",
                   hoveredFeature === index ? "opacity-50" : "opacity-70"
                 )}></div>
               </div>
@@ -115,7 +115,7 @@ const Features = () => {
               {/* Content */}
               <div className="relative z-10 p-6 flex flex-col h-full justify-between">
                 <div>
-                  <div className="mb-4 inline-block p-3 bg-blue-600/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform hover:scale-110">
+                  <div className="mb-4 inline-block p-3 bg-gray-800/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform hover:scale-110">
                     <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
                       {feature.icon}
                     </div>
