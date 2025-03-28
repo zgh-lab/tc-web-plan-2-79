@@ -1,71 +1,191 @@
 
-import { ArrowRight, Code, Cpu, Layers } from "lucide-react";
+import { ArrowRight, Code, Cpu, Layers, ArrowDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const isMobile = useIsMobile();
+  const [scrolled, setScrolled] = useState(false);
+  const [activeCard, setActiveCard] = useState(0);
   
-  return <div className="relative mt-16 md:mt-0 w-full max-w-[100vw]">
-      {/* Banner with the provided image */}
-      <div className="banner-container bg-white relative overflow-hidden h-[450px] md:h-[500px] w-full">
-        {/* Background Image with white fade overlay */}
-        <div className="absolute inset-0 bg-white w-full">
-          <img src="/lovable-uploads/11e92b89-ed02-453a-9888-56cd91807f2d.png" alt="WRLDS Technologies Connected People" className={`w-full h-full object-cover ${isMobile ? 'object-right' : 'object-center'}`} />
-          {/* White fade overlay - positioned at the bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setScrolled(scrollPosition > 50);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  
+  // Auto-rotate cards
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCard((prev) => (prev + 1) % 3);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  const cards = [
+    {
+      icon: <Cpu className="w-10 h-10 text-white" />,
+      title: "Smart Textiles",
+      description: "Intelligent fabric sensors that seamlessly integrate into clothing and footwear."
+    },
+    {
+      icon: <Code className="w-10 h-10 text-white" />,
+      title: "Adaptive AI",
+      description: "Industry-specific algorithms that transform textile sensor data into meaningful insights."
+    },
+    {
+      icon: <Layers className="w-10 h-10 text-white" />,
+      title: "Cross-Industry",
+      description: "Solutions for sports, military, healthcare, industrial, and professional environments."
+    }
+  ];
+  
+  return (
+    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-to-b from-black to-blue-900">
+      {/* Interactive background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-full h-full opacity-30">
+          <img 
+            src="/lovable-uploads/11e92b89-ed02-453a-9888-56cd91807f2d.png" 
+            alt="WRLDS Technologies" 
+            className="w-full h-full object-cover"
+            style={{ 
+              transform: `translateY(${scrolled ? -20 : 0}px)`,
+              transition: "transform 0.5s ease-out"
+            }}
+          />
         </div>
         
-        <div className="banner-overlay bg-transparent pt-28 md:pt-28 w-full">
-          <div className={`w-full mx-auto ${isMobile ? 'px-0' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
-            <div className={`${isMobile ? 'w-full px-4' : 'max-w-xl'} text-left`}>
-              <h1 className="banner-title text-black animate-fade-in text-3xl md:text-5xl lg:text-6xl font-bold">
-                Revolutionary Textile <span className="text-blue-600 text-[1.1em]">Sensor</span> Technology
-              </h1>
-              <p className="banner-subtitle text-black animate-fade-in animation-delay-200 mt-4 md:mt-6 text-sm md:text-base">
-                We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 animate-fade-in animation-delay-400">
-                <a href="#projects" className="px-6 md:px-8 py-2 md:py-3 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group text-sm md:text-base">
-                  Explore Projects
-                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a href="#process" className="px-6 md:px-8 py-2 md:py-3 bg-white border border-blue-200 text-gray-800 rounded-md hover:bg-blue-50 transition-all flex items-center justify-center text-sm md:text-base">
-                  Our Process
-                </a>
-              </div>
-            </div>
-          </div>
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-black/60 to-blue-900/80"></div>
+        
+        {/* Interactive particles/dots for decoration */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div 
+              key={i}
+              className="absolute rounded-full bg-blue-500/30 animate-pulse-slow"
+              style={{
+                width: Math.random() * 10 + 5 + "px",
+                height: Math.random() * 10 + 5 + "px",
+                top: Math.random() * 100 + "%",
+                left: Math.random() * 100 + "%",
+                animationDelay: Math.random() * 5 + "s",
+                animationDuration: Math.random() * 8 + 4 + "s"
+              }}
+            ></div>
+          ))}
         </div>
       </div>
       
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-blue-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-500 mb-2 md:mb-3">
-              <Cpu className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2">Smart Textiles</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
+      {/* Main content container */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-24 md:py-0 min-h-screen">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Animated logo appearance */}
+          <div className="mb-8 transform transition-all duration-700 hover:scale-110">
+            <img 
+              src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
+              alt="WRLDS Technologies Logo" 
+              className="h-16 sm:h-20 mx-auto"
+            />
           </div>
           
-          <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-blue-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-100">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-500 mb-2 md:mb-3">
-              <Code className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2">Adaptive AI</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
+          {/* Animated title with typing effect */}
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-6 relative overflow-hidden px-2">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-300 to-white">
+              Revolutionary Textile 
+            </span>
+            <br className="md:hidden" />
+            <span className="text-blue-500 relative inline-block">
+              Sensor
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 animate-pulse"></span>
+            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-300 to-white"> Technology</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-blue-100 mb-12 max-w-3xl mx-auto px-2">
+            We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
+          </p>
+          
+          {/* Interactive CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 px-2">
+            <a 
+              href="#projects" 
+              className="group relative px-8 py-4 bg-blue-600 text-white rounded-lg overflow-hidden transition-all hover:bg-blue-500 shadow-lg hover:shadow-blue-500/50"
+            >
+              <span className="relative z-10 flex items-center justify-center text-lg font-medium">
+                Explore Projects
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
+            
+            <a 
+              href="#process" 
+              className="group relative px-8 py-4 bg-transparent text-white border border-blue-500 rounded-lg overflow-hidden transition-all hover:border-blue-300"
+            >
+              <span className="relative z-10 flex items-center justify-center text-lg font-medium">
+                Our Process
+              </span>
+              <span className="absolute inset-0 bg-blue-500/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
           </div>
           
-          <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-blue-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-200">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 flex items-center justify-center rounded-lg text-blue-500 mb-2 md:mb-3">
-              <Layers className="w-5 h-5 md:w-6 md:h-6" />
+          {/* Interactive card showcase */}
+          <div className="relative h-72 w-full max-w-3xl mx-auto mt-8 md:mt-0">
+            {cards.map((card, index) => (
+              <div 
+                key={index}
+                className={`absolute top-0 left-0 w-full h-full transition-all duration-500 flex flex-col items-center justify-center p-4 md:p-8 rounded-2xl backdrop-blur-md border border-blue-500/30 
+                  ${index === activeCard 
+                    ? 'opacity-100 transform-none z-30' 
+                    : index === (activeCard + 1) % 3 
+                      ? 'opacity-60 translate-x-[40%] scale-90 z-20 hidden md:flex' 
+                      : 'opacity-60 -translate-x-[40%] scale-90 z-20 hidden md:flex'}`}
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(30, 58, 138, 0.4) 100%)'
+                }}
+                onClick={() => setActiveCard(index)}
+              >
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-blue-600 mb-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                  {card.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">{card.title}</h3>
+                <p className="text-blue-200 text-center">{card.description}</p>
+              </div>
+            ))}
+            
+            {/* Card navigation - make it more mobile friendly */}
+            <div className="absolute -bottom-12 left-0 right-0 flex justify-center gap-3">
+              {cards.map((_, index) => (
+                <button 
+                  key={index} 
+                  className={`w-3 h-3 rounded-full transition-all ${index === activeCard ? 'bg-blue-500 w-10' : 'bg-blue-500/50'}`}
+                  onClick={() => setActiveCard(index)}
+                ></button>
+              ))}
             </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2">Cross-Industry</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
           </div>
         </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+          <a href="#features" className="text-white opacity-80 hover:opacity-100">
+            <div className="flex flex-col items-center">
+              <span className="text-sm mb-2">Scroll Down</span>
+              <ArrowDown className="w-6 h-6" />
+            </div>
+          </a>
+        </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default Hero;
