@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -43,7 +44,7 @@ const LoadingAnimation = () => {
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
               alt="WRLDS Technologies Logo" 
               className="h-24 w-auto mb-6"
-              style={{ objectFit: 'contain', imageRendering: 'high-quality' }}
+              style={{ objectFit: 'contain' }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ 
                 y: 0, 
@@ -55,7 +56,7 @@ const LoadingAnimation = () => {
               }}
             />
             <motion.div 
-              className="h-1 bg-blue-600 rounded-full" 
+              className="h-1 bg-gray-300 rounded-full" 
               initial={{ width: 0 }}
               animate={{ 
                 width: 180,
