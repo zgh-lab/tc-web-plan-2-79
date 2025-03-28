@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket, Shield, Activity, Zap, HardHat, Shirt, UserCheck } from "lucide-react";
 
@@ -99,8 +98,6 @@ const Features = () => {
             </div>)}
         </div>
       </div>
-      {/* White to blue fade gradient at bottom - longer fade effect */}
-      <div className="absolute bottom-0 inset-x-0 w-full h-24 bg-gradient-to-t from-blue-500 to-white opacity-100"></div>
     </section>
   );
 };

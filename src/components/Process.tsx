@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from "lucide-react";
@@ -148,7 +147,6 @@ const Process = () => {
         </div>
       </div>
       {/* White to blue fade gradient at bottom - increased height */}
-      <div className="absolute bottom-0 inset-x-0 w-full h-24 bg-gradient-to-t from-blue-500 to-white opacity-100"></div>
     </section>
   );
 };
