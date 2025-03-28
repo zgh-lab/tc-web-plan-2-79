@@ -96,8 +96,9 @@ const Process = () => {
   }, []);
   
   return (
-    <section id="process" className="bg-white relative overflow-hidden py-[50px] w-full">
-      <div className="absolute inset-0 w-full h-12 bg-gradient-to-b from-blue-500 to-white opacity-100"></div>
+    <section id="process" className="bg-white relative overflow-hidden py-[80px] w-full">
+      {/* White to blue fade gradient at top - increased height */}
+      <div className="absolute inset-0 w-full h-24 bg-gradient-to-b from-blue-500 to-white opacity-100"></div>
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={processRef} style={{
       opacity: 0
     }}>
@@ -146,7 +147,8 @@ const Process = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 inset-x-0 w-full h-12 bg-gradient-to-t from-blue-500 to-white opacity-100"></div>
+      {/* White to blue fade gradient at bottom - increased height */}
+      <div className="absolute bottom-0 inset-x-0 w-full h-24 bg-gradient-to-t from-blue-500 to-white opacity-100"></div>
     </section>
   );
 };

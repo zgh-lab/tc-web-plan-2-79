@@ -68,8 +68,9 @@ const Features = () => {
   ];
   
   return (
-    <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
-      <div className="absolute inset-0 w-full h-12 bg-gradient-to-b from-blue-500 to-white opacity-100"></div>
+    <section id="features" className="relative bg-white overflow-hidden py-[80px] w-full">
+      {/* White to blue fade gradient at top */}
+      <div className="absolute inset-0 w-full h-24 bg-gradient-to-b from-blue-500 to-white opacity-100"></div>
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}>
         <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
           <div className="inline-block mb-2 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
@@ -98,7 +99,8 @@ const Features = () => {
             </div>)}
         </div>
       </div>
-      <div className="absolute bottom-0 inset-x-0 w-full h-12 bg-gradient-to-t from-blue-500 to-white opacity-100"></div>
+      {/* White to blue fade gradient at bottom - longer fade effect */}
+      <div className="absolute bottom-0 inset-x-0 w-full h-24 bg-gradient-to-t from-blue-500 to-white opacity-100"></div>
     </section>
   );
 };
