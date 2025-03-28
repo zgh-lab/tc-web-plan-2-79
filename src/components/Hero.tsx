@@ -46,24 +46,45 @@ const Hero = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white mb-2 md:mb-3">
-              <Cpu className="w-5 h-5 md:w-6 md:h-6" />
+            <div className="flex items-start justify-between mb-3">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
+                <Cpu className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+              <img 
+                src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
+                alt="Smart Textiles" 
+                className="w-14 h-14 object-cover rounded-lg opacity-80 border border-blue-400"
+              />
             </div>
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Smart Textiles</h3>
             <p className="text-white text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
           </div>
           
           <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-100">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white mb-2 md:mb-3">
-              <Code className="w-5 h-5 md:w-6 md:h-6" />
+            <div className="flex items-start justify-between mb-3">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
+                <Code className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+              <img 
+                src="/lovable-uploads/761e2d9d-3a1c-458b-9848-dd1d7b42d1b9.png" 
+                alt="Adaptive AI" 
+                className="w-14 h-14 object-cover rounded-lg opacity-80 border border-blue-400"
+              />
             </div>
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Adaptive AI</h3>
             <p className="text-white text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
           </div>
           
           <div className="bg-blue-600 p-4 md:p-5 rounded-xl shadow-sm border border-blue-400 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md animation-delay-200">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white mb-2 md:mb-3">
-              <Layers className="w-5 h-5 md:w-6 md:h-6" />
+            <div className="flex items-start justify-between mb-3">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-700 flex items-center justify-center rounded-lg text-white">
+                <Layers className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+              <img 
+                src="/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png" 
+                alt="Cross-Industry Applications" 
+                className="w-14 h-14 object-cover rounded-lg opacity-80 border border-blue-400"
+              />
             </div>
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">Cross-Industry</h3>
             <p className="text-white text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
