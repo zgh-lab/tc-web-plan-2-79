@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from "lucide-react";
@@ -47,39 +46,21 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
                 alt="WRLDS Technologies Logo" 
-                className={cn(
-                  "h-8 w-auto transition-all duration-300",
-                  isScrolled ? "" : "filter brightness-0 invert" // Only invert when not scrolled (transparent bg)
-                )}
+                className="h-8 w-auto"
               />
             </a>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <a href="#" className={cn(
-                "hover:text-wrlds-teal transition-colors font-medium", 
-                isScrolled ? "text-wrlds-dark" : "text-white"
-              )}>Home</a>
-              <a href="#features" className={cn(
-                "hover:text-wrlds-teal transition-colors font-medium", 
-                isScrolled ? "text-wrlds-dark" : "text-white"
-              )}>Services</a>
-              <a href="#projects" className={cn(
-                "hover:text-wrlds-teal transition-colors font-medium", 
-                isScrolled ? "text-wrlds-dark" : "text-white"
-              )}>Projects</a>
-              <a href="#process" className={cn(
-                "hover:text-wrlds-teal transition-colors font-medium", 
-                isScrolled ? "text-wrlds-dark" : "text-white"
-              )}>Process</a>
+              <a href="#" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Home</a>
+              <a href="#features" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Services</a>
+              <a href="#projects" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Projects</a>
+              <a href="#process" className="text-wrlds-dark hover:text-wrlds-teal transition-colors font-medium">Process</a>
               <a href="#contact" className="bg-wrlds-teal text-white hover:bg-wrlds-teal/90 px-4 py-2 rounded-md transition-colors">Contact Us</a>
             </div>
           </div>
           <div className="md:hidden">
-            <button onClick={toggleMenu} className={cn(
-              "focus:outline-none",
-              isScrolled ? "text-wrlds-dark" : "text-white"
-            )}>
+            <button onClick={toggleMenu} className="text-wrlds-dark focus:outline-none">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>

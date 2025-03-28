@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
@@ -5,6 +6,18 @@ import { ArrowRight } from 'lucide-react';
 const projects = [
   {
     id: 1,
+    title: "6th SENSE Safety System",
+    brand: "FireCat Group",
+    description: "AI-driven sensor solution integrated into uniforms for law enforcement, military and firefighters, providing real-time vital monitoring and situational awareness in high-risk environments.",
+    tags: ["Safety", "Military", "AI Sensors", "Real-time Monitoring"],
+    imageUrl: "/lovable-uploads/5ca619e6-2139-4879-9b3c-94777ab85e2a.png",
+    isFeatured: true,
+    details: `
+      FireCat Group aimed to enhance safety in high-risk environments. WRLDS Technologies provided the 6th SENSE solution with secure real-time data transmission, high-quality sensors resistant to extreme conditions, integrated AI-powered clothing, and a centralized control unit. Features include Man Down Alarm, GPS positioning, vital sign monitoring, and Panic Button. Benefits: life-saving technology, machine learning preventing false alarms, durable hardware with 7-10 year lifespan, washable sensors, and Plug & Play installation with 12-20 hours of operation per charge.
+    `
+  },
+  {
+    id: 2,
     title: "Performance Athletic Wear",
     brand: "WRLDS Sport",
     description: "Smart sports apparel with integrated textile sensors that track movement patterns, muscle fatigue, and form correction to optimize athletic performance and prevent injury.",
@@ -12,7 +25,7 @@ const projects = [
     imageUrl: "/placeholder.svg"
   },
   {
-    id: 2,
+    id: 3,
     title: "Tactical Military Uniforms",
     brand: "WRLDS Defense",
     description: "Advanced textile sensor integration in military gear that monitors vital signs, environmental hazards, and provides real-time battlefield awareness with secure data encryption.",
@@ -20,7 +33,7 @@ const projects = [
     imageUrl: "/placeholder.svg"
   },
   {
-    id: 3,
+    id: 4,
     title: "Industrial Safety Workwear",
     brand: "WRLDS Industrial",
     description: "Construction and factory workwear with embedded sensors that detect environmental hazards, monitor worker fatigue, and alert to potential safety risks before accidents occur.",
@@ -28,7 +41,7 @@ const projects = [
     imageUrl: "/placeholder.svg"
   },
   {
-    id: 4,
+    id: 5,
     title: "Adaptive Comfort Footwear",
     brand: "WRLDS Step",
     description: "Smart shoes with textile sensors that analyze gait, pressure distribution, and automatically adjust cushioning and support based on activity and terrain.",
@@ -36,7 +49,7 @@ const projects = [
     imageUrl: "/placeholder.svg"
   },
   {
-    id: 5,
+    id: 6,
     title: "Office Wellness Apparel",
     brand: "WRLDS Professional",
     description: "Business casual clothing with subtle integrated sensors that encourage proper posture, remind of movement breaks, and monitor stress indicators for white-collar professionals.",
@@ -101,15 +114,38 @@ const Projects = () => {
         
         <div className="relative h-[550px] overflow-hidden" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            {projects.map((project, index) => <div key={project.id} className={`absolute top-0 w-full max-w-md transform transition-all duration-500 ${getCardAnimationClass(index)}`} style={{
-            transitionDelay: `${index * 50}ms`
-          }}>
+            {projects.map((project, index) => (
+              <div 
+                key={project.id} 
+                className={`absolute top-0 w-full max-w-md transform transition-all duration-500 ${getCardAnimationClass(index)}`} 
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
                 <Card className="overflow-hidden h-[500px] border border-blue-100 shadow-sm hover:shadow-md flex flex-col">
-                  <div className="bg-blue-50 p-6 flex items-center justify-center h-48">
-                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center transform transition-all duration-500 animate-pulse-slow">
-                      <span className="text-blue-500 text-4xl font-bold">{project.id}</span>
+                  {project.id === 1 ? (
+                    // FireCat project with background image
+                    <div 
+                      className="relative bg-blue-900 p-6 flex items-center justify-center h-48 overflow-hidden"
+                      style={{
+                        backgroundImage: `url(${project.imageUrl})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-blue-900/50"></div>
+                      <div className="relative z-10 flex flex-col items-center justify-center">
+                        <h3 className="text-2xl font-bold text-white mb-2">FIRECAT</h3>
+                        <div className="w-12 h-1 bg-white mb-2"></div>
+                        <p className="text-white/90 text-sm">6th SENSE Safety System</p>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    // Default style for other projects
+                    <div className="bg-blue-50 p-6 flex items-center justify-center h-48">
+                      <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center transform transition-all duration-500 animate-pulse-slow">
+                        <span className="text-blue-500 text-4xl font-bold">{project.id}</span>
+                      </div>
+                    </div>
+                  )}
                   
                   <CardContent className="p-6 flex flex-col flex-grow">
                     <div className="mb-4">
@@ -123,11 +159,15 @@ const Projects = () => {
                     
                     <div className="mt-auto">
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, idx) => <span key={idx} className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs animate-pulse-slow" style={{
-                      animationDelay: `${idx * 300}ms`
-                    }}>
+                        {project.tags.map((tag, idx) => (
+                          <span 
+                            key={idx} 
+                            className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs animate-pulse-slow" 
+                            style={{ animationDelay: `${idx * 300}ms` }}
+                          >
                             {tag}
-                          </span>)}
+                          </span>
+                        ))}
                       </div>
                       
                       <a href="#contact" className="text-blue-500 flex items-center hover:underline relative overflow-hidden group">
@@ -138,20 +178,33 @@ const Projects = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </div>)}
+              </div>
+            ))}
           </div>
           
           <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
-            {projects.map((_, idx) => <button key={idx} className={`w-3 h-3 rounded-full transition-all duration-300 ${activeProject === idx ? 'bg-blue-500 w-6' : 'bg-blue-200 hover:bg-blue-300'}`} onClick={() => setActiveProject(idx)} />)}
+            {projects.map((_, idx) => (
+              <button 
+                key={idx} 
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${activeProject === idx ? 'bg-blue-500 w-6' : 'bg-blue-200 hover:bg-blue-300'}`} 
+                onClick={() => setActiveProject(idx)} 
+              />
+            ))}
           </div>
           
-          <button className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30" onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}>
+          <button 
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30" 
+            onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
           
-          <button className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30" onClick={() => setActiveProject(prev => (prev + 1) % projects.length)}>
+          <button 
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-blue-500 hover:bg-white z-30" 
+            onClick={() => setActiveProject(prev => (prev + 1) % projects.length)}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="m9 18 6-6-6-6" />
             </svg>
