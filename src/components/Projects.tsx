@@ -86,7 +86,9 @@ const Projects = () => {
     return "scale-90 opacity-0";
   };
   
-  return <section id="projects" ref={projectsRef} className="bg-blue-500 py-[50px] w-full">
+  return (
+    <section id="projects" ref={projectsRef} className="bg-blue-500 py-[50px] w-full relative">
+      <div className="absolute inset-0 w-full h-12 bg-gradient-to-b from-white to-blue-500 opacity-100"></div>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-10 max-w-3xl mx-auto transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-2 px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">
@@ -159,7 +161,9 @@ const Projects = () => {
           </button>
         </div>
       </div>
-    </section>;
+      <div className="absolute bottom-0 inset-x-0 w-full h-12 bg-gradient-to-t from-white to-blue-500 opacity-100"></div>
+    </section>
+  );
 };
 
 export default Projects;
