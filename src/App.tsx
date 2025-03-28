@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import LoadingAnimation from "./components/LoadingAnimation";
 
 const App = () => {
   // Create a new QueryClient instance inside the component
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <LoadingAnimation />
         <Toaster />
         <Sonner />
         <BrowserRouter>
