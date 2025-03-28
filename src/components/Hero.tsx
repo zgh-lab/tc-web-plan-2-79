@@ -12,7 +12,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-blue-500 w-full">
           <div 
             className={`w-full h-full opacity-40 contrast-150 brightness-110 bg-cover bg-center ${isMobile ? 'bg-right' : 'bg-center'}`}
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&q=80')" }}
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1624373753858-3cffe461744c?auto=format&fit=crop&q=80')" }}
           ></div>
           {/* Blue fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-500"></div>
@@ -47,7 +47,7 @@ const Hero = () => {
             <div className="absolute inset-0 opacity-20">
               <div 
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80')" }}
               ></div>
             </div>
             <div className="relative z-10">
@@ -65,7 +65,7 @@ const Hero = () => {
             <div className="absolute inset-0 opacity-20">
               <div 
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&q=80')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80')" }}
               ></div>
             </div>
             <div className="relative z-10">
@@ -83,7 +83,7 @@ const Hero = () => {
             <div className="absolute inset-0 opacity-20">
               <div 
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80')" }}
               ></div>
             </div>
             <div className="relative z-10">

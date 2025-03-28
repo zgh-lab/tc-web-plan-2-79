@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket, Shield, Activity, Zap, HardHat, Shirt, UserCheck } from "lucide-react";
 
@@ -39,37 +38,37 @@ const Features = () => {
       icon: <Shirt className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Smart Apparel",
       description: "Advanced textile sensors integrated into clothing for real-time biometric monitoring and motion analysis.",
-      backgroundImage: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?auto=format&fit=crop&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1561214078-f3247647fc5e?auto=format&fit=crop&q=80"
     },
     {
       icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Sports Performance",
       description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
-      backgroundImage: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80"
     },
     {
       icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Military & Defense",
       description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
-      backgroundImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1542457927-8b82e6e0b48c?auto=format&fit=crop&q=80"
     },
     {
       icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Industrial Safety",
       description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
-      backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80"
     },
     {
       icon: <UserCheck className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Professional Wellness",
       description: "Office attire integrated with sensors that encourage movement, proper posture, and stress reduction for white-collar workers.",
-      backgroundImage: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80"
     },
     {
       icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
       title: "Thermal Regulation",
       description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
-      backgroundImage: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?auto=format&fit=crop&q=80"
     }
   ];
   
