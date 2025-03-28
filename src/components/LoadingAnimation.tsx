@@ -51,7 +51,8 @@ const LoadingAnimation = () => {
             <motion.img 
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
               alt="WRLDS Technologies Logo" 
-              className="h-16 w-auto mb-6"
+              className="h-24 w-auto mb-6"
+              style={{ objectFit: 'contain', imageRendering: 'high-quality' }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ 
                 y: 0, 

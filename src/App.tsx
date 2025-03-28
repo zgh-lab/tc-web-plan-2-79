@@ -8,6 +8,7 @@ import { useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LoadingAnimation from "./components/LoadingAnimation";
+import FireCatProject from "./pages/FireCatProject";
 
 const App = () => {
   // Create a new QueryClient instance inside the component
@@ -23,6 +24,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/projects/firecat" element={<FireCatProject />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

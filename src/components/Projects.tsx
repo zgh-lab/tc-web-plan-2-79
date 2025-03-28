@@ -1,7 +1,7 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const projects = [
   {
@@ -12,6 +12,7 @@ const projects = [
     tags: ["Safety", "Military", "AI Sensors", "Real-time Monitoring"],
     imageUrl: "/lovable-uploads/5ca619e6-2139-4879-9b3c-94777ab85e2a.png",
     isFeatured: true,
+    link: "/projects/firecat",
     details: `
       FireCat Group aimed to enhance safety in high-risk environments. WRLDS Technologies provided the 6th SENSE solution with secure real-time data transmission, high-quality sensors resistant to extreme conditions, integrated AI-powered clothing, and a centralized control unit. Features include Man Down Alarm, GPS positioning, vital sign monitoring, and Panic Button. Benefits: life-saving technology, machine learning preventing false alarms, durable hardware with 7-10 year lifespan, washable sensors, and Plug & Play installation with 12-20 hours of operation per charge.
     `
@@ -22,7 +23,8 @@ const projects = [
     brand: "WRLDS Sport",
     description: "Smart sports apparel with integrated textile sensors that track movement patterns, muscle fatigue, and form correction to optimize athletic performance and prevent injury.",
     tags: ["Sports", "Performance Analytics", "Injury Prevention", "Motion Tracking"],
-    imageUrl: "/placeholder.svg"
+    imageUrl: "/placeholder.svg",
+    link: "#"
   },
   {
     id: 3,
@@ -122,7 +124,6 @@ const Projects = () => {
               >
                 <Card className="overflow-hidden h-[500px] border border-blue-100 shadow-sm hover:shadow-md flex flex-col">
                   {project.id === 1 ? (
-                    // FireCat project with background image
                     <div 
                       className="relative bg-blue-900 p-6 flex items-center justify-center h-48 overflow-hidden"
                       style={{
@@ -139,7 +140,6 @@ const Projects = () => {
                       </div>
                     </div>
                   ) : (
-                    // Default style for other projects
                     <div className="bg-blue-50 p-6 flex items-center justify-center h-48">
                       <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center transform transition-all duration-500 animate-pulse-slow">
                         <span className="text-blue-500 text-4xl font-bold">{project.id}</span>
@@ -170,11 +170,14 @@ const Projects = () => {
                         ))}
                       </div>
                       
-                      <a href="#contact" className="text-blue-500 flex items-center hover:underline relative overflow-hidden group">
+                      <Link 
+                        to={project.link} 
+                        className="text-blue-500 flex items-center hover:underline relative overflow-hidden group"
+                      >
                         <span className="relative z-10">Learn more</span>
                         <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
                         <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-                      </a>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
