@@ -96,13 +96,13 @@ const Hero = () => {
             />
           </div>
           
-          {/* Animated title with typing effect */}
+          {/* Animated title with typing effect - Fixed spacing issue by adding mb-2 to the first span */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 relative overflow-hidden">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-300 to-white">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-300 to-white mb-2 inline-block">
               Revolutionary Textile 
             </span>
             <br />
-            <span className="text-blue-500 relative inline-block">
+            <span className="text-blue-500 relative inline-block mt-2">
               Sensor
               <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 animate-pulse"></span>
             </span>
@@ -137,8 +137,8 @@ const Hero = () => {
             </a>
           </div>
           
-          {/* Interactive card showcase */}
-          <div className="relative h-72 w-full max-w-3xl mx-auto">
+          {/* Interactive card showcase - Made container taller (h-96 instead of h-72) to fit all content */}
+          <div className="relative h-96 w-full max-w-3xl mx-auto">
             {cards.map((card, index) => (
               <div 
                 key={index}

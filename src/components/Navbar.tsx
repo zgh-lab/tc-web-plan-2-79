@@ -67,7 +67,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
                 alt="WRLDS Technologies Logo" 
-                className="h-8 w-auto"
+                className="h-8 w-auto filter brightness-0 invert" // Added filter to make the logo white
               />
             </a>
           </div>
