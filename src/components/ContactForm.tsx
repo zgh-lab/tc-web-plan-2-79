@@ -7,12 +7,15 @@ import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   message: z.string().min(10, 'Message must be at least 10 characters')
 });
+
 type FormValues = z.infer<typeof formSchema>;
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
@@ -26,28 +29,20 @@ const ContactForm = () => {
       message: ''
     }
   });
+
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
-      // This would be replaced with actual email sending code
       console.log('Form submitted:', data);
 
-      // To make this form actually send emails, you would need:
-      // 1. A backend service (like Supabase Edge Functions, AWS Lambda, or a dedicated email API)
-      // 2. Integration with an email service (like SendGrid, Mailgun, etc.)
-      // 3. CORS configuration if using a third-party service directly
-
-      // Simulate API call with a timeout
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Show success toast
       toast({
         title: "Message sent!",
         description: "We've received your message and will get back to you soon.",
         variant: "default"
       });
 
-      // Reset form
       form.reset();
     } catch (error) {
       console.error('Error sending email:', error);
@@ -60,22 +55,23 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-  return <section id="contact" className="bg-blue-50 relative py-[25px]">
+
+  return <section id="contact" className="bg-black text-white relative py-[25px]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+          <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
             Get In Touch
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Contact Us Today
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Have questions about our AI-powered sensor solutions? Reach out to our team and let's discuss how we can help bring your ideas to life.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="bg-white rounded-xl shadow-xl p-8 border border-blue-100">
+          <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-700 text-black">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField control={form.control} name="name" render={({
@@ -117,7 +113,7 @@ const ContactForm = () => {
                       <FormMessage />
                     </FormItem>} />
                 
-                <button type="submit" disabled={isSubmitting} className="w-full bg-blue-500 hover:bg-blue-400 text-white py-3 px-6 rounded-md transition-colors flex items-center justify-center disabled:opacity-70">
+                <button type="submit" disabled={isSubmitting} className="w-full bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-md transition-colors flex items-center justify-center disabled:opacity-70">
                   {isSubmitting ? "Sending..." : <>
                       Send Message
                       <Send className="ml-2 h-4 w-4" />
@@ -128,8 +124,8 @@ const ContactForm = () => {
           </div>
           
           <div className="space-y-8">
-            <div className="bg-white p-6 rounded-lg shadow-md border border-blue-100">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mb-4">
+            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-700 text-black">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white mb-4">
                 <Mail className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
@@ -137,13 +133,11 @@ const ContactForm = () => {
               <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">hello@wrlds.com</a>
               <p className="text-gray-600 mt-2 mb-2">
             </p>
-              
             </div>
-            
-            
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default ContactForm;
