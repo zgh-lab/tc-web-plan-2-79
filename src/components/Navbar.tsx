@@ -78,6 +78,14 @@ const Navbar = () => {
                 Services
               </button>
               
+              <button 
+                onClick={() => scrollToSection('why-wrlds')} 
+                className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}
+              >
+                Why WRLDS
+              </button>
+              
               <div className="relative">
                 <button 
                   onClick={toggleProjectsDropdown}
@@ -176,6 +184,14 @@ const Navbar = () => {
             isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
           >
             Services
+          </button>
+          
+          <button 
+            onClick={() => scrollToSection('why-wrlds')}
+            className={cn("block w-full text-left px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+          >
+            Why WRLDS
           </button>
           
           <div className="block px-3 py-2">
