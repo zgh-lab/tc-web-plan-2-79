@@ -95,7 +95,7 @@ const FireCatProject = () => {
             
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-                <Shield className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <Shield className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-gray-700">Main Unit</h4>
                   <p>Secure real-time data transmission with encrypted communication.</p>
@@ -103,7 +103,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-                <Radio className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <Radio className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-gray-700">High-Quality Sensors</h4>
                   <p>Durable sensors resistant to dust, water, and extreme temperatures.</p>
@@ -111,7 +111,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-                <Box className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <Box className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-gray-700">Integrated Clothing</h4>
                   <p>Customized shirts embedding AI-powered sensors, maintaining user comfort.</p>
@@ -119,7 +119,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
-                <Activity className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <Activity className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-gray-700">Control Unit</h4>
                   <p>Centralized AI interface providing transparent data visualization and management via an intuitive supervisor app.</p>
@@ -138,7 +138,7 @@ const FireCatProject = () => {
             <h3 className="text-2xl font-semibold mb-4 mt-8">Benefits</h3>
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-3 mt-1">✓</div>
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
                 <div>
                   <h4 className="font-semibold">Life-saving technology</h4>
                   <p>Rapid data acquisition facilitates quicker responses in emergencies.</p>
@@ -146,7 +146,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-3 mt-1">✓</div>
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
                 <div>
                   <h4 className="font-semibold">Technological advancement</h4>
                   <p>Machine learning prevents false alarms by adapting to individual behavioral baselines.</p>
@@ -154,7 +154,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-3 mt-1">✓</div>
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
                 <div>
                   <h4 className="font-semibold">Long-lasting and secure</h4>
                   <p>Durable hardware with a 7-10 year lifespan, robust encryption, and full GDPR compliance.</p>
@@ -162,7 +162,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-3 mt-1">✓</div>
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
                 <div>
                   <h4 className="font-semibold">Easy Maintenance</h4>
                   <p>Sensors are fully washable and require minimal maintenance.</p>
@@ -170,7 +170,7 @@ const FireCatProject = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-3 mt-1">✓</div>
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
                 <div>
                   <h4 className="font-semibold">User-Friendly</h4>
                   <p>Plug & Play installation within three minutes, providing 12-20 hours of continuous operation per charge.</p>
