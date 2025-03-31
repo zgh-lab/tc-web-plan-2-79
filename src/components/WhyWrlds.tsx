@@ -4,59 +4,58 @@ import { ArrowRight, CheckCircle, Clock, Layers, BarChart, Lightbulb, AlertTrian
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // Counter animation component
-const AnimatedCounter = ({ end, duration = 2000, prefix = "", suffix = "", decimals = 0 }: { 
-  end: number; 
-  duration?: number; 
-  prefix?: string; 
+const AnimatedCounter = ({
+  end,
+  duration = 2000,
+  prefix = "",
+  suffix = "",
+  decimals = 0
+}: {
+  end: number;
+  duration?: number;
+  prefix?: string;
   suffix?: string;
   decimals?: number;
 }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
-  const inView = useInView(countRef, { once: true, margin: "-100px" });
-  
+  const inView = useInView(countRef, {
+    once: true,
+    margin: "-100px"
+  });
   useEffect(() => {
     if (!inView) return;
-    
     let startTime: number;
     let animationFrame: number;
-    
     const startAnimation = (timestamp: number) => {
       startTime = timestamp;
       animate(timestamp);
     };
-    
     const animate = (timestamp: number) => {
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const currentCount = progress * end;
       setCount(currentCount);
-      
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
       }
     };
-    
     animationFrame = requestAnimationFrame(startAnimation);
-    
     return () => {
       if (animationFrame) {
         cancelAnimationFrame(animationFrame);
       }
     };
   }, [end, duration, inView]);
-  
-  return (
-    <span ref={countRef} className="font-bold tabular-nums">
+  return <span ref={countRef} className="font-bold tabular-nums">
       {prefix}{count.toFixed(decimals)}{suffix}
-    </span>
-  );
+    </span>;
 };
-
 const WhyWrlds = () => {
   const isMobile = useIsMobile();
-  
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
       transition: {
@@ -66,26 +65,25 @@ const WhyWrlds = () => {
       }
     }
   };
-  
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: {
+      y: 20,
+      opacity: 0
+    },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6 }
+      transition: {
+        duration: 0.6
+      }
     }
   };
-
-  return (
-    <section id="why-wrlds" className="relative py-16 md:py-24 bg-white overflow-hidden">
+  return <section id="why-wrlds" className="relative py-16 md:py-24 bg-white overflow-hidden">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-12 md:mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
+        <motion.div className="text-center mb-12 md:mb-16" initial="hidden" whileInView="visible" viewport={{
+        once: true,
+        margin: "-100px"
+      }} variants={containerVariants}>
           <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
             Why WRLDS?
           </motion.h2>
@@ -94,32 +92,21 @@ const WhyWrlds = () => {
           </motion.p>
         </motion.div>
         
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <motion.div 
-            variants={itemVariants}
-            className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all"
-          >
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" initial="hidden" whileInView="visible" viewport={{
+        once: true,
+        margin: "-100px"
+      }} variants={containerVariants}>
+          <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
             <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
               <BarChart className="w-8 h-8 text-gray-700" />
             </div>
             <h3 className="text-gray-900 text-2xl lg:text-3xl font-bold mb-3">
               <AnimatedCounter end={3.8} decimals={1} suffix=" Billion" /> USD
             </h3>
-            <p className="text-gray-700">
-              Market estimated to reach this value, with massive growth potential for smart textile solutions
-            </p>
+            <p className="text-gray-700">Market estimated to reach this value by 2030, with massive growth potential for smart textile solutions</p>
           </motion.div>
           
-          <motion.div 
-            variants={itemVariants}
-            className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all"
-          >
+          <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
             <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
               <AlertTriangle className="w-8 h-8 text-gray-700" />
             </div>
@@ -131,10 +118,7 @@ const WhyWrlds = () => {
             </p>
           </motion.div>
           
-          <motion.div 
-            variants={itemVariants}
-            className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all"
-          >
+          <motion.div variants={itemVariants} className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-center hover:bg-gray-200 transition-all">
             <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-4">
               <Clock4 className="w-8 h-8 text-gray-700" />
             </div>
@@ -147,13 +131,10 @@ const WhyWrlds = () => {
           </motion.div>
         </motion.div>
         
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" initial="hidden" whileInView="visible" viewport={{
+        once: true,
+        margin: "-100px"
+      }} variants={containerVariants}>
           <motion.div variants={itemVariants} className="order-2 md:order-1">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
               The WRLDS Difference
@@ -193,10 +174,7 @@ const WhyWrlds = () => {
             </ul>
             
             <div className="mt-8">
-              <a
-                href="/projects/firecat"
-                className="inline-flex items-center px-5 py-2.5 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition group"
-              >
+              <a href="/projects/firecat" className="inline-flex items-center px-5 py-2.5 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition group">
                 See FireCat Case Study
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -248,8 +226,6 @@ const WhyWrlds = () => {
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WhyWrlds;
