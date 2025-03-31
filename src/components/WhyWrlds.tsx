@@ -86,7 +86,6 @@ const WhyWrlds = () => {
           alt="Background" 
           className="w-full h-full object-cover opacity-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/98 to-white"></div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
