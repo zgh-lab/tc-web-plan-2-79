@@ -42,7 +42,7 @@ const Hero = () => {
       variants={containerVariants}
     >
       {/* Banner with the provided image */}
-      <div className="banner-container bg-black relative overflow-hidden h-[550px] md:h-[600px] w-full">
+      <div className="banner-container bg-black relative overflow-hidden h-[700px] md:h-[750px] w-full">
         {/* Background Image with black fade overlay */}
         <div className="absolute inset-0 bg-black w-full">
           <img 
@@ -58,7 +58,7 @@ const Hero = () => {
           <div className={`w-full mx-auto ${isMobile ? 'px-4' : 'px-4 sm:px-6 lg:px-8'} flex flex-col items-start justify-center h-full`}>
             <motion.div className={`${isMobile ? 'w-full' : 'max-w-xl'} text-left`} variants={itemVariants}>
               <motion.h1 className="banner-title text-white text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>
-                Revolutionary Textile Sensor Technology for Next-Generation Smart Wearables
+                Unleashing the Future: Revolutionary Textile Sensors Redefining Human-Tech Interaction
               </motion.h1>
               <motion.p className="banner-subtitle text-gray-300 mt-4 md:mt-6 text-sm md:text-base" variants={itemVariants}>
                 We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
