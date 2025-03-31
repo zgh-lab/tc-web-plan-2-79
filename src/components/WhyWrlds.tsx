@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle, Clock, Layers, BarChart, Lightbulb, AlertTriangle, Clock4 } from "lucide-react";
@@ -79,15 +78,6 @@ const WhyWrlds = () => {
 
   return (
     <section id="why-wrlds" className="relative py-16 md:py-24 bg-white overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/lovable-uploads/39605e90-8478-4fee-b1b9-cee41df66f10.png" 
-          alt="Background" 
-          className="w-full h-full object-cover opacity-10"
-        />
-      </div>
-      
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-12 md:mb-16"
@@ -104,7 +94,6 @@ const WhyWrlds = () => {
           </motion.p>
         </motion.div>
         
-        {/* Market challenges section */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           initial="hidden"
@@ -158,7 +147,6 @@ const WhyWrlds = () => {
           </motion.div>
         </motion.div>
         
-        {/* Our solution section */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
           initial="hidden"
