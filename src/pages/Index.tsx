@@ -7,6 +7,7 @@ import Process from '@/components/Process';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import WhyWrlds from '@/components/WhyWrlds';
+import ProductPlatform from '@/components/ProductPlatform';
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Features />
+      <ProductPlatform />
       <WhyWrlds />
       <Projects />
       <Process />
