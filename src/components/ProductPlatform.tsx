@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Bluetooth, Database, Server, Smartphone, ArrowRight, 
   Cpu, Gauge, Battery, Wifi, Radio, Cloud, Layers, Code,
-  Info, HelpCircle
+  Info, HelpCircle, Zap, Shield, Waves, Component, Lightbulb
 } from "lucide-react";
 
 const ProductPlatform = () => {
@@ -41,7 +41,7 @@ const ProductPlatform = () => {
   };
 
   return (
-    <section id="product-platform" className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
+    <section id="product-platform" className="bg-white py-16 md:py-24 border-t border-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
@@ -51,14 +51,14 @@ const ProductPlatform = () => {
           variants={containerVariants}
         >
           <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-            How Our Technology Works
+            Smart Technology Simplified
           </motion.h2>
           <motion.p variants={itemVariants} className="text-gray-600 text-lg max-w-3xl mx-auto mb-6">
-            Our platform connects physical devices to smart applications - here's a simplified view
+            Our platform connects physical devices to intelligent applications — no technical expertise required
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex justify-center mb-8">
-            <Button variant="outline" className="flex items-center gap-2 rounded-full">
+            <Button variant="outline" className="flex items-center gap-2 rounded-full bg-black text-white hover:bg-gray-800 border-0">
               <HelpCircle className="h-4 w-4" />
               <span>New to IoT? See our beginner's guide</span>
             </Button>
@@ -81,40 +81,32 @@ const ProductPlatform = () => {
               className="flex flex-col space-y-4 items-center"
               style={{ width: isMobile ? "100%" : "25%" }}
             >
-              <div className="bg-blue-50 p-5 rounded-xl border border-blue-100 w-full shadow-sm">
-                <h3 className="font-semibold text-blue-800 text-xl mb-3 flex items-center">
-                  <Layers className="mr-2 w-5 h-5" />
+              <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm hover:shadow-md transition-shadow duration-300">
+                <h3 className="font-semibold text-black text-xl mb-3 flex items-center">
+                  <Component className="mr-2 w-5 h-5" />
                   Physical Devices
                 </h3>
-                <p className="text-blue-600 text-sm mb-4">The hardware that collects data from the physical world</p>
+                <p className="text-gray-600 text-sm mb-4">Smart sensors that collect data from the physical world</p>
                 <div className="space-y-3">
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-blue-50 transition-colors">
-                    <Gauge className="text-blue-600 w-5 h-5 mr-2" />
-                    <span>Motion Sensors</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Gauge className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Motion Sensors</span>
                   </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-blue-50 transition-colors">
-                    <Cpu className="text-blue-600 w-5 h-5 mr-2" />
-                    <span>Heart Rate Sensors</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Waves className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Health Monitors</span>
                   </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-blue-50 transition-colors">
-                    <Bluetooth className="text-blue-600 w-5 h-5 mr-2" />
-                    <span>Wireless Connectivity</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Bluetooth className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Wireless Connectivity</span>
                   </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-blue-50 transition-colors">
-                    <Battery className="text-blue-600 w-5 h-5 mr-2" />
-                    <span>Power Management</span>
-                  </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-blue-50 transition-colors">
-                    <Database className="text-blue-600 w-5 h-5 mr-2" />
-                    <span>Local Storage</span>
-                  </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-blue-50 transition-colors">
-                    <Radio className="text-blue-600 w-5 h-5 mr-2" />
-                    <span>Cellular Connection</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Battery className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Long-life Battery</span>
                   </div>
                 </div>
               </div>
-              <div className="text-center font-medium text-blue-500 flex items-center gap-2">
+              <div className="text-center font-medium text-black flex items-center gap-2">
                 <span>Data Collection</span>
                 <Info className="h-4 w-4 cursor-help" />
               </div>
@@ -123,8 +115,8 @@ const ProductPlatform = () => {
             {/* Mobile arrow pointing down for mobile layout */}
             {isMobile && (
               <motion.div variants={itemVariants} className="flex justify-center">
-                <div className="bg-blue-100 rounded-full p-2 animate-pulse">
-                  <ArrowRight className="transform rotate-90 w-8 h-8 text-blue-500" />
+                <div className="bg-gray-200 rounded-full p-2 animate-pulse">
+                  <ArrowRight className="transform rotate-90 w-8 h-8 text-black" />
                 </div>
               </motion.div>
             )}
@@ -135,11 +127,11 @@ const ProductPlatform = () => {
                 variants={arrowVariants}
                 className="hidden md:flex items-center justify-center"
               >
-                <div className="h-1 bg-blue-200 w-full relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
+                <div className="h-1 bg-gray-300 w-full relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
                 </div>
-                <div className="bg-blue-100 rounded-full p-2">
-                  <ArrowRight className="text-blue-500 w-6 h-6" />
+                <div className="bg-gray-200 rounded-full p-2">
+                  <ArrowRight className="text-black w-6 h-6" />
                 </div>
               </motion.div>
             )}
@@ -147,82 +139,70 @@ const ProductPlatform = () => {
             {/* PLATFORM SECTION - OUR TECHNOLOGY */}
             <motion.div 
               variants={itemVariants}
-              className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg"
+              className="rounded-2xl overflow-hidden border border-gray-300 shadow-xl hover:shadow-2xl transition-shadow duration-300"
               style={{ width: isMobile ? "100%" : "40%" }}
             >
-              <div className="bg-gradient-to-r from-purple-600 to-blue-500 p-4 text-center font-bold text-white">
-                WRLDS Platform
+              <div className="bg-black p-4 text-center font-bold text-white flex items-center justify-center gap-2">
+                <Zap className="w-5 h-5" />
+                WRLDS PLATFORM
+                <Zap className="w-5 h-5" />
               </div>
               <div className="bg-white p-6">
-                <p className="text-center text-gray-600 mb-6">Our platform processes data and powers intelligent applications</p>
+                <p className="text-center text-gray-600 mb-6">Our intelligent system transforms raw data into meaningful insights</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {/* First row */}
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Database className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Cloud Storage</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Database className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">Cloud Storage</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Gauge className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Data Processing</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Lightbulb className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">AI Analysis</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Cpu className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>AI & Machine Learning</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Shield className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">Data Security</div>
                   </div>
                   
                   {/* Second row */}
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Battery className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Power Optimization</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Battery className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">Power Saving</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Code className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Custom Software</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Code className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">Custom Apps</div>
                   </div>
-                  <div className="bg-purple-100 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-purple-200 transition-colors">
-                    <Smartphone className="w-5 h-5 mx-auto mb-1 text-purple-700" />
-                    <div>Demo Applications</div>
+                  <div className="bg-black rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-800 transition-all duration-300 hover:scale-105 text-white">
+                    <Smartphone className="w-5 h-5 mx-auto mb-1 text-white" />
+                    <div className="font-medium">User Interface</div>
                   </div>
                   
                   {/* Third row */}
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Wifi className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Real-time Data</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Wifi className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">Real-time Data</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Cpu className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Edge Computing</div>
+                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-all duration-300 hover:scale-105 border border-gray-200">
+                    <Cpu className="w-5 h-5 mx-auto mb-1 text-black" />
+                    <div className="font-medium">Edge Processing</div>
                   </div>
-                  <div className="bg-purple-100 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-purple-200 transition-colors">
-                    <Layers className="w-5 h-5 mx-auto mb-1 text-purple-700" />
-                    <div>Service APIs</div>
-                  </div>
-                  
-                  {/* Fourth row */}
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Server className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Server Infrastructure</div>
-                  </div>
-                  <div className="bg-purple-100 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-purple-200 transition-colors">
-                    <Cloud className="w-5 h-5 mx-auto mb-1 text-purple-700" />
-                    <div>Cloud Services</div>
-                  </div>
-                  <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
-                    <Code className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <div>Developer Tools</div>
+                  <div className="bg-black rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-800 transition-all duration-300 hover:scale-105 text-white">
+                    <Layers className="w-5 h-5 mx-auto mb-1 text-white" />
+                    <div className="font-medium">API Access</div>
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 text-center text-xs text-white">
-                Reliable, secure, and scalable infrastructure
+              <div className="bg-gradient-to-r from-gray-900 to-black p-2 text-center text-xs text-white">
+                Reliable, secure, and scalable technology
               </div>
             </motion.div>
             
             {/* Mobile arrow pointing down for mobile layout */}
             {isMobile && (
               <motion.div variants={itemVariants} className="flex justify-center">
-                <div className="bg-green-100 rounded-full p-2 animate-pulse">
-                  <ArrowRight className="transform rotate-90 w-8 h-8 text-green-500" />
+                <div className="bg-gray-200 rounded-full p-2 animate-pulse">
+                  <ArrowRight className="transform rotate-90 w-8 h-8 text-black" />
                 </div>
               </motion.div>
             )}
@@ -233,11 +213,11 @@ const ProductPlatform = () => {
                 variants={arrowVariants}
                 className="hidden md:flex items-center justify-center"
               >
-                <div className="h-1 bg-green-200 w-full relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-300 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
+                <div className="h-1 bg-gray-300 w-full relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
                 </div>
-                <div className="bg-green-100 rounded-full p-2">
-                  <ArrowRight className="text-green-500 w-6 h-6" />
+                <div className="bg-gray-200 rounded-full p-2">
+                  <ArrowRight className="text-black w-6 h-6" />
                 </div>
               </motion.div>
             )}
@@ -248,67 +228,100 @@ const ProductPlatform = () => {
               className="flex flex-col space-y-4 items-center"
               style={{ width: isMobile ? "100%" : "25%" }}
             >
-              <div className="bg-green-50 p-5 rounded-xl border border-green-100 w-full shadow-sm">
-                <h3 className="font-semibold text-green-800 text-xl mb-3 flex items-center">
+              <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm hover:shadow-md transition-shadow duration-300">
+                <h3 className="font-semibold text-black text-xl mb-3 flex items-center">
                   <Smartphone className="mr-2 w-5 h-5" />
-                  User Applications
+                  User Experience
                 </h3>
-                <p className="text-green-600 text-sm mb-4">How people interact with and benefit from the collected data</p>
+                <p className="text-gray-600 text-sm mb-4">Easy-to-use interfaces that bring data to life</p>
                 <div className="space-y-3">
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-green-50 transition-colors">
-                    <Layers className="text-green-600 w-5 h-5 mr-2" />
-                    <span>Analytics Dashboard</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Layers className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Visual Dashboard</span>
                   </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-green-50 transition-colors">
-                    <Smartphone className="text-green-600 w-5 h-5 mr-2" />
-                    <span>Mobile Applications</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Smartphone className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Mobile App</span>
                   </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-green-50 transition-colors">
-                    <Code className="text-green-600 w-5 h-5 mr-2" />
-                    <span>Customized Reports</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Lightbulb className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Smart Alerts</span>
                   </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-green-50 transition-colors">
-                    <Cloud className="text-green-600 w-5 h-5 mr-2" />
-                    <span>Third-party Integration</span>
+                  <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-50 transition-colors border border-gray-100 hover:border-gray-200">
+                    <Cloud className="text-black w-5 h-5 mr-2" />
+                    <span className="text-gray-800">Third-party Apps</span>
                   </div>
                 </div>
               </div>
-              <div className="text-center font-medium text-green-500 flex items-center gap-2">
-                <span>Data Visualization</span>
+              <div className="text-center font-medium text-black flex items-center gap-2">
+                <span>Actionable Insights</span>
                 <Info className="h-4 w-4 cursor-help" />
               </div>
             </motion.div>
           </div>
           
+          {/* How it works - steps */}
+          <motion.div 
+            variants={itemVariants}
+            className="mt-20 max-w-4xl mx-auto"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">How It Works</h3>
+            <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0 items-start md:items-center relative">
+              {/* Step 1 */}
+              <div className="flex flex-col items-center text-center z-10 bg-white p-4 rounded-lg">
+                <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">1</div>
+                <h4 className="font-semibold text-lg mb-2">Collect</h4>
+                <p className="text-sm text-gray-600 max-w-[200px]">Smart sensors gather information from the environment</p>
+              </div>
+              
+              {/* Step 2 */}
+              <div className="flex flex-col items-center text-center z-10 bg-white p-4 rounded-lg">
+                <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">2</div>
+                <h4 className="font-semibold text-lg mb-2">Process</h4>
+                <p className="text-sm text-gray-600 max-w-[200px]">Our platform analyzes data using AI algorithms</p>
+              </div>
+              
+              {/* Step 3 */}
+              <div className="flex flex-col items-center text-center z-10 bg-white p-4 rounded-lg">
+                <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mb-3">3</div>
+                <h4 className="font-semibold text-lg mb-2">Visualize</h4>
+                <p className="text-sm text-gray-600 max-w-[200px]">Intuitive interfaces present insights clearly</p>
+              </div>
+              
+              {/* Background line connecting steps */}
+              <div className="absolute top-8 left-0 right-0 h-1 bg-gray-200 hidden md:block"></div>
+            </div>
+          </motion.div>
+          
           {/* Platform benefits */}
           <motion.div 
             variants={itemVariants}
-            className="mt-16 max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 border border-gray-100"
+            className="mt-16 max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"
           >
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Benefits of Our Platform</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Why Choose Our Platform</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center p-4 rounded-lg bg-blue-50">
-                <div className="inline-flex items-center justify-center p-3 bg-blue-100 rounded-full mb-3">
-                  <Gauge className="text-blue-600 w-6 h-6" />
+              <div className="text-center p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-gray-300 transition-all duration-300 hover:transform hover:scale-105">
+                <div className="inline-flex items-center justify-center p-3 bg-black rounded-full mb-4">
+                  <Zap className="text-white w-6 h-6" />
                 </div>
-                <h4 className="font-semibold mb-2">Fast Processing</h4>
-                <p className="text-sm text-gray-600">Real-time data analysis for immediate insights</p>
+                <h4 className="font-semibold mb-2">Quick Setup</h4>
+                <p className="text-sm text-gray-600">Ready to use in minutes, not months</p>
               </div>
               
-              <div className="text-center p-4 rounded-lg bg-purple-50">
-                <div className="inline-flex items-center justify-center p-3 bg-purple-100 rounded-full mb-3">
-                  <Cpu className="text-purple-600 w-6 h-6" />
+              <div className="text-center p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-gray-300 transition-all duration-300 hover:transform hover:scale-105">
+                <div className="inline-flex items-center justify-center p-3 bg-black rounded-full mb-4">
+                  <Shield className="text-white w-6 h-6" />
                 </div>
-                <h4 className="font-semibold mb-2">Smart Automation</h4>
-                <p className="text-sm text-gray-600">AI-driven decision making and predictions</p>
+                <h4 className="font-semibold mb-2">Secure Data</h4>
+                <p className="text-sm text-gray-600">End-to-end encryption and privacy controls</p>
               </div>
               
-              <div className="text-center p-4 rounded-lg bg-green-50">
-                <div className="inline-flex items-center justify-center p-3 bg-green-100 rounded-full mb-3">
-                  <Smartphone className="text-green-600 w-6 h-6" />
+              <div className="text-center p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-gray-300 transition-all duration-300 hover:transform hover:scale-105">
+                <div className="inline-flex items-center justify-center p-3 bg-black rounded-full mb-4">
+                  <Layers className="text-white w-6 h-6" />
                 </div>
-                <h4 className="font-semibold mb-2">Easy Integration</h4>
-                <p className="text-sm text-gray-600">Works with existing systems and applications</p>
+                <h4 className="font-semibold mb-2">Full Ownership</h4>
+                <p className="text-sm text-gray-600">You control your data and applications</p>
               </div>
             </div>
           </motion.div>
