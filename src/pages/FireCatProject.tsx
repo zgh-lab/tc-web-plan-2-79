@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Shield, Radio, Activity, AlertTriangle, Clock, Box } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -16,7 +16,7 @@ const FireCatProject = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      <div className="pt-24 pb-16">
+      <div className="pt-16 pb-16">
         {/* Hero Section */}
         <div 
           className="relative w-full h-[40vh] md:h-[50vh] bg-black overflow-hidden"
@@ -94,24 +94,36 @@ const FireCatProject = () => {
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 my-8">
-              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100">
-                <h4 className="text-lg font-semibold mb-2 text-gray-700">Main Unit</h4>
-                <p>Secure real-time data transmission with encrypted communication.</p>
+              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
+                <Shield className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-lg font-semibold mb-2 text-gray-700">Main Unit</h4>
+                  <p>Secure real-time data transmission with encrypted communication.</p>
+                </div>
               </div>
               
-              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100">
-                <h4 className="text-lg font-semibold mb-2 text-gray-700">High-Quality Sensors</h4>
-                <p>Durable sensors resistant to dust, water, and extreme temperatures.</p>
+              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
+                <Radio className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-lg font-semibold mb-2 text-gray-700">High-Quality Sensors</h4>
+                  <p>Durable sensors resistant to dust, water, and extreme temperatures.</p>
+                </div>
               </div>
               
-              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100">
-                <h4 className="text-lg font-semibold mb-2 text-gray-700">Integrated Clothing</h4>
-                <p>Customized shirts embedding AI-powered sensors, maintaining user comfort.</p>
+              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
+                <Box className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-lg font-semibold mb-2 text-gray-700">Integrated Clothing</h4>
+                  <p>Customized shirts embedding AI-powered sensors, maintaining user comfort.</p>
+                </div>
               </div>
               
-              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100">
-                <h4 className="text-lg font-semibold mb-2 text-gray-700">Control Unit</h4>
-                <p>Centralized AI interface providing transparent data visualization and management via an intuitive supervisor app.</p>
+              <div className="bg-white shadow-md rounded-lg p-6 border border-gray-100 flex items-start">
+                <Activity className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-lg font-semibold mb-2 text-gray-700">Control Unit</h4>
+                  <p>Centralized AI interface providing transparent data visualization and management via an intuitive supervisor app.</p>
+                </div>
               </div>
             </div>
             

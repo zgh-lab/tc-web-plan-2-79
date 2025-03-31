@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -56,16 +57,16 @@ const ContactForm = () => {
     }
   };
 
-  return <section id="contact" className="bg-black text-white relative py-[25px]">
+  return <section id="contact" className="bg-gradient-to-b from-white to-black text-white relative py-[25px]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
             Get In Touch
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
             Contact Us Today
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
             Have questions about our AI-powered sensor solutions? Reach out to our team and let's discuss how we can help bring your ideas to life.
           </p>
         </div>

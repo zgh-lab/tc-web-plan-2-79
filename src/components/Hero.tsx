@@ -54,11 +54,11 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
         </div>
         
-        <div className="banner-overlay bg-transparent pt-28 md:pt-32 w-full">
+        <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
               <motion.h1 className="banner-title text-white text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>
-                Revolutionary Textile Sensors That Transform How We Live
+                WRLDS: The Future of Smart Textile Technology
               </motion.h1>
               <motion.p className="banner-subtitle text-gray-300 mt-4 md:mt-6 text-sm md:text-base max-w-2xl mx-auto" variants={itemVariants}>
                 We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
