@@ -21,11 +21,10 @@ type FormValues = z.infer<typeof formSchema>;
 // EmailJS configuration
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
 const EMAILJS_TEMPLATE_ID = "template_qkzbnpn";
-const EMAILJS_USER_ID = "wQmcZvoOqTAhGnRZ3";
+const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isConfigured] = useState(true); // Now configured with actual values
   
   const { toast } = useToast();
   
@@ -50,13 +49,15 @@ const ContactForm = () => {
         message: data.message
       };
       
-      // Initialize EmailJS with your user ID
-      emailjs.init(EMAILJS_USER_ID);
+      console.log('Sending email with params:', templateParams);
+      console.log('Using service:', EMAILJS_SERVICE_ID);
+      console.log('Using template:', EMAILJS_TEMPLATE_ID);
       
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        templateParams
+        templateParams,
+        EMAILJS_PUBLIC_KEY
       );
       
       console.log('Email sent successfully:', response);
