@@ -18,9 +18,9 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-// EmailJS configuration
+// EmailJS configuration - CORRECTED
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_qkzbnpn";
+const EMAILJS_TEMPLATE_ID = "template_qkzbnpn"; 
 const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const ContactForm = () => {
@@ -45,19 +45,22 @@ const ContactForm = () => {
       
       const templateParams = {
         from_name: data.name,
-        from_email: data.email,
+        reply_to: data.email, // Changed from from_email to reply_to
         message: data.message
       };
       
       console.log('Sending email with params:', templateParams);
       console.log('Using service:', EMAILJS_SERVICE_ID);
       console.log('Using template:', EMAILJS_TEMPLATE_ID);
+      console.log('Using public key:', EMAILJS_PUBLIC_KEY);
+      
+      // Initialize EmailJS with your user ID before sending
+      emailjs.init(EMAILJS_PUBLIC_KEY);
       
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
+        templateParams
       );
       
       console.log('Email sent successfully:', response);
@@ -71,6 +74,12 @@ const ContactForm = () => {
       form.reset();
     } catch (error) {
       console.error('Error sending email:', error);
+      
+      // More detailed error logging
+      if (error && typeof error === 'object' && 'text' in error) {
+        console.error('Error details:', (error as any).text);
+      }
+      
       toast({
         title: "Error",
         description: "There was a problem sending your message. Please try again later.",
