@@ -18,9 +18,9 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-// EmailJS configuration - CORRECTED
+// EmailJS configuration - Double-checked values
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_qkzbnpn"; 
+const EMAILJS_TEMPLATE_ID = "template_qkzbnpn";
 const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const ContactForm = () => {
@@ -43,10 +43,13 @@ const ContactForm = () => {
     try {
       console.log('Form submitted:', data);
       
+      // Using parameters exactly as expected by EmailJS templates
       const templateParams = {
         from_name: data.name,
-        reply_to: data.email, // Changed from from_email to reply_to
-        message: data.message
+        from_email: data.email,
+        message: data.message,
+        to_name: 'WRLDS Team', // Adding recipient name parameter
+        reply_to: data.email // Keeping reply_to for compatibility
       };
       
       console.log('Sending email with params:', templateParams);
@@ -54,13 +57,12 @@ const ContactForm = () => {
       console.log('Using template:', EMAILJS_TEMPLATE_ID);
       console.log('Using public key:', EMAILJS_PUBLIC_KEY);
       
-      // Initialize EmailJS with your user ID before sending
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-      
+      // Send email directly without initializing, as it's not needed with the send method that includes the key
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        templateParams
+        templateParams,
+        EMAILJS_PUBLIC_KEY // Re-adding the public key parameter
       );
       
       console.log('Email sent successfully:', response);
