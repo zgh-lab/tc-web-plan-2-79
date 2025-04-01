@@ -18,9 +18,9 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-// EmailJS configuration - Double-checked values
+// EmailJS configuration - Updated with correct template ID
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_qkzbnpn";
+const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; // Updated to the correct template ID
 const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const ContactForm = () => {
