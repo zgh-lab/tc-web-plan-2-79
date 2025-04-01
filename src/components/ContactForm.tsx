@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, Mail, User, MessageSquare, Linkedin } from 'lucide-react';
+import { Send, Mail, User, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import emailjs from 'emailjs-com';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -17,11 +18,21 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// You'll need to replace these with your actual EmailJS service, template and user IDs
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_USER_ID = "YOUR_USER_ID";
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const [isConfigured, setIsConfigured] = useState(
+    EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID" && 
+    EMAILJS_TEMPLATE_ID !== "YOUR_TEMPLATE_ID" && 
+    EMAILJS_USER_ID !== "YOUR_USER_ID"
+  );
+  
+  const { toast } = useToast();
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,11 +44,35 @@ const ContactForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
+    
+    if (!isConfigured) {
+      toast({
+        title: "Configuration Required",
+        description: "Please set up your EmailJS credentials to enable email sending.",
+        variant: "destructive"
+      });
+      setIsSubmitting(false);
+      return;
+    }
+    
     try {
       console.log('Form submitted:', data);
-
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
+      
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message
+      };
+      
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+      
+      console.log('Email sent successfully:', response);
+      
       toast({
         title: "Message sent!",
         description: "We've received your message and will get back to you soon.",
@@ -73,6 +108,15 @@ const ContactForm = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-700 text-black">
+            {!isConfigured && (
+              <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-md text-amber-800">
+                <p className="text-sm font-medium">Setup Required</p>
+                <p className="text-xs mt-1">
+                  To enable email sending, you need to configure EmailJS credentials in the code.
+                </p>
+              </div>
+            )}
+            
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField control={form.control} name="name" render={({
