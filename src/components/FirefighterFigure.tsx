@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Signal, Thermometer, HeartPulse, CircleArrowDown, Vibrate, Footprints } from "lucide-react";
 
 const FirefighterFigure = () => {
   return (
@@ -12,117 +12,120 @@ const FirefighterFigure = () => {
         {/* Main Firefighter Image */}
         <div className="relative w-full h-full">
           <img 
-            src="https://images.unsplash.com/photo-1493962853295-0fd70327578a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+            src="/lovable-uploads/70181d97-fd28-4a9e-9c2b-7a812d12f4f0.png" 
             alt="Brandman i utrustning" 
-            className="object-contain w-full h-full"
+            className="object-contain w-full h-full filter grayscale"
           />
           
-          {/* Gas & Particle Sensor on Helmet */}
+          {/* Live data uplink on Helmet */}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="absolute top-[15%] right-[35%] w-[25px] h-[25px] bg-wrlds-accent rounded-full border-2 border-wrlds-teal animate-pulse-slow"></div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Gas- och partikelmätare</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          
-          {/* Temperature Sensor on Chest */}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="absolute top-[35%] left-[40%] w-[40px] h-[40px] bg-wrlds-teal rounded-full border-2 border-white animate-pulse-slow flex items-center justify-center">
-                  <div className="w-[20px] h-[20px] bg-red-500 rounded-full"></div>
+                <div className="absolute top-[12%] right-[40%] w-[30px] h-[30px] bg-blue-500 rounded-full border-2 border-white animate-pulse-slow flex items-center justify-center">
+                  <Signal size={16} className="text-white" />
                 </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Temperaturmätare</p>
+                <p className="font-bold">Live data uplink</p>
+                <p>Sends real-time data to command center</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
           
-          {/* Pulse Sensor on Arm */}
+          {/* Air toxicity sensor on mask */}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="absolute top-[45%] right-[25%] w-[25px] h-[25px] bg-green-500 rounded-full border-2 border-wrlds-teal animate-pulse-slow"></div>
+                <div className="absolute top-[23%] left-[45%] w-[25px] h-[25px] bg-red-500 rounded-full border-2 border-white animate-pulse-slow"></div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Pulssensor</p>
+                <p className="font-bold">Air toxicity sensor</p>
+                <p>Detects hazardous gases and particles</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
           
-          {/* Motion Sensor */}
+          {/* Core body temp sensor on chest */}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="absolute top-[60%] left-[35%] w-[30px] h-[30px] bg-blue-400 rounded-md border-2 border-wrlds-teal animate-pulse-slow"></div>
+                <div className="absolute top-[35%] left-[40%] w-[30px] h-[30px] bg-red-600 rounded-full border-2 border-white animate-pulse-slow shadow-lg shadow-red-400 flex items-center justify-center">
+                  <Thermometer size={16} className="text-white" />
+                </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Rörelsesensor</p>
+                <p className="font-bold">Core body temp sensor</p>
+                <p>Tracks risk of overheating</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
           
-          {/* Pressure Sensor Left Foot */}
+          {/* Heart rate sensor on chest */}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="absolute bottom-[5%] left-[35%] w-[25px] h-[25px] bg-yellow-500 rounded-sm border-2 border-wrlds-teal animate-pulse-slow"></div>
+                <div className="absolute top-[33%] right-[35%] w-[30px] h-[30px] bg-green-500 rounded-full border-2 border-white animate-pulse-slow flex items-center justify-center">
+                  <HeartPulse size={16} className="text-white" />
+                </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Trycksensor</p>
+                <p className="font-bold">Heart rate / SpO₂ sensor</p>
+                <p>Monitors oxygen levels and heart rate</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
           
-          {/* Pressure Sensor Right Foot */}
+          {/* Fall/motion sensor on lower back */}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="absolute bottom-[5%] right-[35%] w-[25px] h-[25px] bg-yellow-500 rounded-sm border-2 border-wrlds-teal animate-pulse-slow"></div>
+                <div className="absolute top-[50%] left-[45%] w-[28px] h-[28px] bg-yellow-500 rounded-full border-2 border-white animate-pulse-slow flex items-center justify-center">
+                  <CircleArrowDown size={16} className="text-white" />
+                </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Trycksensor</p>
+                <p className="font-bold">Fall/motion sensor</p>
+                <p>Detects inactivity or sudden movement</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </div>
-        
-        {/* Legend */}
-        <div className="absolute top-[550px] left-0 w-full">
-          <div className="flex flex-col items-center justify-center mt-8 gap-2 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-[15px] h-[15px] bg-red-500 rounded-full"></div>
-              <span>Temperatur</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-[15px] h-[15px] bg-green-500 rounded-full"></div>
-              <span>Puls</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-[15px] h-[15px] bg-wrlds-accent rounded-full"></div>
-              <span>Gas/Partiklar</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-[15px] h-[15px] bg-blue-400 rounded-md"></div>
-              <span>Rörelse</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-[15px] h-[15px] bg-yellow-500 rounded-sm"></div>
-              <span>Tryck</span>
-            </div>
-          </div>
+          
+          {/* Vibration sensor on gloves */}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="absolute top-[45%] right-[25%] w-[25px] h-[25px] bg-orange-500 rounded-full border-2 border-white animate-pulse-slow flex items-center justify-center">
+                  <Vibrate size={14} className="text-white" />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="font-bold">Vibration sensor</p>
+                <p>Tracks tool vibration exposure</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          
+          {/* Pressure sensor on boot soles */}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="absolute bottom-[5%] left-[40%] w-[25px] h-[25px] bg-purple-500 rounded-full border-2 border-white animate-pulse-slow flex items-center justify-center">
+                  <Footprints size={14} className="text-white" />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="font-bold">Pressure sensor</p>
+                <p>Measures force on feet / detects surface instability</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
 
       <div className="mt-8 text-center max-w-[600px]">
         <p className="text-gray-700">
-          Denna bild visar placeringen av olika sensorer på en brandmans utrustning. 
-          Håll muspekaren över sensorerna för mer information.
+          This diagram shows the placement of various sensors on a firefighter's equipment.
+          Hover over the sensors for more information.
         </p>
       </div>
     </div>

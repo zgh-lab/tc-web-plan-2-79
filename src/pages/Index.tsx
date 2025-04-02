@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import WhyWrlds from '@/components/WhyWrlds';
 import ProductPlatform from '@/components/ProductPlatform';
 import FirefighterFigure from '@/components/FirefighterFigure';
+import ConstructionWorkersFigure from '@/components/ConstructionWorkersFigure';
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <Projects />
       <Process />
       <FirefighterFigure />
+      <ConstructionWorkersFigure />
       <ContactForm />
       <Footer />
     </div>
