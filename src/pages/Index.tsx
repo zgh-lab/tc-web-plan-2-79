@@ -8,7 +8,7 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import WhyWrlds from '@/components/WhyWrlds';
 import ProductPlatform from '@/components/ProductPlatform';
-import FirefighterSensors from '@/components/FirefighterSensors';
+import FirefighterFigure from '@/components/FirefighterFigure';
 
 const Index = () => {
   return (
@@ -16,11 +16,11 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Features />
-      <FirefighterSensors />
       <ProductPlatform />
       <WhyWrlds />
       <Projects />
       <Process />
+      <FirefighterFigure />
       <ContactForm />
       <Footer />
     </div>
