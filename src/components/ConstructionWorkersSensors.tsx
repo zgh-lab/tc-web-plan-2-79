@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { MapPin, Thermometer, HeartPulse, WavyLine, User, Footprints } from 'lucide-react';
+import { MapPin, Thermometer, HeartPulse, Vibrate, User, Footprints } from 'lucide-react';
 import {
   HoverCard,
   HoverCardContent,
@@ -36,7 +35,7 @@ const ConstructionWorkersSensors = () => {
       color: "bg-orange-400/80",
       description: "Measures tool vibration exposure during use",
       area: "Gloves",
-      icon: WavyLine,
+      icon: Vibrate,
       iconColor: "text-orange-400"
     },
     {
@@ -59,7 +58,6 @@ const ConstructionWorkersSensors = () => {
       icon: Footprints,
       iconColor: "text-purple-400"
     },
-    // Second worker
     {
       id: 6,
       name: "Impact / GPS",
@@ -87,7 +85,7 @@ const ConstructionWorkersSensors = () => {
       color: "bg-orange-400/80",
       description: "Measures tool vibration exposure during use",
       area: "Gloves",
-      icon: WavyLine,
+      icon: Vibrate,
       iconColor: "text-orange-400"
     },
     {

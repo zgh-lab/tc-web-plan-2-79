@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Signal, Droplet, Thermometer, HeartPulse, MotionIcon, WavyLine, Footprints } from 'lucide-react';
+import { Signal, Droplet, Thermometer, HeartPulse, Activity, Vibrate, Footprints } from 'lucide-react';
 import {
   HoverCard,
   HoverCardContent,
@@ -61,7 +61,7 @@ const FirefighterSensors = () => {
       color: "bg-yellow-400/80",
       description: "Identifies falls or lack of movement",
       area: "Lower Back",
-      icon: MotionIcon,
+      icon: Activity,
       iconColor: "text-yellow-400"
     },
     {
@@ -71,7 +71,7 @@ const FirefighterSensors = () => {
       color: "bg-teal-400/80",
       description: "Measures hand tool vibration exposure",
       area: "Gloves",
-      icon: WavyLine,
+      icon: Vibrate,
       iconColor: "text-teal-400"
     },
     {
