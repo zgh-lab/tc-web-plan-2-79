@@ -128,6 +128,31 @@ const Features = () => {
             </div>
           ))}
         </div>
+
+        {/* Sensor Types Illustration Section */}
+        <div className="mt-16 mb-8 feature-item">
+          <div className="text-center mb-8">
+            <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+              Textile Sensor Types
+            </div>
+            <h3 className="text-2xl font-bold">Visualizing Sensor Applications</h3>
+            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+              Below is a visual guide showcasing some examples of what textile sensors can do across different use cases and environments.
+            </p>
+          </div>
+          
+          <div className="rounded-xl overflow-hidden shadow-lg border border-gray-100 bg-white p-4">
+            <img 
+              src="/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png" 
+              alt="Textile sensor applications including skin temperature, pressure, gas, positioning, vibration, and other sensors" 
+              className="w-full max-w-4xl mx-auto"
+              loading="lazy"
+            />
+            <div className="text-center mt-4 text-sm text-gray-600 italic">
+              This illustration shows various types of textile sensors and their real-world applications in sports, military, and industrial contexts.
+            </div>
+          </div>
+        </div>
       </div>
     </section>;
 };
