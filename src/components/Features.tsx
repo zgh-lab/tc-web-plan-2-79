@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket, Shield, Activity, Zap, HardHat, Shirt, UserCheck } from "lucide-react";
 import { cn } from '@/lib/utils';
+import InteractiveImage from './InteractiveImage';
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -138,15 +139,15 @@ const Features = () => {
             <h3 className="text-2xl font-bold">Visualizing Sensor Applications</h3>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
               Below is a visual guide showcasing some examples of what textile sensors can do across different use cases and environments.
+              <span className="block text-sm mt-1 text-blue-500">Click or tap the image to zoom and explore the details.</span>
             </p>
           </div>
           
           <div className="rounded-xl overflow-hidden shadow-lg border border-gray-100 bg-white p-4">
-            <img 
+            <InteractiveImage 
               src="/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png" 
-              alt="Textile sensor applications including skin temperature, pressure, gas, positioning, vibration, and other sensors" 
+              alt="Textile sensor applications including skin temperature, pressure, gas, positioning, vibration, and other sensors"
               className="w-full max-w-4xl mx-auto"
-              loading="lazy"
             />
             <div className="text-center mt-4 text-sm text-gray-600 italic">
               This illustration shows various types of textile sensors and their real-world applications in sports, military, and industrial contexts.
