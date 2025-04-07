@@ -10,6 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -175,21 +177,21 @@ const Features = () => {
               <CarouselContent>
                 {sensorCaseStudies.map((study, index) => (
                   <CarouselItem key={index} className="md:basis-2/3 lg:basis-1/2">
-                    <div className="p-1">
-                      <div className="rounded-xl overflow-hidden border border-gray-100 shadow-md bg-white h-full">
-                        <div className="aspect-[4/5] relative">
+                    <Card className="border border-gray-100 shadow-md">
+                      <CardContent className="p-0">
+                        <div className="w-full h-full">
                           <img 
                             src={study.image} 
                             alt={study.title} 
-                            className="w-full h-full object-cover"
+                            className="w-full h-auto object-contain"
                           />
                         </div>
                         <div className="p-4">
                           <h4 className="font-semibold text-lg">{study.title}</h4>
                           <p className="text-sm text-gray-600 mt-2">{study.description}</p>
                         </div>
-                      </div>
-                    </div>
+                      </CardContent>
+                    </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
