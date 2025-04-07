@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, CheckCircle, Clock, Layers, BarChart, Lightbulb, AlertTriangle, Clock4, Zap, Shield, Globe, Award, DollarSign } from "lucide-react";
+import { ArrowRight, CheckCircle, Clock, Layers, BarChart, Lightbulb, AlertTriangle, Clock4 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 
 // Counter animation component
 const AnimatedCounter = ({
@@ -17,7 +16,7 @@ const AnimatedCounter = ({
   prefix?: string;
   suffix?: string;
   decimals?: number;
-  }) => {
+}) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
   const inView = useInView(countRef, {
@@ -141,140 +140,36 @@ const WhyWrlds = () => {
               The WRLDS Difference
             </h3>
             
-            <ul className="space-y-6">
-              <li className="flex items-start transform transition-all hover:translate-x-1 duration-200">
-                <div className="flex-shrink-0 mr-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                  </div>
-                </div>
-                <div>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <h4 className="text-gray-900 font-semibold mb-1 flex items-center cursor-help">
-                        Seamless Integration
-                        <span className="ml-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Learn more</span>
-                      </h4>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80">
-                      <div className="space-y-2">
-                        <h5 className="text-sm font-medium">Integrated Development Process</h5>
-                        <p className="text-xs text-gray-500">We handle all critical expertise under one roof: electronics, firmware, AI, cloud infrastructure, app development, and mechanical engineering.</p>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                  <p className="text-gray-700">
-                    Bringing together all critical expertise: electronics, firmware, AI, cloud infrastructure, app development, and mechanical engineering
-                  </p>
-                </div>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
+                <p className="text-gray-700">
+                  <span className="text-gray-900 font-medium">Seamless integration</span> of all critical expertise: electronics, firmware, AI, cloud infrastructure, app development, and mechanical engineering
+                </p>
               </li>
-              
-              <li className="flex items-start transform transition-all hover:translate-x-1 duration-200">
-                <div className="flex-shrink-0 mr-4">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                    <Layers className="w-5 h-5 text-purple-600" />
-                  </div>
-                </div>
-                <div>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <h4 className="text-gray-900 font-semibold mb-1 flex items-center cursor-help">
-                        Motion Sensor Expertise 
-                        <span className="ml-2 text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">Learn more</span>
-                      </h4>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80">
-                      <div className="space-y-2">
-                        <h5 className="text-sm font-medium">Rapid Prototyping & Validation</h5>
-                        <p className="text-xs text-gray-500">Our specialized knowledge in motion sensors allows us to quickly develop and test prototypes, significantly reducing time-to-market.</p>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                  <p className="text-gray-700">
-                    Specialization in motion sensor technology complemented by rapid prototyping, shortening the path from concept to validated prototypes
-                  </p>
-                </div>
+              <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
+                <p className="text-gray-700">
+                  <span className="text-gray-900 font-medium">Specialization in motion sensor technology</span> complemented by rapid prototyping, shortening the path from concept to validated prototypes
+                </p>
               </li>
-              
-              <li className="flex items-start transform transition-all hover:translate-x-1 duration-200">
-                <div className="flex-shrink-0 mr-4">
-                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-green-600" />
-                  </div>
-                </div>
-                <div>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <h4 className="text-gray-900 font-semibold mb-1 flex items-center cursor-help">
-                        Global Network
-                        <span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Learn more</span>
-                      </h4>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80">
-                      <div className="space-y-2">
-                        <h5 className="text-sm font-medium">Strategic Partnerships</h5>
-                        <p className="text-xs text-gray-500">Our worldwide manufacturing and software partners ensure solutions can scale efficiently and be customized to meet specific regional needs.</p>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                  <p className="text-gray-700">
-                    Worldwide manufacturing and software partners ensuring scalability and tailored solutions for any market
-                  </p>
-                </div>
+              <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
+                <p className="text-gray-700">
+                  <span className="text-gray-900 font-medium">Global network</span> of manufacturing and software partners ensuring scalability and tailored solutions
+                </p>
               </li>
-              
-              <li className="flex items-start transform transition-all hover:translate-x-1 duration-200">
-                <div className="flex-shrink-0 mr-4">
-                  <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-amber-600" />
-                  </div>
-                </div>
-                <div>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <h4 className="text-gray-900 font-semibold mb-1 flex items-center cursor-help">
-                        Consolidated Process
-                        <span className="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Learn more</span>
-                      </h4>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80">
-                      <div className="space-y-2">
-                        <h5 className="text-sm font-medium">Streamlined Development</h5>
-                        <p className="text-xs text-gray-500">With clear ownership and optimized workflows, we eliminate common bottlenecks that plague IoT projects, reducing risk and development time.</p>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                  <p className="text-gray-700">
-                    Development under one roof, ensuring clear ownership, streamlined processes, reduced risk, and optimized timelines
-                  </p>
-                </div>
+              <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
+                <p className="text-gray-700">
+                  <span className="text-gray-900 font-medium">Consolidated development process</span> under one roof, ensuring clear ownership, streamlined processes, reduced risk, and optimized timelines
+                </p>
               </li>
-              
-              <li className="flex items-start transform transition-all hover:translate-x-1 duration-200">
-                <div className="flex-shrink-0 mr-4">
-                  <div className="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center">
-                    <Award className="w-5 h-5 text-rose-600" />
-                  </div>
-                </div>
-                <div>
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <h4 className="text-gray-900 font-semibold mb-1 flex items-center cursor-help">
-                        Proven Success
-                        <span className="ml-2 text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full">Learn more</span>
-                      </h4>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80">
-                      <div className="space-y-2">
-                        <h5 className="text-sm font-medium">FireCat Case Study</h5>
-                        <p className="text-xs text-gray-500">We delivered the FireCat product from concept to market in just 6 months, demonstrating our ability to rapidly develop and deploy IoT solutions.</p>
-                      </div>
-                    </HoverCardContent>
-                  </HoverCard>
-                  <p className="text-gray-700">
-                    We took FireCat to market in just 6 months, working iteratively with clear business cases and prototyping to ensure market fit
-                  </p>
-                </div>
+              <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
+                <p className="text-gray-700">
+                  <span className="text-gray-900 font-medium">Proven success:</span> We took FireCat to market in just 6 months, working iteratively with clear business cases and prototyping to ensure market fit
+                </p>
               </li>
             </ul>
             

@@ -8,6 +8,8 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import WhyWrlds from '@/components/WhyWrlds';
 import ProductPlatform from '@/components/ProductPlatform';
+import FirefighterSensors from '@/components/FirefighterSensors';
+import ConstructionWorkersSensors from '@/components/ConstructionWorkersSensors';
 
 const Index = () => {
   return (
@@ -15,6 +17,8 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Features />
+      <FirefighterSensors />
+      <ConstructionWorkersSensors />
       <ProductPlatform />
       <WhyWrlds />
       <Projects />
