@@ -1,8 +1,15 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { Cpu, Server, Database, BrainCircuit, Cloud, Rocket, Shield, Activity, Zap, HardHat, Shirt, UserCheck } from "lucide-react";
+import { Shirt, Activity, Shield, HardHat, UserCheck, Zap } from "lucide-react";
 import { cn } from '@/lib/utils';
-import InteractiveImage from './InteractiveImage';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -74,6 +81,25 @@ const Features = () => {
       image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
     }
   ];
+
+  // Case studies showing sensor applications
+  const sensorCaseStudies = [
+    {
+      image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png",
+      title: "Sports Performance",
+      description: "Smart athletic wear with temperature and pressure sensors that track hydration, foot strike patterns, and performance metrics.",
+    },
+    {
+      image: "/lovable-uploads/a1ef45a0-dde4-4b30-856f-8032dd58247e.png",
+      title: "Firefighter Safety",
+      description: "Advanced protective gear with gas, temperature, positioning, and motion sensors for safer emergency response.",
+    },
+    {
+      image: "/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png",
+      title: "Industrial Worker Protection",
+      description: "Safety workwear with temperature, pressure, and vibration sensors to prevent injuries and monitor environmental hazards.",
+    }
+  ];
   
   return <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
@@ -130,27 +156,50 @@ const Features = () => {
           ))}
         </div>
 
-        {/* Sensor Types Illustration Section */}
+        {/* Sensor Types Illustration Section - Updated with Carousel */}
         <div className="mt-16 mb-8 feature-item">
           <div className="text-center mb-8">
             <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-              Textile Sensor Types
+              Textile Sensor Applications
             </div>
-            <h3 className="text-2xl font-bold">Visualizing Sensor Applications</h3>
+            <h3 className="text-2xl font-bold">Real-World Use Cases</h3>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-              Below is a visual guide showcasing some examples of what textile sensors can do across different use cases and environments.
-              <span className="block text-sm mt-1 text-blue-500">Click or tap the image to zoom and explore the details.</span>
+              Explore how our textile sensors are applied in different professional contexts, 
+              from athletics to emergency response and industrial safety.
+              <span className="block text-sm mt-1 text-blue-500">Scroll horizontally to see more examples →</span>
             </p>
           </div>
           
-          <div className="rounded-xl overflow-hidden shadow-lg border border-gray-100 bg-white p-4">
-            <InteractiveImage 
-              src="/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png" 
-              alt="Textile sensor applications including skin temperature, pressure, gas, positioning, vibration, and other sensors"
-              className="w-full max-w-4xl mx-auto"
-            />
-            <div className="text-center mt-4 text-sm text-gray-600 italic">
-              This illustration shows various types of textile sensors and their real-world applications in sports, military, and industrial contexts.
+          <div className="rounded-xl overflow-hidden bg-white p-4 feature-item">
+            <Carousel className="w-full max-w-5xl mx-auto">
+              <CarouselContent>
+                {sensorCaseStudies.map((study, index) => (
+                  <CarouselItem key={index} className="md:basis-2/3 lg:basis-1/2">
+                    <div className="p-1">
+                      <div className="rounded-xl overflow-hidden border border-gray-100 shadow-md bg-white h-full">
+                        <div className="aspect-[4/5] relative">
+                          <img 
+                            src={study.image} 
+                            alt={study.title} 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <h4 className="font-semibold text-lg">{study.title}</h4>
+                          <p className="text-sm text-gray-600 mt-2">{study.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center mt-6 gap-2">
+                <CarouselPrevious className="relative static left-auto translate-y-0 hover:bg-gray-100" />
+                <CarouselNext className="relative static right-auto translate-y-0 hover:bg-gray-100" />
+              </div>
+            </Carousel>
+            <div className="text-center mt-6 text-sm text-gray-600">
+              <p className="font-medium">These examples showcase just a few ways our textile sensors can enhance safety and performance</p>
             </div>
           </div>
         </div>
