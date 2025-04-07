@@ -17,16 +17,14 @@ const Index = () => {
       <Hero />
       <Features />
       
-      {/* Add your video component here - replace "/path-to-your-video.mp4" with the actual path to your video file */}
       <div className="container mx-auto px-4 py-16">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">See Our Technology in Action</h2>
         <div className="max-w-4xl mx-auto">
           <Video 
-            src="/path-to-your-video.mp4" 
+            youtubeId="dNV5FngizJA" 
             title="WRLDS Smart Textile Technology Demo" 
             controls={true}
             autoPlay={false}
-            loop={false}
             muted={false}
           />
         </div>
