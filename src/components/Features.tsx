@@ -424,7 +424,7 @@ const Features = () => {
             {/* Bottom Block - Hitting the Market */}
             <div className="bg-gradient-to-r from-gray-100 via-white to-gray-100 rounded-lg p-8 max-w-xl mx-auto text-center shadow-md hover:shadow-lg transition-all duration-300">
               <div className="relative inline-block mb-4">
-                <div className="absolute inset-0 bg-gray-200 rounded-full animate-pulse-slow"></div>
+                <div className="absolute inset-0 bg-black/10 rounded-full animate-pulse-slow"></div>
                 <div className="relative bg-white rounded-full p-4 border border-gray-200 shadow-md">
                   <Rocket className="h-10 w-10 text-gray-700" />
                 </div>
