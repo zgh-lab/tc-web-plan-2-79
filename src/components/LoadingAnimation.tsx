@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Progress } from '@/components/ui/progress';
@@ -14,9 +15,9 @@ const LoadingAnimation = () => {
             clearInterval(progressInterval);
             return 100;
           }
-          return prev + 0.8;
+          return prev + 0.4; // More gradual increment for smoother animation
         });
-      }, 15);
+      }, 10); // Shorter interval for smoother animation
       
       const timer = setTimeout(() => {
         setIsLoading(false);
@@ -58,8 +59,8 @@ const LoadingAnimation = () => {
               value={progress} 
               className="h-1.5 bg-gray-200" 
               style={{
-                '--progress-background': '#E5E5E5',
-                '--progress-foreground': '#333333'
+                '--progress-background': '#222222',
+                '--progress-foreground': '#000000'
               } as React.CSSProperties}
             />
           </motion.div>

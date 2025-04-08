@@ -71,9 +71,9 @@ const Features = () => {
             }, 500);
             return 100;
           }
-          return prev + 2;
+          return prev + 0.5; // Smoother animation with smaller increments
         });
-      }, 100);
+      }, 50); // Increased interval for smoother animation
     };
     
     // Start the animation
@@ -319,12 +319,12 @@ const Features = () => {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center">
                     <h3 className="text-xl font-bold">Adaptation Project</h3>
-                    <span className="ml-2 text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">
+                    <span className="ml-2 text-sm bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">
                       Sprint {currentSprint}/{totalSprints}
                     </span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-sm text-gray-500 mr-2">Iterative Development</span>
+                    <span className="text-sm text-gray-600 mr-2">Iterative Development</span>
                     <RefreshCcw className="h-5 w-5 text-gray-600 animate-rotate-slow" />
                   </div>
                 </div>
@@ -346,21 +346,19 @@ const Features = () => {
                         // Highlight the active phase based on progress
                         progressValue >= (index / sprintPhases.length * 100) && 
                         progressValue < ((index + 1) / sprintPhases.length * 100) 
-                          ? "bg-blue-50 border border-blue-100" 
+                          ? "bg-gray-200 border border-gray-300" 
                           : "bg-gray-50"
                       )}
                     >
-                      <div className="flex flex-col items-center">
-                        <div className={cn(
-                          "rounded-full p-1 mb-1",
-                          progressValue >= (index / sprintPhases.length * 100)
-                            ? "bg-blue-100 text-blue-700"
-                            : "bg-gray-100 text-gray-500"
-                        )}>
-                          {phase.icon}
-                        </div>
-                        <span className="text-xs font-medium">{phase.name}</span>
+                      <div className={cn(
+                        "rounded-full p-1 mb-1",
+                        progressValue >= (index / sprintPhases.length * 100)
+                          ? "bg-gray-300 text-gray-700"
+                          : "bg-gray-100 text-gray-500"
+                      )}>
+                        {phase.icon}
                       </div>
+                      <span className="text-xs font-medium">{phase.name}</span>
                     </div>
                   ))}
                 </div>
@@ -368,8 +366,8 @@ const Features = () => {
                 {/* Customer collaboration indicator */}
                 <div className="flex items-center justify-between mt-6">
                   <div className="flex items-center">
-                    <div className="bg-green-100 rounded-full p-1 mr-2">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    <div className="bg-gray-200 rounded-full p-1 mr-2">
+                      <CheckCircle className="h-4 w-4 text-gray-600" />
                     </div>
                     <span className="text-sm text-gray-600">Customer feedback integrated at every stage</span>
                   </div>
