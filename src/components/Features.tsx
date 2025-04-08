@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake } from "lucide-react";
 import { cn } from '@/lib/utils';
@@ -224,16 +225,15 @@ const Features = () => {
             </p>
           </div>
           
-          {/* New Horizontal Step Flow */}
-          <div className="relative bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10 transition-all duration-300 hover:shadow-xl">
             {/* Top Row - 3 Foundation Pillars */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               {stepFlowItems.map((item, index) => (
                 <HoverCard key={index}>
                   <HoverCardTrigger asChild>
-                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 h-full">
+                    <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 h-full cursor-pointer">
                       <div className="flex flex-col items-center text-center">
-                        <div className="bg-gray-100 rounded-full p-4 mb-4">
+                        <div className="bg-gray-50 rounded-full p-4 mb-4">
                           {item.icon}
                         </div>
                         <h3 className="text-lg font-bold mb-2">{item.title}</h3>
@@ -241,7 +241,7 @@ const Features = () => {
                       </div>
                     </div>
                   </HoverCardTrigger>
-                  <HoverCardContent className="w-80">
+                  <HoverCardContent className="w-80 shadow-lg">
                     <div className="space-y-2">
                       <h4 className="text-sm font-semibold">{item.title}</h4>
                       <p className="text-sm">{item.description}</p>
@@ -261,22 +261,24 @@ const Features = () => {
             </div>
 
             {/* Connecting Elements */}
-            <div className="hidden md:flex justify-center mb-8">
-              <div className="relative w-full max-w-md">
-                <ArrowRight className="w-8 h-8 text-gray-400 absolute left-1/2 -translate-x-1/2" />
-                <div className="h-12 border-l-2 border-dashed border-gray-300 absolute left-1/2 -translate-x-1/2 top-8"></div>
+            <div className="hidden md:block relative h-16 mb-10">
+              <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full -mt-3">
+                <div className="bg-gray-400 rounded-full p-1">
+                  <ArrowRight className="w-5 h-5 text-white rotate-90" />
+                </div>
               </div>
             </div>
             
             {/* Middle Block - Adaptation Project */}
-            <div className="bg-gray-100 rounded-lg p-6 mb-10">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
               <div className="max-w-3xl mx-auto">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <h3 className="text-xl font-bold">Adaptation Project</h3>
                   <Code className="h-6 w-6 text-gray-700" />
                 </div>
                 <p className="text-gray-600 mb-4">Tailoring the tech stack to the customer's use case</p>
-                <Progress value={60} className="h-3" />
+                <Progress value={60} className="h-3 bg-gray-200" />
                 <div className="flex justify-between mt-2 text-sm text-gray-500">
                   <span>Requirements</span>
                   <span>Development</span>
@@ -287,24 +289,29 @@ const Features = () => {
             </div>
             
             {/* Connecting Elements */}
-            <div className="hidden md:flex justify-center mb-8">
-              <div className="relative w-full max-w-md">
-                <ArrowRight className="w-8 h-8 text-gray-400 absolute left-1/2 -translate-x-1/2" />
-                <div className="h-12 border-l-2 border-dashed border-gray-300 absolute left-1/2 -translate-x-1/2 top-8"></div>
+            <div className="hidden md:block relative h-16 mb-10">
+              <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full -mt-3">
+                <div className="bg-gray-400 rounded-full p-1">
+                  <ArrowRight className="w-5 h-5 text-white rotate-90" />
+                </div>
               </div>
             </div>
             
             {/* Bottom Block - Hitting the Market */}
-            <div className="bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg p-8 max-w-xl mx-auto text-center">
-              <div className="bg-white rounded-full p-4 inline-block mb-4 shadow-md">
-                <Rocket className="h-10 w-10 text-gray-700" />
+            <div className="bg-gradient-to-r from-gray-100 via-white to-gray-100 rounded-lg p-8 max-w-xl mx-auto text-center shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-gray-200 rounded-full animate-pulse-slow"></div>
+                <div className="relative bg-white rounded-full p-4 border border-gray-200 shadow-md">
+                  <Rocket className="h-10 w-10 text-gray-700" />
+                </div>
               </div>
               <h3 className="text-xl font-bold mb-2">Hitting the Market</h3>
               <p className="text-gray-700">Ready to scale, produce, and launch</p>
               <div className="flex justify-center mt-4 space-x-2">
-                <span className="inline-block w-3 h-3 rounded-full bg-gray-300 animate-ping"></span>
-                <span className="inline-block w-3 h-3 rounded-full bg-gray-500 animate-ping animation-delay-200"></span>
-                <span className="inline-block w-3 h-3 rounded-full bg-gray-700 animate-ping animation-delay-400"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-300 animate-pulse"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-500 animate-pulse animation-delay-200"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-700 animate-pulse animation-delay-400"></span>
               </div>
             </div>
           </div>
@@ -313,7 +320,7 @@ const Features = () => {
             <Link 
               to="/tech-details" 
               onClick={() => window.scrollTo(0, 0)} 
-              className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
+              className="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group"
             >
               Learn More About Our Technology
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
