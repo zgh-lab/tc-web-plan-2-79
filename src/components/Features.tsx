@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw } from "lucide-react";
 import { cn } from '@/lib/utils';
@@ -14,6 +15,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -21,6 +23,7 @@ const Features = () => {
   const [progressValue, setProgressValue] = useState(0);
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -303,20 +306,30 @@ const Features = () => {
               ))}
             </div>
 
-            {/* Connecting Elements */}
-            <div className="hidden md:block relative h-16 mb-10">
-              <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
-              <div className="absolute left-1/2 -translate-x-1/2 top-full -mt-3">
+            {/* Connecting Elements - Fixed for mobile */}
+            <div className="relative h-16 mb-10">
+              {/* Only show on tablet and above */}
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
                 <div className="bg-gray-400 rounded-full p-1">
                   <ArrowRight className="w-5 h-5 text-white rotate-90" />
                 </div>
+              </div>
+              
+              {/* Mobile version - horizontal connector */}
+              <div className="md:hidden flex justify-center items-center h-full">
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+                <div className="bg-gray-400 rounded-full p-1 mx-2">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </div>
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
               </div>
             </div>
             
             {/* Middle Block - Iterative Adaptation Project */}
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
               <div className="max-w-3xl mx-auto">
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div className="flex items-center">
                     <h3 className="text-xl font-bold">Adaptation Project</h3>
                     <span className="ml-2 text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">
@@ -336,8 +349,11 @@ const Features = () => {
                   <Progress value={progressValue} className="h-3 bg-gray-200" />
                 </div>
                 
-                {/* Sprint phases */}
-                <div className="grid grid-cols-4 gap-1 mt-4">
+                {/* Sprint phases - Made responsive */}
+                <div className={cn(
+                  "grid gap-1 mt-4",
+                  isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4"
+                )}>
                   {sprintPhases.map((phase, index) => (
                     <div 
                       key={index}
@@ -365,15 +381,15 @@ const Features = () => {
                   ))}
                 </div>
                 
-                {/* Customer collaboration indicator */}
-                <div className="flex items-center justify-between mt-6">
+                {/* Customer collaboration indicator - Made responsive */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2">
                   <div className="flex items-center">
-                    <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <div className="bg-green-100 rounded-full p-1 mr-2 shrink-0">
                       <CheckCircle className="h-4 w-4 text-green-600" />
                     </div>
                     <span className="text-sm text-gray-600">Customer feedback integrated at every stage</span>
                   </div>
-                  <div className="text-sm text-gray-500 flex items-center">
+                  <div className="text-sm text-gray-500 flex items-center mt-2 sm:mt-0">
                     <span className="mr-2">Continuous improvement</span>
                     <div className="flex space-x-1">
                       <span className="inline-block w-2 h-2 bg-gray-300 rounded-full animate-pulse"></span>
@@ -385,13 +401,23 @@ const Features = () => {
               </div>
             </div>
             
-            {/* Connecting Elements */}
-            <div className="hidden md:block relative h-16 mb-10">
-              <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
-              <div className="absolute left-1/2 -translate-x-1/2 top-full -mt-3">
+            {/* Connecting Elements - Fixed for mobile */}
+            <div className="relative h-16 mb-10">
+              {/* Only show on tablet and above */}
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
                 <div className="bg-gray-400 rounded-full p-1">
                   <ArrowRight className="w-5 h-5 text-white rotate-90" />
                 </div>
+              </div>
+              
+              {/* Mobile version - horizontal connector */}
+              <div className="md:hidden flex justify-center items-center h-full">
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
+                <div className="bg-gray-400 rounded-full p-1 mx-2">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </div>
+                <div className="w-1/3 h-0.5 bg-gray-300"></div>
               </div>
             </div>
             
