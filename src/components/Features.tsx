@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
@@ -16,12 +17,12 @@ const Features = () => {
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
   const isMobile = useIsMobile();
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-slide-in');
-          // Make sure the element remains visible after animation
           (entry.target as HTMLElement).style.opacity = '1';
           observer.unobserve(entry.target);
         }
@@ -32,7 +33,6 @@ const Features = () => {
     if (featuresRef.current) {
       const elements = featuresRef.current.querySelectorAll('.feature-item');
       elements.forEach(el => {
-        // Only set initial opacity if not already animated
         if (!el.classList.contains('animate-slide-in')) {
           (el as HTMLElement).style.opacity = '0';
           observer.observe(el);
@@ -42,22 +42,17 @@ const Features = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Progress bar animation
   useEffect(() => {
     let interval: NodeJS.Timeout;
 
-    // Function to animate the progress bar
     const animateProgress = () => {
       setProgressValue(0);
       interval = setInterval(() => {
         setProgressValue(prev => {
-          // When we reach 100%, complete this sprint
           if (prev >= 100) {
             clearInterval(interval);
             setTimeout(() => {
-              // Move to next sprint or cycle back to first sprint
               setCurrentSprint(prev => prev < totalSprints ? prev + 1 : 1);
-              // Start the animation again
               animateProgress();
             }, 500);
             return 100;
@@ -67,12 +62,12 @@ const Features = () => {
       }, 100);
     };
 
-    // Start the animation
     animateProgress();
     return () => {
       if (interval) clearInterval(interval);
     };
   }, []);
+
   const features = [{
     icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Sports Performance",
@@ -94,19 +89,21 @@ const Features = () => {
     description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
     image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
   }];
+
   const sensorCaseStudies = [{
-    image: "/lovable-uploads/a1ef45a0-dde4-4b30-856f-8032dd58247e.png",
+    image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
     title: "Firefighter Safety",
     description: "Advanced protective gear with gas, temperature, positioning, and motion sensors for safer emergency response."
   }, {
-    image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png",
+    image: "/lovable-uploads/5463c9c5-0946-4280-a14b-17636ff69a98.png",
+    title: "Industrial Worker Protection",
+    description: "Safety workwear with vibration, pressure, and heating sensors to prevent injuries and monitor environmental hazards."
+  }, {
+    image: "/lovable-uploads/c5f8ee24-9815-4ebe-b65d-6f3d449feb8b.png",
     title: "Sports Performance",
     description: "Smart athletic wear with temperature and pressure sensors that track hydration, foot strike patterns, and performance metrics."
-  }, {
-    image: "/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png",
-    title: "Industrial Worker Protection",
-    description: "Safety workwear with temperature, pressure, and vibration sensors to prevent injuries and monitor environmental hazards."
   }];
+
   const stepFlowItems = [{
     icon: <Microchip className="h-10 w-10 text-gray-700" />,
     title: "WRLDS Proprietary Modules",
@@ -120,6 +117,7 @@ const Features = () => {
     title: "Vetted Production Partners",
     description: "Expert manufacturing partners for quality and reliability"
   }];
+
   const sprintPhases = [{
     name: "Planning",
     icon: <CheckCircle className="h-4 w-4" />
@@ -133,6 +131,7 @@ const Features = () => {
     name: "Review",
     icon: <RefreshCcw className="h-4 w-4" />
   }];
+
   return <>
       <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
         <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
@@ -177,7 +176,7 @@ const Features = () => {
               <h3 className="text-2xl font-bold">Real-World Use Cases</h3>
               <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
                 Explore how our textile sensors are applied in different professional contexts, 
-                from athletics to emergency response and industrial safety.
+                from emergency response to construction and athletics.
                 <span className="block text-sm mt-1 text-blue-500">Scroll horizontally to see more examples →</span>
               </p>
             </div>
@@ -226,7 +225,6 @@ const Features = () => {
           </div>
           
           <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10 transition-all duration-300 hover:shadow-xl">
-            {/* Top Row - 3 Foundation Pillars */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               {stepFlowItems.map((item, index) => <HoverCard key={index}>
                   <HoverCardTrigger asChild>
@@ -252,9 +250,7 @@ const Features = () => {
                 </HoverCard>)}
             </div>
 
-            {/* Connecting Elements - Fixed for mobile */}
             <div className="relative h-16 mb-10">
-              {/* Only show on tablet and above */}
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
                 <div className="bg-gray-400 rounded-full p-1">
@@ -262,7 +258,6 @@ const Features = () => {
                 </div>
               </div>
               
-              {/* Mobile version - horizontal connector */}
               <div className="md:hidden flex justify-center items-center h-full">
                 <div className="w-1/3 h-0.5 bg-gray-300"></div>
                 <div className="bg-gray-400 rounded-full p-1 mx-2">
@@ -272,13 +267,11 @@ const Features = () => {
               </div>
             </div>
             
-            {/* Middle Block - Iterative Adaptation Project */}
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
               <div className="max-w-3xl mx-auto">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div className="flex items-center">
                     <h3 className="text-xl font-bold">Adaptation Project</h3>
-                    
                   </div>
                   <div className="flex items-center">
                     <span className="text-sm text-gray-500 mr-2">Iterative Development</span>
@@ -288,15 +281,12 @@ const Features = () => {
                 
                 <p className="text-gray-600 mb-4">Working iteratively with customers to tailor solutions to their needs</p>
                 
-                {/* Progress bar with iterations */}
                 <div className="relative mb-2">
                   <Progress value={progressValue} className="h-3 bg-gray-200" />
                 </div>
                 
-                {/* Sprint phases - Made responsive */}
                 <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
                   {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all",
-                // Highlight the active phase based on progress
                 progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
                       <div className="flex flex-col items-center">
                         <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
@@ -307,7 +297,6 @@ const Features = () => {
                     </div>)}
                 </div>
                 
-                {/* Customer collaboration indicator - Made responsive */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2">
                   <div className="flex items-center">
                     <div className="bg-green-100 rounded-full p-1 mr-2 shrink-0">
@@ -327,9 +316,7 @@ const Features = () => {
               </div>
             </div>
             
-            {/* Connecting Elements - Fixed for mobile */}
             <div className="relative h-16 mb-10">
-              {/* Only show on tablet and above */}
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gray-300 to-gray-400"></div>
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full -mt-3">
                 <div className="bg-gray-400 rounded-full p-1">
@@ -337,7 +324,6 @@ const Features = () => {
                 </div>
               </div>
               
-              {/* Mobile version - horizontal connector */}
               <div className="md:hidden flex justify-center items-center h-full">
                 <div className="w-1/3 h-0.5 bg-gray-300"></div>
                 <div className="bg-gray-400 rounded-full p-1 mx-2">
@@ -347,7 +333,6 @@ const Features = () => {
               </div>
             </div>
             
-            {/* Bottom Block - Hitting the Market */}
             <div className="bg-gradient-to-r from-gray-100 via-white to-gray-100 rounded-lg p-8 max-w-xl mx-auto text-center shadow-md hover:shadow-lg transition-all duration-300">
               <div className="relative inline-block mb-4">
                 <div className="absolute inset-0 bg-black/10 rounded-full animate-pulse-slow"></div>
@@ -375,4 +360,5 @@ const Features = () => {
       </section>
     </>;
 };
+
 export default Features;
