@@ -9,24 +9,30 @@ const LoadingAnimation = () => {
   
   useEffect(() => {
     if (isLoading) {
-      const progressInterval = setInterval(() => {
-        setProgress(prev => {
-          if (prev >= 100) {
-            clearInterval(progressInterval);
-            return 100;
-          }
-          return prev + 0.4; // More gradual increment for smoother animation
-        });
-      }, 10); // Shorter interval for smoother animation
+      // Start with progress at 0
+      setProgress(0);
       
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
+      // Use requestAnimationFrame for smoother animation
+      let startTime: number;
+      const duration = 2500; // 2.5 seconds to complete
       
-      return () => {
-        clearTimeout(timer);
-        clearInterval(progressInterval);
+      const animateProgress = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const elapsedTime = timestamp - startTime;
+        const progressPercent = Math.min((elapsedTime / duration) * 100, 100);
+        
+        setProgress(progressPercent);
+        
+        if (progressPercent < 100) {
+          requestAnimationFrame(animateProgress);
+        } else {
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 400); // Short delay after completion
+        }
       };
+      
+      requestAnimationFrame(animateProgress);
     }
   }, [isLoading]);
   
