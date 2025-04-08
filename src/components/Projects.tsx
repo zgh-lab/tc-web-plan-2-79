@@ -20,44 +20,39 @@ const projects = [
   },
   {
     id: 2,
-    title: "Performance Athletic Wear",
-    brand: "WRLDS Sport",
-    description: "Smart sports apparel with integrated textile sensors that track movement patterns, muscle fatigue, and form correction to optimize athletic performance and prevent injury.",
-    tags: ["Sports", "Performance Analytics", "Injury Prevention", "Motion Tracking"],
+    title: "Performance Athletic Footwear",
+    brand: "Global Sports Retail Leader",
+    description: "Smart Footwear R&D aiming to revolutionize development, fitting, and testing of athletic footwear.",
+    tags: ["Sports", "R&D", "Footwear", "Athletic Performance"],
     imageUrl: "/placeholder.svg",
     link: "#"
   },
   {
     id: 3,
-    title: "Tactical Military Uniforms",
-    brand: "WRLDS Defense",
-    description: "Advanced textile sensor integration in military gear that monitors vital signs, environmental hazards, and provides real-time battlefield awareness with secure data encryption.",
-    tags: ["Military", "Health Monitoring", "Environmental Detection", "Secure Comms"],
-    imageUrl: "/placeholder.svg"
+    title: "Workwear Climate Control",
+    brand: "European Multinational Textile Producer",
+    description: "Fully integrated temperature controls for professionals working in extreme heat and cold. Modular approach to enable full-body systems.",
+    tags: ["Climate Control", "Workwear", "Temperature Regulation", "Extreme Conditions"],
+    imageUrl: "/placeholder.svg",
+    link: "#"
   },
   {
     id: 4,
-    title: "Industrial Safety Workwear",
-    brand: "WRLDS Industrial",
-    description: "Construction and factory workwear with embedded sensors that detect environmental hazards, monitor worker fatigue, and alert to potential safety risks before accidents occur.",
-    tags: ["Industrial", "Safety", "Fatigue Monitoring", "Hazard Detection"],
-    imageUrl: "/placeholder.svg"
+    title: "Ice Hockey Elite Skill Tracker",
+    brand: "Mars Blades",
+    description: "R&D product evaluating data from single IMU embedded in the hockey shoe. Aim: establish motion patterns that lead to ultimate acceleration, speed, and maneuverability.",
+    tags: ["Ice Hockey", "Motion Analysis", "Performance Tracking", "Sports"],
+    imageUrl: "/placeholder.svg",
+    link: "#"
   },
   {
     id: 5,
-    title: "Adaptive Comfort Footwear",
-    brand: "WRLDS Step",
-    description: "Smart shoes with textile sensors that analyze gait, pressure distribution, and automatically adjust cushioning and support based on activity and terrain.",
-    tags: ["Footwear", "Adaptive Support", "Gait Analysis", "Comfort"],
-    imageUrl: "/placeholder.svg"
-  },
-  {
-    id: 6,
-    title: "Office Wellness Apparel",
-    brand: "WRLDS Professional",
-    description: "Business casual clothing with subtle integrated sensors that encourage proper posture, remind of movement breaks, and monitor stress indicators for white-collar professionals.",
-    tags: ["Office", "Wellness", "Posture", "Stress Management"],
-    imageUrl: "/placeholder.svg"
+    title: "Dog Activity Counter",
+    brand: "UK Insurance Giant",
+    description: "R&D project embedding a step counter in a dog collar. Measures daily activity and sends real-time data to the cloud for veterinary consultancies.",
+    tags: ["Pet Technology", "Insurance", "Activity Tracking", "R&D"],
+    imageUrl: "/placeholder.svg",
+    link: "#"
   }
 ];
 
@@ -105,10 +100,10 @@ const Projects = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-10 max-w-3xl mx-auto transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
-            Industry Projects
+            Customer Cases
           </div>
           <h2 className="text-3xl font-bold mb-3">
-            Textile Sensors Across Diverse Sectors
+            From Textile to Intelligence
           </h2>
           <p className="text-gray-600">
             Explore how our textile sensor technology is revolutionizing multiple industries with intelligent fabric solutions tailored to specific needs.
