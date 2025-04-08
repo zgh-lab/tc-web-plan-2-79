@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, CheckCircle, Clock, Layers, BarChart, Lightbulb, AlertTriangle, Clock4 } from "lucide-react";
+import { Layers, BarChart, AlertTriangle, Clock4, Rocket, Zap, Sparkles, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Link } from "react-router-dom";
 
 // Counter animation component
 const AnimatedCounter = ({
@@ -50,6 +51,7 @@ const AnimatedCounter = ({
       {prefix}{count.toFixed(decimals)}{suffix}
     </span>;
 };
+
 const WhyWrlds = () => {
   const isMobile = useIsMobile();
   const containerVariants = {
@@ -131,98 +133,74 @@ const WhyWrlds = () => {
           </motion.div>
         </motion.div>
         
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" initial="hidden" whileInView="visible" viewport={{
-        once: true,
-        margin: "-100px"
-      }} variants={containerVariants}>
-          <motion.div variants={itemVariants} className="order-2 md:order-1">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              The WRLDS Difference
+        <motion.div className="mb-12" initial="hidden" whileInView="visible" viewport={{
+          once: true,
+          margin: "-100px"
+        }} variants={containerVariants}>
+          <motion.div variants={itemVariants} className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              What WRLDS Does for You
             </h3>
-            
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
-                <p className="text-gray-700">
-                  <span className="text-gray-900 font-medium">Seamless integration</span> of all critical expertise: electronics, firmware, AI, cloud infrastructure, app development, and mechanical engineering
-                </p>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
-                <p className="text-gray-700">
-                  <span className="text-gray-900 font-medium">Specialization in motion sensor technology</span> complemented by rapid prototyping, shortening the path from concept to validated prototypes
-                </p>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
-                <p className="text-gray-700">
-                  <span className="text-gray-900 font-medium">Global network</span> of manufacturing and software partners ensuring scalability and tailored solutions
-                </p>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
-                <p className="text-gray-700">
-                  <span className="text-gray-900 font-medium">Consolidated development process</span> under one roof, ensuring clear ownership, streamlined processes, reduced risk, and optimized timelines
-                </p>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-1 mr-3 flex-shrink-0" />
-                <p className="text-gray-700">
-                  <span className="text-gray-900 font-medium">Proven success:</span> We took FireCat to market in just 6 months, working iteratively with clear business cases and prototyping to ensure market fit
-                </p>
-              </li>
-            </ul>
-            
-            <div className="mt-8">
-              <a href="/projects/firecat" className="inline-flex items-center px-5 py-2.5 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition group">
-                See FireCat Case Study
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We transform your ideas into market-ready solutions with tangible benefits for your business
+            </p>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="order-1 md:order-2">
-            <div className="relative bg-gradient-to-r from-blue-100 to-purple-100 p-1 rounded-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-200/50 to-purple-200/50 animate-pulse-slow"></div>
-              <div className="bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-lg border border-gray-200">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">Our Holistic Approach</h4>
-                <p className="text-gray-700 mb-6">
-                  By consolidating the entire development process under one roof, WRLDS ensures clear ownership, streamlined processes, and optimized development timelines.
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4">
-                      <Lightbulb className="w-5 h-5 text-gray-700" />
-                    </div>
-                    <div>
-                      <h5 className="text-gray-900 font-medium">Iterative Development</h5>
-                      <p className="text-sm text-gray-600">Clear business cases & continuous feedback</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4">
-                      <Layers className="w-5 h-5 text-gray-700" />
-                    </div>
-                    <div>
-                      <h5 className="text-gray-900 font-medium">All-in-One Expertise</h5>
-                      <p className="text-sm text-gray-600">No handoffs between multiple vendors</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4">
-                      <Clock className="w-5 h-5 text-gray-700" />
-                    </div>
-                    <div>
-                      <h5 className="text-gray-900 font-medium">Accelerated Timeline</h5>
-                      <p className="text-sm text-gray-600">From concept to market in months, not years</p>
-                    </div>
-                  </div>
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
+              <div className="flex items-start">
+                <div className="bg-gray-200 rounded-full p-3 mr-4">
+                  <BarChart className="w-6 h-6 text-gray-700" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">New Revenue Products</h4>
+                  <p className="text-gray-700">Create high-margin, sensor-enabled products for new revenue streams.</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
+            
+            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
+              <div className="flex items-start">
+                <div className="bg-gray-200 rounded-full p-3 mr-4">
+                  <Sparkles className="w-6 h-6 text-gray-700" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Innovation That Attracts</h4>
+                  <p className="text-gray-700">Break through to dream clients with tech that makes you stand out.</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
+              <div className="flex items-start">
+                <div className="bg-gray-200 rounded-full p-3 mr-4">
+                  <Zap className="w-6 h-6 text-gray-700" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Comfort-Zone Development</h4>
+                  <p className="text-gray-700">We develop frontier tech while you stay in your comfort zone.</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div variants={itemVariants} className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
+              <div className="flex items-start">
+                <div className="bg-gray-200 rounded-full p-3 mr-4">
+                  <Rocket className="w-6 h-6 text-gray-700" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">Brand-Building Leaps</h4>
+                  <p className="text-gray-700">We enable hardware/software leaps that define your brand's future.</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+          
+          <motion.div variants={itemVariants} className="text-center mt-8">
+            <Link to="/development-process" className="inline-flex items-center text-gray-700 hover:text-gray-900 group">
+              Learn more about our structured development process
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
         </motion.div>
       </div>
