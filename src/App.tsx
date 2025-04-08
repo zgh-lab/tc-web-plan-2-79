@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LoadingAnimation from "./components/LoadingAnimation";
 import FireCatProject from "./pages/FireCatProject";
+import TechDetails from "./pages/TechDetails";
+import DevelopmentProcess from "./pages/DevelopmentProcess";
 
 const App = () => {
   // Create a new QueryClient instance inside the component
@@ -25,6 +27,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/firecat" element={<FireCatProject />} />
+            <Route path="/tech-details" element={<TechDetails />} />
+            <Route path="/development-process" element={<DevelopmentProcess />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
