@@ -231,13 +231,7 @@ const Features = () => {
               {stepFlowItems.map((item, index) => <HoverCard key={index}>
                   <HoverCardTrigger asChild>
                     <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 h-full cursor-pointer">
-                      <div className="flex flex-col items-center text-center">
-                        <div className="bg-gray-50 rounded-full p-4 mb-4">
-                          {item.icon}
-                        </div>
-                        <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.description}</p>
-                      </div>
+                      
                     </div>
                   </HoverCardTrigger>
                   <HoverCardContent className="w-80 shadow-lg">
