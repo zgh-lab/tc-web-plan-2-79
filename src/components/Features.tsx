@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket } from "lucide-react";
+import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake } from "lucide-react";
 import { cn } from '@/lib/utils';
 import {
   Carousel,
@@ -12,6 +12,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from 'react-router-dom';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Progress } from "@/components/ui/progress";
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -90,31 +92,21 @@ const Features = () => {
     }
   ];
 
-  const technologyProcess = [
+  const stepFlowItems = [
     {
-      icon: <Box />,
-      title: "WRLDS proprietary modules",
+      icon: <Microchip className="h-10 w-10 text-gray-700" />,
+      title: "WRLDS Proprietary Modules",
       description: "Our core technology components developed in-house"
     },
     {
-      icon: <CheckCircle />,
-      title: "Vetted off-the-shelf hardware",
+      icon: <Factory className="h-10 w-10 text-gray-700" />,
+      title: "Vetted Off-the-Shelf Hardware",
       description: "Carefully selected components that complement our technology"
     },
     {
-      icon: <Truck />,
-      title: "Vetted production partners",
+      icon: <Handshake className="h-10 w-10 text-gray-700" />,
+      title: "Vetted Production Partners",
       description: "Expert manufacturing partners for quality and reliability"
-    },
-    {
-      icon: <Code />,
-      title: "Adaptation projects",
-      description: "Tailoring solutions to specific industry needs"
-    },
-    {
-      icon: <Rocket />,
-      title: "Hitting the market",
-      description: "Bringing your product to life with speed and confidence"
     }
   ];
 
@@ -232,27 +224,88 @@ const Features = () => {
             </p>
           </div>
           
+          {/* New Horizontal Step Flow */}
           <div className="relative bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative">
-              {technologyProcess.map((step, index) => (
-                <div key={index} className="flex flex-col items-center text-center relative z-10 bg-white p-4 rounded-lg transition-all duration-300 hover:shadow-md">
-                  <div className={`w-16 h-16 ${index === technologyProcess.length - 1 ? 'bg-blue-50' : 'bg-gray-50'} rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-blue-50`}>
-                    <div className="text-gray-700 transition-transform duration-300 transform group-hover:scale-110">
-                      {step.icon}
+            {/* Top Row - 3 Foundation Pillars */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {stepFlowItems.map((item, index) => (
+                <HoverCard key={index}>
+                  <HoverCardTrigger asChild>
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 h-full">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-gray-100 rounded-full p-4 mb-4">
+                          {item.icon}
+                        </div>
+                        <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                        <p className="text-sm text-gray-600">{item.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="font-bold text-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-500">{step.description}</p>
-                  
-                  {index < technologyProcess.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                      <ArrowRight className="w-6 h-6 text-gray-300" />
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80">
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-semibold">{item.title}</h4>
+                      <p className="text-sm">{item.description}</p>
+                      {index === 0 && (
+                        <p className="text-xs text-gray-500">Our proprietary technology provides the core foundation of every solution we build.</p>
+                      )}
+                      {index === 1 && (
+                        <p className="text-xs text-gray-500">We carefully select the best off-the-shelf components to complement our proprietary technology.</p>
+                      )}
+                      {index === 2 && (
+                        <p className="text-xs text-gray-500">Our network of production partners ensures quality manufacturing at scale.</p>
+                      )}
                     </div>
-                  )}
-                </div>
+                  </HoverCardContent>
+                </HoverCard>
               ))}
-              
-              <div className="absolute hidden md:block top-1/2 left-0 right-0 h-0.5 bg-gray-100 -translate-y-1/2 z-0"></div>
+            </div>
+
+            {/* Connecting Elements */}
+            <div className="hidden md:flex justify-center mb-8">
+              <div className="relative w-full max-w-md">
+                <ArrowRight className="w-8 h-8 text-gray-400 absolute left-1/2 -translate-x-1/2" />
+                <div className="h-12 border-l-2 border-dashed border-gray-300 absolute left-1/2 -translate-x-1/2 top-8"></div>
+              </div>
+            </div>
+            
+            {/* Middle Block - Adaptation Project */}
+            <div className="bg-gray-100 rounded-lg p-6 mb-10">
+              <div className="max-w-3xl mx-auto">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-bold">Adaptation Project</h3>
+                  <Code className="h-6 w-6 text-gray-700" />
+                </div>
+                <p className="text-gray-600 mb-4">Tailoring the tech stack to the customer's use case</p>
+                <Progress value={60} className="h-3" />
+                <div className="flex justify-between mt-2 text-sm text-gray-500">
+                  <span>Requirements</span>
+                  <span>Development</span>
+                  <span>Testing</span>
+                  <span>Deployment</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Connecting Elements */}
+            <div className="hidden md:flex justify-center mb-8">
+              <div className="relative w-full max-w-md">
+                <ArrowRight className="w-8 h-8 text-gray-400 absolute left-1/2 -translate-x-1/2" />
+                <div className="h-12 border-l-2 border-dashed border-gray-300 absolute left-1/2 -translate-x-1/2 top-8"></div>
+              </div>
+            </div>
+            
+            {/* Bottom Block - Hitting the Market */}
+            <div className="bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg p-8 max-w-xl mx-auto text-center">
+              <div className="bg-white rounded-full p-4 inline-block mb-4 shadow-md">
+                <Rocket className="h-10 w-10 text-gray-700" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Hitting the Market</h3>
+              <p className="text-gray-700">Ready to scale, produce, and launch</p>
+              <div className="flex justify-center mt-4 space-x-2">
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-300 animate-ping"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-500 animate-ping animation-delay-200"></span>
+                <span className="inline-block w-3 h-3 rounded-full bg-gray-700 animate-ping animation-delay-400"></span>
+              </div>
             </div>
           </div>
           
