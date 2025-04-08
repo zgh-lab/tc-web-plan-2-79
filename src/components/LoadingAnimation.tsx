@@ -5,6 +5,16 @@ import { AnimatePresence, motion } from 'framer-motion';
 const LoadingAnimation = () => {
   const [isLoading, setIsLoading] = useState(true);
   
+  useEffect(() => {
+    // Set a timeout to hide the loading screen after 2.5 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+    
+    // Clean up the timer if the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <AnimatePresence>
       {isLoading && (

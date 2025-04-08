@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import LoadingAnimation from "./components/LoadingAnimation";
 import FireCatProject from "./pages/FireCatProject";
 import TechDetails from "./pages/TechDetails";
 import DevelopmentProcess from "./pages/DevelopmentProcess";
@@ -20,7 +19,6 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <LoadingAnimation />
         <Toaster />
         <Sonner />
         <BrowserRouter>
