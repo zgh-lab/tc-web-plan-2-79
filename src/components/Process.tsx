@@ -92,7 +92,6 @@ const Process = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Return JSX to fix TS2786 error
   return (
     <section id="process" className="bg-white py-16">
       <div className="container mx-auto px-4" ref={processRef}>
