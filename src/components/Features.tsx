@@ -1,6 +1,5 @@
-
 import { useEffect, useRef, useState } from 'react';
-import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake } from "lucide-react";
+import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, Users, Repeat, GitBranch, GitCommit, GitMerge } from "lucide-react";
 import { cn } from '@/lib/utils';
 import {
   Carousel,
@@ -108,6 +107,39 @@ const Features = () => {
       icon: <Handshake className="h-10 w-10 text-gray-700" />,
       title: "Vetted Production Partners",
       description: "Expert manufacturing partners for quality and reliability"
+    }
+  ];
+
+  const agileSprints = [
+    { 
+      name: "Sprint 1", 
+      focus: "Discovery & Planning", 
+      icon: <Users className="h-4 w-4 text-blue-500" />,
+      completed: true 
+    },
+    { 
+      name: "Sprint 2", 
+      focus: "Prototype Development", 
+      icon: <Code className="h-4 w-4 text-indigo-500" />,
+      completed: true 
+    },
+    { 
+      name: "Sprint 3", 
+      focus: "Testing & Iteration", 
+      icon: <GitBranch className="h-4 w-4 text-purple-500" />,
+      completed: true 
+    },
+    { 
+      name: "Sprint 4", 
+      focus: "Refinement", 
+      icon: <GitCommit className="h-4 w-4 text-pink-500" />,
+      completed: false 
+    },
+    { 
+      name: "Sprint 5", 
+      focus: "Final Integration", 
+      icon: <GitMerge className="h-4 w-4 text-rose-500" />,
+      completed: false 
     }
   ];
 
@@ -270,20 +302,94 @@ const Features = () => {
               </div>
             </div>
             
-            {/* Middle Block - Adaptation Project */}
+            {/* Middle Block - Adaptation Project - UPDATED WITH AGILE VISUALIZATION */}
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
-              <div className="max-w-3xl mx-auto">
+              <div className="max-w-4xl mx-auto">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold">Adaptation Project</h3>
-                  <Code className="h-6 w-6 text-gray-700" />
+                  <div>
+                    <h3 className="text-xl font-bold">Adaptation Project</h3>
+                    <p className="text-gray-600 mb-4">Tailoring the tech stack to the customer's use case</p>
+                  </div>
+                  <div className="flex items-center">
+                    <Code className="h-6 w-6 text-gray-700 mr-2" />
+                    <Repeat className="h-5 w-5 text-gray-500" />
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-4">Tailoring the tech stack to the customer's use case</p>
-                <Progress value={60} className="h-3 bg-gray-200" />
-                <div className="flex justify-between mt-2 text-sm text-gray-500">
-                  <span>Requirements</span>
-                  <span>Development</span>
-                  <span>Testing</span>
-                  <span>Deployment</span>
+                
+                {/* Agile Process Visualization */}
+                <div className="mb-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-medium text-gray-700">Agile Development Process</span>
+                    <span className="text-sm font-medium text-gray-700">60% Complete</span>
+                  </div>
+                  <Progress value={60} className="h-2 bg-gray-200" />
+                </div>
+                
+                {/* Sprint Timeline */}
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="absolute left-0 w-full h-0.5 bg-gray-200 top-5"></div>
+                  
+                  {/* Sprint Nodes */}
+                  <div className="flex justify-between relative mb-8">
+                    {agileSprints.map((sprint, index) => (
+                      <HoverCard key={index}>
+                        <HoverCardTrigger asChild>
+                          <div className="flex flex-col items-center relative z-10">
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                              sprint.completed 
+                                ? 'bg-green-100 text-green-700 border-2 border-green-400' 
+                                : index === 3 
+                                  ? 'bg-blue-100 text-blue-700 border-2 border-blue-400 animate-pulse' 
+                                  : 'bg-gray-100 text-gray-400 border-2 border-gray-300'
+                            }`}>
+                              {sprint.completed ? <CheckCircle className="h-5 w-5" /> : sprint.icon}
+                            </div>
+                            <div className="mt-2 text-center">
+                              <p className={`text-xs font-medium ${sprint.completed ? 'text-gray-700' : index === 3 ? 'text-blue-700' : 'text-gray-400'}`}>
+                                {sprint.name}
+                              </p>
+                            </div>
+                          </div>
+                        </HoverCardTrigger>
+                        <HoverCardContent className="w-48 p-3">
+                          <div>
+                            <p className="font-medium text-sm">{sprint.name}</p>
+                            <p className="text-xs text-gray-600">{sprint.focus}</p>
+                            <div className="mt-2 text-xs">
+                              {sprint.completed ? (
+                                <span className="text-green-600 flex items-center">
+                                  <CheckCircle className="h-3 w-3 mr-1" /> Completed
+                                </span>
+                              ) : index === 3 ? (
+                                <span className="text-blue-600 flex items-center">
+                                  <Repeat className="h-3 w-3 mr-1 animate-spin-slow" /> In Progress
+                                </span>
+                              ) : (
+                                <span className="text-gray-400">Upcoming</span>
+                              )}
+                            </div>
+                          </div>
+                        </HoverCardContent>
+                      </HoverCard>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Customer Collaboration Section */}
+                <div className="bg-white rounded-lg p-4 flex items-center border border-gray-200 shadow-sm">
+                  <div className="mr-4 bg-blue-50 p-2 rounded-lg">
+                    <Users className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-sm">Customer Collaboration</h4>
+                    <p className="text-xs text-gray-500">Continuous feedback loop with clients at each sprint</p>
+                  </div>
+                  <div className="ml-auto flex items-center">
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+                      Always On
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
