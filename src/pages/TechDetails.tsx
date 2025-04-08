@@ -5,8 +5,11 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import ProductPlatform from '@/components/ProductPlatform';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const TechDetails = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -27,8 +30,15 @@ const TechDetails = () => {
               </p>
               
               <h2 className="text-2xl font-bold mt-12 mb-6">System Architecture</h2>
-              <div className="bg-white p-8 rounded-lg mb-10 border border-gray-200 shadow-lg">
-                <ProductPlatform />
+              <div className="bg-white rounded-lg mb-10 border border-gray-200 shadow-lg overflow-hidden">
+                <div className={`${isMobile ? 'p-4' : 'p-8'} flex justify-center items-center transition-all duration-300`}>
+                  <div className="w-full max-w-full overflow-x-auto" style={{ 
+                    minHeight: isMobile ? '300px' : '400px',
+                    scrollbarWidth: 'thin' 
+                  }}>
+                    <ProductPlatform />
+                  </div>
+                </div>
               </div>
               
               <h2 className="text-2xl font-bold mt-12 mb-6">Our Approach</h2>
