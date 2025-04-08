@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
+import ProductPlatform from '@/components/ProductPlatform';
 
 const TechDetails = () => {
   return (
@@ -27,63 +28,7 @@ const TechDetails = () => {
               
               <h2 className="text-2xl font-bold mt-12 mb-6">System Architecture</h2>
               <div className="bg-white p-8 rounded-lg mb-10 border border-gray-200 shadow-lg">
-                <motion.div 
-                  className="aspect-w-16 aspect-h-9 p-4 rounded-lg flex items-center justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {/* System Architecture Visualization */}
-                  <div className="w-full">
-                    <div className="bg-gray-50 p-6 rounded-lg">
-                      <div className="text-center font-bold text-lg mb-4">WRLDS Smart Textile System Architecture</div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div className="bg-blue-50 p-4 rounded-lg shadow-sm border border-blue-100">
-                          <h3 className="font-bold text-gray-800 mb-2 text-center">Input Layer</h3>
-                          <div className="space-y-2">
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Pressure Sensors</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Temperature Sensors</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Motion Sensors</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Biometric Sensors</div>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-purple-50 p-4 rounded-lg shadow-sm border border-purple-100">
-                          <h3 className="font-bold text-gray-800 mb-2 text-center">Processing Layer</h3>
-                          <div className="space-y-2">
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Microcontroller Unit</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Signal Conditioning</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Edge AI Module</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Power Management</div>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-green-50 p-4 rounded-lg shadow-sm border border-green-100">
-                          <h3 className="font-bold text-gray-800 mb-2 text-center">Output Layer</h3>
-                          <div className="space-y-2">
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Bluetooth/WiFi Module</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Cloud Connectivity</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Mobile App Interface</div>
-                            <div className="bg-white p-2 rounded border border-gray-200 text-sm">Feedback Systems</div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-gray-100 p-4 rounded-lg shadow-sm border border-gray-200">
-                        <h3 className="font-bold text-gray-800 mb-2 text-center">Integration Layer</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                          <div className="bg-white p-2 rounded border border-gray-200 text-sm text-center">API Gateway</div>
-                          <div className="bg-white p-2 rounded border border-gray-200 text-sm text-center">Data Pipeline</div>
-                          <div className="bg-white p-2 rounded border border-gray-200 text-sm text-center">Machine Learning</div>
-                          <div className="bg-white p-2 rounded border border-gray-200 text-sm text-center">Analytics Dashboard</div>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-500 mt-4 text-center">
-                      Our comprehensive system architecture illustrates how our proprietary modules integrate with hardware and software components
-                    </p>
-                  </div>
-                </motion.div>
+                <ProductPlatform />
               </div>
               
               <h2 className="text-2xl font-bold mt-12 mb-6">Our Approach</h2>
