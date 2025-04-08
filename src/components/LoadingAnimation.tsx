@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const LoadingAnimation = () => {
-  // Set isLoading to false to effectively disable the loading animation
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   return (
     <AnimatePresence>

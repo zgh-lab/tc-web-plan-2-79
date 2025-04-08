@@ -1,6 +1,5 @@
-
 import { useEffect, useRef, useState } from 'react';
-import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake } from "lucide-react";
+import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw } from "lucide-react";
 import { cn } from '@/lib/utils';
 import {
   Carousel,
@@ -19,6 +18,9 @@ import { Progress } from "@/components/ui/progress";
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const [progressValue, setProgressValue] = useState(0);
+  const [currentSprint, setCurrentSprint] = useState(1);
+  const totalSprints = 3;
   
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -46,6 +48,40 @@ const Features = () => {
     }
     
     return () => observer.disconnect();
+  }, []);
+  
+  // Progress bar animation
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    
+    // Function to animate the progress bar
+    const animateProgress = () => {
+      setProgressValue(0);
+      
+      interval = setInterval(() => {
+        setProgressValue(prev => {
+          // When we reach 100%, complete this sprint
+          if (prev >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+              // Move to next sprint or cycle back to first sprint
+              setCurrentSprint(prev => prev < totalSprints ? prev + 1 : 1);
+              // Start the animation again
+              animateProgress();
+            }, 500);
+            return 100;
+          }
+          return prev + 2;
+        });
+      }, 100);
+    };
+    
+    // Start the animation
+    animateProgress();
+    
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, []);
   
   const features = [
@@ -109,6 +145,13 @@ const Features = () => {
       title: "Vetted Production Partners",
       description: "Expert manufacturing partners for quality and reliability"
     }
+  ];
+
+  const sprintPhases = [
+    { name: "Planning", icon: <CheckCircle className="h-4 w-4" /> },
+    { name: "Development", icon: <Code className="h-4 w-4" /> },
+    { name: "Testing", icon: <Box className="h-4 w-4" /> },
+    { name: "Review", icon: <RefreshCcw className="h-4 w-4" /> }
   ];
 
   return (
@@ -270,20 +313,74 @@ const Features = () => {
               </div>
             </div>
             
-            {/* Middle Block - Adaptation Project */}
+            {/* Middle Block - Iterative Adaptation Project */}
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6 mb-10 shadow-md">
               <div className="max-w-3xl mx-auto">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold">Adaptation Project</h3>
-                  <Code className="h-6 w-6 text-gray-700" />
+                  <div className="flex items-center">
+                    <h3 className="text-xl font-bold">Adaptation Project</h3>
+                    <span className="ml-2 text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">
+                      Sprint {currentSprint}/{totalSprints}
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-sm text-gray-500 mr-2">Iterative Development</span>
+                    <RefreshCcw className="h-5 w-5 text-gray-600 animate-rotate-slow" />
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-4">Tailoring the tech stack to the customer's use case</p>
-                <Progress value={60} className="h-3 bg-gray-200" />
-                <div className="flex justify-between mt-2 text-sm text-gray-500">
-                  <span>Requirements</span>
-                  <span>Development</span>
-                  <span>Testing</span>
-                  <span>Deployment</span>
+                
+                <p className="text-gray-600 mb-4">Working iteratively with customers to tailor solutions to their needs</p>
+                
+                {/* Progress bar with iterations */}
+                <div className="relative mb-2">
+                  <Progress value={progressValue} className="h-3 bg-gray-200" />
+                </div>
+                
+                {/* Sprint phases */}
+                <div className="grid grid-cols-4 gap-1 mt-4">
+                  {sprintPhases.map((phase, index) => (
+                    <div 
+                      key={index}
+                      className={cn(
+                        "text-center p-2 rounded transition-all",
+                        // Highlight the active phase based on progress
+                        progressValue >= (index / sprintPhases.length * 100) && 
+                        progressValue < ((index + 1) / sprintPhases.length * 100) 
+                          ? "bg-blue-50 border border-blue-100" 
+                          : "bg-gray-50"
+                      )}
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className={cn(
+                          "rounded-full p-1 mb-1",
+                          progressValue >= (index / sprintPhases.length * 100)
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-gray-100 text-gray-500"
+                        )}>
+                          {phase.icon}
+                        </div>
+                        <span className="text-xs font-medium">{phase.name}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Customer collaboration indicator */}
+                <div className="flex items-center justify-between mt-6">
+                  <div className="flex items-center">
+                    <div className="bg-green-100 rounded-full p-1 mr-2">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-sm text-gray-600">Customer feedback integrated at every stage</span>
+                  </div>
+                  <div className="text-sm text-gray-500 flex items-center">
+                    <span className="mr-2">Continuous improvement</span>
+                    <div className="flex space-x-1">
+                      <span className="inline-block w-2 h-2 bg-gray-300 rounded-full animate-pulse"></span>
+                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full animate-pulse animation-delay-200"></span>
+                      <span className="inline-block w-2 h-2 bg-gray-500 rounded-full animate-pulse animation-delay-400"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
