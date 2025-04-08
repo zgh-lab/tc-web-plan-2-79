@@ -71,11 +71,11 @@ const Navbar = () => {
               </Link>
               
               <button 
-                onClick={() => scrollToSection('features')} 
+                onClick={() => scrollToSection('technology')} 
                 className={cn("hover:text-gray-500 transition-colors font-medium", 
                 isScrolled ? "text-gray-700" : "text-gray-200")}
               >
-                Services
+                How it Works
               </button>
               
               <button 
@@ -92,7 +92,7 @@ const Navbar = () => {
                   className={cn("flex items-center hover:text-gray-500 transition-colors font-medium", 
                     isScrolled ? "text-gray-700" : "text-gray-200")}
                 >
-                  <span>Projects</span>
+                  <span>Customer Cases</span>
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
@@ -125,20 +125,28 @@ const Navbar = () => {
                         className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         onClick={() => scrollToSection('projects')}
                       >
-                        Military Applications
+                        Industrial Applications
                       </button>
                     </div>
                   </div>
                 )}
               </div>
               
-              <button 
-                onClick={() => scrollToSection('process')} 
+              <Link 
+                to="/development-process" 
                 className={cn("hover:text-gray-500 transition-colors font-medium", 
                 isScrolled ? "text-gray-700" : "text-gray-200")}
               >
-                Process
-              </button>
+                Our Process
+              </Link>
+              
+              <Link 
+                to="/tech-details" 
+                className={cn("hover:text-gray-500 transition-colors font-medium", 
+                isScrolled ? "text-gray-700" : "text-gray-200")}
+              >
+                Learn More
+              </Link>
               
               <button 
                 onClick={() => scrollToSection('contact')} 
@@ -179,11 +187,11 @@ const Navbar = () => {
           </Link>
           
           <button 
-            onClick={() => scrollToSection('features')}
+            onClick={() => scrollToSection('technology')}
             className={cn("block w-full text-left px-3 py-2 rounded-md", 
             isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
           >
-            Services
+            How it Works
           </button>
           
           <button 
@@ -203,7 +211,7 @@ const Navbar = () => {
               className={cn("flex w-full justify-between items-center rounded-md", 
                 isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
             >
-              <span>Projects</span>
+              <span>Customer Cases</span>
               <ChevronDown className={`h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             
@@ -241,18 +249,32 @@ const Navbar = () => {
                 className={cn("block w-full text-left px-3 py-2 rounded-md", 
                 isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
               >
-                Military Applications
+                Industrial Applications
               </button>
             </div>
           </div>
           
-          <button 
-            onClick={() => scrollToSection('process')}
-            className={cn("block w-full text-left px-3 py-2 rounded-md", 
+          <Link 
+            to="/development-process"
+            className={cn("block px-3 py-2 rounded-md", 
             isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+            onClick={() => {
+              setIsMenuOpen(false);
+            }}
           >
-            Process
-          </button>
+            Our Process
+          </Link>
+          
+          <Link 
+            to="/tech-details"
+            className={cn("block px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+            onClick={() => {
+              setIsMenuOpen(false);
+            }}
+          >
+            Learn More
+          </Link>
           
           <button 
             onClick={() => scrollToSection('contact')}

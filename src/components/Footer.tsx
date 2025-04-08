@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-black text-white pt-16 pb-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 pb-10 border-b border-gray-700">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
           <div className="lg:col-span-2">
             <img 
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
@@ -40,16 +40,6 @@ const Footer = () => {
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">News</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Partners</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Solutions</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Smart Sensors</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">AI Integration</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Prototyping</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Manufacturing</a></li>
             </ul>
           </div>
           
