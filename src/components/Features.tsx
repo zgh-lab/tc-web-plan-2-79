@@ -178,7 +178,7 @@ const Features = () => {
               <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
                 Explore how our textile sensors are applied in different professional contexts, 
                 from athletics to emergency response and industrial safety.
-                <span className="block text-sm mt-1 text-blue-500">Scroll horizontally to see more examples →</span>
+                <span className="block text-sm mt-1 text-blue-500">How our technology works</span>
               </p>
             </div>
             
@@ -278,7 +278,9 @@ const Features = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div className="flex items-center">
                     <h3 className="text-xl font-bold">Adaptation Project</h3>
-                    
+                    <span className="ml-2 text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">
+                      Sprint {currentSprint}/{totalSprints}
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-sm text-gray-500 mr-2">Iterative Development</span>
