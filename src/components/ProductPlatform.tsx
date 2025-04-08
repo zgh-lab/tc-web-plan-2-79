@@ -1,9 +1,6 @@
 
-// Let's update the "Learn More" link in ProductPlatform.tsx as well
-
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Link } from "react-router-dom";
 import { 
   Box, Truck, Code, Rocket, 
   CheckCircle, ArrowRight
@@ -159,21 +156,6 @@ const ProductPlatform = () => {
               </div>
             )}
           </div>
-          
-          {/* Learn More Link */}
-          <motion.div 
-            variants={itemVariants} 
-            className="text-center mt-12"
-          >
-            <Link 
-              to="/tech-details" 
-              onClick={() => window.scrollTo(0, 0)}
-              className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
-            >
-              Learn More About Our Technology
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
         </motion.div>
       </div>
     </section>
