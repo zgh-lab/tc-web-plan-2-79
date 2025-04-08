@@ -118,25 +118,6 @@ const Features = () => {
     }
   ];
 
-  const valuePropositions = [
-    {
-      title: "Products that give new revenue at higher price points",
-      description: "Differentiate your offerings with innovative technology that commands premium pricing"
-    },
-    {
-      title: "Innovation that gets you noticed by your dream customers",
-      description: "Stand out in the market with cutting-edge solutions that attract high-value clients"
-    },
-    {
-      title: "Out-of-the-comfort-zone tech, developed in your comfort zone",
-      description: "Advanced technology made accessible through our simplified development process"
-    },
-    {
-      title: "Development leaps that make your brand",
-      description: "Accelerate your brand's evolution with transformative textile sensor technology"
-    }
-  ];
-  
   return (
     <>
       <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
@@ -251,53 +232,37 @@ const Features = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-10">
-            {technologyProcess.map((step, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  {step.icon}
-                </div>
-                <h3 className="font-medium mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-500">{step.description}</p>
-                {index < technologyProcess.length - 1 && (
-                  <div className="hidden md:block absolute right-[-20px] top-1/2 transform -translate-y-1/2">
-                    <ArrowRight className="text-gray-300" />
+          <div className="relative bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative">
+              {technologyProcess.map((step, index) => (
+                <div key={index} className="flex flex-col items-center text-center relative z-10 bg-white p-4 rounded-lg transition-all duration-300 hover:shadow-md">
+                  <div className={`w-16 h-16 ${index === technologyProcess.length - 1 ? 'bg-blue-50' : 'bg-gray-50'} rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-blue-50`}>
+                    <div className="text-gray-700 transition-transform duration-300 transform group-hover:scale-110">
+                      {step.icon}
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+                  <h3 className="font-bold text-gray-800 mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-500">{step.description}</p>
+                  
+                  {index < technologyProcess.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                      <ArrowRight className="w-6 h-6 text-gray-300" />
+                    </div>
+                  )}
+                </div>
+              ))}
+              
+              <div className="absolute hidden md:block top-1/2 left-0 right-0 h-0.5 bg-gray-100 -translate-y-1/2 z-0"></div>
+            </div>
           </div>
           
           <div className="text-center">
-            <Link to="/tech-details" className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group">
+            <Link 
+              to="/tech-details" 
+              onClick={() => window.scrollTo(0, 0)} 
+              className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
+            >
               Learn More About Our Technology
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
-      
-      <section id="value-props" className="bg-white py-16">
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">What WRLDS Does for You</h2>
-            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
-              We transform your ideas into market-ready solutions with tangible benefits for your business
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {valuePropositions.map((value, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-10">
-            <Link to="/development-process" className="inline-flex items-center text-gray-700 hover:text-gray-900 group">
-              Learn more about our structured development process
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

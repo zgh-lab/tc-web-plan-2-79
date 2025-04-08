@@ -1,12 +1,13 @@
 
+// Let's update the "Learn More" link in ProductPlatform.tsx as well
+
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 import { 
   Box, Truck, Code, Rocket, 
-  CheckCircle, ArrowRight, HelpCircle
+  CheckCircle, ArrowRight
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const ProductPlatform = () => {
   const isMobile = useIsMobile();
@@ -89,13 +90,6 @@ const ProductPlatform = () => {
             WRLDS builds hardware and software with proprietary and off-the-shelf modules, 
             allowing us to develop completely unique solutions at high speed and lower risk.
           </motion.p>
-          
-          <motion.div variants={itemVariants} className="flex justify-center mt-6 mb-12">
-            <Button variant="outline" className="flex items-center gap-2 rounded-full border-gray-300 text-gray-700">
-              <HelpCircle className="h-4 w-4" />
-              <span>New to IoT? See our beginner's guide</span>
-            </Button>
-          </motion.div>
         </motion.div>
 
         {/* Technology Process Flow */}
@@ -173,6 +167,7 @@ const ProductPlatform = () => {
           >
             <Link 
               to="/tech-details" 
+              onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
             >
               Learn More About Our Technology

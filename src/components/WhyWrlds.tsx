@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Layers, BarChart, AlertTriangle, Clock4, Rocket, Zap, Sparkles, ArrowRight } from "lucide-react";
+import { Layers, BarChart, AlertTriangle, Clock4, Rocket, Zap, Sparkles, ArrowRight, Award, Target, Shield, ChartBar } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
-// Counter animation component
 const AnimatedCounter = ({
   end,
   duration = 2000,
@@ -196,8 +195,12 @@ const WhyWrlds = () => {
             </motion.div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="text-center mt-8">
-            <Link to="/development-process" className="inline-flex items-center text-gray-700 hover:text-gray-900 group">
+          <motion.div variants={itemVariants} className="text-center mt-10">
+            <Link 
+              to="/development-process" 
+              onClick={() => window.scrollTo(0, 0)}
+              className="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all group"
+            >
               Learn more about our structured development process
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -206,4 +209,5 @@ const WhyWrlds = () => {
       </div>
     </section>;
 };
+
 export default WhyWrlds;
