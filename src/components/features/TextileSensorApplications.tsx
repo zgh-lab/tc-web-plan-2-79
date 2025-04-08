@@ -1,0 +1,94 @@
+
+import { useState } from 'react';
+import { Activity, Shield, HardHat, Zap } from "lucide-react";
+import { cn } from '@/lib/utils';
+
+interface FeatureItem {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const TextileSensorApplications = () => {
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  
+  const features: FeatureItem[] = [
+    {
+      icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Sports Performance",
+      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
+      image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png"
+    },
+    {
+      icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Military & Defense",
+      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
+      image: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
+    },
+    {
+      icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Industrial Safety",
+      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
+      image: "/lovable-uploads/cf8966e3-de0d-445f-9fbd-ee6c48daa7ff.png"
+    },
+    {
+      icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Thermal Regulation",
+      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
+      image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
+    }
+  ];
+
+  return (
+    <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
+      <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+        Textile Sensor Applications
+      </div>
+      <p className="text-gray-600 mt-4">
+        Our textile sensor technology transforms ordinary fabrics into intelligent interfaces that collect data, monitor conditions, and enhance performance across diverse sectors.
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+        {features.map((feature, index) => (
+          <div 
+            key={index} 
+            className="feature-item rounded-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 h-[280px] relative shadow-lg" 
+            style={{
+              transitionDelay: `${index * 100}ms`,
+            }}
+            onMouseEnter={() => setHoveredFeature(index)} 
+            onMouseLeave={() => setHoveredFeature(null)}
+          >
+            <div className="absolute inset-0 w-full h-full">
+              <img 
+                src={feature.image} 
+                alt={feature.title} 
+                className="w-full h-full object-cover grayscale"
+              />
+              <div className={cn(
+                "absolute inset-0 bg-black/60 transition-opacity duration-300",
+                hoveredFeature === index ? "opacity-50" : "opacity-70"
+              )}></div>
+            </div>
+            
+            <div className="relative z-10 p-6 flex flex-col h-full justify-between">
+              <div>
+                <div className="mb-4 inline-block p-3 bg-gray-800/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform hover:scale-110">
+                  <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
+                    {feature.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+                <p className="text-white/90 text-sm">{feature.description}</p>
+              </div>
+              <div className={`h-0.5 bg-white/70 mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : 'w-0'}`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default TextileSensorApplications;
