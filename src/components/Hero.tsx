@@ -1,8 +1,6 @@
-
 import { ArrowRight, Code, Cpu, Layers } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
-
 const Hero = () => {
   const isMobile = useIsMobile();
   const containerVariants = {
@@ -31,7 +29,6 @@ const Hero = () => {
       }
     }
   };
-  
   return <motion.div className="relative mt-16 md:mt-0 w-full max-w-[100vw]" initial="hidden" animate="visible" variants={containerVariants}>
       {/* Banner with the provided image */}
       <div className="banner-container bg-black relative overflow-hidden h-[700px] md:h-[750px] w-full">
@@ -45,9 +42,9 @@ const Hero = () => {
         <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
-              <motion.h1 className="banner-title text-white text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>The Future of Smart Textile Technology is here.</motion.h1>
+              <motion.h1 className="banner-title text-white text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>The Future of Smart Textile Technology</motion.h1>
               <motion.p className="banner-subtitle text-gray-300 mt-4 md:mt-6 text-sm md:text-base max-w-2xl mx-auto" variants={itemVariants}>
-                We integrate AI-powered textile sensors into clothing, footwear, and wearables.
+                We integrate AI-powered textile sensors into clothing, footwear, and wearables—transforming everyday garments into intelligent data collection devices.
               </motion.p>
               <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 justify-center" variants={itemVariants}>
                 <a href="#projects" className="px-6 md:px-8 py-2 md:py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm md:text-base" onClick={e => {
@@ -61,6 +58,17 @@ const Hero = () => {
               }}>
                   Explore Projects
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a href="#process" className="px-6 md:px-8 py-2 md:py-3 bg-white border border-gray-200 text-gray-700 rounded-md hover:bg-gray-50 transition-all flex items-center justify-center text-sm md:text-base" onClick={e => {
+                e.preventDefault();
+                const processSection = document.getElementById('process');
+                if (processSection) {
+                  processSection.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }
+              }}>
+                  Our Process
                 </a>
               </motion.div>
             </motion.div>
@@ -99,5 +107,4 @@ const Hero = () => {
       </div>
     </motion.div>;
 };
-
 export default Hero;
