@@ -1,40 +1,19 @@
 
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Progress } from '@/components/ui/progress';
 
 const LoadingAnimation = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    if (isLoading) {
-      // Start with progress at 0
-      setProgress(0);
-      
-      // Use requestAnimationFrame for smoother animation
-      let startTime: number;
-      const duration = 2500; // 2.5 seconds to complete
-      
-      const animateProgress = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const elapsedTime = timestamp - startTime;
-        const progressPercent = Math.min((elapsedTime / duration) * 100, 100);
-        
-        setProgress(progressPercent);
-        
-        if (progressPercent < 100) {
-          requestAnimationFrame(animateProgress);
-        } else {
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 400); // Short delay after completion
-        }
-      };
-      
-      requestAnimationFrame(animateProgress);
-    }
-  }, [isLoading]);
+    // Set a timeout to hide the loading screen after 2.5 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+    
+    // Clean up the timer if the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
   
   return (
     <AnimatePresence>
@@ -45,29 +24,57 @@ const LoadingAnimation = () => {
           exit={{ 
             opacity: 0,
             transition: { 
-              duration: 0.6,
+              duration: 0.8,
               ease: "easeInOut"
             } 
           }}
         >
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ 
+              scale: 1, 
               opacity: 1,
               transition: { 
-                duration: 0.4,
+                duration: 0.6,
                 ease: "easeOut"
               }
             }}
-            className="w-64"
+            exit={{ 
+              scale: 1.2, 
+              opacity: 0,
+              transition: { 
+                duration: 0.6,
+                ease: "easeInOut"
+              }
+            }}
+            className="flex flex-col items-center"
           >
-            <Progress 
-              value={progress} 
-              className="h-1.5 bg-gray-200" 
-              style={{
-                '--progress-background': '#222222',
-                '--progress-foreground': '#000000'
-              } as React.CSSProperties}
+            <motion.img 
+              src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
+              alt="WRLDS Technologies Logo" 
+              className="h-24 w-auto mb-6 grayscale"
+              style={{ objectFit: 'contain' }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ 
+                y: 0, 
+                opacity: 1,
+                transition: { 
+                  delay: 0.2,
+                  duration: 0.6
+                }
+              }}
+            />
+            <motion.div 
+              className="h-1 bg-gray-300 rounded-full" 
+              initial={{ width: 0 }}
+              animate={{ 
+                width: 180,
+                transition: { 
+                  delay: 0.4,
+                  duration: 1.6,
+                  ease: "easeInOut"
+                }
+              }}
             />
           </motion.div>
         </motion.div>
