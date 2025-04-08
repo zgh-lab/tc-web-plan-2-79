@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const LoadingAnimation = () => {
-  // Change isLoading to true to show the animation
-  const [isLoading, setIsLoading] = useState(true);
+  // Set isLoading to false to effectively disable the loading animation
+  const [isLoading] = useState(false);
   
   return (
     <AnimatePresence>
@@ -55,22 +55,18 @@ const LoadingAnimation = () => {
                 }
               }}
             />
-            <motion.div className="w-[180px] h-1 bg-gray-200 rounded-full overflow-hidden">
-              <motion.div 
-                className="h-full bg-gray-500 rounded-full" 
-                initial={{ width: "0%", x: "-100%" }}
-                animate={{ 
-                  x: ["-100%", "100%"],
-                  transition: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 1.5,
-                    ease: "easeInOut"
-                  }
-                }}
-                style={{ width: "50%" }}
-              />
-            </motion.div>
+            <motion.div 
+              className="h-1 bg-gray-300 rounded-full" 
+              initial={{ width: 0 }}
+              animate={{ 
+                width: 180,
+                transition: { 
+                  delay: 0.4,
+                  duration: 1.6,
+                  ease: "easeInOut"
+                }
+              }}
+            />
           </motion.div>
         </motion.div>
       )}
