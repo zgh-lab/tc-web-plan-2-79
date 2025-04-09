@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw } from "lucide-react";
 import { cn } from '@/lib/utils';
@@ -8,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Features = () => {
@@ -281,12 +281,8 @@ const Features = () => {
                 
                 <p className="text-gray-600 mb-4">Working iteratively with customers to tailor solutions to their needs</p>
                 
-                {/* Replace Progress with a custom progress indicator */}
                 <div className="relative mb-2">
-                  <div className="h-3 w-full bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 rounded-full animate-pulse-slow" 
-                         style={{width: `${progressValue}%`, transition: 'width 0.3s ease-in-out'}}></div>
-                  </div>
+                  <Progress value={progressValue} className="h-3 bg-gray-200" />
                 </div>
                 
                 <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
