@@ -6,19 +6,11 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import ProductPlatform from '@/components/ProductPlatform';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from 'react';
 
 const TechDetails = () => {
   const isMobile = useIsMobile();
-  const [progressValue, setProgressValue] = useState(0);
-  
-  // Animate progress bar on component mount
-  useEffect(() => {
-    const timer = setTimeout(() => setProgressValue(100), 100);
-    return () => clearTimeout(timer);
-  }, []);
   
   return (
     <div className="min-h-screen bg-white">
@@ -68,14 +60,16 @@ const TechDetails = () => {
                   The diagram below illustrates how data flows through our system, from sensor collection to user-facing applications.
                 </p>
 
-                {/* Progress bar showing flow */}
+                {/* Data flow indicators */}
                 <div className="w-full mb-6">
                   <div className="mb-2 flex justify-between text-sm text-gray-500">
                     <span>Data Collection</span>
                     <span>Processing</span>
                     <span>Application</span>
                   </div>
-                  <Progress value={progressValue} className="h-2 bg-gray-100" />
+                  <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500 w-full" style={{ transform: 'translateX(0%)' }}></div>
+                  </div>
                 </div>
                 
                 {/* Product Platform Architecture Diagram */}
