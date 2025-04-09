@@ -7,13 +7,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Features = () => {
+  
   const featuresRef = useRef<HTMLDivElement>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
-  const [progressValue, setProgressValue] = useState(0);
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
   const isMobile = useIsMobile();
@@ -46,19 +45,16 @@ const Features = () => {
     let interval: NodeJS.Timeout;
 
     const animateProgress = () => {
-      setProgressValue(0);
+      let progressValue = 0;
       interval = setInterval(() => {
-        setProgressValue(prev => {
-          if (prev >= 100) {
-            clearInterval(interval);
-            setTimeout(() => {
-              setCurrentSprint(prev => prev < totalSprints ? prev + 1 : 1);
-              animateProgress();
-            }, 500);
-            return 100;
-          }
-          return prev + 2;
-        });
+        progressValue += 2;
+        if (progressValue >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setCurrentSprint(prev => prev < totalSprints ? prev + 1 : 1);
+            animateProgress();
+          }, 500);
+        }
       }, 100);
     };
 
@@ -282,14 +278,16 @@ const Features = () => {
                 <p className="text-gray-600 mb-4">Working iteratively with customers to tailor solutions to their needs</p>
                 
                 <div className="relative mb-2">
-                  <Progress value={progressValue} className="h-3 bg-gray-200" />
+                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500 animate-pulse-slow" style={{ width: '75%' }}></div>
+                  </div>
                 </div>
                 
                 <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
                   {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all",
-                progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
+                index === Math.floor(currentSprint % sprintPhases.length) ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
                       <div className="flex flex-col items-center">
-                        <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
+                        <div className={cn("rounded-full p-1 mb-1", index === Math.floor(currentSprint % sprintPhases.length) ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
                           {phase.icon}
                         </div>
                         <span className="text-xs font-medium">{phase.name}</span>
