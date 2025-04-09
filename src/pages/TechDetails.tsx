@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import ProductPlatform from '@/components/ProductPlatform';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from 'react';
 
@@ -68,19 +67,24 @@ const TechDetails = () => {
                   The diagram below illustrates how data flows through our system, from sensor collection to user-facing applications.
                 </p>
 
-                {/* Progress bar showing flow */}
+                {/* Custom flow indicator replacing Progress component */}
                 <div className="w-full mb-6">
                   <div className="mb-2 flex justify-between text-sm text-gray-500">
                     <span>Data Collection</span>
                     <span>Processing</span>
                     <span>Application</span>
                   </div>
-                  <Progress value={progressValue} className="h-2 bg-gray-100" />
+                  <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div 
+                      className="absolute top-0 left-0 h-full bg-gray-400 transition-all duration-1000 ease-out" 
+                      style={{ width: `${progressValue}%` }}
+                    ></div>
+                  </div>
                 </div>
                 
                 {/* Product Platform Architecture Diagram */}
                 <Card className="bg-white rounded-lg mb-10 border border-gray-200 shadow-sm">
-                  <CardContent className="p-4 lg:p-6">
+                  <CardContent className="p-2 sm:p-4 lg:p-6">
                     <ProductPlatform />
                   </CardContent>
                 </Card>
