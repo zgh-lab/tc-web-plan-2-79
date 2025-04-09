@@ -61,37 +61,6 @@ const TechDetails = () => {
                   <p className="text-gray-600 text-sm">We rigorously develop and test all components to ensure they meet performance and reliability standards.</p>
                 </div>
               </div>
-              
-              <h2 className="text-2xl font-bold mt-12 mb-6">Technical Specifications</h2>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse mt-4">
-                  <thead>
-                    <tr className="bg-gray-50">
-                      <th className="border border-gray-200 px-4 py-2 text-left">Component</th>
-                      <th className="border border-gray-200 px-4 py-2 text-left">Specifications</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-200 px-4 py-2 font-medium">Sensor Types</td>
-                      <td className="border border-gray-200 px-4 py-2">Pressure, temperature, strain, humidity, acceleration</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-200 px-4 py-2 font-medium">Connectivity</td>
-                      <td className="border border-gray-200 px-4 py-2">Bluetooth LE, Wi-Fi, LTE-M, NB-IoT</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-200 px-4 py-2 font-medium">Battery Life</td>
-                      <td className="border border-gray-200 px-4 py-2">Up to 12-20 hours, depending on configuration</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-200 px-4 py-2 font-medium">Data Processing</td>
-                      <td className="border border-gray-200 px-4 py-2">Edge computing with machine learning capabilities</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
             
             <div className="mt-12 pt-8 border-t border-gray-200">
