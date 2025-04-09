@@ -182,9 +182,9 @@ const Features = () => {
             </div>
             
             <div className="rounded-xl overflow-hidden bg-white p-4 feature-item">
-              <Carousel className="w-full max-w-5xl mx-auto">
-                <CarouselContent>
-                  {sensorCaseStudies.map((study, index) => <CarouselItem key={index} className="md:basis-full lg:basis-full">
+              <Carousel className="w-full max-w-7xl mx-auto">
+                <CarouselContent className="flex">
+                  {sensorCaseStudies.map((study, index) => <CarouselItem key={index} className="md:basis-1/3 flex-shrink-0">
                       <Card className="border border-gray-100 shadow-md">
                         <CardContent className="p-0">
                           <div className="w-full h-full">
