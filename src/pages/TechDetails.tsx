@@ -1,13 +1,13 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { ArrowLeft, ArrowRight, Download, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, CheckCircle2, Smartphone, Laptop, Server } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import ProductPlatform from '@/components/ProductPlatform';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Progress } from '@/components/ui/progress';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const TechDetails = () => {
   const isMobile = useIsMobile();
@@ -59,21 +59,41 @@ const TechDetails = () => {
                   System Architecture
                 </h2>
                 
+                <div className="mb-6">
+                  <p className="text-gray-600 mb-6">
+                    Our advanced system architecture integrates hardware, software, and cloud components to deliver 
+                    a seamless experience from sensor data collection to actionable insights. The diagram below illustrates 
+                    how these components work together.
+                  </p>
+                </div>
+
                 <Card className="overflow-hidden mb-8 border-none shadow-lg">
-                  <div className="bg-gray-50 p-4 border-b">
-                    <h3 className="font-medium text-gray-700">WRLDS Platform Architecture Overview</h3>
-                  </div>
-                  <CardContent className={`${isMobile ? 'p-2' : 'p-4'} bg-white`}>
-                    <div className="w-full max-w-full overflow-x-auto py-4" style={{ minHeight: isMobile ? '320px' : '400px' }}>
+                  <CardHeader className="bg-gray-50 p-6 border-b">
+                    <h3 className="font-medium text-gray-800 text-xl">WRLDS Platform Architecture Overview</h3>
+                    <p className="text-gray-500 text-sm mt-1">Interactive visualization of our system components</p>
+                  </CardHeader>
+                  <CardContent className={`${isMobile ? 'p-2' : 'p-6'} bg-white`}>
+                    <div className="w-full overflow-hidden py-4" style={{ minHeight: isMobile ? '300px' : '400px' }}>
                       <ProductPlatform />
                     </div>
+                    {isMobile && (
+                      <div className="text-center text-sm text-gray-500 mt-2 flex items-center justify-center">
+                        <Smartphone size={16} className="mr-1" /> 
+                        <span>Scroll horizontally to explore the full architecture</span>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                    <h3 className="font-semibold mb-3 text-lg">Real-time Data Processing</h3>
-                    <p className="text-gray-600">Our architecture processes sensor data in real-time, enabling immediate insights and responsive applications.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow transition-shadow">
+                    <div className="mb-4">
+                      <div className="rounded-full bg-blue-50 w-12 h-12 flex items-center justify-center">
+                        <Laptop className="text-blue-600 h-6 w-6" />
+                      </div>
+                    </div>
+                    <h3 className="font-semibold mb-3 text-lg">Edge Processing</h3>
+                    <p className="text-gray-600 mb-4">Our edge devices process sensor data locally before transmission, reducing latency and bandwidth requirements.</p>
                     <div className="mt-4 space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Processing Speed</span>
@@ -82,15 +102,56 @@ const TechDetails = () => {
                       <Progress value={98} className="h-2" />
                     </div>
                   </div>
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                  
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow transition-shadow">
+                    <div className="mb-4">
+                      <div className="rounded-full bg-purple-50 w-12 h-12 flex items-center justify-center">
+                        <Server className="text-purple-600 h-6 w-6" />
+                      </div>
+                    </div>
                     <h3 className="font-semibold mb-3 text-lg">Cloud Integration</h3>
-                    <p className="text-gray-600">Seamless cloud integration provides scalability and accessibility for all your data and applications.</p>
+                    <p className="text-gray-600 mb-4">Seamless cloud integration provides scalability and accessibility for all your data and applications.</p>
                     <div className="mt-4 space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Cloud Reliability</span>
                         <span className="text-sm font-medium">99.9%</span>
                       </div>
                       <Progress value={99.9} className="h-2" />
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow transition-shadow">
+                    <div className="mb-4">
+                      <div className="rounded-full bg-green-50 w-12 h-12 flex items-center justify-center">
+                        <Smartphone className="text-green-600 h-6 w-6" />
+                      </div>
+                    </div>
+                    <h3 className="font-semibold mb-3 text-lg">Mobile Access</h3>
+                    <p className="text-gray-600 mb-4">Access your data and controls from any mobile device with our responsive, cross-platform applications.</p>
+                    <div className="mt-4 space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">Device Compatibility</span>
+                        <span className="text-sm font-medium">97%</span>
+                      </div>
+                      <Progress value={97} className="h-2" />
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center">
+                    <div className="mb-4 md:mb-0 md:mr-6 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
+                        <Download className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-xl mb-2">Download Technical Specifications</h3>
+                      <p className="text-gray-600 mb-4">Get complete details about our system architecture, including hardware requirements, software capabilities, and integration options.</p>
+                      <button className="px-5 py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors inline-flex items-center">
+                        Download PDF
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </button>
                     </div>
                   </div>
                 </div>
