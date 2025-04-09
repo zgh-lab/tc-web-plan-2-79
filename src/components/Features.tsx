@@ -7,16 +7,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Features = () => {
-  
   const featuresRef = useRef<HTMLDivElement>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const [progressValue, setProgressValue] = useState(0);
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
   const isMobile = useIsMobile();
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -40,30 +39,29 @@ const Features = () => {
     }
     return () => observer.disconnect();
   }, []);
-
   useEffect(() => {
     let interval: NodeJS.Timeout;
-
     const animateProgress = () => {
-      let progressValue = 0;
+      setProgressValue(0);
       interval = setInterval(() => {
-        progressValue += 2;
-        if (progressValue >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setCurrentSprint(prev => prev < totalSprints ? prev + 1 : 1);
-            animateProgress();
-          }, 500);
-        }
+        setProgressValue(prev => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+              setCurrentSprint(prev => prev < totalSprints ? prev + 1 : 1);
+              animateProgress();
+            }, 500);
+            return 100;
+          }
+          return prev + 2;
+        });
       }, 100);
     };
-
     animateProgress();
     return () => {
       if (interval) clearInterval(interval);
     };
   }, []);
-
   const features = [{
     icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Sports Performance",
@@ -85,7 +83,6 @@ const Features = () => {
     description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
     image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
   }];
-
   const sensorCaseStudies = [{
     image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
     title: "Firefighter Safety",
@@ -99,7 +96,6 @@ const Features = () => {
     title: "Sports Performance",
     description: "Smart athletic wear with temperature and pressure sensors that track hydration, foot strike patterns, and performance metrics."
   }];
-
   const stepFlowItems = [{
     icon: <Microchip className="h-10 w-10 text-gray-700" />,
     title: "WRLDS Proprietary Modules",
@@ -113,7 +109,6 @@ const Features = () => {
     title: "Vetted Production Partners",
     description: "Expert manufacturing partners for quality and reliability"
   }];
-
   const sprintPhases = [{
     name: "Planning",
     icon: <CheckCircle className="h-4 w-4" />
@@ -127,7 +122,6 @@ const Features = () => {
     name: "Review",
     icon: <RefreshCcw className="h-4 w-4" />
   }];
-
   return <>
       <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
         <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
@@ -275,19 +269,16 @@ const Features = () => {
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">Working iteratively with customers to tailor solutions to their needs</p>
+                
                 
                 <div className="relative mb-2">
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 animate-pulse-slow" style={{ width: '75%' }}></div>
-                  </div>
+                  <Progress value={progressValue} className="h-3 bg-gray-200" />
                 </div>
                 
                 <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
-                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all",
-                index === Math.floor(currentSprint % sprintPhases.length) ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
+                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all", progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
                       <div className="flex flex-col items-center">
-                        <div className={cn("rounded-full p-1 mb-1", index === Math.floor(currentSprint % sprintPhases.length) ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
+                        <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
                           {phase.icon}
                         </div>
                         <span className="text-xs font-medium">{phase.name}</span>
@@ -358,5 +349,4 @@ const Features = () => {
       </section>
     </>;
 };
-
 export default Features;
