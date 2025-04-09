@@ -1,156 +1,194 @@
 
 import { motion } from "framer-motion";
-import { Database, Gauge, Cpu, Bluetooth, Battery, Server, ArrowRight, Smartphone, Code, Wifi, Cloud, MonitorSmartphone, FileText } from 'lucide-react';
+import { Layers, Gauge, Cpu, Bluetooth, Battery, Database, Radio, ArrowRight, Info, Smartphone, Code, Wifi, Server, Cloud } from 'lucide-react';
 
 const ProductPlatform = () => {
   return (
-    <div className="w-full relative">
-      {/* Product Title Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-6"
+        className="flex flex-col space-y-4 items-center"
+        style={{ width: '25%' }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Product</h2>
-        <p className="text-gray-600 text-base md:text-lg max-w-4xl">
-          5 years invested into tech focused end-to-end platform allowing customer brand to own pricing, branding, marketing and sales. Wrlds can help with all aspects of
-          product creation, certification, initial production and app development.
-        </p>
+        <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm">
+          <h3 className="font-semibold text-black text-xl mb-3 flex items-center">
+            <Layers className="mr-2 w-5 h-5 text-black" />
+            Physical Devices
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">The hardware that collects data from the physical world</p>
+          <div className="space-y-3">
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Gauge className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Motion Sensors</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Cpu className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Heart Rate Sensors</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Bluetooth className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Wireless Connectivity</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Battery className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Power Management</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Database className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Local Storage</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Radio className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Cellular Connection</span>
+            </div>
+          </div>
+        </div>
+        <div className="text-center font-medium text-black flex items-center gap-2">
+          <span>Data Collection</span>
+          <Info className="h-4 w-4 cursor-help" />
+        </div>
       </motion.div>
 
-      {/* Platform Architecture - Three Column Layout */}
-      <div className="flex flex-col lg:flex-row gap-6 w-full">
-        {/* Physical Devices Column */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex-1"
-        >
-          <div className="bg-gray-200 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-center mb-1">Physical Devices</h3>
-            <p className="text-sm text-center mb-4">Data input</p>
-            
-            <div className="space-y-3">
-              {[
-                { icon: <Gauge className="text-black w-5 h-5" />, text: "Motion Sensors" },
-                { icon: <Cpu className="text-black w-5 h-5" />, text: "Heart Rate Sensors" },
-                { icon: <Bluetooth className="text-black w-5 h-5" />, text: "Wireless Connectivity" },
-                { icon: <Battery className="text-black w-5 h-5" />, text: "Power Management" },
-                { icon: <Database className="text-black w-5 h-5" />, text: "Local Storage" },
-                { icon: <Wifi className="text-black w-5 h-5" />, text: "Cellular Connection" }
-              ].map((item, index) => (
-                <div key={index} className="bg-white rounded-lg p-4 flex items-center">
-                  <div className="mr-4 flex-shrink-0">{item.icon}</div>
-                  <span className="text-gray-800 font-medium">{item.text}</span>
-                </div>
-              ))}
+      <motion.div 
+        initial={{ opacity: 0.3, scale: 0.9 }}
+        animate={{ opacity: 0.7, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="hidden md:flex items-center justify-center"
+        style={{ width: '100px' }}
+      >
+        <div className="h-1 bg-gray-200 w-full relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
+        </div>
+        <div className="bg-gray-100 rounded-full p-2">
+          <ArrowRight className="text-black w-6 h-6" />
+        </div>
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="rounded-2xl overflow-hidden border border-gray-300 shadow-lg" 
+        style={{ width: '40%' }}
+      >
+        <div className="bg-black p-4 text-center font-bold text-white">
+          WRLDS Platform
+        </div>
+        <div className="bg-white p-6">
+          <p className="text-center text-gray-600 mb-6">Our platform processes data and powers intelligent applications</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Database className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Cloud Storage</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Gauge className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Data Processing</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Cpu className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">AI & Machine Learning</div>
             </div>
             
-            <p className="text-sm text-center mt-6">
-              The hardware that collects data<br />from the physical world
-            </p>
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Battery className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Power Optimization</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Code className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Custom Software</div>
+            </div>
+            <div className="bg-gray-100 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-200 transition-colors">
+              <Smartphone className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Demo Applications</div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Wifi className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Real-time Data</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Cpu className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Edge Computing</div>
+            </div>
+            <div className="bg-gray-100 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-200 transition-colors">
+              <Layers className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Service APIs</div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Server className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Server Infrastructure</div>
+            </div>
+            <div className="bg-gray-100 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-200 transition-colors">
+              <Cloud className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Cloud Services</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-sm text-center shadow-sm hover:bg-gray-100 transition-colors">
+              <Code className="w-5 h-5 mx-auto mb-1 text-black" />
+              <div className="text-gray-700">Developer Tools</div>
+            </div>
           </div>
-        </motion.div>
+        </div>
+        <div className="bg-black p-2 text-center text-xs text-white">
+          Reliable, secure, and scalable infrastructure
+        </div>
+      </motion.div>
 
-        {/* Flow Arrows - Desktop Only */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="hidden lg:flex items-center justify-center"
-        >
-          <ArrowRight className="text-black w-8 h-8" />
-        </motion.div>
+      <motion.div 
+        initial={{ opacity: 0.3, scale: 0.9 }}
+        animate={{ opacity: 0.7, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        className="hidden md:flex items-center justify-center"
+        style={{ width: '100px' }}
+      >
+        <div className="h-1 bg-gray-200 w-full relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
+        </div>
+        <div className="bg-gray-100 rounded-full p-2">
+          <ArrowRight className="text-black w-6 h-6" />
+        </div>
+      </motion.div>
 
-        {/* WRLDS Platform Column */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex-[1.5]"
-        >
-          <div className="bg-gray-200 rounded-xl p-6">
-            <div className="flex flex-col items-center mb-4">
-              <h3 className="text-2xl font-bold text-center mb-0">wrlds</h3>
-              <p className="text-xl font-medium text-center">Platform</p>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        className="flex flex-col space-y-4 items-center"
+        style={{ width: '25%' }}
+      >
+        <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm">
+          <h3 className="font-semibold text-black text-xl mb-3 flex items-center">
+            <Smartphone className="mr-2 w-5 h-5 text-black" />
+            User Applications
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">How people interact with and benefit from the collected data</p>
+          <div className="space-y-3">
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Layers className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Analytics Dashboard</span>
             </div>
-            
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { icon: <Database className="w-5 h-5" />, name: "Cloud Storage" },
-                { icon: <Gauge className="w-5 h-5" />, name: "Data Processing" },
-                { icon: <Cpu className="w-5 h-5" />, name: "AI & Machine Learning" },
-                { icon: <Battery className="w-5 h-5" />, name: "Power Optimization" },
-                { icon: <Code className="w-5 h-5" />, name: "Custom Software" },
-                { icon: <Smartphone className="w-5 h-5" />, name: "Demo Applications" },
-                { icon: <Wifi className="w-5 h-5" />, name: "Real-time Data" },
-                { icon: <Server className="w-5 h-5" />, name: "Edge Computing" },
-                { icon: <Code className="w-5 h-5" />, name: "Service APIs" },
-                { icon: <Server className="w-5 h-5" />, name: "Server Infrastructure" },
-                { icon: <Cloud className="w-5 h-5" />, name: "Cloud Services" },
-                { icon: <Code className="w-5 h-5" />, name: "Developer Tools" }
-              ].map((item, index) => (
-                <div key={index} className="bg-white rounded-lg p-3 text-center flex flex-col items-center justify-center">
-                  <div className="mb-2">{item.icon}</div>
-                  <div className="text-xs">{item.name}</div>
-                </div>
-              ))}
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Smartphone className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Mobile Applications</span>
             </div>
-            
-            <p className="text-sm text-center mt-6">
-              Our platform processes data and<br />powers intelligent applications
-            </p>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Code className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Customized Reports</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center hover:bg-gray-100 transition-colors">
+              <Cloud className="text-black w-5 h-5 mr-2" />
+              <span className="text-gray-700">Third-party Integration</span>
+            </div>
           </div>
-        </motion.div>
-
-        {/* Flow Arrows - Desktop Only */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="hidden lg:flex items-center justify-center"
-        >
-          <ArrowRight className="text-black w-8 h-8" />
-        </motion.div>
-
-        {/* User Applications Column */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="flex-1"
-        >
-          <div className="bg-gray-200 rounded-xl p-6">
-            <h3 className="text-xl font-bold text-center mb-1">User Applications</h3>
-            <p className="text-sm text-center mb-4">Data output</p>
-            
-            <div className="space-y-3">
-              {[
-                { icon: <MonitorSmartphone className="text-black w-5 h-5" />, text: "Analytics Dashboard" },
-                { icon: <Smartphone className="text-black w-5 h-5" />, text: "Mobile Applications" },
-                { icon: <FileText className="text-black w-5 h-5" />, text: "Customized Reports" },
-                { icon: <Code className="text-black w-5 h-5" />, text: "Third-party Integration" }
-              ].map((item, index) => (
-                <div key={index} className="bg-white rounded-lg p-4 flex items-center">
-                  <div className="mr-4 flex-shrink-0">{item.icon}</div>
-                  <span className="text-gray-800 font-medium">{item.text}</span>
-                </div>
-              ))}
-            </div>
-            
-            <p className="text-sm text-center mt-6">
-              How people interact with and<br />benefit from the collected data
-            </p>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Mobile Flow Indicators - Only visible on mobile */}
-      <div className="flex flex-col lg:hidden items-center my-4 space-y-2">
-        <ArrowRight className="text-gray-600 w-6 h-6 rotate-90" />
-      </div>
+        </div>
+        <div className="text-center font-medium text-black flex items-center gap-2">
+          <span>User Experience</span>
+          <Info className="h-4 w-4 cursor-help" />
+        </div>
+      </motion.div>
     </div>
   );
 };
