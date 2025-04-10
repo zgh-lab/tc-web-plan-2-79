@@ -20,6 +20,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import emailjs from 'emailjs-com';
+
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = "service_i3h66xg";
+const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; 
+const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -53,9 +59,27 @@ const Careers = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
-      // Simulate form submission with a delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log("Form submitted:", data);
+      console.log("Form submitted with data:", data);
+      
+      // Format data for EmailJS template
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: `Position: ${data.position}\nPhone: ${data.phone || 'Not provided'}\n\n${data.message}`,
+        to_name: 'WRLDS Team',
+        reply_to: data.email
+      };
+      
+      console.log('Sending application via EmailJS with params:', templateParams);
+      
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      console.log("Application email sent successfully:", response);
       
       toast({
         title: "Application Received",
@@ -64,7 +88,13 @@ const Careers = () => {
       
       form.reset();
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error submitting application form:", error);
+      
+      // More detailed error logging
+      if (error && typeof error === 'object' && 'text' in error) {
+        console.error('Error details:', (error as any).text);
+      }
+      
       toast({
         variant: "destructive",
         title: "Something went wrong",
