@@ -98,17 +98,19 @@ const About = () => {
                 <h2 className="text-3xl font-bold mb-6">Our Story</h2>
                 <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
                   <p className="text-gray-600 mb-4">
-                    WRLDS Technologies was founded in 2020 by a team of engineers, textile specialists, and data scientists 
-                    who saw the untapped potential in combining advanced sensor technology with everyday fabrics.
+                    We started with the ambition to make an inherently scattered and complex development area modular, 
+                    smart and available to analog brands. After successfully raising millions of dollars for development, 
+                    we spent the first two years in full code mode.
                   </p>
                   <p className="text-gray-600 mb-4">
-                    What began as research into conductive textiles quickly evolved into a comprehensive platform for 
-                    creating, deploying, and analyzing data from smart textile solutions across multiple industries.
+                    The goal was to turn all the scattered hardware and building blocks into simple modules to be 
+                    assembled like Lego. During this time we took in a range of customers for whom we built prototypes - 
+                    a way for us to make sure what we built had bearing in real world use cases.
                   </p>
                   <p className="text-gray-600">
-                    Today, we're proud to partner with leading organizations in fire safety, sports performance, healthcare, 
-                    and industrial applications to create textile sensor solutions that are literally changing the fabric of 
-                    these industries.
+                    In 2023 we felt we had reached a technology level allowing us to start working on enterprise level. 
+                    Since then, we have focused on textile integrations because of the enormous potential smart textiles 
+                    have across multiple industries from healthcare to public safety.
                   </p>
                 </div>
               </motion.div>

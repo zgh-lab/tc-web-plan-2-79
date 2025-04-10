@@ -4,11 +4,19 @@ import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -25,10 +33,6 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
-  const toggleProjectsDropdown = () => {
-    setIsProjectsDropdownOpen(!isProjectsDropdownOpen);
-  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -36,7 +40,6 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
-    setIsProjectsDropdownOpen(false);
   };
   
   return (
@@ -59,108 +62,131 @@ const Navbar = () => {
               />
             </Link>
           </div>
+          
+          {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
-              <Link 
-                to="/" 
-                className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}
-                onClick={() => window.scrollTo(0, 0)}
-              >
-                Home
-              </Link>
-              
-              <button 
-                onClick={() => scrollToSection('technology')} 
-                className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}
-              >
-                How it Works
-              </button>
-              
-              <button 
-                onClick={() => scrollToSection('why-wrlds')} 
-                className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}
-              >
-                Why WRLDS
-              </button>
-              
-              <div className="relative">
-                <button 
-                  onClick={toggleProjectsDropdown}
-                  className={cn("flex items-center hover:text-gray-500 transition-colors font-medium", 
-                    isScrolled ? "text-gray-700" : "text-gray-200")}
-                >
-                  <span>Customer Cases</span>
-                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
+            <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link to="/">
+                    <NavigationMenuLink className={cn(
+                      navigationMenuTriggerStyle(),
+                      isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                    )}>
+                      Home
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
                 
-                {isProjectsDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
-                    <div className="py-1">
-                      <button 
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => scrollToSection('projects')}
-                      >
-                        All Projects
-                      </button>
-                      <Link 
-                        to="/projects/firecat" 
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => {
-                          setIsProjectsDropdownOpen(false);
-                          window.scrollTo(0, 0);
-                        }}
-                      >
-                        FireCat 6th SENSE
-                      </Link>
-                      <button 
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => scrollToSection('projects')}
-                      >
-                        Sports Performance
-                      </button>
-                      <button 
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        onClick={() => scrollToSection('projects')}
-                      >
-                        Industrial Applications
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              
-              <Link 
-                to="/development-process" 
-                className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}
-              >
-                Our Process
-              </Link>
-              
-              <Link 
-                to="/tech-details" 
-                className={cn("hover:text-gray-500 transition-colors font-medium", 
-                isScrolled ? "text-gray-700" : "text-gray-200")}
-              >
-                Learn More
-              </Link>
-              
-              <button 
-                onClick={() => scrollToSection('contact')} 
-                className={cn(
-                  "px-4 py-2 rounded-md transition-colors", 
-                  isScrolled 
-                    ? "bg-gray-200 text-gray-700 hover:bg-gray-300" 
-                    : "bg-gray-700 text-white hover:bg-gray-600"
-                )}
-              >
-                Contact Us
-              </button>
-            </div>
+                <NavigationMenuItem>
+                  <Link to="/about">
+                    <NavigationMenuLink className={cn(
+                      navigationMenuTriggerStyle(),
+                      isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                    )}>
+                      About Us
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={cn(
+                    isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                  )}>
+                    Solutions
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-4 w-[400px]">
+                      <li>
+                        <Link to="/projects/firecat" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">FireCat 6th SENSE</div>
+                          <p className="text-sm text-gray-500">Smart textiles for firefighter safety</p>
+                        </Link>
+                      </li>
+                      <li>
+                        <button 
+                          onClick={() => scrollToSection('projects')}
+                          className="block w-full text-left p-3 space-y-1 rounded-md hover:bg-gray-100"
+                        >
+                          <div className="font-medium">Sports Performance</div>
+                          <p className="text-sm text-gray-500">Advanced tracking for athletes</p>
+                        </button>
+                      </li>
+                      <li>
+                        <button 
+                          onClick={() => scrollToSection('projects')}
+                          className="block w-full text-left p-3 space-y-1 rounded-md hover:bg-gray-100"
+                        >
+                          <div className="font-medium">Industrial Applications</div>
+                          <p className="text-sm text-gray-500">Smart fabrics for workplace safety</p>
+                        </button>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={cn(
+                    isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                  )}>
+                    Learn More
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-4 w-[400px]">
+                      <li>
+                        <Link to="/tech-details" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Technology Details</div>
+                          <p className="text-sm text-gray-500">How our smart textile platform works</p>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/development-process" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <div className="font-medium">Development Process</div>
+                          <p className="text-sm text-gray-500">Our approach to creating custom solutions</p>
+                        </Link>
+                      </li>
+                      <li>
+                        <button 
+                          onClick={() => scrollToSection('why-wrlds')}
+                          className="block w-full text-left p-3 space-y-1 rounded-md hover:bg-gray-100"
+                        >
+                          <div className="font-medium">Why WRLDS</div>
+                          <p className="text-sm text-gray-500">What sets our technology apart</p>
+                        </button>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/careers">
+                    <NavigationMenuLink className={cn(
+                      navigationMenuTriggerStyle(),
+                      isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800"
+                    )}>
+                      Careers
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className={cn(
+                      "px-4 py-2 rounded-md transition-colors", 
+                      isScrolled 
+                        ? "bg-gray-200 text-gray-700 hover:bg-gray-300" 
+                        : "bg-gray-700 text-white hover:bg-gray-600"
+                    )}
+                  >
+                    Contact Us
+                  </button>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
+          
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <button onClick={toggleMenu} className={cn("focus:outline-none", 
               isScrolled ? "text-gray-700" : "text-white")}>
@@ -170,13 +196,14 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Navigation Menu */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", 
-        isMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0")}>
+        isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0")}>
         <div className={cn("px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-sm", 
           isScrolled ? "bg-white" : "bg-black")}>
           <Link 
             to="/" 
-            className={cn("block px-3 py-2 rounded-md hover:bg-gray-50", 
+            className={cn("block px-3 py-2 rounded-md", 
             isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
             onClick={() => {
               setIsMenuOpen(false);
@@ -186,50 +213,39 @@ const Navbar = () => {
             Home
           </Link>
           
-          <button 
-            onClick={() => scrollToSection('technology')}
-            className={cn("block w-full text-left px-3 py-2 rounded-md", 
-            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+          <Link 
+            to="/about" 
+            className={cn("block px-3 py-2 rounded-md", 
+            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} 
+            onClick={() => {
+              setIsMenuOpen(false);
+              window.scrollTo(0, 0);
+            }}
           >
-            How it Works
-          </button>
+            About Us
+          </Link>
           
-          <button 
-            onClick={() => scrollToSection('why-wrlds')}
-            className={cn("block w-full text-left px-3 py-2 rounded-md", 
-            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-          >
-            Why WRLDS
-          </button>
-          
-          <div className="block px-3 py-2">
+          <div className="block">
             <button 
               onClick={(e) => {
                 e.preventDefault();
-                toggleProjectsDropdown();
+                const submenu = e.currentTarget.nextElementSibling;
+                if (submenu) {
+                  submenu.classList.toggle('hidden');
+                }
               }}
-              className={cn("flex w-full justify-between items-center rounded-md", 
+              className={cn("flex w-full justify-between items-center px-3 py-2 rounded-md", 
                 isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
             >
-              <span>Customer Cases</span>
-              <ChevronDown className={`h-4 w-4 transition-transform ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
+              <span>Solutions</span>
+              <ChevronDown className="h-4 w-4" />
             </button>
             
-            <div className={cn(
-              "ml-4 mt-1 space-y-1 transition-all duration-300", 
-              isProjectsDropdownOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-            )}>
-              <button 
-                onClick={() => scrollToSection('projects')}
-                className={cn("block w-full text-left px-3 py-2 rounded-md", 
-                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-              >
-                All Projects
-              </button>
+            <div className="hidden ml-4 mt-1 space-y-1">
               <Link 
                 to="/projects/firecat" 
                 className={cn("block px-3 py-2 rounded-md", 
-                  isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
                 onClick={() => {
                   setIsMenuOpen(false);
                   window.scrollTo(0, 0);
@@ -254,26 +270,65 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link 
-            to="/development-process"
-            className={cn("block px-3 py-2 rounded-md", 
-            isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
-            onClick={() => {
-              setIsMenuOpen(false);
-            }}
-          >
-            Our Process
-          </Link>
+          <div className="block">
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                const submenu = e.currentTarget.nextElementSibling;
+                if (submenu) {
+                  submenu.classList.toggle('hidden');
+                }
+              }}
+              className={cn("flex w-full justify-between items-center px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+            >
+              <span>Learn More</span>
+              <ChevronDown className="h-4 w-4" />
+            </button>
+            
+            <div className="hidden ml-4 mt-1 space-y-1">
+              <Link 
+                to="/tech-details"
+                className={cn("block px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Technology Details
+              </Link>
+              <Link 
+                to="/development-process"
+                className={cn("block px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Development Process
+              </Link>
+              <button 
+                onClick={() => scrollToSection('why-wrlds')}
+                className={cn("block w-full text-left px-3 py-2 rounded-md", 
+                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
+              >
+                Why WRLDS
+              </button>
+            </div>
+          </div>
           
           <Link 
-            to="/tech-details"
+            to="/careers"
             className={cn("block px-3 py-2 rounded-md", 
             isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}
             onClick={() => {
               setIsMenuOpen(false);
+              window.scrollTo(0, 0);
             }}
           >
-            Learn More
+            Careers
           </Link>
           
           <button 

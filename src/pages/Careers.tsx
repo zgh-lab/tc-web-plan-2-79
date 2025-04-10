@@ -75,27 +75,6 @@ const Careers = () => {
     }
   };
   
-  const openPositions = [
-    {
-      title: "Senior Textile Engineer",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      description: "Develop and optimize conductive textile solutions for various applications."
-    },
-    {
-      title: "Machine Learning Specialist",
-      location: "Remote",
-      type: "Full-time",
-      description: "Create algorithms that transform sensor data into meaningful insights."
-    },
-    {
-      title: "Product Manager",
-      location: "Boston, MA",
-      type: "Full-time",
-      description: "Lead the development of new smart textile product lines from concept to market."
-    }
-  ];
-  
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -180,32 +159,6 @@ const Careers = () => {
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-16"
-              >
-                <h2 className="text-3xl font-bold mb-6">Open Positions</h2>
-                <div className="space-y-6">
-                  {openPositions.map((position, i) => (
-                    <div key={i} className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <h3 className="font-bold text-lg">{position.title}</h3>
-                        <div className="flex items-center space-x-3 mt-2 md:mt-0">
-                          <span className="text-sm text-gray-500">{position.location}</span>
-                          <span className="text-sm bg-gray-100 px-2 py-1 rounded">{position.type}</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-4">{position.description}</p>
-                      <a href="#application-form" className="text-gray-700 font-medium hover:text-gray-900 flex items-center">
-                        Apply Now <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-              
-              <motion.div 
                 id="application-form"
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
@@ -214,8 +167,8 @@ const Careers = () => {
               >
                 <h2 className="text-3xl font-bold mb-6">Apply Now</h2>
                 <p className="text-gray-600 mb-8">
-                  Don't see a position that matches your skills? We're always looking for talented individuals 
-                  to join our team. Fill out the form below to express your interest.
+                  We're always looking for talented individuals to join our team. 
+                  Fill out the form below to express your interest.
                 </p>
                 
                 <Form {...form}>

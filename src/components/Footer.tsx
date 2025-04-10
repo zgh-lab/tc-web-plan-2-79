@@ -25,12 +25,6 @@ const Footer = () => {
               >
                 <Linkedin size={20} />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
-              >
-                <Mail size={20} />
-              </a>
             </div>
           </div>
           
@@ -39,8 +33,6 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">News</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Partners</a></li>
             </ul>
           </div>
           
