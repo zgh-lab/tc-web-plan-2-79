@@ -1,6 +1,7 @@
+
 import { useState, useRef, useEffect, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -138,9 +139,13 @@ const Projects = () => {
             Explore how our textile sensor technology is revolutionizing multiple industries with intelligent fabric solutions tailored to specific needs.
           </p>
           {isMobile && (
-            <p className="text-sm mt-2 text-blue-500">
-              Swipe left or right to navigate projects
-            </p>
+            <div className="flex items-center justify-center mt-4 animate-pulse-slow">
+              <div className="flex items-center text-blue-500">
+                <ChevronLeft size={16} />
+                <p className="text-sm mx-1">Swipe to navigate</p>
+                <ChevronRight size={16} />
+              </div>
+            </div>
           )}
         </div>
         
@@ -153,6 +158,18 @@ const Projects = () => {
           onTouchEnd={onTouchEnd}
           ref={carouselRef}
         >
+          {/* Scrolling indicator for mobile */}
+          {isMobile && (
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-30 pointer-events-none flex justify-between px-4">
+              <div className="w-8 h-8 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                <ChevronLeft className="w-5 h-5 text-gray-600 animate-pulse-slow" />
+              </div>
+              <div className="w-8 h-8 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                <ChevronRight className="w-5 h-5 text-gray-600 animate-pulse-slow" />
+              </div>
+            </div>
+          )}
+          
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             {projects.map((project, index) => (
               <div 
@@ -217,6 +234,39 @@ const Projects = () => {
                   </CardContent>
                 </Card>
               </div>
+            ))}
+          </div>
+          
+          {/* Desktop navigation arrows - only show on non-mobile */}
+          {!isMobile && (
+            <>
+              <button 
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md transition-all duration-300 hover:scale-110" 
+                onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}
+                aria-label="Previous project"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              
+              <button 
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md transition-all duration-300 hover:scale-110" 
+                onClick={() => setActiveProject(prev => (prev + 1) % projects.length)}
+                aria-label="Next project"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
+          
+          {/* Project indicators */}
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
+            {projects.map((_, idx) => (
+              <button 
+                key={idx} 
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${activeProject === idx ? 'bg-gray-500 w-5' : 'bg-gray-200 hover:bg-gray-300'}`} 
+                onClick={() => setActiveProject(idx)}
+                aria-label={`Go to project ${idx + 1}`}
+              />
             ))}
           </div>
         </div>
