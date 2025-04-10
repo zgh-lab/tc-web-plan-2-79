@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import FireCatProject from "./pages/FireCatProject";
 import TechDetails from "./pages/TechDetails";
 import DevelopmentProcess from "./pages/DevelopmentProcess";
+import About from "./pages/About";
+import Careers from "./pages/Careers";
 
 const App = () => {
   // Create a new QueryClient instance inside the component
@@ -27,6 +29,8 @@ const App = () => {
             <Route path="/projects/firecat" element={<FireCatProject />} />
             <Route path="/tech-details" element={<TechDetails />} />
             <Route path="/development-process" element={<DevelopmentProcess />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

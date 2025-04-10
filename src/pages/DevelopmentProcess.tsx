@@ -11,6 +11,11 @@ const DevelopmentProcess = () => {
   const processRef = useRef<HTMLDivElement>(null);
   const processSectionsRef = useRef<(HTMLDivElement | null)[]>([]);
   
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   // Process component logic
   const processes = [
     {
