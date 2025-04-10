@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -158,18 +157,6 @@ const Projects = () => {
           onTouchEnd={onTouchEnd}
           ref={carouselRef}
         >
-          {/* Scrolling indicator for mobile */}
-          {isMobile && (
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-30 pointer-events-none flex justify-between px-4">
-              <div className="w-8 h-8 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
-                <ChevronLeft className="w-5 h-5 text-gray-600 animate-pulse-slow" />
-              </div>
-              <div className="w-8 h-8 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
-                <ChevronRight className="w-5 h-5 text-gray-600 animate-pulse-slow" />
-              </div>
-            </div>
-          )}
-          
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             {projects.map((project, index) => (
               <div 
@@ -237,7 +224,6 @@ const Projects = () => {
             ))}
           </div>
           
-          {/* Desktop navigation arrows - only show on non-mobile */}
           {!isMobile && (
             <>
               <button 
@@ -258,7 +244,6 @@ const Projects = () => {
             </>
           )}
           
-          {/* Project indicators */}
           <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
             {projects.map((_, idx) => (
               <button 
