@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
@@ -67,7 +66,6 @@ const Projects = () => {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const isMobile = useIsMobile();
 
-  // Touch threshold to determine swipe
   const minSwipeDistance = 50;
 
   useEffect(() => {
@@ -98,7 +96,7 @@ const Projects = () => {
   }, []);
 
   const onTouchStart = (e: TouchEvent) => {
-    setTouchEnd(null); // Reset touchEnd
+    setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
@@ -128,7 +126,7 @@ const Projects = () => {
   };
   
   return <section id="projects" ref={projectsRef} className="bg-white py-[50px] w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className={`text-center mb-10 max-w-3xl mx-auto transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
             Customer Cases
@@ -221,34 +219,6 @@ const Projects = () => {
               </div>
             ))}
           </div>
-          
-          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
-            {projects.map((_, idx) => (
-              <button 
-                key={idx} 
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${activeProject === idx ? 'bg-gray-500 w-6' : 'bg-gray-200 hover:bg-gray-300'}`} 
-                onClick={() => setActiveProject(idx)} 
-              />
-            ))}
-          </div>
-          
-          <button 
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md" 
-            onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-          </button>
-          
-          <button 
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md" 
-            onClick={() => setActiveProject(prev => (prev + 1) % projects.length)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
         </div>
       </div>
     </section>;
