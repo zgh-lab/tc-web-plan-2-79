@@ -1,8 +1,9 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const projects = [
   {
@@ -24,7 +25,7 @@ const projects = [
     brand: "Global Sports Retail Leader",
     description: "Smart Footwear R&D aiming to revolutionize development, fitting, and testing of athletic footwear.",
     tags: ["Sports", "R&D", "Footwear", "Athletic Performance"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
     link: "#"
   },
   {
@@ -33,7 +34,7 @@ const projects = [
     brand: "European Multinational Textile Producer",
     description: "Fully integrated temperature controls for professionals working in extreme heat and cold. Modular approach to enable full-body systems.",
     tags: ["Climate Control", "Workwear", "Temperature Regulation", "Extreme Conditions"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png",
     link: "#"
   },
   {
@@ -42,7 +43,7 @@ const projects = [
     brand: "Mars Blades",
     description: "R&D product evaluating data from single IMU embedded in the hockey shoe. Aim: establish motion patterns that lead to ultimate acceleration, speed, and maneuverability.",
     tags: ["Ice Hockey", "Motion Analysis", "Performance Tracking", "Sports"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "/lovable-uploads/c30e0487-2fa0-41d1-9a0b-699cb2855388.png",
     link: "#"
   },
   {
@@ -51,7 +52,7 @@ const projects = [
     brand: "UK Insurance Giant",
     description: "R&D project embedding a step counter in a dog collar. Measures daily activity and sends real-time data to the cloud for veterinary consultancies.",
     tags: ["Pet Technology", "Insurance", "Activity Tracking", "R&D"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "/lovable-uploads/d5ce901e-2ce0-4f2a-bce1-f0ca5d6192df.png",
     link: "#"
   }
 ];
@@ -59,8 +60,15 @@ const projects = [
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const isMobile = useIsMobile();
+
+  // Touch threshold to determine swipe
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     if (isInView && !isHovering) {
@@ -89,6 +97,29 @@ const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
+  const onTouchStart = (e: TouchEvent) => {
+    setTouchEnd(null); // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      setActiveProject(prev => (prev + 1) % projects.length);
+    } else if (isRightSwipe) {
+      setActiveProject(prev => (prev - 1 + projects.length) % projects.length);
+    }
+  };
+
   const getCardAnimationClass = (index: number) => {
     if (index === activeProject) return "scale-100 opacity-100 z-20";
     if (index === (activeProject + 1) % projects.length) return "translate-x-[40%] scale-95 opacity-60 z-10";
@@ -108,9 +139,22 @@ const Projects = () => {
           <p className="text-gray-600">
             Explore how our textile sensor technology is revolutionizing multiple industries with intelligent fabric solutions tailored to specific needs.
           </p>
+          {isMobile && (
+            <p className="text-sm mt-2 text-blue-500">
+              Swipe left or right to navigate projects
+            </p>
+          )}
         </div>
         
-        <div className="relative h-[550px] overflow-hidden" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <div 
+          className="relative h-[550px] overflow-hidden" 
+          onMouseEnter={() => setIsHovering(true)} 
+          onMouseLeave={() => setIsHovering(false)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          ref={carouselRef}
+        >
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             {projects.map((project, index) => (
               <div 
@@ -119,29 +163,21 @@ const Projects = () => {
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
                 <Card className="overflow-hidden h-[500px] border border-gray-100 shadow-sm hover:shadow-md flex flex-col">
-                  {project.id === 1 ? (
-                    <div 
-                      className="relative bg-black p-6 flex items-center justify-center h-48 overflow-hidden"
-                      style={{
-                        backgroundImage: `url(${project.imageUrl})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-black/50"></div>
-                      <div className="relative z-10 flex flex-col items-center justify-center">
-                        <h3 className="text-2xl font-bold text-white mb-2">FIRECAT</h3>
-                        <div className="w-12 h-1 bg-white mb-2"></div>
-                        <p className="text-white/90 text-sm">6th SENSE Safety System</p>
-                      </div>
+                  <div 
+                    className="relative bg-black p-6 flex items-center justify-center h-48 overflow-hidden"
+                    style={{
+                      backgroundImage: `url(${project.imageUrl})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-black/50"></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center">
+                      <h3 className="text-2xl font-bold text-white mb-2">{project.brand.toUpperCase()}</h3>
+                      <div className="w-12 h-1 bg-white mb-2"></div>
+                      <p className="text-white/90 text-sm">{project.title}</p>
                     </div>
-                  ) : (
-                    <div className="bg-gray-50 p-6 flex items-center justify-center h-48">
-                      <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center transform transition-all duration-500 animate-pulse-slow">
-                        <span className="text-gray-500 text-4xl font-bold">{project.id}</span>
-                      </div>
-                    </div>
-                  )}
+                  </div>
                   
                   <CardContent className="p-6 flex flex-col flex-grow">
                     <div className="mb-4">
@@ -197,7 +233,7 @@ const Projects = () => {
           </div>
           
           <button 
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30" 
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md" 
             onClick={() => setActiveProject(prev => (prev - 1 + projects.length) % projects.length)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -206,7 +242,7 @@ const Projects = () => {
           </button>
           
           <button 
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30" 
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md" 
             onClick={() => setActiveProject(prev => (prev + 1) % projects.length)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
