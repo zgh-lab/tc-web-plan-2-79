@@ -8,6 +8,10 @@ import { useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FireCatProject from "./pages/FireCatProject";
+import SportRetailProject from "./pages/SportRetailProject";
+import WorkwearProject from "./pages/WorkwearProject";
+import HockeyProject from "./pages/HockeyProject";
+import PetProject from "./pages/PetProject";
 import TechDetails from "./pages/TechDetails";
 import DevelopmentProcess from "./pages/DevelopmentProcess";
 import About from "./pages/About";
@@ -28,6 +32,10 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/firecat" element={<FireCatProject />} />
+            <Route path="/projects/sport-retail" element={<SportRetailProject />} />
+            <Route path="/projects/workwear" element={<WorkwearProject />} />
+            <Route path="/projects/hockey" element={<HockeyProject />} />
+            <Route path="/projects/pet-tracker" element={<PetProject />} />
             <Route path="/tech-details" element={<TechDetails />} />
             <Route path="/development-process" element={<DevelopmentProcess />} />
             <Route path="/about" element={<About />} />
