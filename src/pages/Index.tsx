@@ -6,6 +6,7 @@ import Projects from '@/components/Projects';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import WhyWrlds from '@/components/WhyWrlds';
+import FloatingContactButton from '@/components/FloatingContactButton';
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <Projects />
       <ContactForm />
       <Footer />
+      <FloatingContactButton />
     </div>
   );
 };

@@ -12,6 +12,7 @@ import TechDetails from "./pages/TechDetails";
 import DevelopmentProcess from "./pages/DevelopmentProcess";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
+import FloatingContactButton from "./components/FloatingContactButton";
 
 const App = () => {
   // Create a new QueryClient instance inside the component
@@ -34,6 +35,7 @@ const App = () => {
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <FloatingContactButton />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

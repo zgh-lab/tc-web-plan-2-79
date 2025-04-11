@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw } from "lucide-react";
+import { Activity, Shield, HardHat, Zap, ArrowRight, Box, Truck, Code, CheckCircle, Rocket, Factory, Microchip, Handshake, RefreshCcw, MessageSquare } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -17,6 +17,16 @@ const Features = () => {
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
   const isMobile = useIsMobile();
+
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -209,6 +219,15 @@ const Features = () => {
             </div>
           </div>
         </div>
+        <div className="text-center mt-12">
+          <Button 
+            onClick={scrollToContact}
+            className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group"
+          >
+            Need Custom Solutions?
+            <MessageSquare className="ml-2 w-4 h-4 group-hover:animate-pulse" />
+          </Button>
+        </div>
       </section>
       
       <section id="technology" className="bg-gray-50 py-16">
@@ -355,6 +374,14 @@ const Features = () => {
               Learn More About Our Technology
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
+            
+            <Button
+              onClick={scrollToContact}
+              className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all ml-4 group"
+            >
+              Contact Our Experts
+              <MessageSquare className="ml-2 w-4 h-4 group-hover:scale-110 transition-transform" />
+            </Button>
           </div>
         </div>
       </section>

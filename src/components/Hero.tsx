@@ -1,7 +1,8 @@
 
-import { ArrowRight, Code, Cpu, Layers } from "lucide-react";
+import { ArrowRight, Code, Cpu, Layers, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -29,6 +30,17 @@ const Hero = () => {
       transition: {
         duration: 0.6
       }
+    }
+  };
+  
+  // Scroll to contact function
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
   
@@ -62,6 +74,15 @@ const Hero = () => {
                   Explore Projects
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
+                
+                {/* New Contact Us Button */}
+                <Button
+                  onClick={scrollToContact}
+                  className="bg-gray-700 hover:bg-gray-800 text-white px-6 md:px-8 py-2 md:py-3 rounded-md shadow-lg hover:shadow-xl transition-colors group text-sm md:text-base"
+                >
+                  Contact Us
+                  <MessageSquare className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform" />
+                </Button>
               </motion.div>
             </motion.div>
           </div>
