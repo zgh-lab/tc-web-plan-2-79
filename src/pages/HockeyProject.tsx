@@ -85,7 +85,7 @@ const HockeyProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Skill Development</h4>
-            <p>Players using the system showed 18% faster improvement in targeted skating skills.</p>
+            <p>Players using the system showed faster improvement in targeted skating skills.</p>
           </div>
         </div>
         

@@ -99,7 +99,7 @@ const FireCatProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Long-lasting and secure</h4>
-            <p>Durable hardware with a 7-10 year lifespan, robust encryption, and full GDPR compliance.</p>
+            <p>Durable hardware with extended lifespan, robust encryption, and full GDPR compliance.</p>
           </div>
         </div>
         
@@ -115,7 +115,7 @@ const FireCatProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">User-Friendly</h4>
-            <p>Plug & Play installation within three minutes, providing 12-20 hours of continuous operation per charge.</p>
+            <p>Plug & Play installation within minutes, providing hours of continuous operation per charge.</p>
           </div>
         </div>
       </div>

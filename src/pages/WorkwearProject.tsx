@@ -62,7 +62,7 @@ const WorkwearProject = () => {
           <Mountain className="h-6 w-6 text-black mr-3 flex-shrink-0 mt-1" />
           <div>
             <h4 className="text-lg font-semibold mb-2 text-gray-700">Extreme Durability</h4>
-            <p>Components rated for operation from -40°C to +60°C with full washability and construction durability.</p>
+            <p>Components rated for operation in extreme temperatures with full washability and construction durability.</p>
           </div>
         </div>
       </div>
@@ -70,10 +70,10 @@ const WorkwearProject = () => {
       <h4 className="text-xl font-semibold mb-4">Technical Specifications</h4>
       <ul className="list-disc pl-6 space-y-2 mb-8">
         <li>Modular design supporting full-body integration or focused application</li>
-        <li>Battery life of 8-12 hours depending on conditions and settings</li>
+        <li>Extended battery life depending on conditions and settings</li>
         <li>Smartphone app for manual control and environmental monitoring</li>
-        <li>Washable up to 100 industrial cleaning cycles without performance degradation</li>
-        <li>Compliance with EN ISO 11612, EN 61340-5-1, and additional industry-specific safety standards</li>
+        <li>Washable for multiple industrial cleaning cycles without performance degradation</li>
+        <li>Compliance with industry-specific safety standards</li>
       </ul>
       
       <h3 className="text-2xl font-semibold mb-4 mt-8">Benefits</h3>
@@ -82,7 +82,7 @@ const WorkwearProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Worker Productivity</h4>
-            <p>30% increase in worker productivity in extreme temperature environments.</p>
+            <p>Significant increase in worker productivity in extreme temperature environments.</p>
           </div>
         </div>
         
@@ -90,7 +90,7 @@ const WorkwearProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Safety Improvements</h4>
-            <p>Reduced temperature-related incidents by 65% in first-year deployments.</p>
+            <p>Reduced temperature-related incidents in first-year deployments.</p>
           </div>
         </div>
         
@@ -98,7 +98,7 @@ const WorkwearProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Energy Efficiency</h4>
-            <p>Smart systems use 40% less energy than conventional solutions while providing better performance.</p>
+            <p>Smart systems use less energy than conventional solutions while providing better performance.</p>
           </div>
         </div>
         
@@ -115,7 +115,7 @@ const WorkwearProject = () => {
       <p>
         The client has successfully launched a premium line of climate-controlled workwear that has been adopted by 
         major industrial clients across Northern Europe and Canada. The technology has been particularly valuable in 
-        oil & gas, mining, and construction sectors operating in extreme climates. A 22% reduction in cold-related 
+        oil & gas, mining, and construction sectors operating in extreme climates. A significant reduction in cold-related 
         leave of absence has been reported by early adopting organizations.
       </p>
       

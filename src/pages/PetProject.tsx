@@ -70,9 +70,9 @@ const PetProject = () => {
       
       <h4 className="text-xl font-semibold mb-4">Technical Specifications</h4>
       <ul className="list-disc pl-6 space-y-2 mb-8">
-        <li>Waterproof design with IP67 rating for active dogs</li>
-        <li>3-month battery life with wireless charging capability</li>
-        <li>Lightweight (30g) with adjustable sizing for all breeds</li>
+        <li>Waterproof design for active dogs</li>
+        <li>Extended battery life with wireless charging capability</li>
+        <li>Lightweight with adjustable sizing for all breeds</li>
         <li>Cellular and Bluetooth connectivity for continuous data transmission</li>
         <li>Machine learning algorithms that adapt to individual pet patterns</li>
       </ul>
@@ -83,7 +83,7 @@ const PetProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Risk Assessment</h4>
-            <p>28% more accurate risk profiling for policy pricing based on actual activity levels.</p>
+            <p>More accurate risk profiling for policy pricing based on actual activity levels.</p>
           </div>
         </div>
         
@@ -91,7 +91,7 @@ const PetProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Preventative Care</h4>
-            <p>Early detection algorithms reduced costly emergency treatments by 34%.</p>
+            <p>Early detection algorithms reduced costly emergency treatments.</p>
           </div>
         </div>
         
@@ -99,7 +99,7 @@ const PetProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Customer Engagement</h4>
-            <p>Increased policy renewal rates by 42% among pet owners using the system.</p>
+            <p>Increased policy renewal rates among pet owners using the system.</p>
           </div>
         </div>
         
@@ -118,7 +118,7 @@ const PetProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Premium Discounts</h4>
-            <p>Active pets qualify for up to 15% reduction in insurance premiums.</p>
+            <p>Active pets qualify for reduction in insurance premiums.</p>
           </div>
         </div>
         
@@ -141,7 +141,7 @@ const PetProject = () => {
       
       <h3 className="text-2xl font-semibold mb-4 mt-8">Outcome</h3>
       <p>
-        The pilot program has been successfully implemented with over 10,000 pet owners across the UK, with plans 
+        The pilot program has been successfully implemented with pet owners across the UK, with plans 
         for full commercial rollout in the coming year. The insurance provider has reported significant improvements in 
         customer satisfaction and policy retention, while veterinary partners have praised the system's ability to detect 
         potential health issues before they become serious conditions.

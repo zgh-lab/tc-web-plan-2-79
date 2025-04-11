@@ -82,7 +82,7 @@ const SportRetailProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Accelerated Development</h4>
-            <p>Reduced prototype cycles by 40% through immediate quantifiable feedback.</p>
+            <p>Reduced prototype cycles through immediate quantifiable feedback.</p>
           </div>
         </div>
         
@@ -90,7 +90,7 @@ const SportRetailProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Enhanced Performance</h4>
-            <p>Measured 8-12% improvement in athletic metrics with data-optimized designs.</p>
+            <p>Measured improvement in athletic metrics with data-optimized designs.</p>
           </div>
         </div>
         
@@ -106,7 +106,7 @@ const SportRetailProject = () => {
           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
           <div>
             <h4 className="font-semibold">Cost Reduction</h4>
-            <p>18% reduction in overall R&D costs despite more comprehensive testing.</p>
+            <p>Significant reduction in overall R&D costs despite more comprehensive testing.</p>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@ const SportRetailProject = () => {
       <p>
         The smart footwear platform has become an integral part of the client's development process. 
         The data-driven approach has not only improved their products but also opened new possibilities 
-        for personalized product recommendations in their retail environments. Two patents have been filed 
+        for personalized product recommendations in their retail environments. Patents have been filed 
         based on innovations developed during this project.
       </p>
       
