@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Button } from "@/components/ui/button";
 
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
