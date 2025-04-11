@@ -1,6 +1,6 @@
-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 import { ArrowLeft, CheckCircle, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -22,7 +22,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import emailjs from 'emailjs-com';
 
-// EmailJS configuration
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
 const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; 
 const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
@@ -40,7 +39,6 @@ type FormValues = z.infer<typeof formSchema>;
 const Careers = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -61,7 +59,6 @@ const Careers = () => {
     try {
       console.log("Form submitted with data:", data);
       
-      // Format data for EmailJS template
       const templateParams = {
         from_name: data.name,
         from_email: data.email,
@@ -90,7 +87,6 @@ const Careers = () => {
     } catch (error) {
       console.error("Error submitting application form:", error);
       
-      // More detailed error logging
       if (error && typeof error === 'object' && 'text' in error) {
         console.error('Error details:', (error as any).text);
       }
@@ -308,6 +304,8 @@ const Careers = () => {
           </div>
         </div>
       </section>
+      
+      <ContactForm />
       
       <Footer />
     </div>
