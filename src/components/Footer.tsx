@@ -33,6 +33,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
           
@@ -62,7 +63,7 @@ const Footer = () => {
             © {new Date().getFullYear()} WRLDS Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
           </div>
