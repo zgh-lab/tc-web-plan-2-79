@@ -16,6 +16,10 @@ const Footer = () => {
             <p className="text-gray-300 mb-6">
               WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
             </p>
+            <p className="text-gray-300 mb-6">
+              Hornsgatan 110<br />
+              117 26, Stockholm Sweden
+            </p>
             <div className="flex space-x-4">
               <a 
                 href="https://www.linkedin.com/company/wrldstechnologies/" 
@@ -65,7 +69,6 @@ const Footer = () => {
           <div className="flex space-x-6">
             <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
