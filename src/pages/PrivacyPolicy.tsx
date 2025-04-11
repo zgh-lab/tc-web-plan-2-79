@@ -1,17 +1,13 @@
-
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
-
 const PrivacyPolicy = () => {
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
-  return (
-    <PageLayout>
+  return <PageLayout>
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
@@ -89,22 +85,12 @@ const PrivacyPolicy = () => {
               </p>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4">10. Contact Us</h2>
-              <p className="text-gray-600 mb-4">
-                If you have any questions about this Privacy Policy, please contact us at:
-              </p>
-              <p className="text-gray-600 mb-4">
-                <strong>Email:</strong> privacy@wrldstechnologies.com<br />
-                <strong>Address:</strong> WRLDS Technologies Headquarters<br />
-                1234 Innovation Drive<br />
-                San Francisco, CA 94103<br />
-                United States
-              </p>
+              <p className="text-gray-600 mb-4">If you have any questions about this Privacy Policy, please contact us at hello@wrlds.com</p>
+              
             </div>
           </div>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default PrivacyPolicy;
