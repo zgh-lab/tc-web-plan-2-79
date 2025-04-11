@@ -35,21 +35,22 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
       <div className="pt-16 pb-16">
         {/* Hero Section */}
         <div 
-          className={`relative w-full h-[40vh] md:h-[50vh] ${bgColor} overflow-hidden flex items-center justify-center`}
+          className={`relative w-full h-[40vh] md:h-[50vh] overflow-hidden flex items-center justify-center`}
         >
-          <div className={`absolute inset-0 ${bgColor}`}></div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
+          {/* Background Image with Overlay */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center" 
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          ></div>
+          <div className={`absolute inset-0 ${darkMode ? 'bg-black/70' : 'bg-white/70'}`}></div>
+          
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
             <motion.div 
               className="flex flex-col items-center justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img 
-                src={imageUrl} 
-                alt={`${brandName} Logo`} 
-                className="w-64 mb-6 object-contain"
-              />
               <motion.h1 
                 className={`text-4xl md:text-5xl font-bold mb-4 text-center ${textColor}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -59,7 +60,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
                 {title}
               </motion.h1>
               <motion.div 
-                className="w-20 h-1 bg-white mb-6"
+                className={`w-20 h-1 ${darkMode ? 'bg-white' : 'bg-gray-800'} mb-6`}
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
