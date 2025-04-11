@@ -1,25 +1,18 @@
 
-import Navbar from '@/components/Navbar';
+import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Projects from '@/components/Projects';
-import ContactForm from '@/components/ContactForm';
-import Footer from '@/components/Footer';
 import WhyWrlds from '@/components/WhyWrlds';
-import FloatingContactButton from '@/components/FloatingContactButton';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
-      <Navbar />
+    <PageLayout>
       <Hero />
       <Features />
       <WhyWrlds />
       <Projects />
-      <ContactForm />
-      <Footer />
-      <FloatingContactButton />
-    </div>
+    </PageLayout>
   );
 };
 

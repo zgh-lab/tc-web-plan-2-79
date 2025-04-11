@@ -1,9 +1,7 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, Shield, Radio, Activity, AlertTriangle, Clock, Box } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import PageLayout from '@/components/PageLayout';
 import { useEffect } from 'react';
 
 const FireCatProject = () => {
@@ -13,9 +11,7 @@ const FireCatProject = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      
+    <PageLayout>
       <div className="pt-16 pb-16">
         {/* Hero Section */}
         <div 
@@ -187,9 +183,7 @@ const FireCatProject = () => {
           </motion.div>
         </div>
       </div>
-      
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
