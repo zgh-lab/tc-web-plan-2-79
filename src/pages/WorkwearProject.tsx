@@ -1,6 +1,5 @@
-
 import ProjectPageLayout from '@/components/ProjectPageLayout';
-import { Thermometer, ShieldCheck, Mountain, FileSymlink, Cpu } from 'lucide-react';
+import { Thermometer, ShieldCheck, Mountain, FileSymlink, Cpu, FlaskConical } from 'lucide-react';
 
 const WorkwearProject = () => {
   return (
@@ -10,6 +9,11 @@ const WorkwearProject = () => {
       imageUrl="/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png"
       brandName="European Multinational Textile Producer"
     >
+      <div className="bg-yellow-50 p-4 rounded-lg mb-6 flex items-center">
+        <FlaskConical className="h-5 w-5 text-yellow-600 mr-2 flex-shrink-0" />
+        <p className="text-yellow-700 font-medium text-sm">Ongoing R&D Project — Currently in Prototyping Phase</p>
+      </div>
+      
       <h2 className="text-3xl font-bold mb-6">Case Study: Advanced Climate Control Workwear</h2>
       
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
@@ -76,55 +80,21 @@ const WorkwearProject = () => {
         <li>Compliance with industry-specific safety standards</li>
       </ul>
       
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Benefits</h3>
-      <div className="space-y-6 mb-8">
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Worker Productivity</h4>
-            <p>Significant increase in worker productivity in extreme temperature environments.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Safety Improvements</h4>
-            <p>Reduced temperature-related incidents in first-year deployments.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Energy Efficiency</h4>
-            <p>Smart systems use less energy than conventional solutions while providing better performance.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Regulatory Compliance</h4>
-            <p>Meets all international standards for PPE while adding thermal management capabilities.</p>
-          </div>
-        </div>
-      </div>
-      
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Outcome</h3>
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Preliminary Results</h3>
       <p>
-        The client has successfully launched a premium line of climate-controlled workwear that has been adopted by 
-        major industrial clients across Northern Europe and Canada. The technology has been particularly valuable in 
-        oil & gas, mining, and construction sectors operating in extreme climates. A significant reduction in cold-related 
-        leave of absence has been reported by early adopting organizations.
+        The prototype climate-controlled workwear has shown promising results in controlled testing environments. 
+        The technology is being evaluated by select industrial clients across Northern Europe and Canada, focusing on 
+        oil & gas, mining, and construction sectors operating in extreme climates. Initial feedback indicates 
+        significant potential for reducing cold-related work disruptions.
       </p>
       
       <div className="bg-blue-50 p-6 rounded-lg mt-8 flex items-start">
         <FileSymlink className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
         <div>
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Ongoing Developments</h4>
+          <h4 className="text-lg font-semibold mb-2 text-gray-700">Ongoing Development</h4>
           <p>
-            Current R&D efforts are focused on expanding the system to include environmental hazard detection capabilities 
+            Current R&D efforts are focused on refining the prototypes, improving power efficiency, and 
+            exploring the potential to include environmental hazard detection capabilities 
             and integration with wider workplace safety systems.
           </p>
         </div>

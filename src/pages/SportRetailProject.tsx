@@ -1,6 +1,5 @@
-
 import ProjectPageLayout from '@/components/ProjectPageLayout';
-import { Footprints, Zap, LineChart, Award, Sparkles } from 'lucide-react';
+import { Footprints, Zap, LineChart, Award, Sparkles, FlaskConical } from 'lucide-react';
 
 const SportRetailProject = () => {
   return (
@@ -10,6 +9,11 @@ const SportRetailProject = () => {
       imageUrl="/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png"
       brandName="Global Sports Retail Leader"
     >
+      <div className="bg-yellow-50 p-4 rounded-lg mb-6 flex items-center">
+        <FlaskConical className="h-5 w-5 text-yellow-600 mr-2 flex-shrink-0" />
+        <p className="text-yellow-700 font-medium text-sm">Ongoing R&D Project — Currently in Prototyping Phase</p>
+      </div>
+      
       <h2 className="text-3xl font-bold mb-6">Case Study: Smart Footwear Development</h2>
       
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
@@ -76,56 +80,22 @@ const SportRetailProject = () => {
         <li>Materials testing module to evaluate durability and performance longevity</li>
       </ul>
       
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Benefits</h3>
-      <div className="space-y-6 mb-8">
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Accelerated Development</h4>
-            <p>Reduced prototype cycles through immediate quantifiable feedback.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Enhanced Performance</h4>
-            <p>Measured improvement in athletic metrics with data-optimized designs.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Personalization Engine</h4>
-            <p>Created algorithm to match footwear recommendations to individual biomechanical profiles.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-black mr-3 mt-1">✓</div>
-          <div>
-            <h4 className="font-semibold">Cost Reduction</h4>
-            <p>Significant reduction in overall R&D costs despite more comprehensive testing.</p>
-          </div>
-        </div>
-      </div>
-      
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Outcome</h3>
+      <h3 className="text-2xl font-semibold mb-4 mt-8">Preliminary Results</h3>
       <p>
-        The smart footwear platform has become an integral part of the client's development process. 
-        The data-driven approach has not only improved their products but also opened new possibilities 
-        for personalized product recommendations in their retail environments. Patents have been filed 
-        based on innovations developed during this project.
+        The smart footwear prototype platform has shown promising results in initial testing phases. 
+        The data-driven approach has not only provided valuable insights for product development but also opened 
+        new possibilities for personalized product recommendations in retail environments. Patent applications have 
+        been filed based on innovations developed during this ongoing project.
       </p>
       
       <div className="bg-blue-50 p-6 rounded-lg mt-8 flex items-start">
         <Sparkles className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
         <div>
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Future Developments</h4>
+          <h4 className="text-lg font-semibold mb-2 text-gray-700">Development Roadmap</h4>
           <p>
-            WRLDS Technologies continues to partner with this client to develop consumer versions of this technology, 
-            enabling everyday athletes to benefit from professional-grade footwear analysis and recommendations.
+            WRLDS Technologies continues to partner with this client on this R&D initiative to refine the prototype and 
+            develop potential consumer versions of this technology, which could enable everyday athletes to benefit 
+            from professional-grade footwear analysis and recommendations.
           </p>
         </div>
       </div>

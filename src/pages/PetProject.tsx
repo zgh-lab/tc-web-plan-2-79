@@ -1,6 +1,6 @@
 
 import ProjectPageLayout from '@/components/ProjectPageLayout';
-import { PawPrint, BadgePercent, HeartPulse, Smartphone, Database } from 'lucide-react';
+import { PawPrint, BadgePercent, HeartPulse, Smartphone, Database, FlaskConical } from 'lucide-react';
 
 const PetProject = () => {
   return (
@@ -10,6 +10,11 @@ const PetProject = () => {
       imageUrl="/lovable-uploads/d5ce901e-2ce0-4f2a-bce1-f0ca5d6192df.png"
       brandName="UK Insurance Giant"
     >
+      <div className="bg-green-50 p-4 rounded-lg mb-6 flex items-center">
+        <FlaskConical className="h-5 w-5 text-green-600 mr-2 flex-shrink-0" />
+        <p className="text-green-700 font-medium text-sm">Completed Prototype Project</p>
+      </div>
+      
       <h2 className="text-3xl font-bold mb-6">Case Study: Smart Pet Monitoring System</h2>
       
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
@@ -141,20 +146,21 @@ const PetProject = () => {
       
       <h3 className="text-2xl font-semibold mb-4 mt-8">Outcome</h3>
       <p>
-        The pilot program has been successfully implemented with pet owners across the UK, with plans 
-        for full commercial rollout in the coming year. The insurance provider has reported significant improvements in 
-        customer satisfaction and policy retention, while veterinary partners have praised the system's ability to detect 
-        potential health issues before they become serious conditions.
+        The prototype program was successfully implemented with a select group of pet owners across the UK, 
+        demonstrating the concept's viability and potential benefits. The insurance provider reported significant 
+        preliminary improvements in customer satisfaction and engagement metrics, while veterinary partners provided 
+        positive feedback on the system's ability to detect potential health issues earlier than conventional methods.
       </p>
       
       <div className="bg-blue-50 p-6 rounded-lg mt-8 flex items-start">
         <BadgePercent className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
         <div>
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Industry Impact</h4>
+          <h4 className="text-lg font-semibold mb-2 text-gray-700">Industry Potential</h4>
           <p>
-            This data-driven approach to pet insurance represents a paradigm shift in the industry, where preventative 
-            care and real-time monitoring are transforming the traditional reactive insurance model into a proactive 
-            health partnership between insurers, pet owners, and veterinarians.
+            This prototype demonstrated how a data-driven approach to pet insurance could represent a paradigm shift 
+            in the industry, where preventative care and real-time monitoring have the potential to transform the 
+            traditional reactive insurance model into a proactive health partnership between insurers, pet owners, 
+            and veterinarians.
           </p>
         </div>
       </div>
