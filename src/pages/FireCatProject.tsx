@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft, Shield, Radio, Activity, AlertTriangle, Clock, Box } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -15,37 +16,44 @@ const FireCatProject = () => {
       <div className="pt-16 pb-16">
         {/* Hero Section */}
         <div 
-          className="relative w-full h-[40vh] md:h-[50vh] bg-black overflow-hidden"
-          style={{
-            backgroundImage: "url('/lovable-uploads/5ca619e6-2139-4879-9b3c-94777ab85e2a.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
+          className="relative w-full h-[40vh] md:h-[50vh] bg-[#0c151c] overflow-hidden flex items-center justify-center"
         >
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-[#0c151c]"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-            <motion.h1 
-              className="text-4xl md:text-5xl font-bold mb-4 text-center"
+            <motion.div 
+              className="flex flex-col items-center justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              FireCat's 6th SENSE
-            </motion.h1>
-            <motion.div 
-              className="w-20 h-1 bg-white mb-6"
-              initial={{ width: 0 }}
-              animate={{ width: 80 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            />
-            <motion.p 
-              className="text-xl text-center max-w-2xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Advanced safety system for high-risk environments
-            </motion.p>
+              <img 
+                src="/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png" 
+                alt="FireCat Logo" 
+                className="w-64 mb-6"
+              />
+              <motion.h1 
+                className="text-4xl md:text-5xl font-bold mb-4 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                FireCat's 6th SENSE
+              </motion.h1>
+              <motion.div 
+                className="w-20 h-1 bg-white mb-6"
+                initial={{ width: 0 }}
+                animate={{ width: 80 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              />
+              <motion.p 
+                className="text-xl text-center max-w-2xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Advanced safety system for high-risk environments
+              </motion.p>
+            </motion.div>
           </div>
         </div>
         

@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -11,7 +12,7 @@ const projects = [
     brand: "FireCat Group",
     description: "AI-driven sensor solution integrated into uniforms for law enforcement, military and firefighters, providing real-time vital monitoring and situational awareness in high-risk environments.",
     tags: ["Safety", "Military", "AI Sensors", "Real-time Monitoring"],
-    imageUrl: "/lovable-uploads/5ca619e6-2139-4879-9b3c-94777ab85e2a.png",
+    imageUrl: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
     isFeatured: true,
     link: "/projects/firecat",
     details: `
