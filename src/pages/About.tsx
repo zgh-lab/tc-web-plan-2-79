@@ -1,10 +1,8 @@
-
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { useEffect } from 'react';
+import PageLayout from '@/components/PageLayout';
 
 const About = () => {
   // Scroll to top on mount
@@ -13,9 +11,7 @@ const About = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-
+    <PageLayout>
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
@@ -165,9 +161,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
