@@ -1,6 +1,4 @@
 
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { ArrowLeft, ArrowRight, FileText, Code, Cpu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -8,6 +6,7 @@ import ProductPlatform from '@/components/ProductPlatform';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from 'react';
+import PageLayout from '@/components/PageLayout';
 
 const TechDetails = () => {
   const isMobile = useIsMobile();
@@ -24,9 +23,8 @@ const TechDetails = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  return <div className="min-h-screen bg-white">
-      <Navbar />
-
+  return (
+    <PageLayout>
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
@@ -156,9 +154,8 @@ const TechDetails = () => {
           </div>
         </div>
       </section>
-      
-      <Footer />
-    </div>;
+    </PageLayout>
+  );
 };
 
 export default TechDetails;

@@ -1,10 +1,9 @@
 
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { ArrowLeft, CheckCircle, Clock, FileSearch, Settings, Cpu, Code, Truck, BarChart, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import PageLayout from '@/components/PageLayout';
 
 const DevelopmentProcess = () => {
   const [activeProcess, setActiveProcess] = useState(1);
@@ -143,9 +142,7 @@ const DevelopmentProcess = () => {
   ];
   
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-
+    <PageLayout>
       <section className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -286,9 +283,7 @@ const DevelopmentProcess = () => {
           </div>
         </div>
       </section>
-      
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
