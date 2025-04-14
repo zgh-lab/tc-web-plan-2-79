@@ -24,44 +24,7 @@ const App = () => {
   // Update page titles based on route
   useEffect(() => {
     const updateTitle = () => {
-      const path = window.location.pathname;
-      switch (path) {
-        case '/':
-          document.title = 'WRLDS Technologies - Home';
-          break;
-        case '/projects/firecat':
-          document.title = 'WRLDS Technologies - FireCat Project';
-          break;
-        case '/projects/sport-retail':
-          document.title = 'WRLDS Technologies - Performance Athletic Footwear';
-          break;
-        case '/projects/workwear':
-          document.title = 'WRLDS Technologies - Advanced Climate Control Workwear';
-          break;
-        case '/projects/hockey':
-          document.title = 'WRLDS Technologies - Ice Hockey Elite Skill Tracker';
-          break;
-        case '/projects/pet-tracker':
-          document.title = 'WRLDS Technologies - Smart Pet Monitoring System';
-          break;
-        case '/tech-details':
-          document.title = 'WRLDS Technologies - Technical Deep Dive';
-          break;
-        case '/development-process':
-          document.title = 'WRLDS Technologies - Development Process';
-          break;
-        case '/about':
-          document.title = 'WRLDS Technologies - About Us';
-          break;
-        case '/careers':
-          document.title = 'WRLDS Technologies - Careers';
-          break;
-        case '/privacy-policy':
-          document.title = 'WRLDS Technologies - Privacy Policy';
-          break;
-        default:
-          document.title = 'WRLDS Technologies';
-      }
+      document.title = 'WRLDS';
     };
 
     updateTitle();
