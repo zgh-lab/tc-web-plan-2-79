@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FireCatProject from "./pages/FireCatProject";
@@ -20,23 +20,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
-
-  // Update page titles based on route
-  useEffect(() => {
-    const updateTitle = () => {
-      document.title = 'WRLDS';
-    };
-
-    updateTitle();
-    
-    // Listen for route changes
-    const unlisten = () => window.addEventListener('popstate', updateTitle);
-    unlisten();
-
-    return () => {
-      window.removeEventListener('popstate', updateTitle);
-    };
-  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
