@@ -1,4 +1,3 @@
-
 import { ArrowRight, Code, Cpu, Layers, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
@@ -33,7 +32,6 @@ const Hero = () => {
     }
   };
   
-  // Scroll to contact function
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const contactSection = document.getElementById('contact');
@@ -45,12 +43,9 @@ const Hero = () => {
   };
   
   return <motion.div className="relative mt-16 md:mt-0 w-full max-w-[100vw]" initial="hidden" animate="visible" variants={containerVariants}>
-      {/* Banner with the provided image */}
       <div className="banner-container bg-black relative overflow-hidden h-[700px] md:h-[750px] w-full">
-        {/* Background Image with black fade overlay */}
         <div className="absolute inset-0 bg-black w-full">
           <img src="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" alt="WRLDS Technologies Connected People" className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`} />
-          {/* Black fade overlay - positioned at the bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
         </div>
         
@@ -63,22 +58,21 @@ const Hero = () => {
               </motion.p>
               <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 justify-center" variants={itemVariants}>
                 <a href="#projects" className="px-6 md:px-8 py-2 md:py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm md:text-base" onClick={e => {
-                e.preventDefault();
-                const projectsSection = document.getElementById('projects');
-                if (projectsSection) {
-                  projectsSection.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }
-              }}>
+                  e.preventDefault();
+                  const projectsSection = document.getElementById('projects');
+                  if (projectsSection) {
+                    projectsSection.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }
+                }}>
                   Explore Projects
                   <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 
-                {/* New Contact Us Button */}
                 <Button
                   onClick={scrollToContact}
-                  className="bg-gray-700 hover:bg-gray-800 text-white px-6 md:px-8 py-2 md:py-3 rounded-md shadow-lg hover:shadow-xl transition-colors group text-sm md:text-base"
+                  className="px-6 md:px-8 py-2 md:py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-md shadow-lg hover:shadow-xl transition-colors group text-sm md:text-base"
                 >
                   Contact Us
                   <MessageSquare className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform" />
