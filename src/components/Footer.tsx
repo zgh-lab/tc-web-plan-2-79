@@ -1,8 +1,17 @@
 
-import { ArrowRight, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Lock, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const handlePrivacySettings = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // @ts-ignore
+    if (window.UC_UI && typeof window.UC_UI.showSecondLayer === 'function') {
+      // @ts-ignore
+      window.UC_UI.showSecondLayer();
+    }
+  };
+
   return (
     <footer id="contact" className="bg-black text-white pt-16 pb-8 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -68,7 +77,10 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
-            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" onClick={handlePrivacySettings} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center">
+              <Lock className="mr-1 h-4 w-4" />
+              Manage Consent
+            </a>
           </div>
         </div>
       </div>
