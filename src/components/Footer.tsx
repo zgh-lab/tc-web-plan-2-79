@@ -16,8 +16,7 @@ const Footer = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
           <div className="lg:col-span-2">
-            <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="WRLDS Technologies Logo" className="h-10 w-auto mb-6 invert" // Added invert to make logo white
-          />
+            <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="WRLDS Technologies Logo" className="h-10 w-auto mb-6 invert" />
             <p className="text-gray-300 mb-6">
               WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
             </p>
@@ -32,7 +31,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
+          <div className="lg:col-start-4 lg:col-end-5 text-right">
             <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
             <ul className="space-y-3">
               <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
@@ -40,8 +39,6 @@ const Footer = () => {
               <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
-          
-          
         </div>
         
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
@@ -65,3 +62,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
