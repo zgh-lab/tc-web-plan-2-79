@@ -10,7 +10,6 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from "@/components/ui/button";
-
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
@@ -18,7 +17,6 @@ const Features = () => {
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
   const isMobile = useIsMobile();
-
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const contactSection = document.getElementById('contact');
@@ -28,7 +26,6 @@ const Features = () => {
       });
     }
   };
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -52,10 +49,8 @@ const Features = () => {
     }
     return () => observer.disconnect();
   }, []);
-
   useEffect(() => {
     let interval: NodeJS.Timeout;
-
     const animateProgress = () => {
       setProgressValue(0);
       interval = setInterval(() => {
@@ -72,13 +67,11 @@ const Features = () => {
         });
       }, 100);
     };
-
     animateProgress();
     return () => {
       if (interval) clearInterval(interval);
     };
   }, []);
-
   const features = [{
     icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Sports Performance",
@@ -100,7 +93,6 @@ const Features = () => {
     description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
     image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
   }];
-
   const sensorCaseStudies = [{
     image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
     title: "Firefighter Safety",
@@ -114,7 +106,6 @@ const Features = () => {
     title: "Sports Performance",
     description: "Smart athletic wear with temperature and pressure sensors that track hydration, foot strike patterns, and performance metrics."
   }];
-
   const stepFlowItems = [{
     icon: <Microchip className="h-10 w-10 text-gray-700" />,
     title: "WRLDS Proprietary Modules",
@@ -128,7 +119,6 @@ const Features = () => {
     title: "Vetted Production Partners",
     description: "Expert manufacturing partners for quality and reliability"
   }];
-
   const sprintPhases = [{
     name: "Planning",
     icon: <CheckCircle className="h-4 w-4" />
@@ -142,7 +132,6 @@ const Features = () => {
     name: "Review",
     icon: <RefreshCcw className="h-4 w-4" />
   }];
-
   return <>
       <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
         <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
@@ -221,18 +210,12 @@ const Features = () => {
           </div>
         </div>
         <div className="text-center mt-12 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <Button 
-            onClick={scrollToContact}
-            className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto"
-          >
+          <Button onClick={scrollToContact} className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto">
             Need Custom Solutions?
             <MessageSquare className="ml-2 w-4 h-4 group-hover:animate-pulse" />
           </Button>
           
-          <Button
-            onClick={() => window.scrollTo(0, 0)}
-            className="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group w-full sm:w-auto"
-          >
+          <Button onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group w-full sm:w-auto">
             Learn More About Our Technology
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -314,8 +297,7 @@ const Features = () => {
                 </div>
                 
                 <div className={cn("grid gap-1 mt-4", isMobile ? "grid-cols-2 gap-y-2" : "grid-cols-4")}>
-                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all",
-                progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
+                  {sprintPhases.map((phase, index) => <div key={index} className={cn("text-center p-2 rounded transition-all", progressValue >= index / sprintPhases.length * 100 && progressValue < (index + 1) / sprintPhases.length * 100 ? "bg-blue-50 border border-blue-100" : "bg-gray-50")}>
                       <div className="flex flex-col items-center">
                         <div className={cn("rounded-full p-1 mb-1", progressValue >= index / sprintPhases.length * 100 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-500")}>
                           {phase.icon}
@@ -379,15 +361,12 @@ const Features = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group">
+            <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-6 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group py-[12px] my-[15px]">
               Learn More About Our Technology
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             
-            <Button
-              onClick={scrollToContact}
-              className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all ml-4 group"
-            >
+            <Button onClick={scrollToContact} className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all ml-4 group">
               Contact Our Experts
               <MessageSquare className="ml-2 w-4 h-4 group-hover:scale-110 transition-transform" />
             </Button>
@@ -396,5 +375,4 @@ const Features = () => {
       </section>
     </>;
 };
-
 export default Features;
