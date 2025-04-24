@@ -220,13 +220,21 @@ const Features = () => {
             </div>
           </div>
         </div>
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <Button 
             onClick={scrollToContact}
-            className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group"
+            className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto"
           >
             Need Custom Solutions?
             <MessageSquare className="ml-2 w-4 h-4 group-hover:animate-pulse" />
+          </Button>
+          
+          <Button
+            onClick={() => window.scrollTo(0, 0)}
+            className="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group w-full sm:w-auto"
+          >
+            Learn More About Our Technology
+            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </section>
