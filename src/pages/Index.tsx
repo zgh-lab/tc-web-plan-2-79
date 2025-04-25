@@ -5,6 +5,7 @@ import Features from '@/components/Features';
 import Projects from '@/components/Projects';
 import WhyWrlds from '@/components/WhyWrlds';
 import SEO from '@/components/SEO';
+import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <Features />
       <WhyWrlds />
       <Projects />
+      <ContactForm />
     </PageLayout>
   );
 };
