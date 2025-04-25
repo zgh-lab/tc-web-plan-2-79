@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -9,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import emailjs from 'emailjs-com';
 
+// Updated schema with honeypot field validation
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
@@ -19,6 +21,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// EmailJS configuration - Updated with correct template ID
 const EMAILJS_SERVICE_ID = "service_i3h66xg";
 const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; // Updated to the correct template ID
 const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
@@ -44,6 +47,8 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
+      // Bot checks
+      // 1. Honeypot check - should be caught by zod, but double-check
       if (data.honeypot) {
         console.log('Bot detected via honeypot');
         toast({
@@ -54,6 +59,7 @@ const ContactForm = () => {
         return;
       }
       
+      // 2. Time-based check - Submission should take at least 3 seconds (too fast is likely a bot)
       const timeDiff = Date.now() - data.timestamp;
       if (timeDiff < 3000) {
         console.log(`Bot detected: Form submitted too quickly (${timeDiff}ms)`);
@@ -68,14 +74,16 @@ const ContactForm = () => {
       
       console.log('Form submitted:', data);
       
+      // Remove honeypot and timestamp fields before sending
       const { honeypot, timestamp, ...emailData } = data;
       
+      // Using parameters exactly as expected by EmailJS templates
       const templateParams = {
         from_name: emailData.name,
         from_email: emailData.email,
         message: emailData.message,
-        to_name: 'WRLDS Team',
-        reply_to: emailData.email
+        to_name: 'WRLDS Team', // Adding recipient name parameter
+        reply_to: emailData.email // Keeping reply_to for compatibility
       };
       
       console.log('Sending email with params:', templateParams);
@@ -83,11 +91,12 @@ const ContactForm = () => {
       console.log('Using template:', EMAILJS_TEMPLATE_ID);
       console.log('Using public key:', EMAILJS_PUBLIC_KEY);
       
+      // Send email directly without initializing, as it's not needed with the send method that includes the key
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY // Re-adding the public key parameter
       );
       
       console.log('Email sent successfully:', response);
@@ -108,6 +117,7 @@ const ContactForm = () => {
     } catch (error) {
       console.error('Error sending email:', error);
       
+      // More detailed error logging
       if (error && typeof error === 'object' && 'text' in error) {
         console.error('Error details:', (error as any).text);
       }
@@ -122,8 +132,7 @@ const ContactForm = () => {
     }
   };
 
-  return (
-    <section id="contact" className="bg-gradient-to-b from-white to-black text-white relative py-[25px]">
+  return <section id="contact" className="bg-gradient-to-b from-white to-black text-white relative py-[25px]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
@@ -142,8 +151,8 @@ const ContactForm = () => {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField control={form.control} name="name" render={({
-                  field
-                }) => <FormItem>
+                field
+              }) => <FormItem>
                       <FormLabel className="text-gray-700">Name</FormLabel>
                       <div className="relative">
                         <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -155,8 +164,8 @@ const ContactForm = () => {
                     </FormItem>} />
                 
                 <FormField control={form.control} name="email" render={({
-                  field
-                }) => <FormItem>
+                field
+              }) => <FormItem>
                       <FormLabel className="text-gray-700">Email</FormLabel>
                       <div className="relative">
                         <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -168,8 +177,8 @@ const ContactForm = () => {
                     </FormItem>} />
                 
                 <FormField control={form.control} name="message" render={({
-                  field
-                }) => <FormItem>
+                field
+              }) => <FormItem>
                       <FormLabel className="text-gray-700">Message</FormLabel>
                       <div className="relative">
                         <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -180,33 +189,20 @@ const ContactForm = () => {
                       <FormMessage />
                     </FormItem>} />
                 
-                <FormField 
-                  control={form.control} 
-                  name="honeypot" 
-                  render={({ field }) => (
-                    <FormItem className="bg-yellow-100 p-4 rounded-md">
-                      <FormLabel className="text-gray-700 font-bold">
-                        Anti-Bot Field (Please Leave Empty)
-                      </FormLabel>
+                {/* Honeypot field - hidden from real users but bots will fill it */}
+                <FormField control={form.control} name="honeypot" render={({
+                field
+              }) => <FormItem className="hidden">
+                      <FormLabel>Leave this empty</FormLabel>
                       <FormControl>
-                        <Input 
-                          {...field} 
-                          placeholder="This field is for bot detection. Do not fill this out." 
-                          className="bg-yellow-50 border-yellow-300"
-                          tabIndex={-1} 
-                        />
+                        <Input {...field} tabIndex={-1} />
                       </FormControl>
-                      <p className="text-xs text-yellow-700 mt-2">
-                        This is a hidden field used to prevent automated submissions. 
-                        Humans should not fill this out. Bots typically try to fill all fields.
-                      </p>
-                    </FormItem>
-                  )} 
-                />
+                    </FormItem>} />
                 
+                {/* Hidden timestamp field */}
                 <FormField control={form.control} name="timestamp" render={({
-                  field
-                }) => <FormItem className="hidden">
+                field
+              }) => <FormItem className="hidden">
                       <FormControl>
                         <Input type="hidden" {...field} />
                       </FormControl>
@@ -236,8 +232,7 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
 
 export default ContactForm;
