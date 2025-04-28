@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { Mail, Linkedin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Mail, Linkedin, Phone } from 'lucide-react';
 
 const ContactInfo = () => {
   return (
@@ -64,13 +63,17 @@ const ContactInfo = () => {
                   love@wrlds.com
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/loveanderberg/" 
+                  href="https://www.linkedin.com/in/love-anderberg-67549a174/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-700 hover:text-blue-600"
                 >
                   <Linkedin className="w-5 h-5 mr-2" />
                   LinkedIn Profile
+                </a>
+                <a href="tel:+46760149508" className="flex items-center text-gray-700 hover:text-blue-600">
+                  <Phone className="w-5 h-5 mr-2" />
+                  076-014 95 08
                 </a>
               </div>
             </div>
