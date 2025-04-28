@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
+import ContactInfo from '@/components/ContactInfo';
 import FloatingContactButton from '@/components/FloatingContactButton';
 
 type PageLayoutProps = {
@@ -15,7 +15,7 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
     <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
       <Navbar />
       {children}
-      {showContact && <ContactForm />}
+      {showContact && <ContactInfo />}
       <Footer />
       {showContact && <FloatingContactButton />}
     </div>

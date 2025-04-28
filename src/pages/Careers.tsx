@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
+import ContactInfo from '@/components/ContactInfo';
 import { ArrowLeft, CheckCircle, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -305,7 +305,7 @@ const Careers = () => {
         </div>
       </section>
       
-      <ContactForm />
+      <ContactInfo />
       
       <Footer />
     </div>
