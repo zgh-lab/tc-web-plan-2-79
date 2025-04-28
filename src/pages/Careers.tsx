@@ -35,9 +35,18 @@ const Careers = () => {
                   initial={{ opacity: 0 }} 
                   animate={{ opacity: 1 }} 
                   transition={{ duration: 0.5, delay: 0.2 }} 
-                  className="text-xl text-gray-600 mb-12"
+                  className="text-xl text-gray-600 mb-4"
                 >
                   We're looking for passionate innovators to help us revolutionize the smart textile industry.
+                </motion.p>
+                
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="text-xl text-gray-600 mb-12"
+                >
+                  We welcome both full-time professionals and interns who are eager to contribute to groundbreaking technology.
                 </motion.p>
                 
                 <motion.div 
