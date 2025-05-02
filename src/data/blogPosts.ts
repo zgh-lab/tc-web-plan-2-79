@@ -21,152 +21,152 @@ export const blogPosts: BlogPost[] = [
   {
     id: '1',
     slug: 'sensor-integrated-textiles-trend',
-    title: 'Sensorintegrerade textilier är en växande trend i Europa',
-    excerpt: 'Tröjor som mäter hjärtslag, sportkläder som följer rörelsemönster och arbetskläder som larmar vid fara är exempel på teknik som nu är på väg att bli verklighet.',
-    date: '2 maj 2025',
+    title: 'Sensor-integrated textiles are a growing trend in Europe',
+    excerpt: 'Shirts that measure heartbeat, sportswear that tracks movement patterns, and workwear that alerts in case of danger are examples of technology that is now becoming reality.',
+    date: 'May 2, 2025',
     author: 'WRLDS Technologies',
-    category: 'Trender',
+    category: 'Trends',
     imageUrl: '/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png',
     content: [
       {
         type: 'paragraph',
-        content: 'Tröjor som mäter hjärtslag, sportkläder som följer rörelsemönster och arbetskläder som larmar vid fara är exempel på teknik som nu är på väg att bli verklighet. Sensorer inbyggda i tyger, så kallade smarta textilier eller sensorintegrerade textilier, etablerar sig snabbt som en viktig trend internationellt. I Europa sker utvecklingen särskilt snabbt.'
+        content: 'Shirts that measure heartbeat, sportswear that tracks movement patterns, and workwear that alerts in case of danger are examples of technology that is now becoming reality. Sensors built into fabrics, so-called smart textiles or sensor-integrated textiles, are rapidly establishing themselves as an important trend internationally. In Europe, the development is happening particularly quickly.'
       },
       {
         type: 'paragraph',
-        content: 'För beslutsfattare inom hälsa, sport, industri och räddningstjänst innebär detta nya möjligheter till ökad effektivitet, bättre säkerhet och ökad innovationskraft. Utvecklingen i Europa drivs av flera faktorer. Exempelvis ökad efterfrågan på bärbar teknik, hållbarhetskrav och snabb digitalisering inom industrin. Samtidigt börjar EU se över regelverk för att främja och reglera området.'
+        content: 'For decision-makers in healthcare, sports, industry, and emergency services, this means new opportunities for increased efficiency, improved safety, and enhanced innovation. The development in Europe is driven by several factors. For example, increased demand for wearable technology, sustainability requirements, and rapid digitization in industry. At the same time, the EU is beginning to review regulations to promote and regulate the area.'
       },
       {
         type: 'paragraph',
-        content: 'Den här artikeln går igenom aktuella trender inom smarta textilier, vad som driver utvecklingen i Europa, vilka EU-regler som är viktiga att känna till och hur WRLDS Technologies kopplar in som teknikpartner i utvecklingen.'
+        content: 'This article covers current trends in smart textiles, what is driving the development in Europe, which EU regulations are important to know, and how WRLDS Technologies connects as a technology partner in the development.'
       },
       {
         type: 'heading',
-        content: 'Trender inom smarta textilier och sensorteknik'
+        content: 'Trends in smart textiles and sensor technology'
       },
       {
         type: 'paragraph',
-        content: 'Smarta textilier kombinerar elektronik och tyg för att skapa teknik som kan bäras direkt på kroppen. Det handlar om allt från sporttröjor med pulsmätare till bilsäten med inbyggda sensorer. Den globala marknaden för smarta textilier förväntas växa med cirka 22 procent per år under det här decenniet. Samtidigt växer marknaden för bärbar teknik i Europa med omkring 15,5 procent per år. Den uppskattas nå ett värde på cirka 62 miljarder dollar år 2031.'
+        content: 'Smart textiles combine electronics and fabric to create technology that can be worn directly on the body. This includes everything from sports shirts with heart rate monitors to car seats with built-in sensors. The global market for smart textiles is expected to grow by approximately 22 percent per year during this decade. At the same time, the market for wearable technology in Europe is growing by around 15.5 percent per year. It is estimated to reach a value of approximately $62 billion by 2031.'
       },
       {
         type: 'paragraph',
-        content: 'Att tekniken etablerar sig bekräftas också av utvecklingen på mässor som Techtextil i Frankfurt. Här presenteras innovationer som grafenförstärkta tyger och tryckkänsliga material. Forskare har visat hur kläder kan användas som gränssnitt mot digitala system. Exempelvis kan en ärm med magnetiska sensorer användas för att styra ljus eller navigera i en VR-miljö med hjälp av handrörelser.'
+        content: 'The establishment of this technology is also confirmed by developments at trade shows such as Techtextil in Frankfurt. Here, innovations such as graphene-reinforced fabrics and pressure-sensitive materials are presented. Researchers have shown how clothing can be used as an interface to digital systems. For example, a sleeve with magnetic sensors can be used to control lights or navigate in a VR environment using hand movements.'
       },
       {
         type: 'paragraph',
-        content: 'Smarta textilier kan alltså både samla in data om bäraren och interagera med omgivningen.'
+        content: 'Smart textiles can thus both collect data about the wearer and interact with the environment.'
       },
       {
         type: 'heading',
-        content: 'Användningsområden i dag'
+        content: 'Application areas today'
       },
       {
         type: 'subheading',
-        content: 'Hälsa'
+        content: 'Healthcare'
       },
       {
         type: 'paragraph',
-        content: 'Sensorplagg används redan i sjukvården för att övervaka puls, andning, kroppstemperatur och blodtryck. Detta möjliggör smarta sjukvårdsvästar, t-shirts för träningsuppföljning och lösningar för äldreomsorgen.'
+        content: 'Sensor garments are already used in healthcare to monitor pulse, breathing, body temperature, and blood pressure. This enables smart healthcare vests, t-shirts for training monitoring, and solutions for elderly care.'
       },
       {
         type: 'subheading',
-        content: 'Sport'
+        content: 'Sports'
       },
       {
         type: 'paragraph',
-        content: 'Inom träning och idrott används kläder med rörelse- och muskelsensorer för att analysera prestation och teknik i realtid. Det ger värdefull feedback och kan förebygga skador.'
+        content: 'In training and sports, clothing with motion and muscle sensors are used to analyze performance and technique in real-time. This provides valuable feedback and can prevent injuries.'
       },
       {
         type: 'subheading',
-        content: 'Industri'
+        content: 'Industry'
       },
       {
         type: 'paragraph',
-        content: 'I industrin används uppkopplade arbetskläder för att mäta temperatur, gasnivåer och ergonomi. Kläderna kan upptäcka farliga miljöförhållanden eller varna vid felaktiga arbetsställningar.'
+        content: 'In industry, connected workwear is used to measure temperature, gas levels, and ergonomics. The clothes can detect dangerous environmental conditions or warn of incorrect working postures.'
       },
       {
         type: 'subheading',
-        content: 'Räddningstjänst'
+        content: 'Emergency Services'
       },
       {
         type: 'paragraph',
-        content: 'Inom brandkår, polis och militär används sensorutrustning för att förbättra säkerheten. En jacka kan exempelvis registrera temperaturer, larma vid medvetslöshet och skicka positionsdata till kollegor.'
+        content: 'In fire brigades, police, and military, sensor equipment is used to improve safety. A jacket can, for example, register temperatures, alert in case of unconsciousness, and send position data to colleagues.'
       },
       {
         type: 'heading',
-        content: 'Varför utvecklingen går snabbt i Europa'
+        content: 'Why development is happening quickly in Europe'
       },
       {
         type: 'subheading',
-        content: 'Efterfrågan på bärbar teknik'
+        content: 'Demand for wearable technology'
       },
       {
         type: 'paragraph',
-        content: 'Europeiska konsumenter använder redan smartklockor och aktivitetsarmband. Nästa steg är att integrera denna funktionalitet direkt i kläderna. Behovet ökar i takt med att befolkningen blir mer teknikvan, mer hälsomedveten och äldre.'
+        content: 'European consumers already use smartwatches and fitness trackers. The next step is to integrate this functionality directly into clothing. The need increases as the population becomes more tech-savvy, more health-conscious, and older.'
       },
       {
         type: 'subheading',
-        content: 'Fokus på hållbarhet'
+        content: 'Focus on sustainability'
       },
       {
         type: 'paragraph',
-        content: 'Hållbarhet är centralt i EU:s politik och konsumentkrav. Det gäller även för smarta textilier. Produkterna måste vara återvinningsbara, tåla tvätt och slitage och inte bidra till ökade avfallsmängder. Redan nu ställs krav på eko-design, återvinningsbarhet och längre livslängd.'
+        content: 'Sustainability is central to EU policy and consumer demands. This also applies to smart textiles. The products must be recyclable, withstand washing and wear, and not contribute to increased waste. Requirements for eco-design, recyclability, and longer lifespan are already being imposed.'
       },
       {
         type: 'subheading',
-        content: 'Digitalisering i näringslivet'
+        content: 'Digitization in business'
       },
       {
         type: 'paragraph',
-        content: 'Digitaliseringen, inte minst genom initiativ som Industri 4.0 och Internet of Things, skapar efterfrågan på kroppsnära data. Smarta textilier är ett naturligt inslag i denna omställning. De gör det möjligt att samla in information direkt från människor i realtid och integrera den i digitala system för vård, träning och produktion.'
+        content: 'Digitization, not least through initiatives such as Industry 4.0 and the Internet of Things, creates demand for body-related data. Smart textiles are a natural element in this transition. They make it possible to collect information directly from people in real-time and integrate it into digital systems for healthcare, training, and production.'
       },
       {
         type: 'heading',
-        content: 'EU-regler och standarder att känna till'
+        content: 'EU regulations and standards to know'
       },
       {
         type: 'subheading',
-        content: 'Dataskydd'
+        content: 'Data protection'
       },
       {
         type: 'paragraph',
-        content: 'Smarta textilier hanterar ofta känslig information om individers hälsa och välbefinnande. GDPR gäller fullt ut. Det kräver tydligt samtycke och säker datahantering. Den nya Data Act från 2024 stärker dessutom reglerna för hur data från uppkopplade produkter får delas och användas.'
+        content: 'Smart textiles often handle sensitive information about individuals\' health and well-being. GDPR fully applies. It requires clear consent and secure data handling. The new Data Act from 2024 also strengthens the rules for how data from connected products may be shared and used.'
       },
       {
         type: 'subheading',
-        content: 'Produktsäkerhet och IT-säkerhet'
+        content: 'Product safety and IT security'
       },
       {
         type: 'paragraph',
-        content: 'Sensorprodukter måste uppfylla samma säkerhetskrav som annan elektronik på EU-marknaden, inklusive CE-märkning. EU:s nya cybersäkerhetslag, Cyber Resilience Act, ställer också krav på inbyggd IT-säkerhet. Tillverkare måste kunna visa att produkterna är skyddade mot intrång och får uppdateringar under hela sin livscykel.'
+        content: 'Sensor products must meet the same safety requirements as other electronics on the EU market, including CE marking. The EU\'s new cybersecurity law, the Cyber Resilience Act, also imposes requirements for built-in IT security. Manufacturers must be able to demonstrate that the products are protected against intrusion and receive updates throughout their lifecycle.'
       },
       {
         type: 'subheading',
-        content: 'Hållbarhet och livscykel'
+        content: 'Sustainability and lifecycle'
       },
       {
         type: 'paragraph',
-        content: 'Från 2025 blir separat insamling av textilier obligatorisk i hela EU. Nya krav på producentansvar innebär att även smarta kläder måste designas för återvinning. Elektronikdelar bör kunna tas bort och återvinnas, och materialen i övrigt ska vara hållbara. Även produktens hållbarhet över tid blir en regulatorisk fråga.'
+        content: 'From 2025, separate collection of textiles will be mandatory throughout the EU. New requirements for producer responsibility mean that smart clothes must also be designed for recycling. Electronic parts should be removable and recyclable, and the materials otherwise should be sustainable. The durability of the product over time is also becoming a regulatory issue.'
       },
       {
         type: 'heading',
-        content: 'WRLDS Technologies som teknikpartner'
+        content: 'WRLDS Technologies as a technology partner'
       },
       {
         type: 'paragraph',
-        content: 'Företag som vill utveckla sensorintegrerade textilier står ofta inför tekniska utmaningar. Det handlar om att kombinera tyg, elektronik, mjukvara och datainsamling i en fungerande helhet. Här kommer WRLDS Technologies in som teknikpartner med bred erfarenhet av att integrera sensorer i produkter för sport, industri och hälsa.'
+        content: 'Companies wanting to develop sensor-integrated textiles often face technical challenges. It\'s about combining fabric, electronics, software, and data collection into a functioning whole. This is where WRLDS Technologies comes in as a technology partner with extensive experience in integrating sensors into products for sports, industry, and health.'
       },
       {
         type: 'paragraph',
-        content: 'WRLDS hjälper sina kunder genom hela utvecklingsprocessen. Det kan handla om att ta fram en första prototyp för tester, eller att skala upp till färdig produkt för marknaden. Genom att tillhandahålla både hårdvarukomponenter och kompetens inom mjukvaruintegration underlättar WRLDS för företag att fokusera på användningen i sin egen bransch.'
+        content: 'WRLDS helps its customers through the entire development process. This could involve developing an initial prototype for testing or scaling up to a finished product for the market. By providing both hardware components and expertise in software integration, WRLDS makes it easier for companies to focus on usage in their own industry.'
       },
       {
         type: 'paragraph',
-        content: 'Exempel på tidigare projekt inkluderar träningsutrustning som ger feedback i realtid och arbetskläder med klimatsensorer för extrema miljöer. Tillsammans med kundens team tar WRLDS fram lösningar som är redo att möta både tekniska och regulatoriska krav.'
+        content: 'Examples of previous projects include training equipment that provides feedback in real-time and workwear with climate sensors for extreme environments. Together with the customer\'s team, WRLDS develops solutions that are ready to meet both technical and regulatory requirements.'
       },
       {
         type: 'paragraph',
-        content: 'I en tid när sensorintegrerade textilier snabbt vinner mark blir valet av teknikpartner avgörande. WRLDS erbjuder den kompetens och flexibilitet som krävs för att förverkliga idéer, minska utvecklingsrisker och få ut innovativa produkter på marknaden.'
+        content: 'In a time when sensor-integrated textiles are rapidly gaining ground, the choice of technology partner becomes crucial. WRLDS offers the expertise and flexibility needed to realize ideas, reduce development risks, and bring innovative products to market.'
       }
     ]
   }

@@ -31,7 +31,12 @@ const Blog = () => {
           <Link to="/blog/sensor-integrated-textiles-trend" className="col-span-1 md:col-span-2 lg:col-span-3">
             <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
               <div className="grid md:grid-cols-2 h-full">
-                <div className="bg-gradient-to-br from-blue-600 to-purple-800 p-8 flex items-center justify-center">
+                <div 
+                  className="bg-cover bg-center p-8 flex items-center justify-center"
+                  style={{ 
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/3de85ddd-15e1-4216-9697-f91abb9a47ce.png')`,
+                  }}
+                >
                   <div className="text-white text-center">
                     <span className="px-3 py-1 bg-white/10 rounded-full text-sm font-medium inline-block mb-4">Featured</span>
                     <h3 className="text-2xl md:text-3xl font-bold">Sensor-integrated textiles are a growing trend in Europe</h3>

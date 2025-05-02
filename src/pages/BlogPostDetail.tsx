@@ -18,8 +18,8 @@ const BlogPostDetail = () => {
     return (
       <PageLayout>
         <div className="container mx-auto px-4 py-16 min-h-[50vh] flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-4">Inlägg hittades inte</h1>
-          <p>Vi kunde inte hitta det inlägg du letar efter.</p>
+          <h1 className="text-3xl font-bold mb-4">Post not found</h1>
+          <p>We couldn't find the post you're looking for.</p>
         </div>
       </PageLayout>
     );
@@ -38,7 +38,7 @@ const BlogPostDetail = () => {
             <span className="inline-block px-3 py-1 bg-white/10 rounded-full text-sm mb-4">{post.category}</span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
             <div className="flex items-center text-gray-300">
-              <span>Publicerad: {post.date}</span>
+              <span>Published: {post.date}</span>
             </div>
           </div>
         </div>
@@ -67,10 +67,10 @@ const BlogPostDetail = () => {
           
           <div className="flex flex-col sm:flex-row items-center justify-between py-6">
             <div>
-              <p className="text-sm text-gray-500">Kategori: {post.category}</p>
+              <p className="text-sm text-gray-500">Category: {post.category}</p>
             </div>
             <div className="mt-4 sm:mt-0">
-              <p className="text-sm text-gray-500">Dela denna artikel:</p>
+              <p className="text-sm text-gray-500">Share this article:</p>
               <div className="flex space-x-4 mt-2">
                 <a href="#" className="text-gray-400 hover:text-gray-500">LinkedIn</a>
                 <a href="#" className="text-gray-400 hover:text-gray-500">Twitter</a>
