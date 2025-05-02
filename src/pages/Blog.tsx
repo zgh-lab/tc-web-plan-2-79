@@ -32,9 +32,11 @@ const Blog = () => {
             <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
               <div className="grid md:grid-cols-2 h-full">
                 <div 
-                  className="bg-cover bg-center p-8 flex items-center justify-center"
+                  className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center"
                   style={{ 
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat'
                   }}
                 >
                   <div className="text-white text-center">
