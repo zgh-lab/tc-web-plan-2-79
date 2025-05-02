@@ -172,10 +172,7 @@ export const blogPosts: BlogPost[] = [
         type: 'paragraph',
         content: 'WRLDS helps its customers through the entire development process. This could involve developing an initial prototype for testing or scaling up to a finished product for the market. By providing both hardware components and expertise in software integration, WRLDS makes it easier for companies to focus on usage in their own industry.'
       },
-      {
-        type: 'paragraph',
-        content: 'Examples of previous projects include training equipment that provides feedback in real-time and workwear with climate sensors for extreme environments. Together with the customer\'s team, WRLDS develops solutions that are ready to meet both technical and regulatory requirements.'
-      },
+      // Removed paragraph about examples of previous projects
       {
         type: 'quote',
         content: 'As sensor technology continues to advance and miniaturize, the potential applications for smart textiles are limited only by our imagination.'
