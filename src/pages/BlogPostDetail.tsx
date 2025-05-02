@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
@@ -10,24 +9,23 @@ import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag } from 'lucide-rea
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
 const BlogPostDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const {
+    slug
+  } = useParams<{
+    slug: string;
+  }>();
   const post = blogPosts.find(post => post.slug === slug);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
-  
   if (!post) {
-    return (
-      <PageLayout>
+    return <PageLayout>
         <div className="container mx-auto px-4 py-16 min-h-[50vh] flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-4">Post not found</h1>
           <p>We couldn't find the post you're looking for.</p>
         </div>
-      </PageLayout>
-    );
+      </PageLayout>;
   }
 
   // Calculate reading time (average 200 words per minute)
@@ -39,33 +37,26 @@ const BlogPostDetail = () => {
     }
     return count;
   }, 0);
-  
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-
-  return (
-    <PageLayout>
-      <SEO 
-        title={`${post.title} - WRLDS Technologies`}
-        description={post.excerpt}
-        imageUrl={post.imageUrl || "/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png"}
-      />
+  return <PageLayout>
+      <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl || "/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png"} />
       
-      <div 
-        className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${post.imageUrl}')`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative" style={{
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${post.imageUrl}')`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    }}>
         <div className="container mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }} className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4">
               <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 flex items-center gap-1.5">
                 <Tag size={14} />
@@ -91,55 +82,43 @@ const BlogPostDetail = () => {
       
       <div className="container mx-auto px-4 py-12 grayscale">
         <div className="max-w-3xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="prose prose-lg max-w-none"
-          >
-            {post.content.map((section, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
-                className={cn(
-                  "mb-8",
-                  section.type === 'quote' && "my-10"
-                )}
-              >
-                {section.type === 'paragraph' && (
-                  <p className="text-gray-700 mb-4 leading-relaxed">{section.content}</p>
-                )}
-                {section.type === 'heading' && (
-                  <div className="flex items-center gap-3 mt-12 mb-6">
+          <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} className="prose prose-lg max-w-none">
+            {post.content.map((section, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 10
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.4,
+            delay: 0.1 * index
+          }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">{section.content}</p>}
+                {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
                     <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
                     <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
-                  </div>
-                )}
-                {section.type === 'subheading' && (
-                  <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
+                  </div>}
+                {section.type === 'subheading' && <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
                     <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                     {section.content}
-                  </h3>
-                )}
-                {section.type === 'list' && (
-                  <ul className="list-disc pl-5 my-4 space-y-2">
-                    {section.items?.map((item, itemIndex) => (
-                      <li key={itemIndex} className="text-gray-700">{item}</li>
-                    ))}
-                  </ul>
-                )}
-                {section.type === 'quote' && (
-                  <blockquote className="border-l-4 border-purple-500 pl-5 py-2 my-8 bg-purple-50 rounded-r-lg italic text-gray-700">
+                  </h3>}
+                {section.type === 'list' && <ul className="list-disc pl-5 my-4 space-y-2">
+                    {section.items?.map((item, itemIndex) => <li key={itemIndex} className="text-gray-700">{item}</li>)}
+                  </ul>}
+                {section.type === 'quote' && <blockquote className="border-l-4 border-purple-500 pl-5 py-2 my-8 bg-purple-50 rounded-r-lg italic text-gray-700">
                     <div className="flex">
                       <MessageSquare size={20} className="text-purple-500 mr-3 mt-1 flex-shrink-0" />
                       <p className="text-lg m-0">{section.content}</p>
                     </div>
-                  </blockquote>
-                )}
-              </motion.div>
-            ))}
+                  </blockquote>}
+              </motion.div>)}
           </motion.div>
           
           <Separator className="my-8" />
@@ -148,22 +127,10 @@ const BlogPostDetail = () => {
             <div>
               <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
             </div>
-            <div className="flex space-x-4">
-              <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-600 hover:text-white transition-colors">
-                LinkedIn
-              </Button>
-              <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-400 hover:text-white transition-colors">
-                Twitter
-              </Button>
-              <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-800 hover:text-white transition-colors">
-                Facebook
-              </Button>
-            </div>
+            
           </div>
         </div>
       </div>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default BlogPostDetail;
