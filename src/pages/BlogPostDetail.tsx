@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
@@ -10,23 +9,28 @@ import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag } from 'lucide-rea
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+
 const BlogPostDetail = () => {
-  const {
-    slug
-  } = useParams<{
-    slug: string;
-  }>();
+  const { slug } = useParams<{ slug: string; }>();
   const post = blogPosts.find(post => post.slug === slug);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
   if (!post) {
-    return <PageLayout>
+    return (
+      <PageLayout>
+        <SEO 
+          title="Post Not Found - WRLDS Technologies" 
+          description="The requested blog post could not be found."
+        />
         <div className="container mx-auto px-4 py-16 min-h-[50vh] flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-4">Post not found</h1>
           <p>We couldn't find the post you're looking for.</p>
         </div>
-      </PageLayout>;
+      </PageLayout>
+    );
   }
 
   // Calculate reading time (average 200 words per minute)
@@ -39,25 +43,35 @@ const BlogPostDetail = () => {
     return count;
   }, 0);
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-  return <PageLayout>
-      <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl || "/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png"} />
+
+  return (
+    <PageLayout>
+      <SEO 
+        title={`${post.title} - WRLDS Technologies`} 
+        description={post.excerpt} 
+        imageUrl={post.imageUrl}
+        type="article"
+      />
       
-      <div className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative" style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${post.imageUrl}')`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    }}>
+      <div 
+        className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative" 
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${post.imageUrl}')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container mx-auto px-4">
           <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }} className="max-w-3xl mx-auto">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6
+          }} className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4">
               <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 flex items-center gap-1.5">
                 <Tag size={14} />
@@ -84,23 +98,23 @@ const BlogPostDetail = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="prose prose-lg max-w-none">
-            {post.content.map((section, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 10
+            opacity: 0
           }} animate={{
-            opacity: 1,
-            y: 0
+            opacity: 1
           }} transition={{
-            duration: 0.4,
-            delay: 0.1 * index
-          }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+            duration: 0.6,
+            delay: 0.2
+          }} className="prose prose-lg max-w-none">
+            {post.content.map((section, index) => <motion.div key={index} initial={{
+              opacity: 0,
+              y: 10
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.4,
+              delay: 0.1 * index
+            }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
                 {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">{section.content}</p>}
                 {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
                     <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
@@ -132,6 +146,8 @@ const BlogPostDetail = () => {
           </div>
         </div>
       </div>
-    </PageLayout>;
+    </PageLayout>
+  );
 };
+
 export default BlogPostDetail;
