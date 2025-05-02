@@ -35,13 +35,13 @@ const Blog = () => {
                 <div 
                   className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center"
                   style={{ 
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
+                    backgroundImage: `url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center'
                   }}
                 >
-                  <div className="text-white text-center">
+                  <div className="text-white text-center bg-black/30 backdrop-blur-sm p-4 rounded-lg">
                     <span className="px-3 py-1 bg-white/10 rounded-full text-sm font-medium inline-block mb-4">Featured</span>
                     <h3 className="text-2xl md:text-3xl font-bold">Sensor-integrated textiles are a growing trend in Europe</h3>
                   </div>
