@@ -35,7 +35,7 @@ const Blog = () => {
                 <div 
                   className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center"
                   style={{ 
-                    backgroundImage: `url('/lovable-uploads/f2dbb816-578c-4691-997e-2b358e0561c1.png')`,
+                    backgroundImage: `url('/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png')`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center'
