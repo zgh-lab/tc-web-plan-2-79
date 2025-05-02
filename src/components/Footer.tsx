@@ -1,5 +1,5 @@
 
-import { ArrowRight, Lock, Linkedin } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -9,15 +9,6 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  const handlePrivacySettings = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // @ts-ignore
-    if (window.UC_UI && typeof window.UC_UI.showSecondLayer === 'function') {
-      // @ts-ignore
-      window.UC_UI.showSecondLayer();
-    }
-  };
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,7 +100,6 @@ const Footer = () => {
               <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
               <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><a href="#" onClick={handlePrivacySettings} className="text-gray-300 hover:text-white transition-colors">Manage Consent</a></li>
             </ul>
           </div>
           
@@ -148,10 +138,6 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
-            <a href="#" onClick={handlePrivacySettings} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center">
-              <Lock className="mr-1 h-4 w-4" />
-              Manage Consent
-            </a>
           </div>
         </div>
       </div>
