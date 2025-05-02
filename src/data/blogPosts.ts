@@ -17,6 +17,9 @@ export interface BlogPost {
   content: ContentSection[];
 }
 
+// Define the textile image URL
+const textileImageUrl = '/lovable-uploads/6e44ae72-3984-4471-80c3-063c7c569e53.png';
+
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
@@ -26,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2, 2025',
     author: 'WRLDS Technologies',
     category: 'Trends',
-    imageUrl: '/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png',
+    imageUrl: textileImageUrl,
     content: [
       {
         type: 'paragraph',

@@ -11,6 +11,9 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
+// Define the textile image URL
+const textileImageUrl = '/lovable-uploads/6e44ae72-3984-4471-80c3-063c7c569e53.png';
+
 const BlogPostDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(post => post.slug === slug);
@@ -42,18 +45,21 @@ const BlogPostDetail = () => {
   
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
+  // Use the post's imageUrl if available, otherwise fallback to the textile image
+  const headerImageUrl = post.imageUrl || textileImageUrl;
+
   return (
     <PageLayout>
       <SEO 
         title={`${post.title} - WRLDS Technologies`}
         description={post.excerpt}
-        imageUrl={post.imageUrl || "/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png"}
+        imageUrl={headerImageUrl}
       />
       
       <div 
         className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${headerImageUrl}')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
@@ -97,6 +103,15 @@ const BlogPostDetail = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
+            {/* Show the image at the top of the article content */}
+            <div className="mb-8">
+              <img 
+                src={headerImageUrl} 
+                alt="Textile manufacturing with sensor integration" 
+                className="w-full h-auto rounded-lg shadow-md mb-4"
+              />
+            </div>
+            
             {post.content.map((section, index) => (
               <motion.div 
                 key={index} 
