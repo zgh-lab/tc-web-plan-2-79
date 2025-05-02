@@ -32,7 +32,7 @@ const BlogPostCard = ({ title, excerpt, imageUrl, date, slug, category }: BlogPo
           <h3 className="text-xl font-bold mb-2">{title}</h3>
           <p className="text-gray-700 mb-6 flex-grow">{excerpt}</p>
           <Button variant="outline" className="group mt-auto w-full sm:w-auto">
-            Läs mer 
+            Read more 
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </CardContent>
