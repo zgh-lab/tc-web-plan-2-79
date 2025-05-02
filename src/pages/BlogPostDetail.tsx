@@ -47,6 +47,7 @@ const BlogPostDetail = () => {
       <SEO 
         title={`${post.title} - WRLDS Technologies`}
         description={post.excerpt}
+        imageUrl={post.imageUrl || "/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png"}
       />
       
       <div 
@@ -88,7 +89,7 @@ const BlogPostDetail = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 grayscale">
         <div className="max-w-3xl mx-auto">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -140,16 +141,6 @@ const BlogPostDetail = () => {
               </motion.div>
             ))}
           </motion.div>
-          
-          <div className="max-w-2xl mx-auto my-10 px-8 py-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-100">
-            <h4 className="text-xl font-semibold text-purple-900 mb-3">Want to know more about smart textiles?</h4>
-            <p className="text-gray-700 mb-4">
-              Connect with our team to discover how WRLDS Technologies can help you integrate sensor technology into your products.
-            </p>
-            <div className="flex justify-end">
-              <Button className="bg-purple-600 hover:bg-purple-700">Contact Us</Button>
-            </div>
-          </div>
           
           <Separator className="my-8" />
           

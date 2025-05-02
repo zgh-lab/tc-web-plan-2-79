@@ -16,10 +16,11 @@ const SEO: React.FC<SEOProps> = ({
   description = 'WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.',
   type = 'website',
   name = 'WRLDS Technologies',
-  imageUrl = 'https://lovable.dev/opengraph-image-p98pqg.png'
+  imageUrl = '/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png'
 }) => {
   const location = useLocation();
   const currentUrl = `https://wrlds.com${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
 
   // Create JSON-LD structured data
   const structuredData = {
@@ -51,14 +52,20 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image" content={absoluteImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={currentUrl} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image" content={absoluteImageUrl} />
+      
+      {/* LinkedIn specific */}
+      <meta property="og:image:secure_url" content={absoluteImageUrl} />
+      <meta name="author" content={name} />
       
       {/* JSON-LD structured data */}
       <script type="application/ld+json">

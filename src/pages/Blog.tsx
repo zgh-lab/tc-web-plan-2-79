@@ -13,6 +13,7 @@ const Blog = () => {
       <SEO 
         title="WRLDS - News and insights about smart textile technology" 
         description="Stay updated with the latest news and insights about sensor-integrated textiles and smart technology from WRLDS Technologies."
+        imageUrl="/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png"
       />
       
       <div className="w-full pt-24 pb-12 bg-gradient-to-b from-black to-gray-900 text-white">
@@ -36,7 +37,8 @@ const Blog = () => {
                   style={{ 
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
                     backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat'
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center'
                   }}
                 >
                   <div className="text-white text-center">
