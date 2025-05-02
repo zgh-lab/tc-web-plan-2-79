@@ -1,3 +1,4 @@
+
 import { useParams } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
@@ -80,7 +81,7 @@ const BlogPostDetail = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 py-12 grayscale">
+      <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{
           opacity: 0
