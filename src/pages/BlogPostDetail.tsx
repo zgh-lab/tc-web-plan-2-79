@@ -53,7 +53,7 @@ const BlogPostDetail = () => {
       <div 
         className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${post.imageUrl}')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
@@ -148,22 +148,16 @@ const BlogPostDetail = () => {
             <div>
               <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
             </div>
-            <div className="mt-4 sm:mt-0">
-              <p className="flex items-center gap-2 text-sm text-gray-600 font-medium mb-3">
-                <Share size={16} />
-                Share this article:
-              </p>
-              <div className="flex space-x-4">
-                <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-600 hover:text-white transition-colors">
-                  LinkedIn
-                </Button>
-                <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-400 hover:text-white transition-colors">
-                  Twitter
-                </Button>
-                <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-800 hover:text-white transition-colors">
-                  Facebook
-                </Button>
-              </div>
+            <div className="flex space-x-4">
+              <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-600 hover:text-white transition-colors">
+                LinkedIn
+              </Button>
+              <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-400 hover:text-white transition-colors">
+                Twitter
+              </Button>
+              <Button variant="outline" size="sm" className="border-gray-300 hover:bg-blue-800 hover:text-white transition-colors">
+                Facebook
+              </Button>
             </div>
           </div>
         </div>
