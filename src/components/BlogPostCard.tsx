@@ -27,7 +27,12 @@ const BlogPostCard = ({
         <div className="grid grid-rows-[200px,1fr]">
           <div
             className="bg-cover bg-center"
-            style={{ backgroundImage: `url('${imageUrl}')` }}
+            style={{ 
+              backgroundImage: `url('${imageUrl}')`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center'
+            }}
           >
             <div className="w-full h-full bg-black/20 flex items-center justify-center">
               <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white inline-block">
