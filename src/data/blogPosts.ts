@@ -1,5 +1,3 @@
-
-
 interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;
@@ -27,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2, 2025',
     author: 'WRLDS Technologies',
     category: 'Trends',
-    imageUrl: '/lovable-uploads/30473baa-85f4-4931-aad9-c722ae7a4918.png',
+    imageUrl: '/lovable-uploads/64bf7658-b047-4e91-94aa-4f36127aa0ce.png',
     content: [
       {
         type: 'paragraph',
