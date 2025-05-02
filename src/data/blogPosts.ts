@@ -1,6 +1,6 @@
 
 interface ContentSection {
-  type: 'paragraph' | 'heading' | 'subheading' | 'list';
+  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;
   items?: string[];
 }
