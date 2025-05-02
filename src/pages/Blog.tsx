@@ -34,7 +34,7 @@ const Blog = () => {
                 <div 
                   className="bg-cover bg-center p-8 flex items-center justify-center"
                   style={{ 
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/ec2a6b79-27b7-475e-b033-a5ebe60336fb.png')`,
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
                   }}
                 >
                   <div className="text-white text-center">

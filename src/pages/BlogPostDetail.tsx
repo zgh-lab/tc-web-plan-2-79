@@ -52,7 +52,7 @@ const BlogPostDetail = () => {
       <div 
         className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/lovable-uploads/ec2a6b79-27b7-475e-b033-a5ebe60336fb.png')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/lovable-uploads/812fe1e7-4326-47ef-868e-21cfd3b5fc46.png')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
         }}
