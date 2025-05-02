@@ -1,4 +1,5 @@
 
+
 interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;
@@ -37,6 +38,10 @@ export const blogPosts: BlogPost[] = [
         content: 'For decision-makers in healthcare, sports, industry, and emergency services, this means new opportunities for increased efficiency, improved safety, and enhanced innovation. The development in Europe is driven by several factors. For example, increased demand for wearable technology, sustainability requirements, and rapid digitization in industry. At the same time, the EU is beginning to review regulations to promote and regulate the area.'
       },
       {
+        type: 'quote',
+        content: 'Smart textiles represent the next evolution in wearable technology, seamlessly integrating digital capabilities into the fabric of our everyday lives.'
+      },
+      {
         type: 'paragraph',
         content: 'This article covers current trends in smart textiles, what is driving the development in Europe, which EU regulations are important to know, and how WRLDS Technologies connects as a technology partner in the development.'
       },
@@ -51,6 +56,10 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: 'The establishment of this technology is also confirmed by developments at trade shows such as Techtextil in Frankfurt. Here, innovations such as graphene-reinforced fabrics and pressure-sensitive materials are presented. Researchers have shown how clothing can be used as an interface to digital systems. For example, a sleeve with magnetic sensors can be used to control lights or navigate in a VR environment using hand movements.'
+      },
+      {
+        type: 'quote',
+        content: 'The future of fashion isn\'t just about style—it\'s about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance.'
       },
       {
         type: 'paragraph',
@@ -103,6 +112,10 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: 'European consumers already use smartwatches and fitness trackers. The next step is to integrate this functionality directly into clothing. The need increases as the population becomes more tech-savvy, more health-conscious, and older.'
+      },
+      {
+        type: 'quote',
+        content: 'The convergence of textiles and technology is creating a new era of connected clothing that responds to our bodies and environment in ways previously unimaginable.'
       },
       {
         type: 'subheading',
@@ -163,6 +176,10 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: 'Examples of previous projects include training equipment that provides feedback in real-time and workwear with climate sensors for extreme environments. Together with the customer\'s team, WRLDS develops solutions that are ready to meet both technical and regulatory requirements.'
+      },
+      {
+        type: 'quote',
+        content: 'As sensor technology continues to advance and miniaturize, the potential applications for smart textiles are limited only by our imagination.'
       },
       {
         type: 'paragraph',
