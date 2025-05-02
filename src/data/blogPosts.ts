@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2, 2025',
     author: 'WRLDS Technologies',
     category: 'Trends',
-    imageUrl: '/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png',
+    imageUrl: '/lovable-uploads/f2dbb816-578c-4691-997e-2b358e0561c1.png',
     content: [
       {
         type: 'paragraph',
