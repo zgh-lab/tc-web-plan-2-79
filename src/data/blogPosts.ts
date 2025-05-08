@@ -1,4 +1,3 @@
-
 interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;
@@ -58,7 +57,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The future of fashion isn\'t just about style—it\'s about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance.'
+        content: 'The future of fashion isn\'t just about style—it's about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance.'
       },
       {
         type: 'paragraph',
@@ -190,7 +189,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 8, 2025',
     author: 'WRLDS Technologies',
     category: 'Product',
-    imageUrl: '/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png',
+    imageUrl: '/lovable-uploads/af5ee2ce-3942-48bb-a2ad-3b49b419daf9.png',
     content: [
       {
         type: 'paragraph',
