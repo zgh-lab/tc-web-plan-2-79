@@ -172,7 +172,6 @@ export const blogPosts: BlogPost[] = [
         type: 'paragraph',
         content: 'WRLDS helps its customers through the entire development process. This could involve developing an initial prototype for testing or scaling up to a finished product for the market. By providing both hardware components and expertise in software integration, WRLDS makes it easier for companies to focus on usage in their own industry.'
       },
-      // Removed paragraph about examples of previous projects
       {
         type: 'quote',
         content: 'As sensor technology continues to advance and miniaturize, the potential applications for smart textiles are limited only by our imagination.'
@@ -180,6 +179,100 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: 'In a time when sensor-integrated textiles are rapidly gaining ground, the choice of technology partner becomes crucial. WRLDS offers the expertise and flexibility needed to realize ideas, reduce development risks, and bring innovative products to market.'
+      }
+    ]
+  },
+  {
+    id: '2',
+    slug: 'ai-powered-uniforms-emergency-alerts',
+    title: 'AI-Powered Uniforms Save Lives with Instant Emergency Alerts',
+    excerpt: 'Swedish tech startup WRLDS Technologies, in partnership with established uniform manufacturer FireCat, is introducing "6th Sense"—an innovative uniform technology designed to immediately notify emergency responders when in danger.',
+    date: 'May 8, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Product',
+    imageUrl: '/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Swedish tech startup WRLDS Technologies, in partnership with established uniform manufacturer FireCat, is introducing "6th Sense"—an innovative uniform technology designed to immediately notify emergency responders when police officers, soldiers, or firefighters are in critical danger.'
+      },
+      {
+        type: 'paragraph',
+        content: 'The uniforms, embedded with advanced AI sensors, constantly monitor vital signs such as heart rate and blood oxygen levels, detect severe impacts from accidents or violence, and recognize unusual movements indicating possible injuries. In dangerous situations, the uniform automatically sends urgent alerts along with exact GPS locations, significantly reducing rescue response times and potentially saving countless lives.'
+      },
+      {
+        type: 'quote',
+        content: 'Every life matters, and our goal is clear—to stop unnecessary deaths by ensuring rapid emergency responses. This technology is designed to protect those who put their lives on the line daily.'
+      },
+      {
+        type: 'paragraph',
+        content: 'This groundbreaking collaboration between WRLDS\' cutting-edge technology and FireCat\'s reliable manufacturing expertise has attracted global interest, particularly from military, law enforcement, and emergency services in more than ten countries. Growing geopolitical tensions and recent conflicts underscore the critical need for technologies that prioritize and enhance personal safety.'
+      },
+      {
+        type: 'heading',
+        content: 'Key Features of 6th Sense Uniforms'
+      },
+      {
+        type: 'subheading',
+        content: 'AI-Powered Monitoring'
+      },
+      {
+        type: 'paragraph',
+        content: 'The uniforms utilize advanced artificial intelligence to continuously monitor the wearer\'s vital signs and detect abnormal conditions that might indicate danger or injury.'
+      },
+      {
+        type: 'subheading',
+        content: 'Real-time Alert System'
+      },
+      {
+        type: 'paragraph',
+        content: 'When danger is detected, the uniform automatically sends alerts to command centers and nearby team members, providing critical information about the situation.'
+      },
+      {
+        type: 'subheading',
+        content: 'Precise Location Tracking'
+      },
+      {
+        type: 'paragraph',
+        content: 'GPS technology integrated into the uniform provides exact location data, helping rescue teams reach the person in danger as quickly as possible.'
+      },
+      {
+        type: 'heading',
+        content: 'Potential Applications'
+      },
+      {
+        type: 'list',
+        items: [
+          'Law enforcement officers in high-risk situations',
+          'Firefighters entering burning buildings',
+          'Military personnel in combat zones',
+          'Industrial workers in hazardous environments',
+          'Emergency medical responders in crisis situations'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Industry Impact'
+      },
+      {
+        type: 'paragraph',
+        content: 'The potential market for these AI-enhanced safety uniforms is substantial, with global orders potentially exceeding €1 billion. As organizations increasingly prioritize personnel safety and wellness, technologies that can provide real-time monitoring and emergency response capabilities are becoming essential investments.'
+      },
+      {
+        type: 'paragraph',
+        content: 'Felix von Heland, CEO of WRLDS Technologies, summarizes the mission behind the innovation: "Every life matters, and our goal is clear—to stop unnecessary deaths by ensuring rapid emergency responses. This technology is designed to protect those who put their lives on the line daily."'
+      },
+      {
+        type: 'quote',
+        content: 'This partnership between WRLDS Technologies and FireCat represents a perfect blend of cutting-edge technology and practical manufacturing expertise, delivering solutions that truly make a difference.'
+      },
+      {
+        type: 'heading',
+        content: 'For More Information'
+      },
+      {
+        type: 'paragraph',
+        content: 'For further information, interviews, or demonstrations, please contact Felix von Heland at hello@wrlds.com or visit www.fire-cat.eu/products/6th-sense.'
       }
     ]
   }
