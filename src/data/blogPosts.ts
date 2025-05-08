@@ -1,3 +1,4 @@
+
 interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;
@@ -86,7 +87,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'Smart textiles represent the next evolution in wearable technology, seamlessly integrating digital capabilities into the fabric of our everyday lives.'
+        content: "Smart textiles represent the next evolution in wearable technology, seamlessly integrating digital capabilities into the fabric of our everyday lives."
       },
       {
         type: 'paragraph',
@@ -106,7 +107,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The future of fashion isn\'t just about style—it's about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance.'
+        content: "The future of fashion isn't just about style—it's about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance."
       },
       {
         type: 'paragraph',
@@ -162,7 +163,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The convergence of textiles and technology is creating a new era of connected clothing that responds to our bodies and environment in ways previously unimaginable.'
+        content: "The convergence of textiles and technology is creating a new era of connected clothing that responds to our bodies and environment in ways previously unimaginable."
       },
       {
         type: 'subheading',
@@ -190,7 +191,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Smart textiles often handle sensitive information about individuals\' health and well-being. GDPR fully applies. It requires clear consent and secure data handling. The new Data Act from 2024 also strengthens the rules for how data from connected products may be shared and used.'
+        content: "Smart textiles often handle sensitive information about individuals' health and well-being. GDPR fully applies. It requires clear consent and secure data handling. The new Data Act from 2024 also strengthens the rules for how data from connected products may be shared and used."
       },
       {
         type: 'subheading',
@@ -198,7 +199,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Sensor products must meet the same safety requirements as other electronics on the EU market, including CE marking. The EU\'s new cybersecurity law, the Cyber Resilience Act, also imposes requirements for built-in IT security. Manufacturers must be able to demonstrate that the products are protected against intrusion and receive updates throughout their lifecycle.'
+        content: "Sensor products must meet the same safety requirements as other electronics on the EU market, including CE marking. The EU's new cybersecurity law, the Cyber Resilience Act, also imposes requirements for built-in IT security. Manufacturers must be able to demonstrate that the products are protected against intrusion and receive updates throughout their lifecycle."
       },
       {
         type: 'subheading',
@@ -214,16 +215,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Companies wanting to develop sensor-integrated textiles often face technical challenges. It\'s about combining fabric, electronics, software, and data collection into a functioning whole. This is where WRLDS Technologies comes in as a technology partner with extensive experience in integrating sensors into products for sports, industry, and health.'
+        content: "Companies wanting to develop sensor-integrated textiles often face technical challenges. It's about combining fabric, electronics, software, and data collection into a functioning whole. This is where WRLDS Technologies comes in as a technology partner with extensive experience in integrating sensors into products for sports, industry, and health."
       },
       {
         type: 'paragraph',
-        content: 'WRLDS helps its customers through the entire development process. This could involve developing an initial prototype for testing or scaling up to a finished product for the market. By providing both hardware components and expertise in software integration, WRLDS makes it easier for companies to focus on usage in their own industry.'
+        content: "WRLDS helps its customers through the entire development process. This could involve developing an initial prototype for testing or scaling up to a finished product for the market. By providing both hardware components and expertise in software integration, WRLDS makes it easier for companies to focus on usage in their own industry."
       },
-      // Removed paragraph about examples of previous projects
       {
         type: 'quote',
-        content: 'As sensor technology continues to advance and miniaturize, the potential applications for smart textiles are limited only by our imagination.'
+        content: "As sensor technology continues to advance and miniaturize, the potential applications for smart textiles are limited only by our imagination."
       },
       {
         type: 'paragraph',
