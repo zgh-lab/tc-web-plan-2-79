@@ -1,3 +1,4 @@
+
 interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;
@@ -57,7 +58,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The future of fashion isn\'t just about style—it's about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance.'
+        content: "The future of fashion isn't just about style—it's about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance."
       },
       {
         type: 'paragraph',
