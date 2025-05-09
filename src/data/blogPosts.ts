@@ -271,7 +271,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'For further information, interviews, or demonstrations, please contact us at hello@wrlds.com or visit our <Link to="/projects/firecat">FireCat 6th Sense project page</Link>.'
+        content: 'For further information, interviews, or demonstrations, please contact us at hello@wrlds.com or visit our <Link to="/projects/firecat">FireCat 6th Sense project page</Link>, or visit 6th Sense product page here: https://www.fire-cat.eu/products/6th-sense/'
       }
     ]
   }

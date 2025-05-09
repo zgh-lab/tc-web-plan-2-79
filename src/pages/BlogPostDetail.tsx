@@ -16,15 +16,19 @@ const renderContentWithLinks = (content: string) => {
   
   // Regular expression to find link tags in the content
   const linkRegex = /<Link to="([^"]+)">([^<]+)<\/Link>/g;
+  // Regular expression to find URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  
   const parts = [];
   let lastIndex = 0;
+  let processedContent = content;
   let match;
   
-  // Find all link tags and split the content
-  while ((match = linkRegex.exec(content)) !== null) {
+  // First, find all link tags and split the content
+  while ((match = linkRegex.exec(processedContent)) !== null) {
     // Add the text before the link
     if (match.index > lastIndex) {
-      parts.push(content.substring(lastIndex, match.index));
+      parts.push(processedContent.substring(lastIndex, match.index));
     }
     
     // Add the link component
@@ -38,11 +42,46 @@ const renderContentWithLinks = (content: string) => {
   }
   
   // Add the remaining text after the last link
-  if (lastIndex < content.length) {
-    parts.push(content.substring(lastIndex));
+  if (lastIndex < processedContent.length) {
+    const remainingText = processedContent.substring(lastIndex);
+    
+    // Then find and convert URLs in the remaining text
+    let urlLastIndex = 0;
+    let urlParts = [];
+    let urlMatch;
+    
+    while ((urlMatch = urlRegex.exec(remainingText)) !== null) {
+      // Add the text before the URL
+      if (urlMatch.index > urlLastIndex) {
+        urlParts.push(remainingText.substring(urlLastIndex, urlMatch.index));
+      }
+      
+      // Add the URL as an external link
+      urlParts.push(
+        <a 
+          key={`url-${urlMatch.index}`}
+          href={urlMatch[0]} 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-600 hover:text-purple-800 underline"
+        >
+          {urlMatch[0]}
+        </a>
+      );
+      
+      urlLastIndex = urlMatch.index + urlMatch[0].length;
+    }
+    
+    // Add any remaining text
+    if (urlLastIndex < remainingText.length) {
+      urlParts.push(remainingText.substring(urlLastIndex));
+    }
+    
+    // Add all URL parts to main parts array
+    parts.push(...urlParts);
   }
   
-  return parts;
+  return parts.length > 0 ? parts : content;
 };
 
 const BlogPostDetail = () => {
