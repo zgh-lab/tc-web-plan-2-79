@@ -1,4 +1,3 @@
-
 interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
   content?: string;

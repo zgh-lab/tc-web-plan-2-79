@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
 import SEO from '@/components/SEO';
@@ -9,6 +9,41 @@ import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag } from 'lucide-rea
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+
+// Helper function to render content with links
+const renderContentWithLinks = (content: string) => {
+  if (!content) return null;
+  
+  // Regular expression to find link tags in the content
+  const linkRegex = /<Link to="([^"]+)">([^<]+)<\/Link>/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+  
+  // Find all link tags and split the content
+  while ((match = linkRegex.exec(content)) !== null) {
+    // Add the text before the link
+    if (match.index > lastIndex) {
+      parts.push(content.substring(lastIndex, match.index));
+    }
+    
+    // Add the link component
+    parts.push(
+      <Link key={match.index} to={match[1]} className="text-purple-600 hover:text-purple-800 underline">
+        {match[2]}
+      </Link>
+    );
+    
+    lastIndex = match.index + match[0].length;
+  }
+  
+  // Add the remaining text after the last link
+  if (lastIndex < content.length) {
+    parts.push(content.substring(lastIndex));
+  }
+  
+  return parts;
+};
 
 const BlogPostDetail = () => {
   const { slug } = useParams<{ slug: string; }>();
@@ -115,7 +150,9 @@ const BlogPostDetail = () => {
               duration: 0.4,
               delay: 0.1 * index
             }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
-                {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">{section.content}</p>}
+                {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">
+                  {renderContentWithLinks(section.content)}
+                </p>}
                 {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
                     <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
                     <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
@@ -142,7 +179,6 @@ const BlogPostDetail = () => {
             <div>
               <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
             </div>
-            
           </div>
         </div>
       </div>
