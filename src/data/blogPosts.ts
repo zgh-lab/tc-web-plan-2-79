@@ -272,7 +272,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'For further information, interviews, or demonstrations, please contact Felix von Heland at hello@wrlds.com or visit www.fire-cat.eu/products/6th-sense.'
+        content: 'For further information, interviews, or demonstrations, please contact us at hello@wrlds.com or visit our <Link to="/projects/firecat">FireCat 6th Sense project page</Link>.'
       }
     ]
   }
