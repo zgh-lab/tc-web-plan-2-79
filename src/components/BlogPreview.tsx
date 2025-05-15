@@ -12,21 +12,21 @@ const BlogPreview = () => {
     .slice(0, 3);
 
   return (
-    <section id="blog" className="py-24 px-6 md:px-12 bg-slate-50">
+    <section id="blog" className="py-24 px-6 md:px-12 bg-gray-100">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Newspaper size={20} className="text-blue-600" />
-              <span className="text-blue-600 font-medium">Our Blog</span>
+              <Newspaper size={20} className="text-black" />
+              <span className="text-black font-medium">Our Blog</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest Updates</h2>
-            <p className="text-slate-600 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Latest Updates</h2>
+            <p className="text-gray-800 max-w-xl">
               Explore our latest insights on smart textile technology, industry trends, and innovation.
             </p>
           </div>
           <Link to="/blog" className="mt-4 md:mt-0">
-            <Button variant="outline" className="group">
+            <Button variant="outline" className="group border-black text-black hover:bg-black hover:text-white">
               View All Posts
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
