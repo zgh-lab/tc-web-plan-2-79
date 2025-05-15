@@ -279,7 +279,7 @@ export const blogPosts: BlogPost[] = [
     id: '3',
     slug: 'from-idea-to-launch-development-process',
     title: 'From Idea to Launch – How We Work',
-    excerpt: "In today's complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Learn how WRLDS helps you bring your vision to reality.",
+    excerpt: 'In today\'s complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Learn how WRLDS helps you bring your vision to reality.',
     date: 'May 15, 2025',
     author: 'WRLDS Technologies',
     category: 'Process',

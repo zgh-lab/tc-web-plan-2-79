@@ -1,3 +1,4 @@
+
 import { useParams, Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
@@ -151,9 +152,9 @@ const BlogPostDetail = () => {
       />
       
       <div 
-        className="w-full pt-32 pb-16 bg-gradient-to-b from-black to-gray-900 text-white relative" 
+        className="w-full pt-32 pb-16 bg-gradient-to-b from-gray-900 to-black text-white relative" 
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('${post.imageUrl}')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
@@ -234,7 +235,7 @@ const BlogPostDetail = () => {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-700">
+                    <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-700">
                       <Lightbulb size={24} />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Step 1: Understanding Your Idea</h2>
@@ -251,7 +252,7 @@ const BlogPostDetail = () => {
                 
                 {/* Arrow divider */}
                 <div className="flex justify-center my-6">
-                  <ArrowRight size={24} className="text-purple-400" />
+                  <ArrowRight size={24} className="text-gray-400" />
                 </div>
 
                 {/* Step 2 */}
@@ -262,7 +263,7 @@ const BlogPostDetail = () => {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700">
+                    <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-700">
                       <FileText size={24} />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Step 2: Building the First Prototype</h2>
@@ -279,7 +280,7 @@ const BlogPostDetail = () => {
                 
                 {/* Arrow divider */}
                 <div className="flex justify-center my-6">
-                  <ArrowRight size={24} className="text-purple-400" />
+                  <ArrowRight size={24} className="text-gray-400" />
                 </div>
 
                 {/* Step 3 */}
@@ -290,7 +291,7 @@ const BlogPostDetail = () => {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+                    <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-700">
                       <CheckCircle size={24} />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Step 3: Testing & Refinement</h2>
@@ -307,7 +308,7 @@ const BlogPostDetail = () => {
                 
                 {/* Arrow divider */}
                 <div className="flex justify-center my-6">
-                  <ArrowRight size={24} className="text-purple-400" />
+                  <ArrowRight size={24} className="text-gray-400" />
                 </div>
 
                 {/* Step 4 */}
@@ -318,7 +319,7 @@ const BlogPostDetail = () => {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-700">
+                    <div className="w-12 h-12 rounded-full bg-gray-400 flex items-center justify-center text-gray-700">
                       <Settings size={24} />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Step 4: Preparing for Production</h2>
@@ -335,7 +336,7 @@ const BlogPostDetail = () => {
                 
                 {/* Arrow divider */}
                 <div className="flex justify-center my-6">
-                  <ArrowRight size={24} className="text-purple-400" />
+                  <ArrowRight size={24} className="text-gray-400" />
                 </div>
 
                 {/* Step 5 */}
@@ -346,7 +347,7 @@ const BlogPostDetail = () => {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-700">
+                    <div className="w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center text-white">
                       <Rocket size={24} />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Step 5: Product Launch</h2>
@@ -372,7 +373,7 @@ const BlogPostDetail = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                     <div className="flex items-start gap-3">
-                      <div className="bg-purple-100 p-2 rounded-full text-purple-700">
+                      <div className="bg-gray-200 p-2 rounded-full text-gray-700">
                         <FileText size={18} />
                       </div>
                       <div>
@@ -382,7 +383,7 @@ const BlogPostDetail = () => {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="bg-blue-100 p-2 rounded-full text-blue-700">
+                      <div className="bg-gray-200 p-2 rounded-full text-gray-700">
                         <Clock size={18} />
                       </div>
                       <div>
@@ -392,7 +393,7 @@ const BlogPostDetail = () => {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="bg-green-100 p-2 rounded-full text-green-700">
+                      <div className="bg-gray-200 p-2 rounded-full text-gray-700">
                         <Settings size={18} />
                       </div>
                       <div>
@@ -402,7 +403,7 @@ const BlogPostDetail = () => {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="bg-orange-100 p-2 rounded-full text-orange-700">
+                      <div className="bg-gray-200 p-2 rounded-full text-gray-700">
                         <CheckCircle size={18} />
                       </div>
                       <div>
@@ -424,7 +425,7 @@ const BlogPostDetail = () => {
                     Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!
                   </p>
                   <Link to="/contact">
-                    <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                    <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white">
                       Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
