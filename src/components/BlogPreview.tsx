@@ -12,7 +12,7 @@ const BlogPreview = () => {
     .slice(0, 3);
 
   return (
-    <section id="blog" className="py-24 px-6 md:px-12 bg-gray-100">
+    <section id="blog" className="py-24 px-6 md:px-12 bg-white">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
