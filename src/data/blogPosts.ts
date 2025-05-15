@@ -279,7 +279,7 @@ export const blogPosts: BlogPost[] = [
     id: '3',
     slug: 'from-idea-to-launch-development-process',
     title: 'From Idea to Launch – How We Work Together',
-    excerpt: 'In today\'s complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Learn how WRLDS helps you bring your vision to reality.',
+    excerpt: "In today's complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Learn how WRLDS helps you bring your vision to reality.",
     date: 'May 15, 2025',
     author: 'WRLDS Technologies',
     category: 'Process',
@@ -287,11 +287,11 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: 'paragraph',
-        content: 'In today\'s complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Many decision-makers wonder how best to tackle that journey, whether their concept is still at the spark-of-an-idea stage or already well-defined but in need of rapid scale-up. At WRLDS we've honed a development methodology that minimizes risk and maximizes innovation. It's a structured—yet flexible—process that lets us move quickly from idea to testable product … or ramp up an existing concept, depending on your needs.'
+        content: "In today's complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Many decision-makers wonder how best to tackle that journey, whether their concept is still at the spark-of-an-idea stage or already well-defined but in need of rapid scale-up. At WRLDS we've honed a development methodology that minimizes risk and maximizes innovation. It's a structured—yet flexible—process that lets us move quickly from idea to testable product … or ramp up an existing concept, depending on your needs."
       },
       {
         type: 'paragraph',
-        content: 'To show you what this looks like in practice, let\'s follow our fictional but realistic Project X all the way from first contact through prototyping, testing, production planning, and launch. Throughout the journey we work hand-in-hand with you, contribute our expertise, and act as a flexible technology partner that adapts to your project.'
+        content: "To show you what this looks like in practice, let's follow our fictional but realistic Project X all the way from first contact through prototyping, testing, production planning, and launch. Throughout the journey we work hand-in-hand with you, contribute our expertise, and act as a flexible technology partner that adapts to your project."
       },
       {
         type: 'heading',
@@ -299,11 +299,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Everything starts with a conversation. When Project X reaches out, they have an exciting idea for a smart product but need help bringing it to life. We sit down together—often in a kickoff workshop—to explore the vision, goals, and requirements. We ask the important questions: What problem will the product solve? Who will use it? By understanding Project X's business goals and technical needs, we create a roadmap everyone believes in.'
+        content: "Everything starts with a conversation. When Project X reaches out, they have an exciting idea for a smart product but need help bringing it to life. We sit down together—often in a kickoff workshop—to explore the vision, goals, and requirements. We ask the important questions: What problem will the product solve? Who will use it? By understanding Project X's business goals and technical needs, we create a roadmap everyone believes in."
       },
       {
         type: 'paragraph',
-        content: 'If you already have a prototype or a fully-fleshed concept, we jump straight into analyzing that solution and mapping what\'s needed to scale—anything from extra functionality to full-scale manufacturing. Whatever your starting point, we make sure everyone is aligned before moving forward.'
+        content: "If you already have a prototype or a fully-fleshed concept, we jump straight into analyzing that solution and mapping what's needed to scale—anything from extra functionality to full-scale manufacturing. Whatever your starting point, we make sure everyone is aligned before moving forward."
       },
       {
         type: 'heading',
@@ -343,15 +343,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Now it\'s about turning a handful of prototypes into a product that can be manufactured reliably and cost-effectively. We refine the design for manufacturability (DfM): ensuring chosen components are available in volume and the construction stays robust at scale.'
+        content: "Now it's about turning a handful of prototypes into a product that can be manufactured reliably and cost-effectively. We refine the design for manufacturability (DfM): ensuring chosen components are available in volume and the construction stays robust at scale."
       },
       {
         type: 'paragraph',
-        content: 'If you already have a factory, we collaborate with them—handing over drawings, BOMs, and test procedures. Need a production partner? We tap our network to find the right fit. For Project X, we integrated the sensor tech into their existing production line so ramp-up felt seamless.'
+        content: "If you already have a factory, we collaborate with them—handing over drawings, BOMs, and test procedures. Need a production partner? We tap our network to find the right fit. For Project X, we integrated the sensor tech into their existing production line so ramp-up felt seamless."
       },
       {
         type: 'paragraph',
-        content: 'Production planning also covers quality assurance and any certifications (e.g., CE). We often run a pilot build—a limited first batch—to debug the line before full release. When that\'s green-lit, Project X is ready for market.'
+        content: "Production planning also covers quality assurance and any certifications (e.g., CE). We often run a pilot build—a limited first batch—to debug the line before full release. When that's green-lit, Project X is ready for market."
       },
       {
         type: 'heading',
@@ -359,11 +359,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Launch day: the culmination of vision, engineering, and teamwork. Project X now presents its smart product to customers, confident it\'s battle-tested and production-ready. WRLDS stays by your side through this final sprint—polishing tech documentation, performing end-of-line tests, supporting go-live for apps and cloud services.'
+        content: "Launch day: the culmination of vision, engineering, and teamwork. Project X now presents its smart product to customers, confident it's battle-tested and production-ready. WRLDS stays by your side through this final sprint—polishing tech documentation, performing end-of-line tests, supporting go-live for apps and cloud services."
       },
       {
         type: 'paragraph',
-        content: 'The result for Project X? A successful market debut. Our structured process and close collaboration meant they traveled from idea to market faster and more accurately than if they\'d gone it alone. That\'s always our aim: to make sure innovations don\'t get stuck on the drawing board but reach users and make an impact. And when the product is out, our partnership can continue—whether it\'s follow-up support, feature expansions, or your next big idea.'
+        content: "The result for Project X? A successful market debut. Our structured process and close collaboration meant they traveled from idea to market faster and more accurately than if they'd gone it alone. That's always our aim: to make sure innovations don't get stuck on the drawing board but reach users and make an impact. And when the product is out, our partnership can continue—whether it's follow-up support, feature expansions, or your next big idea."
       },
       {
         type: 'quote',
@@ -389,7 +389,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Have an idea you want to bring to life—or a product you\'re ready to scale? <Link to="/contact">Let\'s talk</Link>. We\'d love to hear about your project and help you bring it from vision to reality.'
+        content: "Have an idea you want to bring to life—or a product you're ready to scale? <Link to=\"/contact\">Let's talk</Link>. We'd love to hear about your project and help you bring it from vision to reality."
       }
     ]
   }
