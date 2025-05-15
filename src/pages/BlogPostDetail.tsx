@@ -139,8 +139,37 @@ const BlogPostDetail = () => {
   }, 0);
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
+  // Format date for machine-readable ISO format (for structured data)
+  const formatDateForISO = (dateStr: string) => {
+    if (!dateStr) return '';
+    const months: Record<string, string> = {
+      'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+      'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+    };
+    
+    const parts = dateStr.split(' ');
+    if (parts.length === 3) {
+      const month = months[parts[0]];
+      const day = parts[1].replace(',', '');
+      const year = parts[2];
+      return `${year}-${month}-${day.padStart(2, '0')}`;
+    }
+    return dateStr;
+  };
+
   // Special rendering for the process blog post with the updated design
   const isProcessPost = slug === 'from-idea-to-launch-development-process';
+
+  // Extract keywords from post content
+  const extractKeywords = () => {
+    const keywords = ['smart textiles', 'product development', post.category.toLowerCase()];
+    
+    if (post.title.includes('Development Process')) {
+      keywords.push('development process', 'manufacturing', 'prototyping', 'smart product design');
+    }
+    
+    return keywords;
+  };
 
   return (
     <PageLayout>
@@ -149,6 +178,12 @@ const BlogPostDetail = () => {
         description={post.excerpt} 
         imageUrl={post.imageUrl}
         type="article"
+        isBlogPost={true}
+        publishDate={formatDateForISO(post.date)}
+        modifiedDate={formatDateForISO(post.date)}
+        author={post.author}
+        category={post.category}
+        keywords={extractKeywords()}
       />
       
       <div 
