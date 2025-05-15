@@ -1,3 +1,4 @@
+
 import { useParams, Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
@@ -5,7 +6,20 @@ import SEO from '@/components/SEO';
 import { useEffect, useState } from 'react';
 import { blogPosts } from '@/data/blogPosts';
 import { motion } from 'framer-motion';
-import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle } from 'lucide-react';
+import { 
+  BookOpen, 
+  Calendar, 
+  Clock, 
+  MessageSquare, 
+  Share, 
+  Tag, 
+  Lightbulb,
+  ArrowRight,
+  FileText,
+  Rocket,
+  Settings,
+  CheckCircle 
+} from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -14,69 +28,82 @@ import { LoadingAnimation } from '@/components/LoadingAnimation';
 // Helper function to render content with links
 const renderContentWithLinks = (content: string) => {
   if (!content) return null;
-
+  
   // Regular expression to find link tags in the content
   const linkRegex = /<Link to="([^"]+)">([^<]+)<\/Link>/g;
   // Regular expression to find URLs
   const urlRegex = /(https?:\/\/[^\s]+)/g;
+  
   const parts = [];
   let lastIndex = 0;
   let processedContent = content;
   let match;
-
+  
   // First, find all link tags and split the content
   while ((match = linkRegex.exec(processedContent)) !== null) {
     // Add the text before the link
     if (match.index > lastIndex) {
       parts.push(processedContent.substring(lastIndex, match.index));
     }
-
+    
     // Add the link component
-    parts.push(<Link key={match.index} to={match[1]} className="text-purple-600 hover:text-purple-800 underline">
+    parts.push(
+      <Link key={match.index} to={match[1]} className="text-purple-600 hover:text-purple-800 underline">
         {match[2]}
-      </Link>);
+      </Link>
+    );
+    
     lastIndex = match.index + match[0].length;
   }
-
+  
   // Add the remaining text after the last link
   if (lastIndex < processedContent.length) {
     const remainingText = processedContent.substring(lastIndex);
-
+    
     // Then find and convert URLs in the remaining text
     let urlLastIndex = 0;
     let urlParts = [];
     let urlMatch;
+    
     while ((urlMatch = urlRegex.exec(remainingText)) !== null) {
       // Add the text before the URL
       if (urlMatch.index > urlLastIndex) {
         urlParts.push(remainingText.substring(urlLastIndex, urlMatch.index));
       }
-
+      
       // Add the URL as an external link
-      urlParts.push(<a key={`url-${urlMatch.index}`} href={urlMatch[0]} target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">
+      urlParts.push(
+        <a 
+          key={`url-${urlMatch.index}`}
+          href={urlMatch[0]} 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-600 hover:text-purple-800 underline"
+        >
           {urlMatch[0]}
-        </a>);
+        </a>
+      );
+      
       urlLastIndex = urlMatch.index + urlMatch[0].length;
     }
-
+    
     // Add any remaining text
     if (urlLastIndex < remainingText.length) {
       urlParts.push(remainingText.substring(urlLastIndex));
     }
-
+    
     // Add all URL parts to main parts array
     parts.push(...urlParts);
   }
+  
   return parts.length > 0 ? parts : content;
 };
+
 const BlogPostDetail = () => {
-  const {
-    slug
-  } = useParams<{
-    slug: string;
-  }>();
+  const { slug } = useParams<{ slug: string; }>();
   const post = blogPosts.find(post => post.slug === slug);
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     // Simulate loading for smoother transitions
@@ -85,14 +112,20 @@ const BlogPostDetail = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, [slug]);
+
   if (!post) {
-    return <PageLayout>
-        <SEO title="Post Not Found - WRLDS Technologies" description="The requested blog post could not be found." />
+    return (
+      <PageLayout>
+        <SEO 
+          title="Post Not Found - WRLDS Technologies" 
+          description="The requested blog post could not be found."
+        />
         <div className="container mx-auto px-4 py-16 min-h-[50vh] flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold mb-4">Post not found</h1>
           <p>We couldn't find the post you're looking for.</p>
         </div>
-      </PageLayout>;
+      </PageLayout>
+    );
   }
 
   // Calculate reading time (average 200 words per minute)
@@ -110,19 +143,10 @@ const BlogPostDetail = () => {
   const formatDateForISO = (dateStr: string) => {
     if (!dateStr) return '';
     const months: Record<string, string> = {
-      'Jan': '01',
-      'Feb': '02',
-      'Mar': '03',
-      'Apr': '04',
-      'May': '05',
-      'Jun': '06',
-      'Jul': '07',
-      'Aug': '08',
-      'Sep': '09',
-      'Oct': '10',
-      'Nov': '11',
-      'Dec': '12'
+      'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+      'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
     };
+    
     const parts = dateStr.split(' ');
     if (parts.length === 3) {
       const month = months[parts[0]];
@@ -139,30 +163,48 @@ const BlogPostDetail = () => {
   // Extract keywords from post content
   const extractKeywords = () => {
     const keywords = ['smart textiles', 'product development', post.category.toLowerCase()];
+    
     if (post.title.includes('Development Process')) {
       keywords.push('development process', 'manufacturing', 'prototyping', 'smart product design');
     }
+    
     return keywords;
   };
-  return <PageLayout>
-      <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
+
+  return (
+    <PageLayout>
+      <SEO 
+        title={`${post.title} - WRLDS Technologies`} 
+        description={post.excerpt} 
+        imageUrl={post.imageUrl}
+        type="article"
+        isBlogPost={true}
+        publishDate={formatDateForISO(post.date)}
+        modifiedDate={formatDateForISO(post.date)}
+        author={post.author}
+        category={post.category}
+        keywords={extractKeywords()}
+      />
       
-      <div className="w-full pt-32 pb-16 bg-gradient-to-b from-gray-900 to-black text-white relative" style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    }}>
+      <div 
+        className="w-full pt-32 pb-16 bg-gradient-to-b from-gray-900 to-black text-white relative" 
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container mx-auto px-4">
           <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }} className="max-w-3xl mx-auto">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6
+          }} className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4">
               <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 flex items-center gap-1.5">
                 <Tag size={14} />
@@ -187,27 +229,26 @@ const BlogPostDetail = () => {
       </div>
       
       <div className="container mx-auto px-4 py-12">
-        {isLoading ? <div className="flex justify-center py-20">
+        {isLoading ? (
+          <div className="flex justify-center py-20">
             <LoadingAnimation />
-          </div> : <div className="max-w-3xl mx-auto">
-            {isProcessPost ? <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.6
-        }} className="prose prose-lg max-w-none">
+          </div>
+        ) : (
+          <div className="max-w-3xl mx-auto">
+            {isProcessPost ? (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="prose prose-lg max-w-none"
+              >
                 {/* Custom rendering for process post */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.1
-          }} className="mb-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="mb-8"
+                >
                   <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                     At WRLDS, we simplify the journey from an idea to a finished smart product. Whether you're starting from scratch or already have a clear concept ready to scale, we're here to support you exactly where you need us.
                   </p>
@@ -222,16 +263,12 @@ const BlogPostDetail = () => {
                 </motion.div>
 
                 {/* Step 1 */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.2
-          }} className="mb-12">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className="mb-12"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-700">
                       <Lightbulb size={24} />
@@ -254,16 +291,12 @@ const BlogPostDetail = () => {
                 </div>
 
                 {/* Step 2 */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.3
-          }} className="mb-12">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  className="mb-12"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-700">
                       <FileText size={24} />
@@ -286,16 +319,12 @@ const BlogPostDetail = () => {
                 </div>
 
                 {/* Step 3 */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.4
-          }} className="mb-12">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                  className="mb-12"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-700">
                       <CheckCircle size={24} />
@@ -318,16 +347,12 @@ const BlogPostDetail = () => {
                 </div>
 
                 {/* Step 4 */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.5
-          }} className="mb-12">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="mb-12"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-400 flex items-center justify-center text-gray-700">
                       <Settings size={24} />
@@ -350,16 +375,12 @@ const BlogPostDetail = () => {
                 </div>
 
                 {/* Step 5 */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.6
-          }} className="mb-12">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  className="mb-12"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center text-white">
                       <Rocket size={24} />
@@ -374,16 +395,12 @@ const BlogPostDetail = () => {
                 </motion.div>
 
                 {/* Why Choose WRLDS */}
-                <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.7
-          }} className="mt-12 bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
+                  className="mt-12 bg-gray-50 p-8 rounded-xl border border-gray-100"
+                >
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">Why Choose WRLDS?</h2>
                   <p className="text-gray-700 mb-4">
                     Developing smart products can be complex, but we make it simple. Clients choose us because:
@@ -433,26 +450,41 @@ const BlogPostDetail = () => {
                 </motion.div>
 
                 {/* Call to Action */}
-                
-              </motion.div> : <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="prose prose-lg max-w-none">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.8 }}
+                  className="mt-12 text-center"
+                >
+                  <p className="text-gray-700 mb-6">
+                    Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!
+                  </p>
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white">
+                      Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="prose prose-lg max-w-none"
+              >
                 {/* Standard post rendering */}
-                {post.content.map((section, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.1 * index
-          }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                {post.content.map((section, index) => (
+                  <motion.div key={index} initial={{
+                    opacity: 0,
+                    y: 10
+                  }} animate={{
+                    opacity: 1,
+                    y: 0
+                  }} transition={{
+                    duration: 0.4,
+                    delay: 0.1 * index
+                  }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
                     {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">
                       {renderContentWithLinks(section.content)}
                     </p>}
@@ -473,8 +505,10 @@ const BlogPostDetail = () => {
                           <p className="text-lg m-0">{section.content}</p>
                         </div>
                       </blockquote>}
-                  </motion.div>)}
-              </motion.div>}
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
             
             <Separator className="my-8" />
             
@@ -483,8 +517,11 @@ const BlogPostDetail = () => {
                 <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
               </div>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </PageLayout>;
+    </PageLayout>
+  );
 };
+
 export default BlogPostDetail;
