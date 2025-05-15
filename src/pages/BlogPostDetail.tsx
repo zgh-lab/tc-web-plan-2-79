@@ -2,13 +2,27 @@ import { useParams, Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import { Separator } from '@/components/ui/separator';
 import SEO from '@/components/SEO';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { blogPosts } from '@/data/blogPosts';
 import { motion } from 'framer-motion';
-import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag } from 'lucide-react';
+import { 
+  BookOpen, 
+  Calendar, 
+  Clock, 
+  MessageSquare, 
+  Share, 
+  Tag, 
+  Lightbulb,
+  ArrowRight,
+  FileText,
+  Rocket,
+  Settings,
+  CheckCircle 
+} from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { LoadingAnimation } from '@/components/LoadingAnimation';
 
 // Helper function to render content with links
 const renderContentWithLinks = (content: string) => {
@@ -87,9 +101,15 @@ const renderContentWithLinks = (content: string) => {
 const BlogPostDetail = () => {
   const { slug } = useParams<{ slug: string; }>();
   const post = blogPosts.find(post => post.slug === slug);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Simulate loading for smoother transitions
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
   }, [slug]);
 
   if (!post) {
@@ -117,6 +137,9 @@ const BlogPostDetail = () => {
     return count;
   }, 0);
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+  // Special rendering for the process blog post with the updated design
+  const isProcessPost = slug === 'from-idea-to-launch-development-process';
 
   return (
     <PageLayout>
@@ -170,56 +193,296 @@ const BlogPostDetail = () => {
       </div>
       
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          <motion.div initial={{
-            opacity: 0
-          }} animate={{
-            opacity: 1
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} className="prose prose-lg max-w-none">
-            {post.content.map((section, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 10
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.4,
-              delay: 0.1 * index
-            }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
-                {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">
-                  {renderContentWithLinks(section.content)}
-                </p>}
-                {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
-                    <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
-                    <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
-                  </div>}
-                {section.type === 'subheading' && <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                    {section.content}
-                  </h3>}
-                {section.type === 'list' && <ul className="list-disc pl-5 my-4 space-y-2">
-                    {section.items?.map((item, itemIndex) => <li key={itemIndex} className="text-gray-700">{item}</li>)}
-                  </ul>}
-                {section.type === 'quote' && <blockquote className="border-l-4 border-purple-500 pl-5 py-2 my-8 bg-purple-50 rounded-r-lg italic text-gray-700">
-                    <div className="flex">
-                      <MessageSquare size={20} className="text-purple-500 mr-3 mt-1 flex-shrink-0" />
-                      <p className="text-lg m-0">{section.content}</p>
+        {isLoading ? (
+          <div className="flex justify-center py-20">
+            <LoadingAnimation />
+          </div>
+        ) : (
+          <div className="max-w-3xl mx-auto">
+            {isProcessPost ? (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="prose prose-lg max-w-none"
+              >
+                {/* Custom rendering for process post */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="mb-8"
+                >
+                  <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                    At WRLDS, we simplify the journey from an idea to a finished smart product. Whether you're starting from scratch or already have a clear concept ready to scale, we're here to support you exactly where you need us.
+                  </p>
+                  <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                    Let's walk through our process with an example:
+                  </p>
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 mb-8">
+                    <p className="text-gray-700 italic">
+                      Imagine you come to us with the idea of a smart glove. This glove automatically senses the outside temperature and adjusts its own warmth accordingly. It also connects to an app where you can control settings and view temperature information.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Step 1 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className="mb-12"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-700">
+                      <Lightbulb size={24} />
                     </div>
-                  </blockquote>}
-              </motion.div>)}
-          </motion.div>
-          
-          <Separator className="my-8" />
-          
-          <div className="flex flex-col sm:flex-row items-center justify-between py-6 bg-gray-50 rounded-lg p-6 shadow-sm">
-            <div>
-              <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
+                    <h2 className="text-2xl font-bold text-gray-900">Step 1: Understanding Your Idea</h2>
+                  </div>
+                  <div className="pl-16">
+                    <p className="text-gray-700 mb-4">
+                      It all starts with a clear conversation. When you bring us your glove idea, we first meet to fully understand your vision and requirements. We'll discuss key points: What problem does the product solve? Who will use it? After that, we set a clear and practical roadmap.
+                    </p>
+                    <p className="text-gray-700">
+                      If you already have a basic prototype or idea, we'll quickly identify how we can help scale it effectively.
+                    </p>
+                  </div>
+                </motion.div>
+                
+                {/* Arrow divider */}
+                <div className="flex justify-center my-6">
+                  <ArrowRight size={24} className="text-purple-400" />
+                </div>
+
+                {/* Step 2 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  className="mb-12"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700">
+                      <FileText size={24} />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">Step 2: Building the First Prototype</h2>
+                  </div>
+                  <div className="pl-16">
+                    <p className="text-gray-700 mb-4">
+                      Once the plan is set, our team moves quickly to develop the first working prototype. For your smart glove, we design temperature sensors, heating elements, electronics, and the companion app to work seamlessly together.
+                    </p>
+                    <p className="text-gray-700">
+                      We use rapid prototyping techniques like 3D printing and quick electronics integration. Within weeks, you get a tangible product to test and gather feedback.
+                    </p>
+                  </div>
+                </motion.div>
+                
+                {/* Arrow divider */}
+                <div className="flex justify-center my-6">
+                  <ArrowRight size={24} className="text-purple-400" />
+                </div>
+
+                {/* Step 3 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                  className="mb-12"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+                      <CheckCircle size={24} />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">Step 3: Testing & Refinement</h2>
+                  </div>
+                  <div className="pl-16">
+                    <p className="text-gray-700 mb-4">
+                      With your prototype ready, we jump into testing. You'll evaluate the glove under real-world conditions to identify improvements. Together, we'll adjust designs, optimize the heating response, enhance the app, and retest frequently.
+                    </p>
+                    <p className="text-gray-700">
+                      This process is quick, iterative, and practical, bringing you closer to a reliable, user-friendly product.
+                    </p>
+                  </div>
+                </motion.div>
+                
+                {/* Arrow divider */}
+                <div className="flex justify-center my-6">
+                  <ArrowRight size={24} className="text-purple-400" />
+                </div>
+
+                {/* Step 4 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="mb-12"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-700">
+                      <Settings size={24} />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">Step 4: Preparing for Production</h2>
+                  </div>
+                  <div className="pl-16">
+                    <p className="text-gray-700 mb-4">
+                      Next, we prepare the glove for large-scale manufacturing. We refine the design for efficient production, select reliable components, and ensure quality at scale.
+                    </p>
+                    <p className="text-gray-700">
+                      If you already have a manufacturing partner, we'll work closely with them. If not, we'll help you find the best production solution. In either case, we'll integrate the technology smoothly into the production process.
+                    </p>
+                  </div>
+                </motion.div>
+                
+                {/* Arrow divider */}
+                <div className="flex justify-center my-6">
+                  <ArrowRight size={24} className="text-purple-400" />
+                </div>
+
+                {/* Step 5 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  className="mb-12"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-700">
+                      <Rocket size={24} />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">Step 5: Product Launch</h2>
+                  </div>
+                  <div className="pl-16">
+                    <p className="text-gray-700 mb-4">
+                      Finally, it's launch day. You introduce your smart glove, thoroughly tested and production-ready, to the market. WRLDS provides ongoing support to ensure a smooth launch—from technical documentation to supporting the app's release.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Why Choose WRLDS */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
+                  className="mt-12 bg-gray-50 p-8 rounded-xl border border-gray-100"
+                >
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Why Choose WRLDS?</h2>
+                  <p className="text-gray-700 mb-4">
+                    Developing smart products can be complex, but we make it simple. Clients choose us because:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-purple-100 p-2 rounded-full text-purple-700">
+                        <FileText size={18} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Clear Process</h3>
+                        <p className="text-sm text-gray-600">Simple steps, clear timelines, and reduced risks.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="bg-blue-100 p-2 rounded-full text-blue-700">
+                        <Clock size={18} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Speed & Flexibility</h3>
+                        <p className="text-sm text-gray-600">Rapid prototyping and agile iterations get your product to market faster.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="bg-green-100 p-2 rounded-full text-green-700">
+                        <Settings size={18} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Comprehensive Expertise</h3>
+                        <p className="text-sm text-gray-600">Hardware, software, and design experts under one roof.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="bg-orange-100 p-2 rounded-full text-orange-700">
+                        <CheckCircle size={18} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Practical Results</h3>
+                        <p className="text-sm text-gray-600">Real-world testing ensures your final product meets user needs.</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Call to Action */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.8 }}
+                  className="mt-12 text-center"
+                >
+                  <p className="text-gray-700 mb-6">
+                    Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!
+                  </p>
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                      Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="prose prose-lg max-w-none"
+              >
+                {/* Standard post rendering */}
+                {post.content.map((section, index) => (
+                  <motion.div key={index} initial={{
+                    opacity: 0,
+                    y: 10
+                  }} animate={{
+                    opacity: 1,
+                    y: 0
+                  }} transition={{
+                    duration: 0.4,
+                    delay: 0.1 * index
+                  }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                    {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">
+                      {renderContentWithLinks(section.content)}
+                    </p>}
+                    {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
+                        <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
+                        <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
+                      </div>}
+                    {section.type === 'subheading' && <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        {section.content}
+                      </h3>}
+                    {section.type === 'list' && <ul className="list-disc pl-5 my-4 space-y-2">
+                        {section.items?.map((item, itemIndex) => <li key={itemIndex} className="text-gray-700">{item}</li>)}
+                      </ul>}
+                    {section.type === 'quote' && <blockquote className="border-l-4 border-purple-500 pl-5 py-2 my-8 bg-purple-50 rounded-r-lg italic text-gray-700">
+                        <div className="flex">
+                          <MessageSquare size={20} className="text-purple-500 mr-3 mt-1 flex-shrink-0" />
+                          <p className="text-lg m-0">{section.content}</p>
+                        </div>
+                      </blockquote>}
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+            
+            <Separator className="my-8" />
+            
+            <div className="flex flex-col sm:flex-row items-center justify-between py-6 bg-gray-50 rounded-lg p-6 shadow-sm">
+              <div>
+                <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </PageLayout>
   );
