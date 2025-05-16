@@ -19,7 +19,7 @@ const Features = () => {
   const isMobile = useIsMobile();
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById('contact-info');
     if (contactSection) {
       contactSection.scrollIntoView({
         behavior: 'smooth'
@@ -133,7 +133,7 @@ const Features = () => {
     icon: <RefreshCcw className="h-4 w-4" />
   }];
   return <>
-      <section id="features" className="relative bg-white overflow-hidden py-[50px] w-full">
+      <section id="features" className="relative bg-white overflow-hidden py-10 md:py-[50px] w-full">
         <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
           <div className="text-center mb-10 max-w-3xl mx-auto feature-item">
             <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
@@ -210,19 +210,19 @@ const Features = () => {
           </div>
         </div>
         <div className="text-center mt-12 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <Button onClick={scrollToContact} className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto">
+          <Button onClick={scrollToContact} className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto">
             Need Custom Solutions?
             <MessageSquare className="ml-2 w-4 h-4 group-hover:animate-pulse" />
           </Button>
           
-          <Button onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group w-full sm:w-auto">
+          <Button onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-4 sm:px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group w-full sm:w-auto">
             Learn More About Our Technology
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </section>
       
-      <section id="technology" className="bg-gray-50 py-16">
+      <section id="technology" className="bg-gray-50 py-10 md:py-16">
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
@@ -361,15 +361,17 @@ const Features = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-6 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group py-[12px] my-[15px]">
-              Learn More About Our Technology
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            
-            <Button onClick={scrollToContact} className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all ml-4 group">
-              Contact Our Experts
-              <MessageSquare className="ml-2 w-4 h-4 group-hover:scale-110 transition-transform" />
-            </Button>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <Link to="/tech-details" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center px-4 sm:px-6 bg-white text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all group py-3 w-full sm:w-auto justify-center">
+                Learn More About Our Technology
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              
+              <Button onClick={scrollToContact} className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all group w-full sm:w-auto justify-center">
+                Contact Our Experts
+                <MessageSquare className="ml-2 w-4 h-4 group-hover:scale-110 transition-transform" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
