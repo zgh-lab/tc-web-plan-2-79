@@ -76,17 +76,17 @@ const Hero = () => {
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6" variants={containerVariants} initial="hidden" animate="visible" transition={{
             delay: 0.6
           }}>
-            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
+            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[180px] md:min-h-[220px]" variants={itemVariants}>
               <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-3 text-white">游戏开发</h3>
               <p className="text-gray-200 text-sm md:text-base">专业游戏开发技术与解决方案，打造卓越的游戏体验。</p>
             </motion.div>
             
-            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
+            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[180px] md:min-h-[220px]" variants={itemVariants}>
               <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-3 text-white">人工智能</h3>
               <p className="text-gray-200 text-sm md:text-base">应用前沿AI技术，为游戏带来智能化升级与创新体验。</p>
             </motion.div>
             
-            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
+            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[180px] md:min-h-[220px]" variants={itemVariants}>
               <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-3 text-white">云计算</h3>
               <p className="text-gray-200 text-sm md:text-base">高效可靠的云计算基础设施，支持游戏产业数字化转型。</p>
             </motion.div>
