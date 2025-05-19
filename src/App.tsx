@@ -20,6 +20,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
 
+// 添加新路由所需的页面组件
+const TechCooperation = () => <div>技术合作页面正在建设中</div>;
+const KnowledgeBase = () => <div>知识库页面正在建设中</div>;
+const Achievements = () => <div>成果展示页面正在建设中</div>;
+
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
 
@@ -43,6 +48,12 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />
+            
+            {/* 新增路由 */}
+            <Route path="/tech-cooperation" element={<TechCooperation />} />
+            <Route path="/knowledge-base" element={<KnowledgeBase />} />
+            <Route path="/achievements" element={<Achievements />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
