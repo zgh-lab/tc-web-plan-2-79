@@ -41,7 +41,7 @@ const BlogPreview = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            资讯分享
+            成果展示
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
             了解元宇宙、Web3和沉浸式技术的最新发展和应用趋势
@@ -93,10 +93,10 @@ const BlogPreview = () => {
         
         <div className="flex justify-center">
           <Link 
-            to="/blog" 
+            to="/achievements" 
             className="px-6 py-3 bg-blue-600/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
           >
-            查看更多文章
+            查看更多成果
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </div>
