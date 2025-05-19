@@ -69,36 +69,37 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-      </div>
-      
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <motion.div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
-        delay: 0.6
-      }}>
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Cpu className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">游戏开发</h3>
-            <p className="text-gray-600 text-xs md:text-sm">专业游戏开发技术与解决方案，打造卓越的游戏体验。</p>
+        
+        {/* Repositioned service modules to the bottom of the hero section with semi-transparency */}
+        <div className="absolute bottom-10 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 z-10">
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
+            delay: 0.6
+          }}>
+            <motion.div className="bg-white/20 backdrop-blur-sm p-4 md:p-5 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100/30 flex items-center justify-center rounded-lg text-white mb-2 md:mb-3">
+                <Cpu className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+              <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">游戏开发</h3>
+              <p className="text-gray-200 text-xs md:text-sm">专业游戏开发技术与解决方案，打造卓越的游戏体验。</p>
+            </motion.div>
+            
+            <motion.div className="bg-white/20 backdrop-blur-sm p-4 md:p-5 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100/30 flex items-center justify-center rounded-lg text-white mb-2 md:mb-3">
+                <Code className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+              <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">人工智能</h3>
+              <p className="text-gray-200 text-xs md:text-sm">应用前沿AI技术，为游戏带来智能化升级与创新体验。</p>
+            </motion.div>
+            
+            <motion.div className="bg-white/20 backdrop-blur-sm p-4 md:p-5 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100/30 flex items-center justify-center rounded-lg text-white mb-2 md:mb-3">
+                <Layers className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+              <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-white">云计算</h3>
+              <p className="text-gray-200 text-xs md:text-sm">高效可靠的云计算基础设施，支持游戏产业数字化转型。</p>
+            </motion.div>
           </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Code className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">人工智能</h3>
-            <p className="text-gray-600 text-xs md:text-sm">应用前沿AI技术，为游戏带来智能化升级与创新体验。</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Layers className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">云计算</h3>
-            <p className="text-gray-600 text-xs md:text-sm">高效可靠的云计算基础设施，支持游戏产业数字化转型。</p>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </motion.div>;
 };

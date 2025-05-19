@@ -1,7 +1,6 @@
 
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
 import Projects from '@/components/Projects';
 import WhyWrlds from '@/components/WhyWrlds';
 import BlogPreview from '@/components/BlogPreview';
@@ -27,7 +26,6 @@ const Index = () => {
         keywords={['游戏开发', '人工智能', '云计算', '技术研发', '创新发展']}
       />
       <Hero />
-      <Features />
       <WhyWrlds />
       <Projects />
       <BlogPreview />
