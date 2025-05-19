@@ -33,16 +33,18 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
   return (
     <PageLayout>
       <div className="pt-16 pb-16">
-        {/* Hero Section */}
+        {/* Hero Section with new background */}
         <div 
           className={`relative w-full h-[40vh] md:h-[50vh] overflow-hidden flex items-center justify-center`}
+          style={{
+            backgroundImage: `url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
         >
-          {/* Background Image with Overlay */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center" 
-            style={{ backgroundImage: `url(${imageUrl})` }}
-          ></div>
-          <div className={`absolute inset-0 ${darkMode ? 'bg-black/70' : 'bg-white/70'}`}></div>
+          {/* Semi-transparent overlay */}
+          <div className={`absolute inset-0 ${darkMode ? 'bg-black/60' : 'bg-white/60'}`}></div>
           
           <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
             <motion.div 
