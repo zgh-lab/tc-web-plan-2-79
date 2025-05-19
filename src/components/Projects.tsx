@@ -15,26 +15,26 @@ interface Project {
 const projects: Project[] = [
   {
     id: "firecat",
-    title: "火猫游戏平台",
-    description: "领先的游戏直播与社区平台，为游戏爱好者提供丰富的内容与互动体验。",
+    title: "元宇宙社交平台",
+    description: "打造跨设备、多场景的社交元宇宙空间，让用户能够以自定义形象互动交流和共同创造。",
     image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png",
-    tags: ["游戏直播", "社区互动", "内容平台"],
+    tags: ["社交元宇宙", "虚拟形象", "3D互动"],
     link: "/projects/firecat"
   },
   {
     id: "sport-retail",
-    title: "数字化游戏交易系统",
-    description: "为游戏开发商提供先进的数字资产交易平台，支持游戏内物品安全交易。",
+    title: "数字藏品市场",
+    description: "基于区块链技术的NFT交易市场，为创作者、收藏家和品牌提供数字资产铸造、展示和交易服务。",
     image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png",
-    tags: ["区块链", "游戏资产", "安全交易"],
+    tags: ["NFT", "数字藏品", "区块链"],
     link: "/projects/sport-retail"
   },
   {
     id: "workwear",
-    title: "云游戏服务",
-    description: "低延迟云游戏解决方案，让玩家无需高端硬件即可享受顶级游戏体验。",
+    title: "企业元宇宙解决方案",
+    description: "为企业提供虚拟办公空间、数字展厅和沉浸式培训系统，提升远程协作效率和品牌体验。",
     image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
-    tags: ["云计算", "流媒体", "跨平台"],
+    tags: ["企业服务", "虚拟办公", "数字孪生"],
     link: "/projects/workwear"
   }
 ];
@@ -73,10 +73,10 @@ const Projects = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            我们的解决方案
+            我们的产品
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            探索我们为游戏产业打造的创新技术解决方案，助力游戏公司提升用户体验与业务价值
+            探索我们打造的创新虚拟世界产品，连接现实与数字空间，创造全新的互动体验
           </motion.p>
         </motion.div>
         

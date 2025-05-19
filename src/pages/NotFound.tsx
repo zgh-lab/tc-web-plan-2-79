@@ -18,9 +18,9 @@ const NotFound = () => {
       <div className="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-black/70 to-black/60 backdrop-blur-sm">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4 text-white">404</h1>
-          <p className="text-xl text-blue-300 mb-4">Oops! Page not found</p>
+          <p className="text-xl text-blue-300 mb-4">页面不存在</p>
           <a href="/" className="text-blue-400 hover:text-blue-300 underline">
-            Return to Home
+            返回首页
           </a>
         </div>
       </div>

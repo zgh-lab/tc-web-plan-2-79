@@ -5,18 +5,18 @@ import { Laptop, Brain, Cloud } from "lucide-react";
 const features = [
   {
     icon: Laptop,
-    title: "游戏开发技术",
-    description: "提供先进的游戏开发引擎、渲染技术和多平台部署解决方案，助力游戏企业创造卓越体验。"
+    title: "创造虚拟世界",
+    description: "使用先进的实时引擎技术和工具，帮助开发者构建高度沉浸式的3D交互体验和开放虚拟世界。"
   },
   {
     icon: Brain,
-    title: "人工智能解决方案",
-    description: "结合AI技术与游戏开发，实现NPC智能行为、内容自动生成、玩家行为分析等创新功能。"
+    title: "Web3技术应用",
+    description: "整合区块链、NFT和加密货币技术，为虚拟世界提供所有权证明、价值交换和去中心化治理机制。"
   },
   {
     icon: Cloud,
-    title: "云计算架构",
-    description: "专为游戏行业定制的云计算解决方案，提供高可扩展性、低延迟的游戏服务基础设施。"
+    title: "全平台兼容",
+    description: "支持PC、移动设备、VR/AR头显等多种设备接入，打造跨平台的无缝连接体验和社交互动空间。"
   }
 ];
 
@@ -54,10 +54,10 @@ const WhyWrlds = () => {
         >
           <div className="text-center mb-16">
             <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-              我们的核心技术
+              核心技术优势
             </motion.h2>
             <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-              G-bits技术中心致力于游戏产业技术创新，助力企业数字化转型
+              我们为创作者和企业提供构建沉浸式互联网体验所需的工具和技术
             </motion.p>
           </div>
           

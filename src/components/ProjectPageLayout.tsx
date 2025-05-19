@@ -81,7 +81,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 mt-8">
           <Link to="/#projects" className="inline-flex items-center text-gray-300 hover:text-blue-400 transition-colors">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            <span>Back to Projects</span>
+            <span>返回项目列表</span>
           </Link>
         </div>
         

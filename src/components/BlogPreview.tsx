@@ -41,10 +41,10 @@ const BlogPreview = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            技术资讯
+            行业动态
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            了解最新的游戏技术趋势和行业动态
+            了解元宇宙、Web3和沉浸式技术的最新发展和应用趋势
           </motion.p>
         </motion.div>
         
