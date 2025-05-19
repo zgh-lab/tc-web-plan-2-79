@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Code, Server, Tool, Code2, Cpu } from "lucide-react";
+import { Code, Server, Wrench, Terminal, Cpu } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const features = [
@@ -17,13 +17,13 @@ const features = [
     link: "/tech-cooperation"
   },
   {
-    icon: Tool,
+    icon: Wrench,
     title: "工具链",
     description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
     link: "/tech-cooperation"
   },
   {
-    icon: Code2,
+    icon: Terminal,
     title: "客户端引擎开发",
     description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
     link: "/tech-cooperation"
@@ -91,6 +91,14 @@ const WhyWrlds = () => {
                 key={index}
                 variants={childVariants}
                 className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                style={{ 
+                  backgroundImage: index === 0 ? 'url("/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png")' : 
+                                  index === 1 ? 'url("/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png")' : 
+                                  'url("/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundBlendMode: 'overlay'
+                }}
               >
                 <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
                   <feature.icon className="w-6 h-6 text-blue-400" />
@@ -113,6 +121,13 @@ const WhyWrlds = () => {
                 key={index + 3}
                 variants={childVariants}
                 className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                style={{ 
+                  backgroundImage: index === 0 ? 'url("/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png")' : 
+                                  'url("/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundBlendMode: 'overlay'
+                }}
               >
                 <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
                   <feature.icon className="w-6 h-6 text-blue-400" />
