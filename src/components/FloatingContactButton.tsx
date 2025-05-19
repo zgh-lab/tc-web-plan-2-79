@@ -1,47 +1,46 @@
 
-import { MessageSquare } from "lucide-react";
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from 'react';
+import { MessageSquare } from 'lucide-react';
 
 const FloatingContactButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   
-  // Show the button after scrolling down a bit
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+  
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 500) {
+    const toggleVisibility = () => {
+      // Show button when page is scrolled down 300px
+      if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
     
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', toggleVisibility);
+    
+    return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
   
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact-info');
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  
-  if (!isVisible) return null;
+  if (!isVisible) {
+    return null;
+  }
   
   return (
-    <Button
+    <button
       onClick={scrollToContact}
-      className="fixed bottom-6 right-6 z-50 bg-gray-800 hover:bg-gray-700 text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all"
-      size="icon"
-      aria-label="联系我们"
+      className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all transform hover:scale-105 focus:outline-none"
+      aria-label="Contact us"
     >
       <MessageSquare className="h-6 w-6" />
-    </Button>
+    </button>
   );
 };
 

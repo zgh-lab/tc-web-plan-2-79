@@ -1,83 +1,93 @@
 
-import { Link } from 'react-router-dom';
-import { ArrowRight, Newspaper } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import BlogPostCard from '@/components/BlogPostCard';
-import { blogPosts } from '@/data/blogPosts';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import BlogPostCard from "./BlogPostCard";
+import { blogPosts } from "@/data/blogPosts";
 
 const BlogPreview = () => {
-  // Get the 3 most recent blog posts
-  const recentPosts = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        duration: 0.3
+      }
+    }
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  // Only display the latest 3 blog posts
+  const featuredPosts = blogPosts.slice(0, 3);
 
   return (
-    <section id="blog" className="py-12 md:py-24 px-4 md:px-12 bg-white">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Newspaper size={20} className="text-black" />
-              <span className="text-black font-medium">Our Blog</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Latest Updates</h2>
-            <p className="text-gray-800 max-w-xl">
-              Explore our latest insights on smart textile technology, industry trends, and innovation.
-            </p>
-          </div>
-          <Link to="/blog" className="mt-4 md:mt-0">
-            <Button variant="outline" className="group border-black text-black hover:bg-black hover:text-white">
-              View All Posts
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
-        </div>
+    <section id="blog" className="py-16 md:py-24 bg-black">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+          className="mb-12 text-center"
+        >
+          <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            技术洞察
+          </motion.h2>
+          <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
+            探索我们的最新技术文章，了解游戏行业前沿趋势与创新解决方案
+          </motion.p>
+        </motion.div>
         
-        <div className="relative">
-          <ScrollArea className="w-full">
-            <div className="flex gap-6 pb-4 md:hidden overflow-x-auto snap-x snap-mandatory pl-1">
-              {recentPosts.map((post) => (
-                <div key={post.id} className="flex-none w-[85%] snap-center">
-                  <BlogPostCard
-                    title={post.title}
-                    excerpt={post.excerpt}
-                    imageUrl={post.imageUrl || '/placeholder.svg'}
-                    date={post.date}
-                    slug={post.slug}
-                    category={post.category}
-                  />
-                </div>
-              ))}
-            </div>
-          </ScrollArea>
-          
-          {/* Show grid layout on non-mobile screens */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentPosts.map((post) => (
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {featuredPosts.map((post, index) => (
+            <motion.div key={post.id} variants={childVariants}>
               <BlogPostCard
-                key={post.id}
                 title={post.title}
-                excerpt={post.excerpt}
-                imageUrl={post.imageUrl || '/placeholder.svg'}
+                image={post.coverImage}
                 date={post.date}
+                excerpt={post.excerpt}
                 slug={post.slug}
+                author={post.author}
                 category={post.category}
+                darkMode={true}
               />
-            ))}
-          </div>
-          
-          <div className="mt-4 flex justify-center md:hidden">
-            <div className="flex gap-1">
-              {[0, 1, 2].map((i) => (
-                <div 
-                  key={i} 
-                  className={`h-1.5 rounded-full ${i === 0 ? 'w-6 bg-gray-800' : 'w-2 bg-gray-300'}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        <motion.div 
+          variants={childVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex justify-center mt-12"
+        >
+          <Link 
+            to="/blog" 
+            onClick={() => window.scrollTo(0, 0)}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center group"
+          >
+            查看所有文章
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

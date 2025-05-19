@@ -1,143 +1,126 @@
 
-import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import emailjs from 'emailjs-com';
+import { Mail, Phone, MapPin, Github, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email) {
-      toast({
-        title: "Error",
-        description: "Please enter your email address.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // EmailJS configuration
-      const EMAILJS_SERVICE_ID = "service_i3h66xg";
-      const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
-      const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
-      
-      const templateParams = {
-        from_name: "Website Subscriber",
-        from_email: email,
-        message: `New subscription request from the website footer.`,
-        to_name: 'WRLDS Team',
-        reply_to: email
-      };
-      
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
-      
-      toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter.",
-        variant: "default"
-      });
-      
-      setEmail("");
-    } catch (error) {
-      console.error("Error sending subscription:", error);
-      
-      toast({
-        title: "Error",
-        description: "There was a problem subscribing. Please try again later.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer id="contact" className="bg-black text-white pt-16 pb-8 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
-          <div className="lg:col-span-2">
-            <img 
-              src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
-              alt="WRLDS Technologies Logo" 
-              className="h-10 w-auto mb-6 invert" // Added invert to make logo white
-            />
-            <p className="text-gray-300 mb-6">
-              WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
-            </p>
-            <p className="text-gray-300 mb-6">
-              Hornsgatan 110<br />
-              117 26, Stockholm Sweden
+    <footer className="bg-black text-gray-300 border-t border-gray-800">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div>
+            <Link to="/" className="flex items-center mb-6">
+              <h1 className="font-light text-2xl">
+                <span className="text-blue-400">G-</span>
+                <span className="text-white">bits</span>
+                <span className="text-gray-300">技术中心</span>
+              </h1>
+            </Link>
+            <p className="mb-6 text-sm text-gray-400">
+              专注于游戏开发、人工智能和云计算技术的研发中心。我们致力于为游戏产业提供先进的技术解决方案，推动创新发展。
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/wrldstechnologies/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
-              >
-                <Linkedin size={20} />
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">解决方案</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li>
+                <Link to="/tech-cooperation" className="text-gray-400 hover:text-white transition-colors">
+                  技术合作
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/firecat" className="text-gray-400 hover:text-white transition-colors">
+                  火猫游戏平台
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/sport-retail" className="text-gray-400 hover:text-white transition-colors">
+                  数字化游戏交易系统
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/workwear" className="text-gray-400 hover:text-white transition-colors">
+                  云游戏服务
+                </Link>
+              </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Get in Touch</h3>
-            <form className="space-y-4" onSubmit={handleSubscribe}>
-              <div>
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-white placeholder-gray-400"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={isSubmitting}
-                />
-              </div>
-              <button 
-                type="submit" 
-                className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Subscribing..." : (
-                  <>
-                    Subscribe
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </form>
+            <h3 className="text-lg font-semibold mb-4 text-white">资源</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/knowledge-base" className="text-gray-400 hover:text-white transition-colors">
+                  知识库
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
+                  技术博客
+                </Link>
+              </li>
+              <li>
+                <Link to="/achievements" className="text-gray-400 hover:text-white transition-colors">
+                  成果展示
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
+                  关于我们
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">联系方式</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <MapPin className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>福建省厦门市思明区软件园二期望海路25号</span>
+              </li>
+              <li className="flex items-center">
+                <Phone className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0" />
+                <span>+86 592-123-4567</span>
+              </li>
+              <li className="flex items-center">
+                <Mail className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0" />
+                <span>tech-center@g-bits.com</span>
+              </li>
+            </ul>
           </div>
         </div>
         
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} WRLDS Technologies. All rights reserved.
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm mb-4 md:mb-0">
+            &copy; {currentYear} G-bits技术中心. 保留所有权利.
           </p>
           <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">
+              隐私政策
+            </Link>
+            <Link to="/terms-of-service" className="text-sm text-gray-400 hover:text-white transition-colors">
+              服务条款
+            </Link>
+            <Link to="/cookies" className="text-sm text-gray-400 hover:text-white transition-colors">
+              Cookie政策
+            </Link>
           </div>
         </div>
       </div>
