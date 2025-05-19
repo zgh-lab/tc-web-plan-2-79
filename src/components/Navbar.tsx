@@ -62,7 +62,7 @@ const Navbar = () => {
           {/* Logo在左侧 */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <h1 className={cn("font-bold text-lg", isScrolled ? "text-gray-900" : "text-white")}>
+              <h1 className={cn("font-light text-xl sm:text-2xl", isScrolled ? "text-gray-900" : "text-white")}>
                 <span className="text-blue-500">G-</span>
                 <span className={cn(isScrolled ? "text-gray-800" : "text-white")}>bits</span>
                 <span className={cn(isScrolled ? "text-gray-700" : "text-gray-100")}>技术中心</span>
