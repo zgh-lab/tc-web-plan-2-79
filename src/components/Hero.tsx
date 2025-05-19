@@ -35,7 +35,7 @@ const Hero = () => {
   };
   
   return <motion.div className="relative mt-16 md:mt-0 w-full max-w-[100vw]" initial="hidden" animate="visible" variants={containerVariants}>
-      <div className="banner-container bg-black relative overflow-hidden h-[700px] md:h-[750px] w-full">
+      <div className="banner-container bg-black relative overflow-hidden h-[100vh] w-full">
         <div className="absolute inset-0 bg-black w-full">
           <img src="/lovable-uploads/e56515c5-1858-4fc7-9a55-47e5efa90fd5.png" alt="G-bits Technology Center" className={`w-full h-full object-cover opacity-90 ${isMobile ? 'object-center' : 'object-center'}`} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/70"></div>
