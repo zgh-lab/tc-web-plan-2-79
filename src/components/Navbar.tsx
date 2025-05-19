@@ -59,6 +59,7 @@ const Navbar = () => {
     }}>
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
+          {/* Logo在左侧 */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <h1 className={cn("font-bold text-lg", isScrolled ? "text-gray-900" : "text-white")}>
@@ -69,8 +70,9 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-between flex-1 ml-10">
+          {/* 桌面导航菜单放在右侧 */}
+          <div className="hidden md:flex items-center justify-end flex-1 space-x-4">
+            {/* 导航链接 */}
             <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -113,7 +115,7 @@ const Navbar = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {/* 右侧工具栏 - 搜索和设置 */}
+            {/* 搜索和设置按钮 */}
             <div className="flex items-center space-x-4">
               {/* 搜索功能 */}
               <Dialog>
@@ -156,7 +158,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          {/* Mobile menu button */}
+          {/* 移动端菜单按钮 */}
           <div className="md:hidden flex items-center space-x-4">
             {/* 移动端搜索按钮 */}
             <Dialog>
@@ -205,7 +207,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* 移动端导航菜单 */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0")}>
         <div className={cn("px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-sm", isScrolled ? "bg-white" : "bg-black")}>
           <Link to="/" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
