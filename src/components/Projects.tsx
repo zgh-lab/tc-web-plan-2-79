@@ -63,7 +63,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-black">
+    <section id="projects" className="py-16 md:py-24 bg-gradient-to-b from-black to-black/90 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"

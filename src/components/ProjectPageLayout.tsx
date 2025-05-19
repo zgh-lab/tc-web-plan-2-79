@@ -27,7 +27,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
     window.scrollTo(0, 0);
   }, []);
   
-  const bgColor = darkMode ? 'bg-[#0c151c]' : 'bg-gray-100';
+  const bgColor = darkMode ? 'bg-gradient-to-b from-[#0c151c] to-black/90' : 'bg-gray-100';
   const textColor = darkMode ? 'text-white' : 'text-gray-900';
   
   return (

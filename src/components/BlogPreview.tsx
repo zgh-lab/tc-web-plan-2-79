@@ -2,16 +2,18 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import BlogPostCard from "./BlogPostCard";
 import { blogPosts } from "@/data/blogPosts";
 
 const BlogPreview = () => {
+  // Get the latest 3 posts for the preview section
+  const previewPosts = blogPosts.slice(0, 3);
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
         duration: 0.3
       }
     }
@@ -28,11 +30,8 @@ const BlogPreview = () => {
     }
   };
 
-  // Only display the latest 3 blog posts
-  const featuredPosts = blogPosts.slice(0, 3);
-
   return (
-    <section id="blog" className="py-16 md:py-24 bg-black bg-opacity-80" style={{ backgroundImage: 'url("/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay' }}>
+    <section id="blog" className="py-16 md:py-24 bg-gradient-to-b from-black/90 to-black/85 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -42,10 +41,10 @@ const BlogPreview = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            技术洞察
+            技术资讯
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            探索我们的最新技术文章，了解游戏行业前沿趋势与创新解决方案
+            了解最新的游戏技术趋势和行业动态
           </motion.p>
         </motion.div>
         
@@ -54,40 +53,53 @@ const BlogPreview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
         >
-          {featuredPosts.map((post, index) => (
-            <motion.div key={post.id} variants={childVariants}>
-              <BlogPostCard
-                title={post.title}
-                image={post.imageUrl}
-                date={post.date}
-                excerpt={post.excerpt}
-                slug={post.slug}
-                author={{name: post.author}}
-                category={post.category}
-                darkMode={true}
-              />
+          {previewPosts.map((post, index) => (
+            <motion.div 
+              key={index}
+              variants={childVariants}
+              className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all"
+            >
+              <Link to={`/blog/${post.slug}`} className="block">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={post.imageUrl} 
+                    alt={post.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                </div>
+                
+                <div className="p-6">
+                  <div className="flex items-center mb-2">
+                    <span className="text-blue-400 text-sm">{post.category}</span>
+                    <span className="mx-2 text-gray-500">•</span>
+                    <span className="text-gray-400 text-sm">{post.date}</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{post.title}</h3>
+                  <p className="text-gray-300 mb-4 line-clamp-2">{post.excerpt}</p>
+                  
+                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
+                    阅读更多 
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
         
-        <motion.div 
-          variants={childVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex justify-center mt-12"
-        >
+        <div className="flex justify-center">
           <Link 
             to="/blog" 
-            onClick={() => window.scrollTo(0, 0)}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center group"
+            className="px-6 py-3 bg-blue-600/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
           >
-            查看所有文章
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            查看更多文章
+            <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
