@@ -1,22 +1,38 @@
 
 import { motion } from "framer-motion";
-import { Laptop, Brain, Cloud } from "lucide-react";
+import { Code, Server, Tool, Code2, Cpu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
   {
-    icon: Laptop,
-    title: "创造虚拟世界",
-    description: "使用先进的实时引擎技术和工具，帮助开发者构建高度沉浸式的3D交互体验和开放虚拟世界。"
+    icon: Code,
+    title: "编译器",
+    description: "自主研发特性增强的编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
+    link: "/tech-cooperation"
   },
   {
-    icon: Brain,
-    title: "Web3技术应用",
-    description: "整合区块链、NFT和加密货币技术，为虚拟世界提供所有权证明、价值交换和去中心化治理机制。"
+    icon: Server,
+    title: "服务器",
+    description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
+    link: "/tech-cooperation"
   },
   {
-    icon: Cloud,
-    title: "全平台兼容",
-    description: "支持PC、移动设备、VR/AR头显等多种设备接入，打造跨平台的无缝连接体验和社交互动空间。"
+    icon: Tool,
+    title: "工具链",
+    description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
+    link: "/tech-cooperation"
+  },
+  {
+    icon: Code2,
+    title: "客户端引擎开发",
+    description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
+    link: "/tech-cooperation"
+  },
+  {
+    icon: Cpu,
+    title: "AIGC",
+    description: "人工智能生成内容技术，为游戏提供智能NPC行为，程序化内容生成与个性化游戏体验。",
+    link: "/tech-cooperation"
   }
 ];
 
@@ -54,18 +70,23 @@ const WhyWrlds = () => {
         >
           <div className="text-center mb-16">
             <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-              核心技术优势
+              技术研发方向
             </motion.h2>
             <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-              我们为创作者和企业提供构建沉浸式互联网体验所需的工具和技术
+              我们专注于游戏核心技术研发，为G-bits游戏提供技术支持与创新解决方案
             </motion.p>
+            <motion.div variants={childVariants} className="mt-4">
+              <Link to="/tech-cooperation" className="text-blue-400 hover:text-blue-300 text-sm">
+                查看全部服务 →
+              </Link>
+            </motion.div>
           </div>
           
           <motion.div 
-            variants={containerVariants} 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
           >
-            {features.map((feature, index) => (
+            {features.slice(0, 3).map((feature, index) => (
               <motion.div
                 key={index}
                 variants={childVariants}
@@ -75,7 +96,32 @@ const WhyWrlds = () => {
                   <feature.icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-gray-300 mb-4">{feature.description}</p>
+                <Link to={feature.link} className="text-blue-400 hover:text-blue-300 text-sm inline-block">
+                  了解更多 →
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          <motion.div 
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8"
+          >
+            {features.slice(3).map((feature, index) => (
+              <motion.div
+                key={index + 3}
+                variants={childVariants}
+                className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+                  <feature.icon className="w-6 h-6 text-blue-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+                <p className="text-gray-300 mb-4">{feature.description}</p>
+                <Link to={feature.link} className="text-blue-400 hover:text-blue-300 text-sm inline-block">
+                  了解更多 →
+                </Link>
               </motion.div>
             ))}
           </motion.div>
