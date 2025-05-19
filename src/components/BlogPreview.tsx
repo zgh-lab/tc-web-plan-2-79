@@ -32,7 +32,7 @@ const BlogPreview = () => {
   const featuredPosts = blogPosts.slice(0, 3);
 
   return (
-    <section id="blog" className="py-16 md:py-24 bg-black">
+    <section id="blog" className="py-16 md:py-24 bg-black bg-opacity-80" style={{ backgroundImage: 'url("/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -60,11 +60,11 @@ const BlogPreview = () => {
             <motion.div key={post.id} variants={childVariants}>
               <BlogPostCard
                 title={post.title}
-                image={post.coverImage}
+                image={post.imageUrl}
                 date={post.date}
                 excerpt={post.excerpt}
                 slug={post.slug}
-                author={post.author}
+                author={{name: post.author}}
                 category={post.category}
                 darkMode={true}
               />

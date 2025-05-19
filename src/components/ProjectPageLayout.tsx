@@ -20,7 +20,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
   subtitle,
   imageUrl,
   brandName,
-  darkMode = false
+  darkMode = true // Default to dark mode to match the new theme
 }) => {
   // Ensure page scrolls to top when component mounts
   useEffect(() => {
@@ -60,13 +60,13 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
                 {title}
               </motion.h1>
               <motion.div 
-                className={`w-20 h-1 ${darkMode ? 'bg-white' : 'bg-gray-800'} mb-6`}
+                className={`w-20 h-1 ${darkMode ? 'bg-blue-400' : 'bg-gray-800'} mb-6`}
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               />
               <motion.p 
-                className={`text-xl text-center max-w-2xl ${darkMode ? 'text-white' : 'text-gray-700'}`}
+                className={`text-xl text-center max-w-2xl ${darkMode ? 'text-gray-200' : 'text-gray-700'}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -79,7 +79,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
         
         {/* Back Button */}
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 mt-8">
-          <Link to="/#projects" className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors">
+          <Link to="/#projects" className="inline-flex items-center text-gray-300 hover:text-blue-400 transition-colors">
             <ArrowLeft className="mr-2 h-4 w-4" />
             <span>Back to Projects</span>
           </Link>
@@ -88,7 +88,7 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
         {/* Case Study Content */}
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 py-12">
           <motion.div 
-            className="prose prose-lg max-w-none"
+            className="prose prose-lg prose-invert max-w-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}

@@ -25,10 +25,12 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['游戏开发', '人工智能', '云计算', '技术研发', '创新发展']}
       />
-      <Hero />
-      <WhyWrlds />
-      <Projects />
-      <BlogPreview />
+      <main className="bg-cover bg-center bg-black" style={{ backgroundImage: 'url("/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay', backgroundAttachment: 'fixed' }}>
+        <Hero />
+        <WhyWrlds />
+        <Projects />
+        <BlogPreview />
+      </main>
     </PageLayout>
   );
 };

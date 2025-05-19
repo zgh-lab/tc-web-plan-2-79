@@ -1,8 +1,7 @@
 
-import { ArrowRight, Code, Cpu, Layers, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -37,8 +36,8 @@ const Hero = () => {
   return <motion.div className="relative mt-16 md:mt-0 w-full max-w-[100vw]" initial="hidden" animate="visible" variants={containerVariants}>
       <div className="banner-container bg-black relative overflow-hidden h-[100vh] w-full">
         <div className="absolute inset-0 bg-black w-full">
-          <img src="/lovable-uploads/e56515c5-1858-4fc7-9a55-47e5efa90fd5.png" alt="G-bits Technology Center" className={`w-full h-full object-cover opacity-90 ${isMobile ? 'object-center' : 'object-center'}`} />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/70"></div>
+          <img src="/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png" alt="G-bits Technology Center" className={`w-full h-full object-cover opacity-100 ${isMobile ? 'object-center' : 'object-center'}`} />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/50"></div>
         </div>
         
         <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
@@ -62,7 +61,7 @@ const Hero = () => {
                 
                 <Link 
                   to="/achievements" 
-                  className="px-6 md:px-8 py-2 md:py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm md:text-base"
+                  className="px-6 md:px-8 py-2 md:py-3 bg-gray-700/70 backdrop-blur-sm text-white rounded-md hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm md:text-base"
                 >
                   成果展示
                 </Link>
@@ -76,18 +75,18 @@ const Hero = () => {
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6" variants={containerVariants} initial="hidden" animate="visible" transition={{
             delay: 0.6
           }}>
-            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[180px] md:min-h-[220px]" variants={itemVariants}>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-3 text-white">游戏开发</h3>
+            <motion.div className="bg-black/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-blue-500/20 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[220px] md:min-h-[260px]" variants={itemVariants}>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-white">游戏开发</h3>
               <p className="text-gray-200 text-sm md:text-base">专业游戏开发技术与解决方案，打造卓越的游戏体验。</p>
             </motion.div>
             
-            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[180px] md:min-h-[220px]" variants={itemVariants}>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-3 text-white">人工智能</h3>
+            <motion.div className="bg-black/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-blue-500/20 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[220px] md:min-h-[260px]" variants={itemVariants}>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-white">人工智能</h3>
               <p className="text-gray-200 text-sm md:text-base">应用前沿AI技术，为游戏带来智能化升级与创新体验。</p>
             </motion.div>
             
-            <motion.div className="bg-white/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[180px] md:min-h-[220px]" variants={itemVariants}>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-3 text-white">云计算</h3>
+            <motion.div className="bg-black/20 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-blue-500/20 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md min-h-[220px] md:min-h-[260px]" variants={itemVariants}>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-white">云计算</h3>
               <p className="text-gray-200 text-sm md:text-base">高效可靠的云计算基础设施，支持游戏产业数字化转型。</p>
             </motion.div>
           </motion.div>

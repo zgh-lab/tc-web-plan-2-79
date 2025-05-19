@@ -20,7 +20,14 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
+    <div className="min-h-screen bg-black w-full max-w-[100vw] overflow-x-hidden" 
+         style={{ 
+           backgroundImage: 'url("/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png")', 
+           backgroundSize: 'cover', 
+           backgroundPosition: 'center',
+           backgroundAttachment: 'fixed',
+           backgroundBlendMode: 'overlay' 
+         }}>
       <Navbar />
       {children}
       {showContact && <ContactInfo />}
