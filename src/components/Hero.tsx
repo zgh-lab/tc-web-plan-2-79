@@ -44,12 +44,13 @@ const Hero = () => {
         <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
-              <motion.h1 className="banner-title text-white text-3xl md:text-5xl lg:text-6xl font-bold" variants={itemVariants}>
-                G-<span className="text-blue-400">bits</span>技术中心
-              </motion.h1>
-              <motion.p className="banner-subtitle text-gray-300 mt-4 md:mt-6 text-sm md:text-base max-w-2xl mx-auto" variants={itemVariants}>
-                专注于游戏开发、人工智能和云计算技术的研发中心。我们致力于为G-bits提供先进的技术解决方案，推动游戏产业的创新发展。
-              </motion.p>
+              <motion.div className="flex items-center justify-center mb-8" variants={itemVariants}>
+                <h1 className="text-3xl md:text-4xl font-bold">
+                  <span className="text-white">G-</span>
+                  <span className="text-blue-400">bits</span>
+                  <span className="text-white">技术中心</span>
+                </h1>
+              </motion.div>
               <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 justify-center" variants={itemVariants}>
                 <Link 
                   to="/tech-cooperation" 
