@@ -73,7 +73,7 @@ const Projects = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            我们的产品
+            成果展示
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
             探索我们打造的创新虚拟世界产品，连接现实与数字空间，创造全新的互动体验

@@ -41,7 +41,7 @@ const BlogPreview = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            行业动态
+            资讯分享
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
             了解元宇宙、Web3和沉浸式技术的最新发展和应用趋势
