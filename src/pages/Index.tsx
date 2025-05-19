@@ -27,8 +27,9 @@ const Index = () => {
       />
       <main className="bg-cover bg-center bg-black" style={{ 
         backgroundImage: 'url("/lovable-uploads/549e0558-5a25-4548-9351-deb84b420ad1.png")', 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center', 
+        backgroundSize: 'contain', 
+        backgroundPosition: 'center top', 
+        backgroundRepeat: 'no-repeat',
         backgroundBlendMode: 'overlay', 
         backgroundAttachment: 'fixed' 
       }}>

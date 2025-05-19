@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
@@ -37,7 +36,7 @@ const Hero = () => {
       <div className="banner-container bg-black relative overflow-hidden h-[100vh] w-full">
         <div className="absolute inset-0 bg-black w-full">
           <img src="/lovable-uploads/549e0558-5a25-4548-9351-deb84b420ad1.png" alt="G-bits Technology Center" 
-               className={`w-full h-full object-cover opacity-100 ${isMobile ? 'object-center' : 'object-center'}`} />
+               className={`w-full h-full object-contain object-top`} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/50"></div>
         </div>
         
