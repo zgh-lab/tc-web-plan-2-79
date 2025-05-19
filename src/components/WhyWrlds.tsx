@@ -73,20 +73,13 @@ const WhyWrlds = () => {
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          <div className="flex justify-between items-center mb-12">
-            <motion.div variants={childVariants} className="max-w-3xl">
-              <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                技术研发方向
-              </motion.h2>
-              <motion.p variants={childVariants} className="text-lg text-gray-300">
-                我们专注于游戏核心技术研发，为<span className="text-blue-400 font-semibold">G-bits</span>游戏提供技术支持与创新解决方案
-              </motion.p>
-            </motion.div>
-            <motion.div variants={childVariants} className="hidden md:block">
-              <Link to="/tech-cooperation" className="text-blue-400 hover:text-blue-300 flex items-center">
-                查看全部服务 <span className="ml-1">→</span>
-              </Link>
-            </motion.div>
+          <div className="mb-12 text-center">
+            <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              技术研发方向
+            </motion.h2>
+            <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
+              我们专注于游戏核心技术研发，为<span className="text-blue-400 font-semibold">G-bits</span>游戏提供技术支持与创新解决方案
+            </motion.p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -145,11 +138,16 @@ const WhyWrlds = () => {
             ))}
           </div>
           
-          <motion.div variants={childVariants} className="mt-6 text-center md:hidden">
-            <Link to="/tech-cooperation" className="text-blue-400 hover:text-blue-300 text-sm">
-              查看全部服务 →
+          <div className="flex justify-center mt-12">
+            <Link 
+              to="/tech-cooperation" 
+              onClick={() => window.scrollTo(0, 0)}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
+            >
+              查看全部服务
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
