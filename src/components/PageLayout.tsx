@@ -22,9 +22,9 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   return (
     <div className="min-h-screen bg-black w-full max-w-[100vw] overflow-x-hidden" 
          style={{ 
-           backgroundImage: 'url("/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png")', 
+           backgroundImage: 'url("/lovable-uploads/549e0558-5a25-4548-9351-deb84b420ad1.png")', 
            backgroundSize: 'cover', 
-           backgroundPosition: '70% center', 
+           backgroundPosition: 'center', 
            backgroundAttachment: 'fixed',
            backgroundBlendMode: 'overlay' 
          }}>
