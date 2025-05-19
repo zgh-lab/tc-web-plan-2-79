@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Code, Server, Wrench, Terminal, Cpu } from "lucide-react";
+import { Code, Server, Wrench, Terminal, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const features = [
