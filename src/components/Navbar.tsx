@@ -1,10 +1,23 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { 
+  Dialog,
+  DialogContent,
+  DialogTrigger
+} from "@/components/ui/dialog";
+import { 
+  Command, 
+  CommandInput, 
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem
+} from "@/components/ui/command";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,12 +61,16 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="WRLDS Technologies Logo" className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")} />
+              <h1 className={cn("font-bold text-lg", isScrolled ? "text-gray-900" : "text-white")}>
+                <span className="text-blue-500">G-</span>
+                <span className={cn(isScrolled ? "text-gray-800" : "text-white")}>bits</span>
+                <span className={cn(isScrolled ? "text-gray-700" : "text-gray-100")}>技术中心</span>
+              </h1>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center justify-between flex-1 ml-10">
             <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -95,10 +112,92 @@ const Navbar = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+
+            {/* 右侧工具栏 - 搜索和设置 */}
+            <div className="flex items-center space-x-4">
+              {/* 搜索功能 */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
+                    <Search size={20} />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <Command>
+                    <CommandInput placeholder="搜索..." />
+                    <CommandList>
+                      <CommandEmpty>没有找到相关结果</CommandEmpty>
+                      <CommandGroup heading="建议">
+                        <CommandItem>
+                          <Link to="/tech-cooperation" className="flex items-center w-full">
+                            技术合作
+                          </Link>
+                        </CommandItem>
+                        <CommandItem>
+                          <Link to="/knowledge-base" className="flex items-center w-full">
+                            知识库
+                          </Link>
+                        </CommandItem>
+                        <CommandItem>
+                          <Link to="/achievements" className="flex items-center w-full">
+                            成果展示
+                          </Link>
+                        </CommandItem>
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </DialogContent>
+              </Dialog>
+
+              {/* 设置功能 */}
+              <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
+                <Settings size={20} />
+              </button>
+            </div>
           </div>
           
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            {/* 移动端搜索按钮 */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className={cn("p-2 rounded-full hover:bg-gray-200/20", isScrolled ? "text-gray-700" : "text-white")}>
+                  <Search size={18} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <Command>
+                  <CommandInput placeholder="搜索..." />
+                  <CommandList>
+                    <CommandEmpty>没有找到相关结果</CommandEmpty>
+                    <CommandGroup heading="建议">
+                      <CommandItem>
+                        <Link to="/tech-cooperation" className="flex items-center w-full">
+                          技术合作
+                        </Link>
+                      </CommandItem>
+                      <CommandItem>
+                        <Link to="/knowledge-base" className="flex items-center w-full">
+                          知识库
+                        </Link>
+                      </CommandItem>
+                      <CommandItem>
+                        <Link to="/achievements" className="flex items-center w-full">
+                          成果展示
+                        </Link>
+                      </CommandItem>
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </DialogContent>
+            </Dialog>
+            
+            {/* 设置按钮 */}
+            <button className={cn("p-2 rounded-full hover:bg-gray-200/20", isScrolled ? "text-gray-700" : "text-white")}>
+              <Settings size={18} />
+            </button>
+            
+            {/* 菜单按钮 */}
             <button onClick={toggleMenu} className={cn("focus:outline-none", isScrolled ? "text-gray-700" : "text-white")}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
