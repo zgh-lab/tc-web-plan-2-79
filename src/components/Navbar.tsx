@@ -70,8 +70,8 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* 桌面导航菜单放在右侧 */}
-          <div className="hidden md:flex items-center justify-end flex-1 space-x-4">
+          {/* 桌面导航菜单放在中央 */}
+          <div className="hidden md:flex items-center justify-center flex-1">
             {/* 导航链接 */}
             <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
               <NavigationMenuList>
@@ -125,53 +125,53 @@ const Navbar = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+          </div>
+          
+          {/* 搜索和设置按钮放在右侧 */}
+          <div className="hidden md:flex items-center space-x-4">
+            {/* 搜索功能 */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
+                  <Search size={20} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <Command>
+                  <CommandInput placeholder="搜索..." />
+                  <CommandList>
+                    <CommandEmpty>没有找到相关结果</CommandEmpty>
+                    <CommandGroup heading="建议">
+                      <CommandItem>
+                        <Link to="/tech-cooperation" className="flex items-center w-full">
+                          技术合作
+                        </Link>
+                      </CommandItem>
+                      <CommandItem>
+                        <Link to="/knowledge-base" className="flex items-center w-full">
+                          知识库
+                        </Link>
+                      </CommandItem>
+                      <CommandItem>
+                        <Link to="/achievements" className="flex items-center w-full">
+                          成果展示
+                        </Link>
+                      </CommandItem>
+                      <CommandItem>
+                        <Link to="/tool-library" className="flex items-center w-full">
+                          工具库
+                        </Link>
+                      </CommandItem>
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </DialogContent>
+            </Dialog>
 
-            {/* 搜索和设置按钮 */}
-            <div className="flex items-center space-x-4">
-              {/* 搜索功能 */}
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
-                    <Search size={20} />
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                  <Command>
-                    <CommandInput placeholder="搜索..." />
-                    <CommandList>
-                      <CommandEmpty>没有找到相关结果</CommandEmpty>
-                      <CommandGroup heading="建议">
-                        <CommandItem>
-                          <Link to="/tech-cooperation" className="flex items-center w-full">
-                            技术合作
-                          </Link>
-                        </CommandItem>
-                        <CommandItem>
-                          <Link to="/knowledge-base" className="flex items-center w-full">
-                            知识库
-                          </Link>
-                        </CommandItem>
-                        <CommandItem>
-                          <Link to="/achievements" className="flex items-center w-full">
-                            成果展示
-                          </Link>
-                        </CommandItem>
-                        <CommandItem>
-                          <Link to="/tool-library" className="flex items-center w-full">
-                            工具库
-                          </Link>
-                        </CommandItem>
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </DialogContent>
-              </Dialog>
-
-              {/* 设置功能 */}
-              <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
-                <Settings size={20} />
-              </button>
-            </div>
+            {/* 设置功能 */}
+            <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
+              <Settings size={20} />
+            </button>
           </div>
           
           {/* 移动端菜单按钮 */}
@@ -276,4 +276,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
