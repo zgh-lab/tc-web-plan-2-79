@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown, Search, Settings } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Settings, Package } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
@@ -108,6 +108,14 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
+                  <Link to="/tool-library">
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
+                      工具库
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
                   <button 
                     onClick={() => scrollToSection('contact')} 
                     className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
@@ -146,6 +154,11 @@ const Navbar = () => {
                         <CommandItem>
                           <Link to="/achievements" className="flex items-center w-full">
                             成果展示
+                          </Link>
+                        </CommandItem>
+                        <CommandItem>
+                          <Link to="/tool-library" className="flex items-center w-full">
+                            工具库
                           </Link>
                         </CommandItem>
                       </CommandGroup>
@@ -189,6 +202,11 @@ const Navbar = () => {
                       <CommandItem>
                         <Link to="/achievements" className="flex items-center w-full">
                           成果展示
+                        </Link>
+                      </CommandItem>
+                      <CommandItem>
+                        <Link to="/tool-library" className="flex items-center w-full">
+                          工具库
                         </Link>
                       </CommandItem>
                     </CommandGroup>
@@ -239,6 +257,13 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}>
             成果展示
+          </Link>
+          
+          <Link to="/tool-library" className={cn("block px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
+            setIsMenuOpen(false);
+            window.scrollTo(0, 0);
+          }}>
+            工具库
           </Link>
           
           <button onClick={() => scrollToSection('contact')} className={cn("block w-full text-left px-3 py-2 rounded-md", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>

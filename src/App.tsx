@@ -19,6 +19,7 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
+import ToolLibrary from "./pages/ToolLibrary"; // 导入工具库页面组件
 
 // 添加新路由所需的页面组件
 const TechCooperation = () => <div>技术合作页面正在建设中</div>;
@@ -53,6 +54,7 @@ const App = () => {
             <Route path="/tech-cooperation" element={<TechCooperation />} />
             <Route path="/knowledge-base" element={<KnowledgeBase />} />
             <Route path="/achievements" element={<Achievements />} />
+            <Route path="/tool-library" element={<ToolLibrary />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
