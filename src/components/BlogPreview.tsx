@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { 
   Carousel, 
   CarouselContent, 
@@ -57,7 +57,7 @@ const gameShowcase = [
 ];
 
 const BlogPreview = () => {
-  const [api, setApi] = React.useState<CarouselApi>();
+  const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const containerVariants = {
