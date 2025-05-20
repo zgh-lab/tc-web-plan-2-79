@@ -84,7 +84,7 @@ const BlogPreview = () => {
             成果展示
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            G-bits技术中心自主研发的精品游戏，创新技术与艺术的完美结合
+            xxxxx
           </motion.p>
         </motion.div>
         
@@ -101,7 +101,7 @@ const BlogPreview = () => {
               variants={childVariants}
               className="flex-shrink-0 w-64 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all"
             >
-              <Link to="/achievements" className="block">
+              <div className="block">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={game.imageUrl} 
@@ -119,13 +119,8 @@ const BlogPreview = () => {
                   
                   <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
                   <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
-                  
-                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors text-sm">
-                    了解更多 
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </motion.div>
