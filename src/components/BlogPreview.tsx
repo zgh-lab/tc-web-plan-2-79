@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -56,7 +57,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(3000); // Time in ms for scrolling one item - medium speed
+  const scrollSpeedRef = useRef(5000); // Time in ms for scrolling one item - slow speed (5 seconds)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,11 +88,11 @@ const BlogPreview = () => {
     const autoScroll = () => {
       if (!api) return;
       
-      // Smooth continuous scrolling with proper type definition
-      api.scrollNext({ transition: { duration: 1 } });
+      // Fix the type error by using the correct method
+      api.scrollNext();
     };
     
-    // Start continuous scrolling at medium speed
+    // Start continuous scrolling at slow speed
     intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
     
     // Cleanup
@@ -114,10 +115,10 @@ const BlogPreview = () => {
       clearInterval(intervalRef.current);
     }
     
-    // Restart autoplay
+    // Restart autoplay with slow speed
     if (api) {
       intervalRef.current = setInterval(() => {
-        api.scrollNext({ transition: { duration: 1 } });
+        api.scrollNext();
       }, scrollSpeedRef.current);
     }
   };
