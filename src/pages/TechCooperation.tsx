@@ -1,0 +1,245 @@
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Code, Server, Wrench, Terminal, Cpu } from 'lucide-react';
+import PageLayout from '@/components/PageLayout';
+import SEO from '@/components/SEO';
+
+const techTeams = [
+  {
+    id: "compiler",
+    title: "编译器组",
+    icon: Code,
+    description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
+    details: "我们的编译器组专注于打造高性能、跨平台的游戏脚本编译器。通过先进的编译优化技术，我们能够显著提升游戏运行效率和开发体验。编译器组掌握了包括词法分析、语法分析、中间代码生成、代码优化以及目标代码生成等核心技术，为游戏开发提供了强大的技术支持。",
+    image: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
+    achievements: [
+      "自主研发GS语言编译器，支持多平台编译",
+      "优化的中间代码表示与代码生成技术",
+      "完整的调试与性能分析工具链",
+      "支持热更新与增量编译功能"
+    ],
+    technologies: ["词法分析", "语法分析", "中间代码生成", "代码优化", "目标代码生成"]
+  },
+  {
+    id: "server",
+    title: "服务器与工具链组",
+    icon: Server,
+    description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
+    details: "服务器与工具链组致力于构建强大、可靠的游戏后端架构和开发工具链。我们的服务器架构能够处理海量并发请求，提供稳定的全球服务。同时，我们开发了一系列高效的工具，覆盖了从代码版本控制、自动化构建、测试到部署的全流程，大幅提升了开发效率。",
+    image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png",
+    achievements: [
+      "分布式服务器架构支持百万级并发",
+      "全球化部署方案，实现低延迟体验",
+      "完整的CI/CD工具链",
+      "高效的资源管理与自动化测试系统"
+    ],
+    technologies: ["分布式系统", "高并发处理", "网络协议优化", "CI/CD", "云服务架构"]
+  },
+  {
+    id: "engine",
+    title: "引擎组",
+    icon: Wrench,
+    description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
+    details: "引擎组负责游戏引擎核心技术的研发与优化，为游戏项目提供强大的技术基础。我们专注于渲染系统、物理引擎、动画系统等核心模块的开发，同时确保跨平台兼容性和高性能表现。通过持续创新和技术突破，我们的引擎能够支持各类复杂游戏场景的实现。",
+    image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png",
+    achievements: [
+      "高性能渲染管线与物理系统",
+      "优化的内存管理与资源加载机制",
+      "跨平台兼容性与设备适配方案",
+      "先进的材质与光照系统"
+    ],
+    technologies: ["图形渲染", "物理模拟", "动画系统", "场景管理", "资源优化"]
+  },
+  {
+    id: "tech-ai",
+    title: "技术AI组",
+    icon: Terminal,
+    description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
+    details: "技术AI组将人工智能技术应用于游戏开发的各个环节，提升开发效率和游戏体验。我们开发了智能化的开发辅助工具，自动化测试系统，以及游戏内AI系统。通过机器学习和数据分析，我们能够实现智能化的游戏平衡调整和内容生成，为游戏带来更丰富的体验。",
+    image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
+    achievements: [
+      "智能化开发辅助系统",
+      "基于机器学习的游戏测试与优化",
+      "自适应难度与内容推荐系统",
+      "复杂NPC行为与决策AI"
+    ],
+    technologies: ["机器学习", "数据分析", "行为决策树", "自然语言处理", "计算机视觉"]
+  },
+  {
+    id: "aigc",
+    title: "AIGC组",
+    icon: Cpu,
+    description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
+    details: "AIGC（AI生成内容）组专注于利用人工智能技术自动生成游戏内容，包括角色、场景、剧情等。我们的技术能够大幅降低内容创作成本，同时保持高质量和多样性。通过深度学习模型，我们实现了从文本、图像到3D模型的智能生成，为游戏开发提供了革命性的内容创作方式。",
+    image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png",
+    achievements: [
+      "基于AI的游戏资产生成系统",
+      "智能化剧情与任务生成",
+      "程序化地形与场景构建",
+      "个性化NPC对话与行为系统"
+    ],
+    technologies: ["生成对抗网络", "深度学习", "自然语言生成", "计算机图形学", "程序化生成"]
+  }
+];
+
+const TechCooperation = () => {
+  const [activeTab, setActiveTab] = useState("compiler");
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        duration: 0.3
+      }
+    }
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  return (
+    <PageLayout>
+      <SEO 
+        title="技术合作 - G-bits 技术中心" 
+        description="G-bits技术中心提供编译器、服务器架构、游戏引擎、技术AI和AIGC等多方面的技术合作解决方案。"
+        keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
+      />
+
+      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
+        <motion.div 
+          className="container mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
+            variants={childVariants}
+          >
+            技术合作
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+            variants={childVariants}
+          >
+            我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
+          </motion.p>
+
+          <motion.div variants={childVariants}>
+            <Tabs 
+              defaultValue="compiler" 
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full"
+            >
+              <TabsList className="grid grid-cols-3 md:grid-cols-5 gap-2 bg-black/50 p-1 rounded-lg mb-8">
+                {techTeams.map((team) => (
+                  <TabsTrigger 
+                    key={team.id} 
+                    value={team.id}
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-300"
+                  >
+                    <team.icon className="w-5 h-5 mr-2" />
+                    <span className="hidden sm:inline">{team.title}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              
+              {techTeams.map((team) => (
+                <TabsContent key={team.id} value={team.id} className="mt-0">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+                  >
+                    <div className="relative h-[300px] md:h-full overflow-hidden rounded-xl">
+                      <img 
+                        src={team.image} 
+                        alt={team.title} 
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
+                        <h2 className="text-3xl font-bold text-white mb-2">{team.title}</h2>
+                        <p className="text-lg text-gray-200">{team.description}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white mb-3">团队介绍</h3>
+                        <p className="text-gray-300">{team.details}</p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white mb-3">核心技术</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {team.technologies.map((tech, index) => (
+                            <span 
+                              key={index} 
+                              className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white mb-3">主要成果</h3>
+                        <ul className="space-y-2 text-gray-300">
+                          {team.achievements.map((achievement, index) => (
+                            <li key={index} className="flex items-start">
+                              <span className="text-blue-400 mr-2">•</span>
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </motion.div>
+
+          <motion.div 
+            className="mt-16 text-center"
+            variants={childVariants}
+          >
+            <h2 className="text-2xl font-bold text-white mb-4">需要技术支持？</h2>
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              我们的技术团队随时准备为您的项目提供专业支持。无论是技术咨询、问题排查还是深度合作，请随时与我们联系。
+            </p>
+            <button 
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20"
+            >
+              联系我们
+            </button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </PageLayout>
+  );
+};
+
+export default TechCooperation;

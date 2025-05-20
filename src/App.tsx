@@ -19,12 +19,10 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
-import ToolLibrary from "./pages/ToolLibrary"; // 导入工具库页面组件
-
-// 添加新路由所需的页面组件
-const TechCooperation = () => <div>技术合作页面正在建设中</div>;
-const KnowledgeBase = () => <div>知识库页面正在建设中</div>;
-const Achievements = () => <div>成果展示页面正在建设中</div>;
+import ToolLibrary from "./pages/ToolLibrary";
+import TechCooperation from "./pages/TechCooperation";
+import KnowledgeBase from "./pages/KnowledgeBase";
+import Achievements from "./pages/Achievements";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
