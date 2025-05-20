@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,7 +8,6 @@ import {
   CarouselContent, 
   CarouselItem
 } from "@/components/ui/carousel";
-import type { CarouselApi } from "@/components/ui/carousel";
 
 // Define the game showcase items
 const gameShowcase = [
@@ -54,9 +54,10 @@ const gameShowcase = [
 ];
 
 const BlogPreview = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(2000); // 调整为每2秒轮播一次，从8000毫秒改为2000毫秒
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const animationRef = useRef<number | null>(null);
+  const scrollSpeed = 1; // 每帧滚动的像素数，调整此值可以改变滚动速度
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -80,46 +81,48 @@ const BlogPreview = () => {
     }
   };
 
-  // Set up continuous scrolling at fast speed (2 seconds)
-  useEffect(() => {
-    if (!api) return;
-    
-    const autoScroll = () => {
-      if (!api) return;
+  // 实现平滑滚动的动画函数
+  const scrollAnimation = () => {
+    if (scrollContainerRef.current && !isPaused) {
+      const container = scrollContainerRef.current;
       
-      api.scrollNext();
-    };
+      // 如果已经滚动到最右侧，则重置到左侧开始位置
+      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+        container.scrollLeft = 0;
+      } else {
+        // 否则继续向右滚动
+        container.scrollLeft += scrollSpeed;
+      }
+    }
     
-    // Start continuous scrolling at 2 second intervals
-    intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
+    // 继续下一帧的动画
+    animationRef.current = requestAnimationFrame(scrollAnimation);
+  };
+
+  // 启动和停止滚动动画
+  useEffect(() => {
+    // 启动动画
+    animationRef.current = requestAnimationFrame(scrollAnimation);
     
-    // Cleanup
+    // 清理函数
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [api]);
+  }, [isPaused]);
 
-  // Pause autoplay on hover
+  // 鼠标悬停暂停，离开继续滚动
   const handleMouseEnter = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
+    setIsPaused(true);
   };
 
   const handleMouseLeave = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    
-    // Restart autoplay with slow speed
-    if (api) {
-      intervalRef.current = setInterval(() => {
-        api.scrollNext();
-      }, scrollSpeedRef.current);
-    }
+    setIsPaused(false);
   };
+
+  // 确保组件中卡片的数量足够填满容器并实现无缝滚动
+  const duplicatedShowcase = [...gameShowcase, ...gameShowcase];
 
   return (
     <section id="blog" className="py-16 md:py-24 bg-gradient-to-b from-black/90 to-black/85 backdrop-blur-sm">
@@ -151,20 +154,21 @@ const BlogPreview = () => {
           {/* Left gradient mask */}
           <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-black/90 to-transparent pointer-events-none" />
           
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            setApi={setApi}
-            className="w-full"
-          >
-            <CarouselContent className="py-4">
-              {gameShowcase.map((game) => (
-                <CarouselItem key={game.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <motion.div 
-                    variants={childVariants}
-                    className="flex-shrink-0 w-full bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
+          {/* 滚动容器 */}
+          <div className="overflow-hidden">
+            <div 
+              ref={scrollContainerRef}
+              className="flex py-4 gap-4 w-full"
+              style={{ overflowX: 'hidden' }}
+            >
+              {duplicatedShowcase.map((game, index) => (
+                <motion.div 
+                  key={`${game.id}-${index}`}
+                  variants={childVariants}
+                  className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 pl-4"
+                >
+                  <div 
+                    className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
                   >
                     <div className="block h-full">
                       <div className="relative h-64 overflow-hidden">
@@ -186,13 +190,11 @@ const BlogPreview = () => {
                         <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
                       </div>
                     </div>
-                  </motion.div>
-                </CarouselItem>
+                  </div>
+                </motion.div>
               ))}
-            </CarouselContent>
-            
-            {/* Navigation arrows removed as requested */}
-          </Carousel>
+            </div>
+          </div>
           
           {/* Right gradient mask */}
           <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-black/90 to-transparent pointer-events-none" />
