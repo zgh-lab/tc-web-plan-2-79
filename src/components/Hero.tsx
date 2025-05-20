@@ -45,28 +45,16 @@ const Hero = () => {
         <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
-              <motion.div className="flex items-center justify-center mb-8" variants={itemVariants}>
+              <motion.div className="flex items-center justify-center mb-4" variants={itemVariants}>
                 <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light whitespace-nowrap">
                   <span className="text-white">G-bits</span>
                   <span className="text-white"> 技术中心</span>
                 </h1>
               </motion.div>
-              <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 justify-center" variants={itemVariants}>
-                <Link 
-                  to="/tech-cooperation" 
-                  className="px-6 md:px-8 py-2 md:py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group text-sm md:text-base"
-                >
-                  技术合作
-                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                
-                <Link 
-                  to="/achievements" 
-                  className="px-6 md:px-8 py-2 md:py-3 bg-gray-700/70 backdrop-blur-sm text-white rounded-md hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm md:text-base"
-                >
-                  成果展示
-                </Link>
-              </motion.div>
+              <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90" variants={itemVariants}>
+                我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
+              </motion.p>
+              {/* Buttons removed as requested */}
             </motion.div>
           </div>
         </div>
