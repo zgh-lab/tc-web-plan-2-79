@@ -8,7 +8,7 @@ const gameShowcase = [
   {
     id: "game1",
     title: "仙魔",
-    imageUrl: "/lovable-uploads/cbc6cc4a-f4a0-49d2-be51-101dee319121.png",
+    imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
     description: "经典东方玄幻风格的修仙冒险游戏，融合仙侠世界观与独特的战斗系统",
     category: "角色扮演",
     year: "2023"
@@ -16,7 +16,7 @@ const gameShowcase = [
   {
     id: "game2",
     title: "问剑",
-    imageUrl: "/lovable-uploads/35f23e47-4b3b-41a8-8908-08510194f000.png",
+    imageUrl: "/lovable-uploads/da393bd2-41b5-476f-9bab-baec29aa6ec5.png",
     description: "国风武侠世界，玩家在修炼中探索神秘剑道，体验独特的江湖人生",
     category: "动作冒险",
     year: "2022"
@@ -24,9 +24,25 @@ const gameShowcase = [
   {
     id: "game3",
     title: "奇迹传说",
-    imageUrl: "/lovable-uploads/eff0e58a-21fb-4363-a33f-ec1366f746e7.png",
+    imageUrl: "/lovable-uploads/421bed1b-6f82-4bd4-9505-32cec7e98532.png",
     description: "一周年特别版本，全新角色及玩法，带来前所未有的游戏体验",
     category: "策略角色",
+    year: "2024"
+  },
+  {
+    id: "game4",
+    title: "问道",
+    imageUrl: "/lovable-uploads/e7b5a53f-f4f9-45bc-828a-a909896c792a.png",
+    description: "古风仙侠题材，探索奇妙仙境，感受深厚传统文化底蕴",
+    category: "冒险探索",
+    year: "2023"
+  },
+  {
+    id: "game5",
+    title: "星恋",
+    imageUrl: "/lovable-uploads/247840ca-80a0-4c4e-9374-070ad3088344.png",
+    description: "轻松可爱的恋爱模拟游戏，让玩家体验浪漫互动剧情",
+    category: "恋爱模拟",
     year: "2024"
   }
 ];
@@ -77,13 +93,13 @@ const BlogPreview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+          className="flex flex-nowrap overflow-x-auto pb-6 gap-4 mb-12 scrollbar-hide"
         >
           {gameShowcase.map((game) => (
             <motion.div 
               key={game.id}
               variants={childVariants}
-              className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all"
+              className="flex-shrink-0 w-64 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all"
             >
               <Link to="/achievements" className="block">
                 <div className="relative h-64 overflow-hidden">
@@ -95,16 +111,16 @@ const BlogPreview = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
                 
-                <div className="p-6">
+                <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-blue-400 text-sm">{game.category}</span>
                     <span className="text-gray-400 text-sm">{game.year}</span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
-                  <p className="text-gray-300 mb-4 line-clamp-2">{game.description}</p>
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
+                  <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
                   
-                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors text-sm">
                     了解更多 
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>

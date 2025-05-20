@@ -10,7 +10,7 @@ const gameShowcase = [
   {
     id: "game1",
     title: "仙魔",
-    imageUrl: "/lovable-uploads/cbc6cc4a-f4a0-49d2-be51-101dee319121.png",
+    imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
     description: "经典东方玄幻风格的修仙冒险游戏，融合仙侠世界观与独特的战斗系统。游戏采用先进的实时渲染技术，呈现出极具东方美学的画面风格。技术中心为游戏开发了专属的动态特效系统和人物捏脸系统。",
     category: "角色扮演",
     year: "2023",
@@ -19,7 +19,7 @@ const gameShowcase = [
   {
     id: "game2",
     title: "问剑",
-    imageUrl: "/lovable-uploads/35f23e47-4b3b-41a8-8908-08510194f000.png",
+    imageUrl: "/lovable-uploads/da393bd2-41b5-476f-9bab-baec29aa6ec5.png",
     description: "国风武侠世界，玩家在修炼中探索神秘剑道，体验独特的江湖人生。采用技术中心自研的动作捕捉系统，实现极其流畅的武术动作表现。独特的水墨画渲染技术，营造出如同身临其境的中国古代画卷。",
     category: "动作冒险",
     year: "2022",
@@ -28,7 +28,7 @@ const gameShowcase = [
   {
     id: "game3",
     title: "奇迹传说",
-    imageUrl: "/lovable-uploads/eff0e58a-21fb-4363-a33f-ec1366f746e7.png",
+    imageUrl: "/lovable-uploads/421bed1b-6f82-4bd4-9505-32cec7e98532.png",
     description: "一周年特别版本，全新角色及玩法，带来前所未有的游戏体验。技术中心为游戏开发了先进的AI驱动剧情系统，使得游戏体验更加个性化。自适应难度系统让不同技术水平的玩家都能获得适合的挑战。",
     category: "策略角色",
     year: "2024",
@@ -36,11 +36,20 @@ const gameShowcase = [
   },
   {
     id: "game4",
-    title: "恋色浪漫",
-    imageUrl: "/lovable-uploads/50349126-e6a0-4f23-b99d-253ff3b1a527.png",
-    description: "轻松可爱的恋爱模拟游戏，采用技术中心自研的情感AI系统，NPC能根据玩家行为调整互动方式。卡通渲染技术展现出精美的动漫风格，优化的移动端性能使游戏在各种设备上都能流畅运行。",
-    category: "恋爱模拟",
+    title: "问道",
+    imageUrl: "/lovable-uploads/e7b5a53f-f4f9-45bc-828a-a909896c792a.png",
+    description: "古风仙侠题材，探索奇妙仙境，感受深厚传统文化底蕴。游戏采用独特笔墨风格渲染，结合传统水墨画技法与现代3D技术，打造出极具东方韵味的视觉体验。技术中心开发的物理引擎让游戏中的布料、水流等效果极为真实。",
+    category: "冒险探索",
     year: "2023",
+    features: ["古风画卷渲染", "开放式剧情", "物理互动系统", "东方音乐系统"]
+  },
+  {
+    id: "game5",
+    title: "星恋",
+    imageUrl: "/lovable-uploads/247840ca-80a0-4c4e-9374-070ad3088344.png",
+    description: "轻松可爱的恋爱模拟游戏，让玩家体验浪漫互动剧情。采用技术中心自研的情感AI系统，NPC能根据玩家行为调整互动方式。卡通渲染技术展现出精美的动漫风格，优化的移动端性能使游戏在各种设备上都能流畅运行。",
+    category: "恋爱模拟",
+    year: "2024",
     features: ["情感AI系统", "多分支剧情", "角色自定义", "社交分享功能"]
   }
 ];
