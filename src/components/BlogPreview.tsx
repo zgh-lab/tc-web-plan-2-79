@@ -6,9 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { 
   Carousel, 
   CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
+  CarouselItem
 } from "@/components/ui/carousel";
 import type { CarouselApi } from "@/components/ui/carousel";
 
@@ -59,6 +57,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollSpeedRef = useRef(0.5); // Pixels per millisecond
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,14 +81,19 @@ const BlogPreview = () => {
     }
   };
 
-  // Set up automatic rotation
+  // Set up continuous scrolling
   useEffect(() => {
     if (!api) return;
     
-    // Start autoplay
-    intervalRef.current = setInterval(() => {
-      api.scrollNext();
-    }, 4000); // Rotate every 4 seconds
+    const autoScroll = () => {
+      if (!api) return;
+      
+      // Smooth continuous scrolling
+      api.scrollNext({ animation: "smooth" });
+    };
+    
+    // Start continuous scrolling
+    intervalRef.current = setInterval(autoScroll, 4000);
     
     // Cleanup
     return () => {
@@ -114,7 +118,7 @@ const BlogPreview = () => {
     // Restart autoplay
     if (api) {
       intervalRef.current = setInterval(() => {
-        api.scrollNext();
+        api.scrollNext({ animation: "smooth" });
       }, 4000);
     }
   };
@@ -189,10 +193,7 @@ const BlogPreview = () => {
               ))}
             </CarouselContent>
             
-            <div className="flex items-center justify-center gap-2 mt-4">
-              <CarouselPrevious className="relative left-0 right-auto bg-white/10 hover:bg-white/20 text-white border-0 h-10 w-10" />
-              <CarouselNext className="relative right-0 left-auto bg-white/10 hover:bg-white/20 text-white border-0 h-10 w-10" />
-            </div>
+            {/* Navigation arrows removed as requested */}
           </Carousel>
           
           {/* Right gradient mask */}
