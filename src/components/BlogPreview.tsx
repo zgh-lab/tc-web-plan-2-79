@@ -56,7 +56,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(2000); // Time in ms for scrolling one item - very fast speed (2 seconds)
+  // Remove the scrollSpeedRef since we don't need it anymore
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -80,21 +80,10 @@ const BlogPreview = () => {
     }
   };
 
-  // Set up continuous scrolling
+  // Remove the auto-scrolling effect
   useEffect(() => {
-    if (!api) return;
-    
-    const autoScroll = () => {
-      if (!api) return;
-      
-      // Fix the type error by using the correct method
-      api.scrollNext();
-    };
-    
-    // Start continuous scrolling at very fast speed
-    intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
-    
-    // Cleanup
+    // No autoplay setup needed
+    // Clean up any existing interval just in case
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -102,24 +91,14 @@ const BlogPreview = () => {
     };
   }, [api]);
 
-  // Pause autoplay on hover
+  // These handlers are no longer needed for autoplay pause/resume, but we'll keep them 
+  // in case we want to add manual controls later
   const handleMouseEnter = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
+    // No action needed
   };
 
   const handleMouseLeave = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    
-    // Restart autoplay with very fast speed
-    if (api) {
-      intervalRef.current = setInterval(() => {
-        api.scrollNext();
-      }, scrollSpeedRef.current);
-    }
+    // No action needed
   };
 
   return (
