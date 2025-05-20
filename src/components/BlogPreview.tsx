@@ -56,7 +56,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(12000); // Time in ms for scrolling one item - very slow speed (12 seconds)
+  const scrollSpeedRef = useRef(2000); // Time in ms for scrolling one item - very fast speed (2 seconds)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,7 +91,7 @@ const BlogPreview = () => {
       api.scrollNext();
     };
     
-    // Start continuous scrolling at very slow speed
+    // Start continuous scrolling at very fast speed
     intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
     
     // Cleanup
@@ -114,7 +114,7 @@ const BlogPreview = () => {
       clearInterval(intervalRef.current);
     }
     
-    // Restart autoplay with very slow speed
+    // Restart autoplay with very fast speed
     if (api) {
       intervalRef.current = setInterval(() => {
         api.scrollNext();
