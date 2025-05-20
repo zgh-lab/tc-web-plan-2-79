@@ -1,0 +1,57 @@
+
+import { Link } from 'react-router-dom';
+import { Settings } from "lucide-react";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { cn } from '@/lib/utils';
+import { navItems, scrollToSection, type NavItem } from './NavItems';
+import SearchDialog from './SearchDialog';
+
+interface DesktopNavProps {
+  isScrolled: boolean;
+}
+
+const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
+  return (
+    <>
+      {/* 桌面导航菜单放在中央 */}
+      <div className="hidden md:flex items-center justify-center flex-1">
+        {/* 导航链接 */}
+        <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
+          <NavigationMenuList>
+            {navItems.map((item: NavItem) => (
+              <NavigationMenuItem key={item.title}>
+                {item.isAction ? (
+                  <button 
+                    onClick={() => scrollToSection(item.actionId || '')} 
+                    className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                  >
+                    {item.title}
+                  </button>
+                ) : (
+                  <Link to={item.path}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
+                      {item.title}
+                    </NavigationMenuLink>
+                  </Link>
+                )}
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+      
+      {/* 搜索和设置按钮放在右侧 */}
+      <div className="hidden md:flex items-center space-x-4">
+        {/* 搜索功能 */}
+        <SearchDialog isScrolled={isScrolled} />
+
+        {/* 设置功能 */}
+        <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
+          <Settings size={20} />
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default DesktopNav;
