@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -57,7 +56,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(5000); // Time in ms for scrolling one item - slow speed (5 seconds)
+  const scrollSpeedRef = useRef(12000); // Time in ms for scrolling one item - very slow speed (12 seconds)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -92,7 +91,7 @@ const BlogPreview = () => {
       api.scrollNext();
     };
     
-    // Start continuous scrolling at slow speed
+    // Start continuous scrolling at very slow speed
     intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
     
     // Cleanup
@@ -115,7 +114,7 @@ const BlogPreview = () => {
       clearInterval(intervalRef.current);
     }
     
-    // Restart autoplay with slow speed
+    // Restart autoplay with very slow speed
     if (api) {
       intervalRef.current = setInterval(() => {
         api.scrollNext();
