@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
@@ -50,22 +51,7 @@ const Hero = () => {
                   <span className="text-white"> 技术中心</span>
                 </h1>
               </motion.div>
-              <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 justify-center" variants={itemVariants}>
-                <Link 
-                  to="/tech-cooperation" 
-                  className="px-6 md:px-8 py-2 md:py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-300/20 flex items-center justify-center group text-sm md:text-base"
-                >
-                  技术合作
-                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                
-                <Link 
-                  to="/achievements" 
-                  className="px-6 md:px-8 py-2 md:py-3 bg-gray-700/70 backdrop-blur-sm text-white rounded-md hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm md:text-base"
-                >
-                  成果展示
-                </Link>
-              </motion.div>
+              {/* Removed the buttons for "技术合作" and "成果展示" */}
             </motion.div>
           </div>
         </div>
