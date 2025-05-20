@@ -1,7 +1,8 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { 
   Carousel, 
   CarouselContent, 
@@ -9,6 +10,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 // Define the game showcase items
 const gameShowcase = [
@@ -55,6 +57,9 @@ const gameShowcase = [
 ];
 
 const BlogPreview = () => {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -74,6 +79,43 @@ const BlogPreview = () => {
       transition: {
         duration: 0.5
       }
+    }
+  };
+
+  // Set up automatic rotation
+  useEffect(() => {
+    if (!api) return;
+    
+    // Start autoplay
+    intervalRef.current = setInterval(() => {
+      api.scrollNext();
+    }, 4000); // Rotate every 4 seconds
+    
+    // Cleanup
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [api]);
+
+  // Pause autoplay on hover
+  const handleMouseEnter = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    // Restart autoplay
+    if (api) {
+      intervalRef.current = setInterval(() => {
+        api.scrollNext();
+      }, 4000);
     }
   };
 
@@ -101,6 +143,8 @@ const BlogPreview = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           className="relative mb-12"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {/* Left gradient mask */}
           <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-black/90 to-transparent pointer-events-none" />
@@ -110,6 +154,7 @@ const BlogPreview = () => {
               align: "start",
               loop: true,
             }}
+            setApi={setApi}
             className="w-full"
           >
             <CarouselContent className="py-4">
