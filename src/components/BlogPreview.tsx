@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -56,7 +57,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  // Remove the scrollSpeedRef since we don't need it anymore
+  const scrollSpeedRef = useRef(8000); // Time in ms for scrolling one item - slow speed (8 seconds)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -80,10 +81,20 @@ const BlogPreview = () => {
     }
   };
 
-  // Remove the auto-scrolling effect
+  // Set up continuous scrolling at slow speed
   useEffect(() => {
-    // No autoplay setup needed
-    // Clean up any existing interval just in case
+    if (!api) return;
+    
+    const autoScroll = () => {
+      if (!api) return;
+      
+      api.scrollNext();
+    };
+    
+    // Start continuous scrolling at slow speed
+    intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
+    
+    // Cleanup
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -91,14 +102,24 @@ const BlogPreview = () => {
     };
   }, [api]);
 
-  // These handlers are no longer needed for autoplay pause/resume, but we'll keep them 
-  // in case we want to add manual controls later
+  // Pause autoplay on hover
   const handleMouseEnter = () => {
-    // No action needed
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
   };
 
   const handleMouseLeave = () => {
-    // No action needed
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    // Restart autoplay with slow speed
+    if (api) {
+      intervalRef.current = setInterval(() => {
+        api.scrollNext();
+      }, scrollSpeedRef.current);
+    }
   };
 
   return (
