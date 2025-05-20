@@ -13,7 +13,7 @@ const features = [
   },
   {
     icon: Server,
-    title: "服务器",
+    title: "服务器与工作链",
     description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
