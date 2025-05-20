@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -57,7 +56,7 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(0.5); // Pixels per millisecond
+  const scrollSpeedRef = useRef(3000); // Time in ms for scrolling one item - medium speed
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -88,12 +87,12 @@ const BlogPreview = () => {
     const autoScroll = () => {
       if (!api) return;
       
-      // Smooth continuous scrolling
-      api.scrollNext({ animation: "smooth" });
+      // Smooth continuous scrolling with proper type definition
+      api.scrollNext({ transition: { duration: 1 } });
     };
     
-    // Start continuous scrolling
-    intervalRef.current = setInterval(autoScroll, 4000);
+    // Start continuous scrolling at medium speed
+    intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
     
     // Cleanup
     return () => {
@@ -118,8 +117,8 @@ const BlogPreview = () => {
     // Restart autoplay
     if (api) {
       intervalRef.current = setInterval(() => {
-        api.scrollNext({ animation: "smooth" });
-      }, 4000);
+        api.scrollNext({ transition: { duration: 1 } });
+      }, scrollSpeedRef.current);
     }
   };
 
@@ -137,7 +136,7 @@ const BlogPreview = () => {
             成果展示
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            xxxxx
+            为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产
           </motion.p>
         </motion.div>
         
