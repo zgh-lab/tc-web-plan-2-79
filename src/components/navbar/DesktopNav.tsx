@@ -16,20 +16,20 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
       {/* 桌面导航菜单放在中央 */}
       <div className="hidden md:flex items-center justify-center flex-1">
         {/* 导航链接 */}
-        <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
+        <NavigationMenu className="text-white">
           <NavigationMenuList>
             {navItems.map((item: NavItem) => (
               <NavigationMenuItem key={item.title}>
                 {item.isAction ? (
                   <button 
                     onClick={() => scrollToSection(item.actionId || '')} 
-                    className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                    className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
                   >
                     {item.title}
                   </button>
                 ) : (
                   <Link to={item.path}>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
                       {item.title}
                     </NavigationMenuLink>
                   </Link>
@@ -46,7 +46,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
         <SearchDialog isScrolled={isScrolled} />
 
         {/* 设置功能 */}
-        <button className={cn("p-2 rounded-full hover:bg-gray-200/20 transition-colors", isScrolled ? "text-gray-700" : "text-white")}>
+        <button className="p-2 rounded-full hover:bg-gray-200/20 transition-colors text-white">
           <Settings size={20} />
         </button>
       </div>
