@@ -1,6 +1,14 @@
+
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
 
 // Define the game showcase items
 const gameShowcase = [
@@ -92,36 +100,58 @@ const BlogPreview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-nowrap overflow-x-auto pb-6 gap-4 mb-12 scrollbar-hide"
+          className="relative mb-12"
         >
-          {gameShowcase.map((game) => (
-            <motion.div 
-              key={game.id}
-              variants={childVariants}
-              className="flex-shrink-0 w-64 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all"
-            >
-              <div className="block">
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={game.imageUrl} 
-                    alt={game.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                </div>
-                
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-blue-400 text-sm">{game.category}</span>
-                    <span className="text-gray-400 text-sm">{game.year}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
-                  <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Left gradient mask */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-black/90 to-transparent pointer-events-none" />
+          
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="py-4">
+              {gameShowcase.map((game) => (
+                <CarouselItem key={game.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <motion.div 
+                    variants={childVariants}
+                    className="flex-shrink-0 w-full bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
+                  >
+                    <div className="block h-full">
+                      <div className="relative h-64 overflow-hidden">
+                        <img 
+                          src={game.imageUrl} 
+                          alt={game.title}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-blue-400 text-sm">{game.category}</span>
+                          <span className="text-gray-400 text-sm">{game.year}</span>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
+                        <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <CarouselPrevious className="relative left-0 right-auto bg-white/10 hover:bg-white/20 text-white border-0 h-10 w-10" />
+              <CarouselNext className="relative right-0 left-auto bg-white/10 hover:bg-white/20 text-white border-0 h-10 w-10" />
+            </div>
+          </Carousel>
+          
+          {/* Right gradient mask */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-black/90 to-transparent pointer-events-none" />
         </motion.div>
         
         <div className="flex justify-center">
