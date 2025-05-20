@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -57,8 +56,8 @@ const gameShowcase = [
 const BlogPreview = () => {
   const [api, setApi] = useState<CarouselApi>();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollSpeedRef = useRef(8000); // Time in ms for scrolling one item - slow speed (8 seconds)
-
+  const scrollSpeedRef = useRef(2000); // 调整为每2秒轮播一次，从8000毫秒改为2000毫秒
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -81,7 +80,7 @@ const BlogPreview = () => {
     }
   };
 
-  // Set up continuous scrolling at slow speed
+  // Set up continuous scrolling at fast speed (2 seconds)
   useEffect(() => {
     if (!api) return;
     
@@ -91,7 +90,7 @@ const BlogPreview = () => {
       api.scrollNext();
     };
     
-    // Start continuous scrolling at slow speed
+    // Start continuous scrolling at 2 second intervals
     intervalRef.current = setInterval(autoScroll, scrollSpeedRef.current);
     
     // Cleanup
