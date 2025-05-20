@@ -6,35 +6,35 @@ import { Link } from "react-router-dom";
 const features = [
   {
     icon: Code,
-    title: "编译器",
+    title: "编译器组",
     description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png"
   },
   {
     icon: Server,
-    title: "服务器与工具链",
+    title: "服务器与工具链组",
     description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
   },
   {
     icon: Wrench,
-    title: "工具链",
+    title: "引擎组",
     description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
   },
   {
     icon: Terminal,
-    title: "客户端&引擎开发",
+    title: "技术AI组",
     description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png"
   },
   {
     icon: Cpu,
-    title: "AIGC",
+    title: "AIGC组",
     description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png"
