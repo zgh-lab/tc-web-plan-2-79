@@ -156,7 +156,7 @@ const TechCooperation = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-3"> {/* Reduced spacing from 6 to 3 */}
+            <div className="space-y-2"> {/* 减少了上下间距 */}
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -209,11 +209,11 @@ const TechCooperation = () => {
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-3 border-t border-white/10"> {/* Reduced padding-top */}
-                                <p className="text-gray-300 mb-3">{team.details}</p> {/* Reduced margin-bottom */}
+                              <div className="p-6 pt-3 border-t border-white/10"> {/* 减少了上部间距 */}
+                                <p className="text-gray-300 mb-2">{team.details}</p> {/* 减少了底部间距 */}
                                 
-                                <div className="mb-3"> {/* Reduced margin-bottom */}
-                                  <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3> {/* Reduced margin-bottom */}
+                                <div className="mb-2"> {/* 减少了底部间距 */}
+                                  <h3 className="text-xl font-semibold text-white mb-1">核心技术</h3> {/* 减少了底部间距 */}
                                   <div className="flex flex-wrap gap-2">
                                     {team.technologies.map((tech, idx) => (
                                       <span 
@@ -226,9 +226,9 @@ const TechCooperation = () => {
                                   </div>
                                 </div>
                                 
-                                <div className="mb-3"> {/* Added margin-bottom */}
-                                  <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3> {/* Reduced margin-bottom */}
-                                  <ul className="space-y-1"> {/* Reduced spacing */}
+                                <div className="mb-2"> {/* 减少了底部间距 */}
+                                  <h3 className="text-xl font-semibold text-white mb-1">主要成果</h3> {/* 减少了底部间距 */}
+                                  <ul className="space-y-1"> {/* 已经很小的间距 */}
                                     {team.achievements.map((achievement, idx) => (
                                       <li key={idx} className="flex items-start text-gray-300">
                                         <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
@@ -238,7 +238,7 @@ const TechCooperation = () => {
                                   </ul>
                                 </div>
                                 
-                                {/* Contact section for each team */}
+                                {/* 只显示联系特定技术组 */}
                                 <div className="mt-2 flex items-center">
                                   <h3 className="text-lg font-semibold text-white mr-2">联系{team.title}:</h3>
                                   <a href={`mailto:${team.email}`} className="text-blue-400 hover:underline">

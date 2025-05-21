@@ -1,5 +1,6 @@
+
 import { motion } from "framer-motion";
-import { Paintbrush, Code, Server, Terminal, BrainCircuit, Building, Users } from "lucide-react";
+import { Building, Users } from "lucide-react";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -50,7 +51,6 @@ const ContactInfo = () => {
           className="w-full"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Only keep the two cooperation types */}
             <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Building className="w-6 h-6 text-blue-400" />

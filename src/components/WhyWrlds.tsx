@@ -93,9 +93,18 @@ const WhyWrlds = () => {
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className="md:col-span-4 bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden"
+                className="md:col-span-4 overflow-hidden rounded-lg relative"
+                style={{
+                  backgroundImage: `url(${feature.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  height: '320px' // 确保每个卡片有足够的高度
+                }}
               >
-                <div className="p-5">
+                {/* 添加遮罩层以确保文字可读性 */}
+                <div className="absolute inset-0 bg-black/70"></div>
+                
+                <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-blue-400" />
@@ -104,21 +113,12 @@ const WhyWrlds = () => {
                       {feature.title}
                     </h3>
                   </div>
-
-                  <div className="relative h-[160px] overflow-hidden rounded-lg mb-4">
-                    <img 
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                      <p className="text-gray-200">{feature.description}</p>
-                    </div>
-                  </div>
+                  
+                  <p className="text-gray-200 flex-grow">{feature.description}</p>
                   
                   <Link 
                     to={feature.link} 
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-2"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4"
                   >
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -132,9 +132,18 @@ const WhyWrlds = () => {
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className="md:col-span-6 bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden"
+                className="md:col-span-6 overflow-hidden rounded-lg relative"
+                style={{
+                  backgroundImage: `url(${feature.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  height: '320px' // 确保每个卡片有足够的高度
+                }}
               >
-                <div className="p-5">
+                {/* 添加遮罩层以确保文字可读性 */}
+                <div className="absolute inset-0 bg-black/70"></div>
+                
+                <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-blue-400" />
@@ -143,21 +152,12 @@ const WhyWrlds = () => {
                       {feature.title}
                     </h3>
                   </div>
-
-                  <div className="relative h-[160px] overflow-hidden rounded-lg mb-4">
-                    <img 
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                      <p className="text-gray-200">{feature.description}</p>
-                    </div>
-                  </div>
+                  
+                  <p className="text-gray-200 flex-grow">{feature.description}</p>
                   
                   <Link 
                     to={feature.link} 
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-2"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4"
                   >
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />

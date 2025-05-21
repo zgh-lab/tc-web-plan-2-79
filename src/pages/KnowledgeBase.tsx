@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
@@ -30,7 +29,7 @@ const categories = [
         image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
       }
     ],
-    email: "center@g-bits.com"
+    email: "compiler@g-bits.com"
   },
   {
     id: "tech-categories",
@@ -59,7 +58,7 @@ const categories = [
         image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
       }
     ],
-    email: "compiler@g-bits.com"
+    email: "servertools@g-bits.com"
   },
   {
     id: "learning-map",
@@ -259,7 +258,7 @@ const KnowledgeBase = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-3"> {/* Reduced spacing from 6 to 3 */}
+            <div className="space-y-2"> {/* 减少了上下间距 */}
               {categories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -312,8 +311,8 @@ const KnowledgeBase = () => {
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-3 border-t border-white/10"> {/* Reduced padding-top */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3"> {/* Reduced gap from 4 to 3 */}
+                              <div className="p-6 pt-3 border-t border-white/10"> {/* 减少了上部间距 */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> {/* 减少了间距 */}
                                   {category.content.map((item, idx) => (
                                     <div key={idx} className="bg-black/30 rounded-lg overflow-hidden">
                                       <div className="relative h-32 overflow-hidden">
@@ -337,11 +336,17 @@ const KnowledgeBase = () => {
                                   ))}
                                 </div>
                                 
-                                {/* Contact section for each category */}
-                                <div className="mt-3 flex items-center"> {/* Reduced margin-top */}
-                                  <h3 className="text-lg font-semibold text-white mr-2">联系{index < 5 ? (index === 0 ? "编译器组" : index === 1 ? "服务器与工具链组" : index === 2 ? "引擎组" : index === 3 ? "技术AI组" : "AIGC组") : "我们"}:</h3>
-                                  <a href={`mailto:${index < 5 ? (index === 0 ? "compiler@g-bits.com" : index === 1 ? "servertools@g-bits.com" : index === 2 ? "engine@g-bits.com" : index === 3 ? "techai@g-bits.com" : "aigc@g-bits.com") : "tech-center@g-bits.com"}`} className="text-blue-400 hover:underline">
-                                    {index < 5 ? (index === 0 ? "compiler@g-bits.com" : index === 1 ? "servertools@g-bits.com" : index === 2 ? "engine@g-bits.com" : index === 3 ? "techai@g-bits.com" : "aigc@g-bits.com") : "tech-center@g-bits.com"}
+                                {/* 只显示联系特定技术组 */}
+                                <div className="mt-2 flex items-center">
+                                  <h3 className="text-lg font-semibold text-white mr-2">
+                                    联系{index === 0 ? "编译器组" : 
+                                          index === 1 ? "服务器与工具链组" : 
+                                          index === 2 ? "引擎组" : 
+                                          index === 3 ? "技术AI组" : 
+                                          index === 4 ? "AIGC组" : "我们"}:
+                                  </h3>
+                                  <a href={`mailto:${categories[index].email}`} className="text-blue-400 hover:underline">
+                                    {categories[index].email}
                                   </a>
                                 </div>
                               </div>
