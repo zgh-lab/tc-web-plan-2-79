@@ -41,9 +41,8 @@ const Hero = () => {
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
               <motion.div className="flex items-center justify-center mb-4" variants={itemVariants}>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light whitespace-nowrap">
-                  <span className="text-white">G-bits</span>
-                  <span className="text-white"> 技术中心</span>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                  G-bits 技术中心
                 </h1>
               </motion.div>
               <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90" variants={itemVariants}>
