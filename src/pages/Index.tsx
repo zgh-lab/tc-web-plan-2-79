@@ -15,6 +15,9 @@ const Index = () => {
       // If there are multiple elements with id="contact", rename one
       contactElements[1].id = 'contact-footer';
     }
+    
+    // 添加控制台日志，用于调试背景图片问题
+    console.log("页面加载完成，检查背景图片是否正确显示");
   }, []);
 
   return (
@@ -27,9 +30,11 @@ const Index = () => {
       />
       <main>
         <Hero />
-        <WhyWrlds />
-        <Projects />
-        <BlogPreview />
+        <div className="mt-[100vh]"> {/* 添加顶部间距，确保下一个部分在第二屏开始 */}
+          <WhyWrlds />
+          <Projects />
+          <BlogPreview />
+        </div>
       </main>
     </PageLayout>
   );

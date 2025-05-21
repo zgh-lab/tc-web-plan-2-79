@@ -1,8 +1,6 @@
 
-import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   const isMobile = useIsMobile();

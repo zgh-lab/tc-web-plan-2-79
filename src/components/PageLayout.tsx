@@ -20,13 +20,14 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-black w-full max-w-[100vw] overflow-x-hidden" 
+    <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden relative" 
          style={{ 
            backgroundImage: 'url("/lovable-uploads/148ba8a6-ef53-44c0-9f83-8c514d2ce6e7.png")', 
-           backgroundSize: 'cover', 
-           backgroundPosition: 'center', 
-           backgroundAttachment: 'fixed',
-           backgroundBlendMode: 'overlay' 
+           backgroundSize: '100%', 
+           backgroundPosition: 'top center',
+           backgroundAttachment: 'scroll',
+           backgroundRepeat: 'no-repeat',
+           backgroundColor: 'black'
          }}>
       <Navbar />
       {children}
