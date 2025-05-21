@@ -30,10 +30,14 @@ const Index = () => {
       />
       <main>
         <Hero />
-        <div className="mt-[100vh]"> {/* 添加顶部间距，确保下一个部分在第二屏开始 */}
-          <WhyWrlds />
-          <Projects />
-          <BlogPreview />
+        <div className="relative">
+          {/* 添加半透明黑色蒙版 */}
+          <div className="absolute inset-0 bg-black/60 z-0"></div>
+          <div className="relative z-10">
+            <WhyWrlds />
+            <Projects />
+            <BlogPreview />
+          </div>
         </div>
       </main>
     </PageLayout>
