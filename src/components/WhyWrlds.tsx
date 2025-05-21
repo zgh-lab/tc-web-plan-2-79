@@ -8,35 +8,35 @@ const features = [
     title: "编译器组",
     description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png"
+    image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png"
   },
   {
     icon: Server,
     title: "服务器与工具链组",
     description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
+    image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png"
   },
   {
     icon: Wrench,
     title: "引擎组",
     description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
+    image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png"
   },
   {
     icon: Terminal,
     title: "技术AI组",
     description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png"
+    image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png"
   },
   {
     icon: Cpu,
     title: "AIGC组",
     description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png"
+    image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png"
   }
 ];
 

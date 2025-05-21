@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -13,7 +12,7 @@ const techTeams = [
     icon: Code,
     description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
     details: "我们的编译器组专注于打造高性能、跨平台的游戏脚本编译器。通过先进的编译优化技术，我们能够显著提升游戏运行效率和开发体验。编译器组掌握了包括词法分析、语法分析、中间代码生成、代码优化以及目标代码生成等核心技术，为游戏开发提供了强大的技术支持。",
-    image: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
+    image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png",
     achievements: [
       "自主研发GS语言编译器，支持多平台编译",
       "优化的中间代码表示与代码生成技术",
@@ -28,7 +27,7 @@ const techTeams = [
     icon: Server,
     description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
     details: "服务器与工具链组致力于构建强大、可靠的游戏后端架构和开发工具链。我们的服务器架构能够处理海量并发请求，提供稳定的全球服务。同时，我们开发了一系列高效的工具，覆盖了从代码版本控制、自动化构建、测试到部署的全流程，大幅提升了开发效率。",
-    image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png",
+    image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png",
     achievements: [
       "分布式服务器架构支持百万级并发",
       "全球化部署方案，实现低延迟体验",
@@ -43,7 +42,7 @@ const techTeams = [
     icon: Wrench,
     description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
     details: "引擎组负责游戏引擎核心技术的研发与优化，为游戏项目提供强大的技术基础。我们专注于渲染系统、物理引擎、动画系统等核心模块的开发，同时确保跨平台兼容性和高性能表现。通过持续创新和技术突破，我们的引擎能够支持各类复杂游戏场景的实现。",
-    image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png",
+    image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png",
     achievements: [
       "高性能渲染管线与物理系统",
       "优化的内存管理与资源加载机制",
@@ -58,7 +57,7 @@ const techTeams = [
     icon: Terminal,
     description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
     details: "技术AI组将人工智能技术应用于游戏开发的各个环节，提升开发效率和游戏体验。我们开发了智能化的开发辅助工具，自动化测试系统，以及游戏内AI系统。通过机器学习和数据分析，我们能够实现智能化的游戏平衡调整和内容生成，为游戏带来更丰富的体验。",
-    image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
+    image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png",
     achievements: [
       "智能化开发辅助系统",
       "基于机器学习的游戏测试与优化",
@@ -73,7 +72,7 @@ const techTeams = [
     icon: Cpu,
     description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
     details: "AIGC（AI生成内容）组专注于利用人工智能技术自动生成游戏内容，包括角色、场景、剧情等。我们的技术能够大幅降低内容创作成本，同时保持高质量和多样性。通过深度学习模型，我们实现了从文本、图像到3D模型的智能生成，为游戏开发提供了革命性的内容创作方式。",
-    image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png",
+    image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png",
     achievements: [
       "基于AI的游戏资产生成系统",
       "智能化剧情与任务生成",
