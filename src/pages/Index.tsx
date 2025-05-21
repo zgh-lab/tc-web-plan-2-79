@@ -26,9 +26,9 @@ const Index = () => {
         keywords={['游戏开发', '人工智能', '云计算', '技术研发', '创新发展']}
       />
       <main className="bg-cover bg-center bg-black" style={{ 
-        backgroundImage: 'url("/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png")', 
+        backgroundImage: 'url("/lovable-uploads/5c770984-bea1-46e9-b73d-ee7f7df5b6a6.png")', 
         backgroundSize: 'cover', 
-        backgroundPosition: '70% center', 
+        backgroundPosition: 'center', 
         backgroundBlendMode: 'overlay', 
         backgroundAttachment: 'fixed' 
       }}>

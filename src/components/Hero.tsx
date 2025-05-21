@@ -34,13 +34,10 @@ const Hero = () => {
   };
   
   return <motion.div className="relative mt-16 md:mt-0 w-full max-w-[100vw]" initial="hidden" animate="visible" variants={containerVariants}>
-      <div className="banner-container bg-black relative overflow-hidden h-[100vh] w-full">
-        <div className="absolute inset-0 bg-black w-full">
-          <img src="/lovable-uploads/ad035e58-e29d-4fe6-8c92-a5392cdeb028.png" alt="G-bits Technology Center" 
-               className={`w-full h-full object-cover opacity-100 ${isMobile ? 'object-center' : 'object-[70%_center]'}`} />
+      <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
+        <div className="absolute inset-0 bg-transparent w-full">
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/50"></div>
         </div>
-        
         
         <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
@@ -58,7 +55,6 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-        
         
         <div className="absolute bottom-10 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 z-10">
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6" variants={containerVariants} initial="hidden" animate="visible" transition={{
