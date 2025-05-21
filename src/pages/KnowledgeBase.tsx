@@ -1,11 +1,20 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight } from 'lucide-react';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 
 const categories = [
   {
@@ -187,8 +196,6 @@ const categories = [
 ];
 
 const KnowledgeBase = () => {
-  const [activeTab, setActiveTab] = useState("department");
-  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -240,69 +247,77 @@ const KnowledgeBase = () => {
             汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，为团队提供系统化的知识支持和技术积累。
           </motion.p>
 
-          <motion.div variants={childVariants}>
-            <Tabs 
-              defaultValue="department" 
-              value={activeTab}
-              onValueChange={setActiveTab}
-              className="w-full"
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            variants={childVariants}
+          >
+            <Accordion 
+              type="multiple" 
+              defaultValue={["department"]}
+              className="border-b-0"
             >
-              <div className="overflow-x-auto pb-4">
-                <TabsList className="inline-flex min-w-max bg-black/50 p-1 rounded-lg mb-8">
-                  {categories.map((category) => (
-                    <TabsTrigger 
-                      key={category.id} 
-                      value={category.id}
-                      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-300 px-4"
-                    >
-                      <category.icon className="w-5 h-5 mr-2 inline-block" />
-                      <span>{category.title}</span>
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </div>
-              
               {categories.map((category) => (
-                <TabsContent key={category.id} value={category.id} className="mt-0">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="mb-8">
-                      <h2 className="text-3xl font-bold text-white mb-4">{category.title}</h2>
-                      <p className="text-xl text-gray-300">{category.description}</p>
+                <AccordionItem 
+                  key={category.id} 
+                  value={category.id}
+                  className="border-b border-white/10 last:border-b-0"
+                >
+                  <AccordionTrigger className="py-4 text-white hover:no-underline group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <category.icon className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <span className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
+                        {category.title}
+                      </span>
                     </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {category.content.map((item, index) => (
-                        <Card key={index} className="bg-black/50 border-gray-800 overflow-hidden hover:border-blue-500/50 transition-all duration-300">
-                          <div className="h-48 overflow-hidden">
-                            <img 
-                              src={item.image} 
-                              alt={item.title} 
-                              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            />
-                          </div>
-                          <CardHeader>
-                            <CardTitle className="text-white">{item.title}</CardTitle>
-                            <CardDescription className="text-gray-400">{item.description}</CardDescription>
-                          </CardHeader>
-                          <CardFooter>
-                            <button className="text-blue-400 hover:text-blue-300 flex items-center text-sm">
-                              查看详情
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </button>
-                          </CardFooter>
-                        </Card>
-                      ))}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6">
+                    <div className="pl-14 space-y-4">
+                      <p className="text-gray-300 mb-6">{category.description}</p>
+                      
+                      <ul className="space-y-6">
+                        {category.content.map((item, index) => (
+                          <li key={index} className="border border-white/10 rounded-lg overflow-hidden bg-white/5">
+                            <Collapsible>
+                              <CollapsibleTrigger className="flex items-center w-full p-4 text-left hover:bg-white/10 transition-colors">
+                                <div className="flex items-center justify-between w-full">
+                                  <div className="flex items-center gap-2">
+                                    <ChevronRight className="w-4 h-4 text-blue-400" />
+                                    <h3 className="text-lg font-medium text-white">{item.title}</h3>
+                                  </div>
+                                </div>
+                              </CollapsibleTrigger>
+                              <CollapsibleContent>
+                                <div className="p-4 pt-0 pl-10">
+                                  <div className="relative h-[200px] overflow-hidden rounded-lg mb-4">
+                                    <img 
+                                      src={item.image}
+                                      alt={item.title}
+                                      className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                                      <p className="text-gray-200">{item.description}</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <button className="text-blue-400 hover:text-blue-300 flex items-center text-sm">
+                                    查看详情
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </button>
+                                </div>
+                              </CollapsibleContent>
+                            </Collapsible>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </motion.div>
-                </TabsContent>
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </Tabs>
+            </Accordion>
           </motion.div>
 
           <motion.div 

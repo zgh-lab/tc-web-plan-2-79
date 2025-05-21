@@ -1,9 +1,17 @@
+
 import { motion } from "framer-motion";
-import { Code, Server, Wrench, Terminal, Cpu, ArrowRight } from "lucide-react";
+import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 
 const features = [
   {
+    id: "compiler",
     icon: Code,
     title: "编译器组",
     description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
@@ -11,6 +19,7 @@ const features = [
     image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png"
   },
   {
+    id: "server",
     icon: Server,
     title: "服务器与工具链组",
     description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
@@ -18,6 +27,7 @@ const features = [
     image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png"
   },
   {
+    id: "engine",
     icon: Wrench,
     title: "引擎组",
     description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
@@ -25,6 +35,7 @@ const features = [
     image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png"
   },
   {
+    id: "tech-ai",
     icon: Terminal,
     title: "技术AI组",
     description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
@@ -32,6 +43,7 @@ const features = [
     image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png"
   },
   {
+    id: "aigc",
     icon: Cpu,
     title: "AIGC组",
     description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
@@ -81,61 +93,58 @@ const WhyWrlds = () => {
             </motion.p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {features.slice(0, 3).map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={childVariants}
-                className="relative bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                style={{ 
-                  backgroundImage: `url("${feature.image}")`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundBlendMode: 'overlay'
-                }}
-              >
-                <div className="absolute inset-0 bg-black/60"></div>
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
-                    <feature.icon className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                  <p className="text-gray-300 mb-4">{feature.description}</p>
-                  <Link to={feature.link} className="text-blue-400 hover:text-blue-300 text-sm inline-block">
-                    了解更多 →
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8">
-            {features.slice(3).map((feature, index) => (
-              <motion.div
-                key={index + 3}
-                variants={childVariants}
-                className="relative bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                style={{ 
-                  backgroundImage: `url("${feature.image}")`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundBlendMode: 'overlay'
-                }}
-              >
-                <div className="absolute inset-0 bg-black/60"></div>
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
-                    <feature.icon className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                  <p className="text-gray-300 mb-4">{feature.description}</p>
-                  <Link to={feature.link} className="text-blue-400 hover:text-blue-300 text-sm inline-block">
-                    了解更多 →
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            variants={childVariants}
+          >
+            <Accordion 
+              type="single" 
+              collapsible 
+              defaultValue="compiler" 
+              className="border-b-0"
+            >
+              {features.map((feature) => (
+                <AccordionItem 
+                  key={feature.id} 
+                  value={feature.id}
+                  className="border-b border-white/10 last:border-b-0"
+                >
+                  <AccordionTrigger className="py-4 text-white hover:no-underline group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <feature.icon className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <span className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
+                        {feature.title}
+                      </span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6">
+                    <div className="pl-14 space-y-4">
+                      <div className="relative h-[200px] overflow-hidden rounded-xl">
+                        <img 
+                          src={feature.image} 
+                          alt={feature.title} 
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
+                          <p className="text-lg text-gray-200">{feature.description}</p>
+                        </div>
+                      </div>
+                      
+                      <Link 
+                        to={feature.link} 
+                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
+                      >
+                        了解更多 
+                        <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
           
           <div className="flex justify-center mt-12">
             <Link 

@@ -1,9 +1,15 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Code, Server, Wrench, Terminal, Cpu } from 'lucide-react';
+import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 
 const techTeams = [
   {
@@ -84,7 +90,7 @@ const techTeams = [
 ];
 
 const TechCooperation = () => {
-  const [activeTab, setActiveTab] = useState("compiler");
+  const [expandedId, setExpandedId] = useState<string>("compiler");
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -137,54 +143,52 @@ const TechCooperation = () => {
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
           </motion.p>
 
-          <motion.div variants={childVariants}>
-            <Tabs 
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            variants={childVariants}
+          >
+            <Accordion 
+              type="single" 
+              collapsible 
               defaultValue="compiler" 
-              value={activeTab}
-              onValueChange={setActiveTab}
-              className="w-full"
+              className="border-b-0"
             >
-              <TabsList className="grid grid-cols-3 md:grid-cols-5 gap-2 bg-black/50 p-1 rounded-lg mb-8">
-                {techTeams.map((team) => (
-                  <TabsTrigger 
-                    key={team.id} 
-                    value={team.id}
-                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-300"
-                  >
-                    <team.icon className="w-5 h-5 mr-2" />
-                    <span className="hidden sm:inline">{team.title}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-              
               {techTeams.map((team) => (
-                <TabsContent key={team.id} value={team.id} className="mt-0">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-                  >
-                    <div className="relative h-[300px] md:h-full overflow-hidden rounded-xl">
-                      <img 
-                        src={team.image} 
-                        alt={team.title} 
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
-                        <h2 className="text-3xl font-bold text-white mb-2">{team.title}</h2>
-                        <p className="text-lg text-gray-200">{team.description}</p>
+                <AccordionItem 
+                  key={team.id} 
+                  value={team.id}
+                  className="border-b border-white/10 last:border-b-0"
+                >
+                  <AccordionTrigger className="py-4 text-white hover:no-underline group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <team.icon className="w-5 h-5 text-blue-400" />
                       </div>
+                      <span className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
+                        {team.title}
+                      </span>
                     </div>
-                    
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white mb-3">团队介绍</h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6">
+                    <div className="pl-14 space-y-6">
+                      <div className="relative h-[250px] overflow-hidden rounded-xl">
+                        <img 
+                          src={team.image} 
+                          alt={team.title} 
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
+                          <p className="text-lg text-gray-200">{team.description}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-white">团队介绍</h3>
                         <p className="text-gray-300">{team.details}</p>
                       </div>
                       
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white mb-3">核心技术</h3>
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-white">核心技术</h3>
                         <div className="flex flex-wrap gap-2">
                           {team.technologies.map((tech, index) => (
                             <span 
@@ -197,22 +201,22 @@ const TechCooperation = () => {
                         </div>
                       </div>
                       
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white mb-3">主要成果</h3>
-                        <ul className="space-y-2 text-gray-300">
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-white">主要成果</h3>
+                        <ul className="space-y-2">
                           {team.achievements.map((achievement, index) => (
-                            <li key={index} className="flex items-start">
-                              <span className="text-blue-400 mr-2">•</span>
+                            <li key={index} className="flex items-start text-gray-300">
+                              <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
                               <span>{achievement}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
-                  </motion.div>
-                </TabsContent>
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </Tabs>
+            </Accordion>
           </motion.div>
 
           <motion.div 
