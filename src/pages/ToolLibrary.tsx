@@ -132,11 +132,11 @@ const ToolLibrary = () => {
             </motion.p>
           </motion.div>
 
-          <div className="max-w-6xl mx-auto relative overflow-hidden">
+          <div className="max-w-6xl mx-auto relative">
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-24 py-4">
+            <div className="space-y-12">
               {toolCategories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -144,12 +144,15 @@ const ToolLibrary = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex justify-center"
+                  className="relative"
                 >
-                  <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-auto pr-8 md:pr-16' : 'ml-auto pl-8 md:pl-16'}`}>
-                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
-                      <CardContent className="p-0">
-                        <div className="p-6">
+                  <div className={`flex items-center justify-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                    {/* Timeline dot */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
+                    
+                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                      <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                        <CardContent className="p-6">
                           <div className="flex items-center gap-3 mb-4">
                             <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
                               <category.icon className="w-6 h-6 text-blue-400" />
@@ -158,9 +161,10 @@ const ToolLibrary = () => {
                               {category.title}
                             </h2>
                           </div>
-                          <p className="text-gray-200 mb-4">{category.description}</p>
-
-                          <div className="space-y-4 mt-6">
+                          
+                          <p className="text-gray-200 mb-6">{category.description}</p>
+                          
+                          <div className="space-y-4">
                             {category.items.map((item, idx) => (
                               <Card key={idx} className="border border-white/10 bg-black/50 hover:border-blue-500/30 transition-all">
                                 <CardContent className="p-4">
@@ -182,38 +186,14 @@ const ToolLibrary = () => {
                               </button>
                             </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    
-                    {/* Connecting dot to the timeline */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full mt-8 translate-y-[-100px]"></div>
+                        </CardContent>
+                      </Card>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
-          
-          <motion.div 
-            className="mt-16 text-center"
-            variants={childVariants}
-          >
-            <h2 className="text-2xl font-bold text-white mb-4">期待更多工具？</h2>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              我们正在持续开发更多实用工具，以满足游戏开发各环节的需求。如果您有特定工具需求或建议，请随时与我们联系。
-            </p>
-            <button 
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20"
-            >
-              提出需求
-            </button>
-          </motion.div>
         </motion.div>
       </div>
     </PageLayout>

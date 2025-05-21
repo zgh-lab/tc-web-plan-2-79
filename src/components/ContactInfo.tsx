@@ -50,8 +50,9 @@ const ContactInfo = () => {
           viewport={{ once: true }}
           className="w-full"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* First row with 3 equal width items */}
+            <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Code className="w-6 h-6 text-blue-400" />
               </div>
@@ -62,7 +63,7 @@ const ContactInfo = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+            <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Server className="w-6 h-6 text-blue-400" />
               </div>
@@ -73,7 +74,7 @@ const ContactInfo = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+            <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Paintbrush className="w-6 h-6 text-blue-400" />
               </div>
@@ -84,7 +85,8 @@ const ContactInfo = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex md:col-start-2">
+            {/* Second row with 2 equal width items that together match the width of the 3 items above */}
+            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Terminal className="w-6 h-6 text-blue-400" />
               </div>
@@ -95,7 +97,7 @@ const ContactInfo = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <BrainCircuit className="w-6 h-6 text-blue-400" />
               </div>

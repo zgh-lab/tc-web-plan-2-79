@@ -88,6 +88,7 @@ const WhyWrlds = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* First row with 3 items */}
             {features.slice(0, 3).map((feature, index) => (
               <motion.div 
                 key={feature.id}
@@ -126,11 +127,12 @@ const WhyWrlds = () => {
               </motion.div>
             ))}
 
-            {features.slice(3).map((feature, index) => (
+            {/* Second row with 2 items side by side */}
+            {features.slice(3, 5).map((feature, index) => (
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className={`md:col-span-6 bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden ${index === 0 ? "md:col-start-4" : ""}`}
+                className="md:col-span-6 bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden"
               >
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-4">
