@@ -23,9 +23,9 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
     <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden relative" 
          style={{ 
            backgroundImage: 'url("/lovable-uploads/148ba8a6-ef53-44c0-9f83-8c514d2ce6e7.png")', 
-           backgroundSize: '100%', 
+           backgroundSize: 'cover', // 改为cover确保背景图覆盖整个容器
            backgroundPosition: 'top center',
-           backgroundAttachment: 'scroll',
+           backgroundAttachment: 'fixed', // 改为fixed使背景图固定，滚动时保持不动
            backgroundRepeat: 'no-repeat',
            backgroundColor: 'black'
          }}>
