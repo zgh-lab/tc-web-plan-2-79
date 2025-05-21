@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
@@ -150,7 +151,7 @@ const TechCooperation = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-6">
+            <div className="space-y-12">
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -173,36 +174,37 @@ const TechCooperation = () => {
                         <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
-                              <div 
-                                className="p-6 cursor-pointer relative"
-                                style={{
-                                  backgroundImage: `url(${team.image})`,
-                                  backgroundSize: 'cover',
-                                  backgroundPosition: 'center'
-                                }}
-                              >
-                                <div className="absolute inset-0 bg-black/70"></div>
-                                <div className="relative z-10">
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                        <team.icon className="w-6 h-6 text-blue-400" />
-                                      </div>
-                                      <h2 className="text-2xl font-semibold text-white">
-                                        {team.title}
-                                      </h2>
+                              <div className="p-6 cursor-pointer">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                      <team.icon className="w-6 h-6 text-blue-400" />
                                     </div>
-                                    <ChevronDown 
-                                      className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
-                                    />
+                                    <h2 className="text-2xl font-semibold text-white">
+                                      {team.title}
+                                    </h2>
                                   </div>
-                                  <p className="text-gray-300 mt-3">{team.description}</p>
+                                  <ChevronDown 
+                                    className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
+                                  />
                                 </div>
+                                <p className="text-gray-300 mt-3">{team.description}</p>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
                               <div className="p-6 pt-0 border-t border-white/10">
+                                <div className="relative h-48 overflow-hidden rounded-lg mb-6">
+                                  <img 
+                                    src={team.image} 
+                                    alt={team.title} 
+                                    className="w-full h-full object-cover"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-end p-6">
+                                    <p className="text-xl font-medium text-white">团队介绍</p>
+                                  </div>
+                                </div>
+
                                 <p className="text-gray-300 mb-6">{team.details}</p>
                                 
                                 <div className="mb-6">

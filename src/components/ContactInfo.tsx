@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Briefcase, Users, Code, Server, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Paintbrush, Code, Server, Terminal, BrainCircuit } from "lucide-react";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -37,10 +36,10 @@ const ContactInfo = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            合作方式
+            联系我们
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            我们提供两种合作模式，灵活满足不同项目的技术需求
+            无论您有任何疑问或需求，我们的团队随时准备提供帮助
           </motion.p>
         </motion.div>
 
@@ -51,67 +50,62 @@ const ContactInfo = () => {
           viewport={{ once: true }}
           className="w-full"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* 本部合作 */}
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:bg-white/15 transition-all flex flex-col h-full">
-              <div className="bg-blue-600/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
-                <Briefcase className="w-8 h-8 text-blue-400" />
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* First row with 3 equal width items */}
+            <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Code className="w-6 h-6 text-blue-400" />
               </div>
-              <h3 className="font-bold text-2xl mb-4 text-white">本部合作</h3>
-              <p className="text-gray-300 mb-6 flex-grow">
-                由技术中心提供完整的技术解决方案，包括GS语言编译器、服务器架构、游戏引擎、工具链等全方位技术支持。项目团队只需提出需求，我们负责技术实现与维护。这种模式适合需要深度技术支持但团队技术资源有限的项目。
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Code className="w-5 h-5 text-blue-400 mr-2" />
-                    <h4 className="text-white font-medium">编译器支持</h4>
-                  </div>
-                  <p className="text-gray-400 text-sm">GS语言编译器与优化</p>
-                </div>
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Server className="w-5 h-5 text-blue-400 mr-2" />
-                    <h4 className="text-white font-medium">服务器架构</h4>
-                  </div>
-                  <p className="text-gray-400 text-sm">高性能服务器设计</p>
-                </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">联系编译器组</h3>
+                <p className="text-gray-300 mb-1">GS语言及编译器相关技术支持</p>
+                <p className="text-blue-400 font-medium">compiler@g-bits.com</p>
               </div>
-              <Link to="/tech-cooperation" className="text-blue-400 hover:text-blue-300 flex items-center mt-auto">
-                了解详情 
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
             </motion.div>
 
-            {/* 驻场合作 */}
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:bg-white/15 transition-all flex flex-col h-full">
-              <div className="bg-blue-600/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
-                <Users className="w-8 h-8 text-blue-400" />
+            <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Server className="w-6 h-6 text-blue-400" />
               </div>
-              <h3 className="font-bold text-2xl mb-4 text-white">驻场合作</h3>
-              <p className="text-gray-300 mb-6 flex-grow">
-                技术中心派驻专业技术人员到项目组，与项目团队深度融合，共同解决技术难题。驻场工程师将根据项目需求提供针对性支持，包括性能优化、技术指导、问题排查等。这种模式适合需要持续技术支持的中长期项目。
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Code className="w-5 h-5 text-blue-400 mr-2" />
-                    <h4 className="text-white font-medium">技术指导</h4>
-                  </div>
-                  <p className="text-gray-400 text-sm">专业技术咨询与培训</p>
-                </div>
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <Server className="w-5 h-5 text-blue-400 mr-2" />
-                    <h4 className="text-white font-medium">性能优化</h4>
-                  </div>
-                  <p className="text-gray-400 text-sm">前后端性能提升方案</p>
-                </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">联系服务器与工具链组</h3>
+                <p className="text-gray-300 mb-1">服务器架构及开发工具支持</p>
+                <p className="text-blue-400 font-medium">servertools@g-bits.com</p>
               </div>
-              <Link to="/tech-cooperation" className="text-blue-400 hover:text-blue-300 flex items-center mt-auto">
-                了解详情 
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+            </motion.div>
+
+            <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Paintbrush className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">联系AIGC组</h3>
+                <p className="text-gray-300 mb-1">AI内容生成与创意支持</p>
+                <p className="text-blue-400 font-medium">aigc@g-bits.com</p>
+              </div>
+            </motion.div>
+
+            {/* Second row with 2 equal width items that together match the width of the 3 items above */}
+            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Terminal className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">联系引擎组</h3>
+                <p className="text-gray-300 mb-1">游戏引擎与图形渲染相关支持</p>
+                <p className="text-blue-400 font-medium">engine@g-bits.com</p>
+              </div>
+            </motion.div>
+
+            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <BrainCircuit className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">联系技术AI组</h3>
+                <p className="text-gray-300 mb-1">游戏AI与技术算法支持</p>
+                <p className="text-blue-400 font-medium">techai@g-bits.com</p>
+              </div>
             </motion.div>
           </div>
         </motion.div>

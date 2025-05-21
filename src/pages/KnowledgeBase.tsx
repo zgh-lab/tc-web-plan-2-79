@@ -1,11 +1,10 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const categories = [
   {
@@ -209,16 +208,6 @@ const KnowledgeBase = () => {
     }
   };
 
-  const [openItems, setOpenItems] = useState<string[]>([]);
-
-  const toggleItem = (id: string) => {
-    setOpenItems(prev => 
-      prev.includes(id) 
-        ? prev.filter(item => item !== id) 
-        : [...prev, id]
-    );
-  };
-
   return (
     <PageLayout>
       <SEO 
@@ -252,7 +241,7 @@ const KnowledgeBase = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-6">
+            <div className="space-y-12">
               {categories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -267,73 +256,47 @@ const KnowledgeBase = () => {
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
                     
                     <div className={`w-full max-w-lg ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
-                      <Collapsible 
-                        open={openItems.includes(category.id)} 
-                        onOpenChange={() => toggleItem(category.id)}
-                        className="w-full"
-                      >
-                        <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
-                          <CardContent className="p-0">
-                            <CollapsibleTrigger className="w-full text-left">
-                              <div 
-                                className="p-6 cursor-pointer relative"
-                                style={{
-                                  backgroundImage: `url(${category.content[0].image})`,
-                                  backgroundSize: 'cover',
-                                  backgroundPosition: 'center'
-                                }}
-                              >
-                                <div className="absolute inset-0 bg-black/70"></div>
-                                <div className="relative z-10">
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                        <category.icon className="w-6 h-6 text-blue-400" />
-                                      </div>
-                                      <h2 className="text-2xl font-semibold text-white">
-                                        {category.title}
-                                      </h2>
-                                    </div>
-                                    <ChevronDown 
-                                      className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
+                      <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                        <CardContent className="p-6">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                              <category.icon className="w-6 h-6 text-blue-400" />
+                            </div>
+                            <h2 className="text-2xl font-semibold text-white">
+                              {category.title}
+                            </h2>
+                          </div>
+                          
+                          <p className="text-gray-200 mb-6">{category.description}</p>
+                          
+                          <Accordion type="single" collapsible className="w-full border-white/10">
+                            {category.content.map((item, idx) => (
+                              <AccordionItem key={idx} value={`item-${idx}`} className="border-white/10">
+                                <AccordionTrigger className="text-white hover:text-blue-400 py-2">
+                                  {item.title}
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-300">
+                                  <div className="relative h-40 overflow-hidden rounded-lg mb-3">
+                                    <img 
+                                      src={item.image}
+                                      alt={item.title}
+                                      className="w-full h-full object-cover"
                                     />
-                                  </div>
-                                  <p className="text-gray-300 mt-3">{category.description}</p>
-                                </div>
-                              </div>
-                            </CollapsibleTrigger>
-                            
-                            <CollapsibleContent>
-                              <div className="p-6 pt-0 border-t border-white/10">
-                                <div className="grid grid-cols-1 gap-4 mt-4">
-                                  {category.content.map((item, idx) => (
-                                    <div key={idx} className="bg-white/5 rounded-lg overflow-hidden">
-                                      <div className="flex flex-col md:flex-row">
-                                        <div className="md:w-1/3 h-40 md:h-auto relative">
-                                          <img 
-                                            src={item.image} 
-                                            alt={item.title}
-                                            className="w-full h-full object-cover"
-                                          />
-                                          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                                        </div>
-                                        <div className="p-4 md:w-2/3">
-                                          <h3 className="text-xl font-medium text-white mb-2">{item.title}</h3>
-                                          <p className="text-gray-300 mb-3">{item.description}</p>
-                                          <button className="text-blue-400 hover:text-blue-300 flex items-center text-sm">
-                                            查看详情
-                                            <ChevronRight className="ml-1 w-4 h-4" />
-                                          </button>
-                                        </div>
-                                      </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
+                                      <p className="text-white font-medium">{item.title}</p>
                                     </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </CollapsibleContent>
-                          </CardContent>
-                        </Card>
-                      </Collapsible>
+                                  </div>
+                                  <p className="text-gray-300">{item.description}</p>
+                                  <button className="mt-3 text-blue-400 hover:text-blue-300 flex items-center text-sm">
+                                    查看详情
+                                    <ChevronRight className="ml-1 w-4 h-4" />
+                                  </button>
+                                </AccordionContent>
+                              </AccordionItem>
+                            ))}
+                          </Accordion>
+                        </CardContent>
+                      </Card>
                     </div>
                   </div>
                 </motion.div>
