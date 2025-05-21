@@ -1,15 +1,9 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import { 
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/components/ui/accordion";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const techTeams = [
   {
@@ -89,9 +83,7 @@ const techTeams = [
   }
 ];
 
-const TechCooperation = () => {
-  const [expandedId, setExpandedId] = useState<string>("compiler");
-  
+const TechCooperation = () => {  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -144,79 +136,101 @@ const TechCooperation = () => {
           </motion.p>
 
           <motion.div 
-            className="max-w-4xl mx-auto"
+            className="relative max-w-6xl mx-auto"
             variants={childVariants}
           >
-            <Accordion 
-              type="single" 
-              collapsible 
-              defaultValue="compiler" 
-              className="border-b-0"
-            >
-              {techTeams.map((team) => (
-                <AccordionItem 
-                  key={team.id} 
-                  value={team.id}
-                  className="border-b border-white/10 last:border-b-0"
-                >
-                  <AccordionTrigger className="py-4 text-white hover:no-underline group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                        <team.icon className="w-5 h-5 text-blue-400" />
-                      </div>
-                      <span className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
-                        {team.title}
-                      </span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6">
-                    <div className="pl-14 space-y-6">
-                      <div className="relative h-[250px] overflow-hidden rounded-xl">
-                        <img 
-                          src={team.image} 
-                          alt={team.title} 
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
-                          <p className="text-lg text-gray-200">{team.description}</p>
+            {/* Central vertical line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-500/30 transform -translate-x-1/2 z-0"></div>
+
+            <ScrollArea className="h-[calc(100vh-300px)] overflow-y-auto pr-4">
+              <div className="space-y-32 py-10">
+                {techTeams.map((team, index) => (
+                  <motion.div 
+                    key={team.id}
+                    className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} relative`}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-10 pr-10' : 'ml-10 pl-10'} relative z-10`}>
+                      {/* Connect to central line */}
+                      <div className="absolute top-8 h-0.5 bg-blue-500/30 
+                        w-10 z-0"
+                        style={{ 
+                          right: index % 2 === 0 ? '0' : 'auto',
+                          left: index % 2 === 0 ? 'auto' : '0',
+                          transform: index % 2 === 0 ? 'translateX(100%)' : 'translateX(-100%)'
+                        }}
+                      ></div>
+
+                      {/* Node at central line */}
+                      <div className="absolute top-6 w-6 h-6 rounded-full bg-blue-500 z-20"
+                        style={{ 
+                          right: index % 2 === 0 ? '-13px' : 'auto',
+                          left: index % 2 === 0 ? 'auto' : '-13px'
+                        }}
+                      ></div>
+
+                      <div className="bg-gray-900/80 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <team.icon className="w-6 h-6 text-blue-400" />
+                          </div>
+                          <h2 className="text-2xl font-semibold text-white">
+                            {team.title}
+                          </h2>
+                        </div>
+                        
+                        <div className="space-y-6">
+                          <div className="relative h-[200px] overflow-hidden rounded-xl mb-4">
+                            <img 
+                              src={team.image} 
+                              alt={team.title} 
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
+                              <p className="text-lg text-gray-200">{team.description}</p>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">团队介绍</h3>
+                            <p className="text-gray-300">{team.details}</p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {team.technologies.map((tech, idx) => (
+                                <span 
+                                  key={idx} 
+                                  className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3>
+                            <ul className="space-y-2">
+                              {team.achievements.map((achievement, idx) => (
+                                <li key={idx} className="flex items-start text-gray-300">
+                                  <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
+                                  <span>{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                      
-                      <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white">团队介绍</h3>
-                        <p className="text-gray-300">{team.details}</p>
-                      </div>
-                      
-                      <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white">核心技术</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {team.technologies.map((tech, index) => (
-                            <span 
-                              key={index} 
-                              className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white">主要成果</h3>
-                        <ul className="space-y-2">
-                          {team.achievements.map((achievement, index) => (
-                            <li key={index} className="flex items-start text-gray-300">
-                              <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
-                              <span>{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
                     </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+                  </motion.div>
+                ))}
+              </div>
+            </ScrollArea>
           </motion.div>
 
           <motion.div 

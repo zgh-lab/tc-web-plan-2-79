@@ -4,17 +4,12 @@ import { motion } from 'framer-motion';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight } from 'lucide-react';
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/components/ui/accordion";
 
 const categories = [
   {
@@ -248,38 +243,58 @@ const KnowledgeBase = () => {
           </motion.p>
 
           <motion.div 
-            className="max-w-4xl mx-auto"
+            className="relative max-w-6xl mx-auto"
             variants={childVariants}
           >
-            <Accordion 
-              type="multiple" 
-              defaultValue={["department"]}
-              className="border-b-0"
-            >
-              {categories.map((category) => (
-                <AccordionItem 
-                  key={category.id} 
-                  value={category.id}
-                  className="border-b border-white/10 last:border-b-0"
-                >
-                  <AccordionTrigger className="py-4 text-white hover:no-underline group">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                        <category.icon className="w-5 h-5 text-blue-400" />
-                      </div>
-                      <span className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
-                        {category.title}
-                      </span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6">
-                    <div className="pl-14 space-y-4">
-                      <p className="text-gray-300 mb-6">{category.description}</p>
-                      
-                      <ul className="space-y-6">
-                        {category.content.map((item, index) => (
-                          <li key={index} className="border border-white/10 rounded-lg overflow-hidden bg-white/5">
-                            <Collapsible>
+            {/* Central vertical line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-500/30 transform -translate-x-1/2 z-0"></div>
+
+            <ScrollArea className="h-[calc(100vh-300px)] overflow-y-auto pr-4">
+              <div className="space-y-32 py-10">
+                {categories.map((category, index) => (
+                  <motion.div 
+                    key={category.id}
+                    className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} relative`}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'mr-10 pr-10' : 'ml-10 pl-10'} relative z-10`}>
+                      {/* Connect to central line */}
+                      <div className="absolute top-8 h-0.5 bg-blue-500/30 
+                        w-10 z-0
+                        right-0 transform translate-x-0"
+                        style={{ 
+                          right: index % 2 === 0 ? '0' : 'auto',
+                          left: index % 2 === 0 ? 'auto' : '0',
+                          transform: index % 2 === 0 ? 'translateX(100%)' : 'translateX(-100%)'
+                        }}
+                      ></div>
+
+                      {/* Node at central line */}
+                      <div className="absolute top-6 w-6 h-6 rounded-full bg-blue-500 z-20"
+                        style={{ 
+                          right: index % 2 === 0 ? '-13px' : 'auto',
+                          left: index % 2 === 0 ? 'auto' : '-13px'
+                        }}
+                      ></div>
+
+                      <div className="bg-gray-900/80 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <category.icon className="w-6 h-6 text-blue-400" />
+                          </div>
+                          <h2 className="text-2xl font-semibold text-white">
+                            {category.title}
+                          </h2>
+                        </div>
+                        
+                        <p className="text-gray-300 mb-6">{category.description}</p>
+                        
+                        <div className="space-y-4">
+                          {category.content.map((item, idx) => (
+                            <Collapsible key={idx} className="border border-white/10 rounded-lg overflow-hidden bg-black/50">
                               <CollapsibleTrigger className="flex items-center w-full p-4 text-left hover:bg-white/10 transition-colors">
                                 <div className="flex items-center justify-between w-full">
                                   <div className="flex items-center gap-2">
@@ -290,7 +305,7 @@ const KnowledgeBase = () => {
                               </CollapsibleTrigger>
                               <CollapsibleContent>
                                 <div className="p-4 pt-0 pl-10">
-                                  <div className="relative h-[200px] overflow-hidden rounded-lg mb-4">
+                                  <div className="relative h-[180px] overflow-hidden rounded-lg mb-4">
                                     <img 
                                       src={item.image}
                                       alt={item.title}
@@ -310,14 +325,14 @@ const KnowledgeBase = () => {
                                 </div>
                               </CollapsibleContent>
                             </Collapsible>
-                          </li>
-                        ))}
-                      </ul>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+                  </motion.div>
+                ))}
+              </div>
+            </ScrollArea>
           </motion.div>
 
           <motion.div 
