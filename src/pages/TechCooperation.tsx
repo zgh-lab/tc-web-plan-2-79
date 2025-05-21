@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent } from "@/components/ui/card";
 
 const techTeams = [
@@ -137,8 +136,11 @@ const TechCooperation = () => {
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
           </motion.p>
 
-          <ScrollArea className="h-[calc(100vh-250px)] overflow-y-auto">
-            <div className="max-w-6xl mx-auto space-y-12 py-4 px-4">
+          <div className="max-w-6xl mx-auto relative overflow-hidden">
+            {/* Central axis line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
+            
+            <div className="space-y-24 py-4">
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -146,33 +148,32 @@ const TechCooperation = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}
-                  style={{ marginTop: index > 0 ? '-80px' : '0' }}  // This creates the overlapping effect
+                  className="flex justify-center"
                 >
-                  <Card className={`w-full max-w-4xl bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl`}>
-                    <CardContent className="p-0">
-                      <div className="grid grid-cols-1 md:grid-cols-3">
-                        <div className="md:col-span-1 relative h-full min-h-[200px]">
-                          <img 
-                            src={team.image} 
-                            alt={team.title} 
-                            className="w-full h-full object-cover absolute inset-0"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-center p-6">
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                <team.icon className="w-6 h-6 text-blue-400" />
+                  <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-auto pr-8 md:pr-16' : 'ml-auto pl-8 md:pl-16'}`}>
+                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                      <CardContent className="p-0">
+                        <div className="p-0">
+                          <div className="relative h-48">
+                            <img 
+                              src={team.image} 
+                              alt={team.title} 
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-end p-6">
+                              <div className="flex items-center gap-3 mb-2">
+                                <div className="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                                  <team.icon className="w-6 h-6 text-blue-400" />
+                                </div>
+                                <h2 className="text-2xl font-semibold text-white">
+                                  {team.title}
+                                </h2>
                               </div>
-                              <h2 className="text-2xl font-semibold text-white">
-                                {team.title}
-                              </h2>
+                              <p className="text-gray-200">{team.description}</p>
                             </div>
-                            <p className="text-gray-200">{team.description}</p>
                           </div>
-                        </div>
-                        
-                        <div className="md:col-span-2 p-6">
-                          <div className="space-y-6">
+                          
+                          <div className="p-6 space-y-6">
                             <div>
                               <h3 className="text-xl font-semibold text-white mb-2">团队介绍</h3>
                               <p className="text-gray-300">{team.details}</p>
@@ -205,13 +206,16 @@ const TechCooperation = () => {
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                    
+                    {/* Connecting dot to the timeline */}
+                    <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full mt-8 ${index % 2 === 0 ? 'translate-y-[-200px]' : 'translate-y-[-200px]'}`}></div>
+                  </div>
                 </motion.div>
               ))}
             </div>
-          </ScrollArea>
+          </div>
 
           <motion.div 
             className="mt-16 text-center"

@@ -50,8 +50,7 @@ const ContactInfo = () => {
           viewport={{ once: true }}
           className="w-full"
         >
-          {/* 第一行 - 两列 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Code className="w-6 h-6 text-blue-400" />
@@ -73,10 +72,18 @@ const ContactInfo = () => {
                 <p className="text-blue-400 font-medium">servertools@g-bits.com</p>
               </div>
             </motion.div>
-          </div>
 
-          {/* 第二行 - 两列 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Paintbrush className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">联系AIGC组</h3>
+                <p className="text-gray-300 mb-1">AI内容生成与创意支持</p>
+                <p className="text-blue-400 font-medium">aigc@g-bits.com</p>
+              </div>
+            </motion.div>
+
             <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Terminal className="w-6 h-6 text-blue-400" />
@@ -96,20 +103,6 @@ const ContactInfo = () => {
                 <h3 className="font-bold text-xl mb-2 text-white">联系技术AI组</h3>
                 <p className="text-gray-300 mb-1">游戏AI与技术算法支持</p>
                 <p className="text-blue-400 font-medium">techai@g-bits.com</p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* 第三行 - 一列（居中） */}
-          <div className="grid grid-cols-1 md:grid-cols-2 md:col-span-2 mx-auto">
-            <motion.div variants={childVariants} className="md:col-span-2 md:max-w-md mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
-              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                <Paintbrush className="w-6 h-6 text-blue-400" />
-              </div>
-              <div>
-                <h3 className="font-bold text-xl mb-2 text-white">联系AIGC组</h3>
-                <p className="text-gray-300 mb-1">AI内容生成与创意支持</p>
-                <p className="text-blue-400 font-medium">aigc@g-bits.com</p>
               </div>
             </motion.div>
           </div>

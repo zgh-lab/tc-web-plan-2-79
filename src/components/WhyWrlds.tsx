@@ -92,7 +92,9 @@ const WhyWrlds = () => {
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className="bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden"
+                className={`bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden ${
+                  index === features.length - 1 ? "lg:col-span-3 md:col-span-2 mx-auto max-w-md" : ""
+                }`}
               >
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-4">

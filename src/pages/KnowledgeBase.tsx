@@ -1,10 +1,8 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent } from "@/components/ui/card";
 
 const categories = [
@@ -244,8 +242,11 @@ const KnowledgeBase = () => {
             汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，为团队提供系统化的知识支持和技术积累。
           </motion.p>
 
-          <ScrollArea className="h-[calc(100vh-250px)] overflow-y-auto">
-            <div className="max-w-6xl mx-auto space-y-12 py-4 px-4">
+          <div className="max-w-6xl mx-auto relative overflow-hidden">
+            {/* Central axis line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
+            
+            <div className="space-y-24 py-4">
               {categories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -253,37 +254,33 @@ const KnowledgeBase = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}
-                  style={{ marginTop: index > 0 ? '-80px' : '0' }}  // This creates the overlapping effect
+                  className="flex justify-center"
                 >
-                  <Card className={`w-full max-w-4xl bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl`}>
-                    <CardContent className="p-0">
-                      <div className="grid grid-cols-1 md:grid-cols-3">
-                        <div className="md:col-span-1 relative h-full min-h-[220px]">
-                          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-blue-900/20 to-gray-900/80 flex flex-col justify-center p-6">
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                <category.icon className="w-6 h-6 text-blue-400" />
-                              </div>
-                              <h2 className="text-2xl font-semibold text-white">
-                                {category.title}
-                              </h2>
+                  <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-auto pr-8 md:pr-16' : 'ml-auto pl-8 md:pl-16'}`}>
+                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                      <CardContent className="p-0">
+                        <div className="p-6">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                              <category.icon className="w-6 h-6 text-blue-400" />
                             </div>
-                            <p className="text-gray-200">{category.description}</p>
-                            
-                            <button 
-                              onClick={() => toggleCategory(category.id)}
-                              className="mt-4 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
-                            >
-                              {expandedCategory === category.id ? '收起' : '展开'} 
-                              <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${expandedCategory === category.id ? 'rotate-90' : ''}`} />
-                            </button>
+                            <h2 className="text-2xl font-semibold text-white">
+                              {category.title}
+                            </h2>
                           </div>
-                        </div>
-                        
-                        <div className="md:col-span-2 p-6">
+                          
+                          <p className="text-gray-200 mb-4">{category.description}</p>
+                          
+                          <button 
+                            onClick={() => toggleCategory(category.id)}
+                            className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
+                          >
+                            {expandedCategory === category.id ? '收起' : '展开'} 
+                            <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${expandedCategory === category.id ? 'rotate-90' : ''}`} />
+                          </button>
+                          
                           {expandedCategory === category.id && (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                               {category.content.map((item, idx) => (
                                 <Card key={idx} className="border border-white/10 bg-black/50 hover:border-blue-500/30 transition-all">
                                   <CardContent className="p-3">
@@ -308,13 +305,16 @@ const KnowledgeBase = () => {
                             </div>
                           )}
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                    
+                    {/* Connecting dot to the timeline */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full mt-8 translate-y-[-100px]"></div>
+                  </div>
                 </motion.div>
               ))}
             </div>
-          </ScrollArea>
+          </div>
 
           <motion.div 
             className="mt-16 text-center"
