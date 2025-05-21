@@ -1,9 +1,11 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Card, CardContent } from "@/components/ui/card";
 
 const techTeams = [
   {
@@ -135,103 +137,81 @@ const TechCooperation = () => {
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
           </motion.p>
 
-          <motion.div 
-            className="relative max-w-6xl mx-auto"
-            variants={childVariants}
-          >
-            {/* Central vertical line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-500/30 transform -translate-x-1/2 z-0"></div>
-
-            <ScrollArea className="h-[calc(100vh-300px)] overflow-y-auto pr-4">
-              <div className="space-y-32 py-10">
-                {techTeams.map((team, index) => (
-                  <motion.div 
-                    key={team.id}
-                    className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} relative`}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-10 pr-10' : 'ml-10 pl-10'} relative z-10`}>
-                      {/* Connect to central line */}
-                      <div className="absolute top-8 h-0.5 bg-blue-500/30 
-                        w-10 z-0"
-                        style={{ 
-                          right: index % 2 === 0 ? '0' : 'auto',
-                          left: index % 2 === 0 ? 'auto' : '0',
-                          transform: index % 2 === 0 ? 'translateX(100%)' : 'translateX(-100%)'
-                        }}
-                      ></div>
-
-                      {/* Node at central line */}
-                      <div className="absolute top-6 w-6 h-6 rounded-full bg-blue-500 z-20"
-                        style={{ 
-                          right: index % 2 === 0 ? '-13px' : 'auto',
-                          left: index % 2 === 0 ? 'auto' : '-13px'
-                        }}
-                      ></div>
-
-                      <div className="bg-gray-900/80 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                            <team.icon className="w-6 h-6 text-blue-400" />
+          <ScrollArea className="h-[calc(100vh-250px)] overflow-y-auto">
+            <div className="max-w-6xl mx-auto space-y-12 py-4 px-4">
+              {techTeams.map((team, index) => (
+                <motion.div 
+                  key={team.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}
+                  style={{ marginTop: index > 0 ? '-80px' : '0' }}  // This creates the overlapping effect
+                >
+                  <Card className={`w-full max-w-4xl bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl`}>
+                    <CardContent className="p-0">
+                      <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="md:col-span-1 relative h-full min-h-[200px]">
+                          <img 
+                            src={team.image} 
+                            alt={team.title} 
+                            className="w-full h-full object-cover absolute inset-0"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-center p-6">
+                            <div className="flex items-center gap-3 mb-4">
+                              <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <team.icon className="w-6 h-6 text-blue-400" />
+                              </div>
+                              <h2 className="text-2xl font-semibold text-white">
+                                {team.title}
+                              </h2>
+                            </div>
+                            <p className="text-gray-200">{team.description}</p>
                           </div>
-                          <h2 className="text-2xl font-semibold text-white">
-                            {team.title}
-                          </h2>
                         </div>
                         
-                        <div className="space-y-6">
-                          <div className="relative h-[200px] overflow-hidden rounded-xl mb-4">
-                            <img 
-                              src={team.image} 
-                              alt={team.title} 
-                              className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex flex-col justify-end p-6">
-                              <p className="text-lg text-gray-200">{team.description}</p>
+                        <div className="md:col-span-2 p-6">
+                          <div className="space-y-6">
+                            <div>
+                              <h3 className="text-xl font-semibold text-white mb-2">团队介绍</h3>
+                              <p className="text-gray-300">{team.details}</p>
                             </div>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-xl font-semibold text-white mb-2">团队介绍</h3>
-                            <p className="text-gray-300">{team.details}</p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3>
-                            <div className="flex flex-wrap gap-2">
-                              {team.technologies.map((tech, idx) => (
-                                <span 
-                                  key={idx} 
-                                  className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
+                            
+                            <div>
+                              <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3>
+                              <div className="flex flex-wrap gap-2">
+                                {team.technologies.map((tech, idx) => (
+                                  <span 
+                                    key={idx} 
+                                    className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3>
-                            <ul className="space-y-2">
-                              {team.achievements.map((achievement, idx) => (
-                                <li key={idx} className="flex items-start text-gray-300">
-                                  <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
-                                  <span>{achievement}</span>
-                                </li>
-                              ))}
-                            </ul>
+                            
+                            <div>
+                              <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3>
+                              <ul className="space-y-2">
+                                {team.achievements.map((achievement, idx) => (
+                                  <li key={idx} className="flex items-start text-gray-300">
+                                    <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
+                                    <span>{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </ScrollArea>
-          </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </ScrollArea>
 
           <motion.div 
             className="mt-16 text-center"

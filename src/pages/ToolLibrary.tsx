@@ -5,6 +5,7 @@ import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Package, Wrench, Database, Code, Globe, ChevronRight } from 'lucide-react';
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Card, CardContent } from "@/components/ui/card";
 
 const toolCategories = [
   {
@@ -131,76 +132,70 @@ const ToolLibrary = () => {
               这里将展示 G-bits 技术中心开发的各类游戏开发工具、插件和资源，目前页面正在建设中。
             </motion.p>
           </motion.div>
-          
-          <motion.div 
-            className="relative max-w-6xl mx-auto"
-            variants={childVariants}
-          >
-            {/* Central vertical line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-500/30 transform -translate-x-1/2 z-0"></div>
 
-            <ScrollArea className="h-[calc(100vh-350px)] overflow-y-auto pr-4">
-              <div className="space-y-24 py-10">
-                {toolCategories.map((category, index) => (
-                  <motion.div 
-                    key={category.id}
-                    className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} relative`}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'mr-10 pr-10' : 'ml-10 pl-10'} relative z-10`}>
-                      {/* Connect to central line */}
-                      <div className="absolute top-8 h-0.5 bg-blue-500/30 
-                        w-10 z-0"
-                        style={{ 
-                          right: index % 2 === 0 ? '0' : 'auto',
-                          left: index % 2 === 0 ? 'auto' : '0',
-                          transform: index % 2 === 0 ? 'translateX(100%)' : 'translateX(-100%)'
-                        }}
-                      ></div>
-
-                      {/* Node at central line */}
-                      <div className="absolute top-6 w-6 h-6 rounded-full bg-blue-500 z-20"
-                        style={{ 
-                          right: index % 2 === 0 ? '-13px' : 'auto',
-                          left: index % 2 === 0 ? 'auto' : '-13px'
-                        }}
-                      ></div>
-
-                      <div className="bg-gray-900/80 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                            <category.icon className="w-6 h-6 text-blue-400" />
+          <ScrollArea className="h-[calc(100vh-250px)] overflow-y-auto">
+            <div className="max-w-6xl mx-auto space-y-12 py-4 px-4">
+              {toolCategories.map((category, index) => (
+                <motion.div 
+                  key={category.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}
+                  style={{ marginTop: index > 0 ? '-60px' : '0' }}  // This creates the overlapping effect
+                >
+                  <Card className={`w-full max-w-4xl bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl`}>
+                    <CardContent className="p-0">
+                      <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="md:col-span-1 bg-blue-900/20 p-6 flex flex-col justify-center">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                              <category.icon className="w-6 h-6 text-blue-400" />
+                            </div>
+                            <h2 className="text-2xl font-semibold text-white">
+                              {category.title}
+                            </h2>
                           </div>
-                          <h2 className="text-2xl font-semibold text-white">
-                            {category.title}
-                          </h2>
+                          <p className="text-gray-300 mb-4">{category.description}</p>
+                          <div className="mt-auto">
+                            <span className="inline-flex items-center text-blue-400 text-sm">
+                              工具数量：{category.items.length}个
+                            </span>
+                          </div>
                         </div>
                         
-                        <p className="text-gray-300 mb-6">{category.description}</p>
-                        
-                        <div className="space-y-4">
-                          {category.items.map((item, idx) => (
-                            <div key={idx} className="border border-white/10 rounded-lg p-4 bg-black/50 hover:border-blue-500/30 transition-all">
-                              <div className="flex items-start">
-                                <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
-                                <div>
-                                  <h3 className="text-lg font-medium text-white mb-1">{item.title}</h3>
-                                  <p className="text-gray-300">{item.description}</p>
-                                </div>
-                              </div>
+                        <div className="md:col-span-2 p-6">
+                          <div className="space-y-4">
+                            {category.items.map((item, idx) => (
+                              <Card key={idx} className="border border-white/10 bg-black/50 hover:border-blue-500/30 transition-all">
+                                <CardContent className="p-4">
+                                  <div className="flex items-start">
+                                    <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
+                                    <div>
+                                      <h3 className="text-lg font-medium text-white mb-1">{item.title}</h3>
+                                      <p className="text-gray-300 text-sm">{item.description}</p>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))}
+                            
+                            <div className="pt-4">
+                              <button className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                                了解更多
+                                <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                              </button>
                             </div>
-                          ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </ScrollArea>
-          </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </ScrollArea>
           
           <motion.div 
             className="mt-16 text-center"
