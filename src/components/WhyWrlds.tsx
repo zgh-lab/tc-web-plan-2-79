@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Code, Server, Wrench, Terminal, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -77,9 +76,8 @@ const WhyWrlds = () => {
             <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
               技术合作
             </motion.h2>
-            <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              我们为各项目提供 基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化 等解决方案。
-              同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
+            <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              我们为各项目提供 基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化 等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
             </motion.p>
           </div>
           
