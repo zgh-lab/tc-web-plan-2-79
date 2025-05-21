@@ -6,13 +6,6 @@
   padding: 0;
   text-align: center;
   overflow-x: hidden; /* Added to prevent horizontal scrollbar */
-  min-height: 100vh; /* 确保根元素至少占满整个视口高度 */
-}
-
-/* 确保页面内容不受背景图影响 */
-main {
-  position: relative;
-  z-index: 1;
 }
 
 .logo {
