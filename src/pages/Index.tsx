@@ -25,13 +25,7 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['游戏开发', '人工智能', '云计算', '技术研发', '创新发展']}
       />
-      <main className="bg-cover bg-center bg-black" style={{ 
-        backgroundImage: 'url("/lovable-uploads/5c770984-bea1-46e9-b73d-ee7f7df5b6a6.png")', 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center', 
-        backgroundBlendMode: 'overlay', 
-        backgroundAttachment: 'fixed' 
-      }}>
+      <main>
         <Hero />
         <WhyWrlds />
         <Projects />
