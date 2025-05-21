@@ -21,7 +21,8 @@ const techTeams = [
       "完整的调试与性能分析工具链",
       "支持热更新与增量编译功能"
     ],
-    technologies: ["词法分析", "语法分析", "中间代码生成", "代码优化", "目标代码生成"]
+    technologies: ["词法分析", "语法分析", "中间代码生成", "代码优化", "目标代码生成"],
+    email: "compiler@g-bits.com"
   },
   {
     id: "server",
@@ -36,7 +37,8 @@ const techTeams = [
       "完整的CI/CD工具链",
       "高效的资源管理与自动化测试系统"
     ],
-    technologies: ["分布式系统", "高并发处理", "网络协议优化", "CI/CD", "云服务架构"]
+    technologies: ["分布式系统", "高并发处理", "网络协议优化", "CI/CD", "云服务架构"],
+    email: "servertools@g-bits.com"
   },
   {
     id: "engine",
@@ -51,7 +53,8 @@ const techTeams = [
       "跨平台兼容性与设备适配方案",
       "先进的材质与光照系统"
     ],
-    technologies: ["图形渲染", "物理模拟", "动画系统", "场景管理", "资源优化"]
+    technologies: ["图形渲染", "物理模拟", "动画系统", "场景管理", "资源优化"],
+    email: "engine@g-bits.com"
   },
   {
     id: "tech-ai",
@@ -66,7 +69,8 @@ const techTeams = [
       "自适应难度与内容推荐系统",
       "复杂NPC行为与决策AI"
     ],
-    technologies: ["机器学习", "数据分析", "行为决策树", "自然语言处理", "计算机视觉"]
+    technologies: ["机器学习", "数据分析", "行为决策树", "自然语言处理", "计算机视觉"],
+    email: "techai@g-bits.com"
   },
   {
     id: "aigc",
@@ -81,7 +85,8 @@ const techTeams = [
       "程序化地形与场景构建",
       "个性化NPC对话与行为系统"
     ],
-    technologies: ["生成对抗网络", "深度学习", "自然语言生成", "计算机图形学", "程序化生成"]
+    technologies: ["生成对抗网络", "深度学习", "自然语言生成", "计算机图形学", "程序化生成"],
+    email: "aigc@g-bits.com"
   }
 ];
 
@@ -151,7 +156,7 @@ const TechCooperation = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-6"> {/* Reduced spacing from 12 to 6 */}
+            <div className="space-y-3"> {/* Reduced spacing from 6 to 3 */}
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -205,9 +210,9 @@ const TechCooperation = () => {
                             
                             <CollapsibleContent>
                               <div className="p-6 pt-3 border-t border-white/10"> {/* Reduced padding-top */}
-                                <p className="text-gray-300 mb-4">{team.details}</p> {/* Reduced margin-bottom */}
+                                <p className="text-gray-300 mb-3">{team.details}</p> {/* Reduced margin-bottom */}
                                 
-                                <div className="mb-4"> {/* Reduced margin-bottom */}
+                                <div className="mb-3"> {/* Reduced margin-bottom */}
                                   <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3> {/* Reduced margin-bottom */}
                                   <div className="flex flex-wrap gap-2">
                                     {team.technologies.map((tech, idx) => (
@@ -221,7 +226,7 @@ const TechCooperation = () => {
                                   </div>
                                 </div>
                                 
-                                <div>
+                                <div className="mb-3"> {/* Added margin-bottom */}
                                   <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3> {/* Reduced margin-bottom */}
                                   <ul className="space-y-1"> {/* Reduced spacing */}
                                     {team.achievements.map((achievement, idx) => (
@@ -231,6 +236,14 @@ const TechCooperation = () => {
                                       </li>
                                     ))}
                                   </ul>
+                                </div>
+                                
+                                {/* Contact section for each team */}
+                                <div className="mt-2 flex items-center">
+                                  <h3 className="text-lg font-semibold text-white mr-2">联系{team.title}:</h3>
+                                  <a href={`mailto:${team.email}`} className="text-blue-400 hover:underline">
+                                    {team.email}
+                                  </a>
                                 </div>
                               </div>
                             </CollapsibleContent>
