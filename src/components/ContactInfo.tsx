@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Code, Server, Terminal, BrainCircuit, Paintbrush } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const ContactInfo = () => {
@@ -54,45 +54,56 @@ const ContactInfo = () => {
             <div className="space-y-8">
               <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
                 <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                  <Phone className="w-6 h-6 text-blue-400" />
+                  <Code className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-white">电话咨询</h3>
-                  <p className="text-gray-300 mb-1">周一至周五 9:00 - 18:00</p>
-                  <p className="text-blue-400 font-medium">+86 592-123-4567</p>
+                  <h3 className="font-bold text-xl mb-2 text-white">联系编译器组</h3>
+                  <p className="text-gray-300 mb-1">GS语言及编译器相关技术支持</p>
+                  <p className="text-blue-400 font-medium">compiler@g-bits.com</p>
                 </div>
               </motion.div>
 
               <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
                 <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                  <Mail className="w-6 h-6 text-blue-400" />
+                  <Server className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-white">电子邮件</h3>
-                  <p className="text-gray-300 mb-1">我们会在24小时内回复您</p>
-                  <p className="text-blue-400 font-medium">tech-center@g-bits.com</p>
+                  <h3 className="font-bold text-xl mb-2 text-white">联系服务器与工具链组</h3>
+                  <p className="text-gray-300 mb-1">服务器架构及开发工具支持</p>
+                  <p className="text-blue-400 font-medium">servertools@g-bits.com</p>
                 </div>
               </motion.div>
 
               <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
                 <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-blue-400" />
+                  <Terminal className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-white">地址</h3>
-                  <p className="text-gray-300 mb-1">欢迎前来参观交流</p>
-                  <p className="text-blue-400 font-medium">福建省厦门市思明区软件园二期望海路25号</p>
+                  <h3 className="font-bold text-xl mb-2 text-white">联系引擎组</h3>
+                  <p className="text-gray-300 mb-1">游戏引擎与图形渲染相关支持</p>
+                  <p className="text-blue-400 font-medium">engine@g-bits.com</p>
                 </div>
               </motion.div>
 
               <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
                 <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                  <Clock className="w-6 h-6 text-blue-400" />
+                  <BrainCircuit className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-white">工作时间</h3>
-                  <p className="text-gray-300 mb-1">我们的工作时间</p>
-                  <p className="text-blue-400 font-medium">周一至周五: 9:00 - 18:00</p>
+                  <h3 className="font-bold text-xl mb-2 text-white">联系技术AI组</h3>
+                  <p className="text-gray-300 mb-1">游戏AI与技术算法支持</p>
+                  <p className="text-blue-400 font-medium">techai@g-bits.com</p>
+                </div>
+              </motion.div>
+
+              <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+                <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                  <Paintbrush className="w-6 h-6 text-blue-400" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl mb-2 text-white">联系AIGC组</h3>
+                  <p className="text-gray-300 mb-1">AI内容生成与创意支持</p>
+                  <p className="text-blue-400 font-medium">aigc@g-bits.com</p>
                 </div>
               </motion.div>
             </div>
