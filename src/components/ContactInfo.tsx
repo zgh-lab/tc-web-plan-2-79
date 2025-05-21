@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, Code, Server, Terminal, BrainCircuit, Paintbrush } from "lucide-react";
-import ContactForm from "./ContactForm";
+import { Paintbrush, Code, Server, Terminal, BrainCircuit } from "lucide-react";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -44,12 +43,13 @@ const ContactInfo = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
           >
             <div className="space-y-8">
               <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
@@ -107,17 +107,6 @@ const ContactInfo = () => {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
-
-          <motion.div 
-            variants={childVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10"
-          >
-            <h3 className="font-bold text-2xl mb-6 text-white text-center">发送消息</h3>
-            <ContactForm darkMode={true} />
           </motion.div>
         </div>
       </div>
