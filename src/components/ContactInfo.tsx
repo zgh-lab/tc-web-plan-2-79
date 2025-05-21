@@ -84,7 +84,7 @@ const ContactInfo = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+            <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex md:col-start-2">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Terminal className="w-6 h-6 text-blue-400" />
               </div>

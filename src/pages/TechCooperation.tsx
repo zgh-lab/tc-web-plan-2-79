@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
+import { Code, Server, Wrench, Terminal, Cpu, ChevronRight } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent } from "@/components/ui/card";
@@ -136,11 +136,9 @@ const TechCooperation = () => {
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
           </motion.p>
 
-          <div className="max-w-6xl mx-auto relative overflow-hidden">
-            {/* Central axis line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
-            
-            <div className="space-y-24 py-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Use flex-wrap and overlapping cards instead of the vertical timeline */}
+            <div className="flex flex-wrap -mx-6 -my-8">
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -148,95 +146,72 @@ const TechCooperation = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex justify-center"
+                  className="w-full md:w-1/2 lg:w-1/2 px-6 py-8 md:even:translate-y-12"
+                  style={{
+                    zIndex: index + 1
+                  }}
                 >
-                  <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-auto pr-8 md:pr-16' : 'ml-auto pl-8 md:pl-16'}`}>
-                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
-                      <CardContent className="p-0">
-                        <div className="p-0">
-                          <div className="relative h-48">
-                            <img 
-                              src={team.image} 
-                              alt={team.title} 
-                              className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-end p-6">
-                              <div className="flex items-center gap-3 mb-2">
-                                <div className="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                  <team.icon className="w-6 h-6 text-blue-400" />
-                                </div>
-                                <h2 className="text-2xl font-semibold text-white">
-                                  {team.title}
-                                </h2>
+                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                    <CardContent className="p-0">
+                      <div className="p-0">
+                        <div className="relative h-48">
+                          <img 
+                            src={team.image} 
+                            alt={team.title} 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-end p-6">
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                                <team.icon className="w-6 h-6 text-blue-400" />
                               </div>
-                              <p className="text-gray-200">{team.description}</p>
+                              <h2 className="text-2xl font-semibold text-white">
+                                {team.title}
+                              </h2>
+                            </div>
+                            <p className="text-gray-200">{team.description}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="p-6 space-y-6">
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">团队介绍</h3>
+                            <p className="text-gray-300">{team.details}</p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {team.technologies.map((tech, idx) => (
+                                <span 
+                                  key={idx} 
+                                  className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
                             </div>
                           </div>
                           
-                          <div className="p-6 space-y-6">
-                            <div>
-                              <h3 className="text-xl font-semibold text-white mb-2">团队介绍</h3>
-                              <p className="text-gray-300">{team.details}</p>
-                            </div>
-                            
-                            <div>
-                              <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3>
-                              <div className="flex flex-wrap gap-2">
-                                {team.technologies.map((tech, idx) => (
-                                  <span 
-                                    key={idx} 
-                                    className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                            
-                            <div>
-                              <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3>
-                              <ul className="space-y-2">
-                                {team.achievements.map((achievement, idx) => (
-                                  <li key={idx} className="flex items-start text-gray-300">
-                                    <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
-                                    <span>{achievement}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3>
+                            <ul className="space-y-2">
+                              {team.achievements.map((achievement, idx) => (
+                                <li key={idx} className="flex items-start text-gray-300">
+                                  <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
+                                  <span>{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                    
-                    {/* Connecting dot to the timeline */}
-                    <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full mt-8 ${index % 2 === 0 ? 'translate-y-[-200px]' : 'translate-y-[-200px]'}`}></div>
-                  </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
           </div>
-
-          <motion.div 
-            className="mt-16 text-center"
-            variants={childVariants}
-          >
-            <h2 className="text-2xl font-bold text-white mb-4">需要技术支持？</h2>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              我们的技术团队随时准备为您的项目提供专业支持。无论是技术咨询、问题排查还是深度合作，请随时与我们联系。
-            </p>
-            <button 
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20"
-            >
-              联系我们
-            </button>
-          </motion.div>
         </motion.div>
       </div>
     </PageLayout>

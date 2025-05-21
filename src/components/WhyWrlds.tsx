@@ -87,14 +87,50 @@ const WhyWrlds = () => {
             </motion.p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {features.slice(0, 3).map((feature, index) => (
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className={`bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden ${
-                  index === features.length - 1 ? "lg:col-span-3 md:col-span-2 mx-auto max-w-md" : ""
-                }`}
+                className="md:col-span-4 bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden"
+              >
+                <div className="p-5">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white">
+                      {feature.title}
+                    </h3>
+                  </div>
+
+                  <div className="relative h-[160px] overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                      <p className="text-gray-200">{feature.description}</p>
+                    </div>
+                  </div>
+                  
+                  <Link 
+                    to={feature.link} 
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-2"
+                  >
+                    了解更多 
+                    <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+
+            {features.slice(3).map((feature, index) => (
+              <motion.div 
+                key={feature.id}
+                variants={childVariants}
+                className={`md:col-span-6 bg-gray-900/80 rounded-lg border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden ${index === 0 ? "md:col-start-4" : ""}`}
               >
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-4">

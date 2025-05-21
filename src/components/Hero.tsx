@@ -39,9 +39,9 @@ const Hero = () => {
         
         <div className="banner-overlay bg-transparent pt-21 md:pt-24 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
-            <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
+            <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
               <motion.div className="flex items-center justify-center mb-4" variants={itemVariants}>
-                <h1 className="text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] font-bold text-white tracking-wider whitespace-nowrap">
+                <h1 className="text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] font-bold text-white tracking-wider">
                   G-bits 技术中心
                 </h1>
               </motion.div>

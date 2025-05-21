@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight } from 'lucide-react';
@@ -242,11 +243,8 @@ const KnowledgeBase = () => {
             汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，为团队提供系统化的知识支持和技术积累。
           </motion.p>
 
-          <div className="max-w-6xl mx-auto relative overflow-hidden">
-            {/* Central axis line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
-            
-            <div className="space-y-24 py-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-wrap -mx-6 -my-8">
               {categories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -254,88 +252,65 @@ const KnowledgeBase = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex justify-center"
+                  className="w-full md:w-1/2 lg:w-1/2 px-6 py-8 md:even:translate-y-12"
+                  style={{
+                    zIndex: index + 1
+                  }}
                 >
-                  <div className={`w-full max-w-xl ${index % 2 === 0 ? 'mr-auto pr-8 md:pr-16' : 'ml-auto pl-8 md:pl-16'}`}>
-                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
-                      <CardContent className="p-0">
-                        <div className="p-6">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                              <category.icon className="w-6 h-6 text-blue-400" />
-                            </div>
-                            <h2 className="text-2xl font-semibold text-white">
-                              {category.title}
-                            </h2>
+                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                    <CardContent className="p-0">
+                      <div className="p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <category.icon className="w-6 h-6 text-blue-400" />
                           </div>
-                          
-                          <p className="text-gray-200 mb-4">{category.description}</p>
-                          
-                          <button 
-                            onClick={() => toggleCategory(category.id)}
-                            className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
-                          >
-                            {expandedCategory === category.id ? '收起' : '展开'} 
-                            <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${expandedCategory === category.id ? 'rotate-90' : ''}`} />
-                          </button>
-                          
-                          {expandedCategory === category.id && (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                              {category.content.map((item, idx) => (
-                                <Card key={idx} className="border border-white/10 bg-black/50 hover:border-blue-500/30 transition-all">
-                                  <CardContent className="p-3">
-                                    <div className="relative h-28 overflow-hidden rounded-lg mb-3">
-                                      <img 
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover"
-                                      />
-                                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
-                                        <h3 className="text-base font-medium text-white">{item.title}</h3>
-                                      </div>
-                                    </div>
-                                    <p className="text-gray-300 text-sm">{item.description}</p>
-                                    <button className="mt-2 text-blue-400 hover:text-blue-300 text-sm flex items-center">
-                                      查看详情
-                                      <ChevronRight className="ml-1 w-3 h-3" />
-                                    </button>
-                                  </CardContent>
-                                </Card>
-                              ))}
-                            </div>
-                          )}
+                          <h2 className="text-2xl font-semibold text-white">
+                            {category.title}
+                          </h2>
                         </div>
-                      </CardContent>
-                    </Card>
-                    
-                    {/* Connecting dot to the timeline */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full mt-8 translate-y-[-100px]"></div>
-                  </div>
+                        
+                        <p className="text-gray-200 mb-4">{category.description}</p>
+                        
+                        <button 
+                          onClick={() => toggleCategory(category.id)}
+                          className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
+                        >
+                          {expandedCategory === category.id ? '收起' : '展开'} 
+                          <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${expandedCategory === category.id ? 'rotate-90' : ''}`} />
+                        </button>
+                        
+                        {expandedCategory === category.id && (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                            {category.content.map((item, idx) => (
+                              <Card key={idx} className="border border-white/10 bg-black/50 hover:border-blue-500/30 transition-all">
+                                <CardContent className="p-3">
+                                  <div className="relative h-28 overflow-hidden rounded-lg mb-3">
+                                    <img 
+                                      src={item.image}
+                                      alt={item.title}
+                                      className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
+                                      <h3 className="text-base font-medium text-white">{item.title}</h3>
+                                    </div>
+                                  </div>
+                                  <p className="text-gray-300 text-sm">{item.description}</p>
+                                  <button className="mt-2 text-blue-400 hover:text-blue-300 text-sm flex items-center">
+                                    查看详情
+                                    <ChevronRight className="ml-1 w-3 h-3" />
+                                  </button>
+                                </CardContent>
+                              </Card>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
           </div>
-
-          <motion.div 
-            className="mt-16 text-center"
-            variants={childVariants}
-          >
-            <h2 className="text-2xl font-bold text-white mb-4">寻找更多资源？</h2>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              我们持续更新技术知识库，为团队提供最新的技术资源和学习材料。如果您有任何问题或需要特定资源，请随时联系我们。
-            </p>
-            <button 
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20"
-            >
-              联系我们
-            </button>
-          </motion.div>
         </motion.div>
       </div>
     </PageLayout>
