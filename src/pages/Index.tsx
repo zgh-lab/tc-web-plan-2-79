@@ -30,7 +30,7 @@ const Index = () => {
       />
       <main>
         <Hero />
-        <div className="mt-[100vh]"> {/* 添加顶部间距，确保下一个部分在第二屏开始 */}
+        <div> {/* 移除了 mt-[100vh] 类，去掉了顶部间距 */}
           <WhyWrlds />
           <Projects />
           <BlogPreview />
