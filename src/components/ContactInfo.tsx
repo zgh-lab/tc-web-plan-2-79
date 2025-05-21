@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Paintbrush, Code, Server, Terminal, BrainCircuit } from "lucide-react";
+import { Paintbrush, Code, Server, Terminal, BrainCircuit, Building, Users } from "lucide-react";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -51,7 +51,30 @@ const ContactInfo = () => {
           className="w-full"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* First row with 3 equal width items */}
+            {/* First row with 2 cooperation types */}
+            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Building className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">本部合作</h3>
+                <p className="text-gray-300 mb-1">针对需要技术支持的项目提供远程技术支持服务</p>
+                <p className="text-blue-400 font-medium">cooperation@g-bits.com</p>
+              </div>
+            </motion.div>
+
+            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
+              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
+                <Users className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2 text-white">驻场合作</h3>
+                <p className="text-gray-300 mb-1">为有特定技术需求的项目提供驻场技术支持</p>
+                <p className="text-blue-400 font-medium">onsite@g-bits.com</p>
+              </div>
+            </motion.div>
+
+            {/* Second row with department contacts */}
             <motion.div variants={childVariants} className="md:col-span-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Code className="w-6 h-6 text-blue-400" />
@@ -85,7 +108,7 @@ const ContactInfo = () => {
               </div>
             </motion.div>
 
-            {/* Second row with 2 equal width items that together match the width of the 3 items above */}
+            {/* Third row with 2 equal width items */}
             <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
               <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
                 <Terminal className="w-6 h-6 text-blue-400" />

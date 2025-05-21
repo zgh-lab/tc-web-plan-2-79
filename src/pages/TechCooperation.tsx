@@ -151,7 +151,7 @@ const TechCooperation = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-12">
+            <div className="space-y-6"> {/* Reduced spacing from 12 to 6 */}
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -174,41 +174,41 @@ const TechCooperation = () => {
                         <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
-                              <div className="p-6 cursor-pointer">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                      <team.icon className="w-6 h-6 text-blue-400" />
+                              <div 
+                                className="relative p-6 cursor-pointer overflow-hidden"
+                                style={{
+                                  backgroundImage: `url(${team.image})`,
+                                  backgroundSize: 'cover',
+                                  backgroundPosition: 'center'
+                                }}
+                              >
+                                {/* Overlay for better text readability */}
+                                <div className="absolute inset-0 bg-black/70"></div>
+                                <div className="relative z-10">
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                        <team.icon className="w-6 h-6 text-blue-400" />
+                                      </div>
+                                      <h2 className="text-2xl font-semibold text-white">
+                                        {team.title}
+                                      </h2>
                                     </div>
-                                    <h2 className="text-2xl font-semibold text-white">
-                                      {team.title}
-                                    </h2>
+                                    <ChevronDown 
+                                      className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
+                                    />
                                   </div>
-                                  <ChevronDown 
-                                    className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
-                                  />
+                                  <p className="text-gray-300 mt-3">{team.description}</p>
                                 </div>
-                                <p className="text-gray-300 mt-3">{team.description}</p>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-0 border-t border-white/10">
-                                <div className="relative h-48 overflow-hidden rounded-lg mb-6">
-                                  <img 
-                                    src={team.image} 
-                                    alt={team.title} 
-                                    className="w-full h-full object-cover"
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex flex-col justify-end p-6">
-                                    <p className="text-xl font-medium text-white">团队介绍</p>
-                                  </div>
-                                </div>
-
-                                <p className="text-gray-300 mb-6">{team.details}</p>
+                              <div className="p-6 pt-3 border-t border-white/10"> {/* Reduced padding-top */}
+                                <p className="text-gray-300 mb-4">{team.details}</p> {/* Reduced margin-bottom */}
                                 
-                                <div className="mb-6">
-                                  <h3 className="text-xl font-semibold text-white mb-3">核心技术</h3>
+                                <div className="mb-4"> {/* Reduced margin-bottom */}
+                                  <h3 className="text-xl font-semibold text-white mb-2">核心技术</h3> {/* Reduced margin-bottom */}
                                   <div className="flex flex-wrap gap-2">
                                     {team.technologies.map((tech, idx) => (
                                       <span 
@@ -222,8 +222,8 @@ const TechCooperation = () => {
                                 </div>
                                 
                                 <div>
-                                  <h3 className="text-xl font-semibold text-white mb-3">主要成果</h3>
-                                  <ul className="space-y-2">
+                                  <h3 className="text-xl font-semibold text-white mb-2">主要成果</h3> {/* Reduced margin-bottom */}
+                                  <ul className="space-y-1"> {/* Reduced spacing */}
                                     {team.achievements.map((achievement, idx) => (
                                       <li key={idx} className="flex items-start text-gray-300">
                                         <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
