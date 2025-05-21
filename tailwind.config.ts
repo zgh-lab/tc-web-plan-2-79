@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -17,6 +16,10 @@ export default {
 			screens: {
 				'2xl': '1400px'
 			}
+		},
+		fontFamily: {
+			sans: ['Space Grotesk', 'sans-serif'], // Setting Space Grotesk as the default font
+			space: ['Space Grotesk', 'sans-serif'],
 		},
 		extend: {
 			colors: {
