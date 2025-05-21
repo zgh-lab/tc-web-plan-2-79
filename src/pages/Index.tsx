@@ -31,13 +31,6 @@ const Index = () => {
       <main>
         <Hero />
         <div className="relative">
-          {/* 添加半透明黑色蒙版，不透明度从60%调整为25%，顶部渐变消失 */}
-          <div 
-            className="absolute inset-0 bg-black/25 z-0"
-            style={{
-              backgroundImage: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.25) 100px)'
-            }}
-          ></div>
           <div className="relative z-10">
             <WhyWrlds />
             <Projects />
