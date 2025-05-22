@@ -14,15 +14,15 @@ interface DesktopNavProps {
 const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
   return (
     <div className="flex justify-between items-center w-full">
-      {/* 搜索和设置按钮放在右侧 */}
-      <div className="hidden md:flex items-center space-x-4">
-        {/* 空白占位，保持导航居中 */}
+      {/* 左侧区域 - 空白占位 */}
+      <div className="flex-1">
+        {/* 空白占位，保持导航靠右 */}
       </div>
       
-      {/* 导航菜单居中 */}
-      <div className="hidden md:flex items-center justify-center flex-1">
+      {/* 导航菜单靠右 */}
+      <div className="hidden md:flex items-center justify-end">
         <NavigationMenu className="text-white">
-          <NavigationMenuList className="flex justify-center">
+          <NavigationMenuList className="flex justify-end">
             {navItems.map((item: NavItem) => (
               <NavigationMenuItem key={item.title}>
                 {item.isAction ? (
@@ -54,7 +54,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
         </NavigationMenu>
       </div>
       
-      {/* 搜索和设置按钮放在右侧 */}
+      {/* 搜索和设置按钮放在最右侧 */}
       <div className="hidden md:flex items-center space-x-4">
         {/* 搜索功能 */}
         <SearchDialog isScrolled={isScrolled} />
