@@ -131,7 +131,13 @@ const TechCooperation = () => {
         keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
       />
 
-      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
+      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black"
+          style={{
+            backgroundImage: `url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}>
         <motion.div 
           className="container mx-auto"
           initial="hidden"

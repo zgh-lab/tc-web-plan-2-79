@@ -234,7 +234,13 @@ const KnowledgeBase = () => {
         keywords={['知识库', '技术文档', '学习资源', '开发规范', '技术分享', '专利']}
       />
 
-      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
+      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black" 
+          style={{
+            backgroundImage: `url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}>
         <motion.div 
           className="container mx-auto"
           initial="hidden"
