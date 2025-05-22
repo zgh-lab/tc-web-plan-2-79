@@ -97,8 +97,8 @@ const Achievements = () => {
           }}
         ></div>
         
-        {/* 添加的半透明黑色蒙版 */}
-        <div className="absolute inset-0 z-0 bg-black/70"></div>
+        {/* 添加的半透明白色蒙版 */}
+        <div className="absolute inset-0 z-0 bg-white/70"></div>
         
         <motion.div 
           initial="hidden"
@@ -107,8 +107,8 @@ const Achievements = () => {
           className="flex flex-col items-center justify-center space-y-6 mb-12 text-center relative z-10"
         >
           {/* 删除了此处的奖杯图标 */}
-          <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">成果展示</motion.h1>
-          <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
+          <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-gray-800">成果展示</motion.h1>
+          <motion.p variants={childVariants} className="text-xl text-gray-600 max-w-3xl">
             展示 G-bits 技术中心的自主研发游戏及技术创新成果
           </motion.p>
         </motion.div>
@@ -123,7 +123,7 @@ const Achievements = () => {
             <motion.div 
               key={game.id}
               variants={childVariants}
-              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row hover:shadow-lg hover:shadow-blue-900/20 transition-all"
+              className="bg-white/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200 flex flex-col md:flex-row hover:shadow-lg hover:shadow-blue-900/20 transition-all"
             >
               <div className="md:w-2/5 h-48 md:h-auto relative">
                 <img 
@@ -138,15 +138,15 @@ const Achievements = () => {
               
               <div className="p-6 md:w-3/5 flex flex-col justify-between">
                 <div>
-                  <span className="text-blue-400 text-sm mb-2 block">{game.category}</span>
-                  <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
-                  <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
+                  <span className="text-blue-600 text-sm mb-2 block">{game.category}</span>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-800">{game.title}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">{game.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {game.features.map((feature, i) => (
                       <span 
                         key={i} 
-                        className="text-xs px-2 py-1 rounded-full bg-blue-600/20 text-blue-400"
+                        className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600"
                       >
                         {feature}
                       </span>
@@ -154,7 +154,7 @@ const Achievements = () => {
                   </div>
                 </div>
                 
-                <button className="flex items-center text-blue-400 hover:text-blue-300 transition-all group mt-2">
+                <button className="flex items-center text-blue-600 hover:text-blue-500 transition-all group mt-2">
                   查看详情 
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -163,9 +163,9 @@ const Achievements = () => {
           ))}
         </motion.div>
 
-        <div className="mt-12 p-6 border border-blue-500/20 rounded-lg bg-black/30 backdrop-blur-sm relative z-10">
-          <h3 className="text-xl font-semibold mb-3 text-white">技术突破</h3>
-          <p className="text-gray-300">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
+        <div className="mt-12 p-6 border border-blue-200 rounded-lg bg-white/50 backdrop-blur-sm relative z-10">
+          <h3 className="text-xl font-semibold mb-3 text-gray-800">技术突破</h3>
+          <p className="text-gray-600">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
         </div>
       </main>
     </PageLayout>

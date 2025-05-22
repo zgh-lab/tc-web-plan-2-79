@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
@@ -245,8 +246,8 @@ const KnowledgeBase = () => {
           }}
         ></div>
         
-        {/* 添加的半透明黑色蒙版 */}
-        <div className="absolute inset-0 z-0 bg-black/70"></div>
+        {/* 添加的半透明白色蒙版 */}
+        <div className="absolute inset-0 z-0 bg-white/70"></div>
         
         <motion.div 
           className="container mx-auto relative z-10"
@@ -255,14 +256,14 @@ const KnowledgeBase = () => {
           variants={containerVariants}
         >
           <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
+            className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center"
             variants={childVariants}
           >
             知识库
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+            className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12"
             variants={childVariants}
           >
             汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
@@ -270,8 +271,8 @@ const KnowledgeBase = () => {
           </motion.p>
 
           <div className="max-w-6xl mx-auto relative">
-            {/* Central axis line - updated to white with gray opacity */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-white/20"></div>
+            {/* Central axis line - updated to gray with light opacity */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-400/20"></div>
             
             <div className="space-y-10"> {/* Increased spacing between modules to allow for vertical overlap */}
               {categories.map((category, index) => (
@@ -294,7 +295,7 @@ const KnowledgeBase = () => {
                         onOpenChange={() => toggleItem(category.id)}
                         className="w-full"
                       >
-                        <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
+                        <Card className="bg-white/80 border border-gray-200 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
                               <div 
@@ -306,44 +307,44 @@ const KnowledgeBase = () => {
                                 }}
                               >
                                 {/* Overlay for better text readability */}
-                                <div className="absolute inset-0 bg-black/70"></div>
+                                <div className="absolute inset-0 bg-white/70"></div>
                                 <div className="relative z-10">
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                       <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                        <category.icon className="w-6 h-6 text-blue-400" />
+                                        <category.icon className="w-6 h-6 text-blue-600" />
                                       </div>
-                                      <h2 className="text-2xl font-semibold text-white">
+                                      <h2 className="text-2xl font-semibold text-gray-800">
                                         {category.title}
                                       </h2>
                                     </div>
                                     <ChevronDown 
-                                      className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
+                                      className={`w-6 h-6 text-blue-600 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
                                     />
                                   </div>
-                                  <p className="text-gray-300 mt-3 -mb-1">{category.description}</p>
+                                  <p className="text-gray-600 mt-3 -mb-1">{category.description}</p>
                                 </div>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-3 border-t border-white/10"> 
+                              <div className="p-6 pt-3 border-t border-gray-200"> 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> 
                                   {category.content.map((item, idx) => (
-                                    <div key={idx} className="bg-black/30 rounded-lg overflow-hidden">
+                                    <div key={idx} className="bg-white/50 rounded-lg overflow-hidden">
                                       <div className="relative h-40 overflow-hidden"> {/* Increased height from h-36 to h-40 */}
                                         <img 
                                           src={item.image}
                                           alt={item.title}
                                           className="w-full h-full object-cover"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
-                                          <p className="text-white font-medium">{item.title}</p>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent flex items-end p-3">
+                                          <p className="text-gray-800 font-medium">{item.title}</p>
                                         </div>
                                       </div>
                                       <div className="p-3">
-                                        <p className="text-gray-300 text-sm -mt-1">{item.description}</p>
-                                        <button className="mt-1 text-blue-400 hover:text-blue-300 flex items-center text-sm">
+                                        <p className="text-gray-600 text-sm -mt-1">{item.description}</p>
+                                        <button className="mt-1 text-blue-600 hover:text-blue-500 flex items-center text-sm">
                                           查看详情
                                           <ChevronRight className="ml-1 w-4 h-4" />
                                         </button>
@@ -354,14 +355,14 @@ const KnowledgeBase = () => {
                                 
                                 {/* 只显示联系特定技术组 */}
                                 <div className="mt-2 flex items-center">
-                                  <h3 className="text-lg font-semibold text-white mr-2">
+                                  <h3 className="text-lg font-semibold text-gray-800 mr-2">
                                     联系{index === 0 ? "编译器组" : 
                                           index === 1 ? "服务器与工具链组" : 
                                           index === 2 ? "引擎组" : 
                                           index === 3 ? "技术AI组" : 
                                           index === 4 ? "AIGC组" : "我们"}:
                                   </h3>
-                                  <a href={`mailto:${categories[index].email}`} className="text-blue-400 hover:underline">
+                                  <a href={`mailto:${categories[index].email}`} className="text-blue-600 hover:underline">
                                     {categories[index].email}
                                   </a>
                                 </div>
