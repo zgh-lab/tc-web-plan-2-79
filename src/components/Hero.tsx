@@ -54,19 +54,19 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Scroll down indicator */}
+        {/* Circular scroll down indicator */}
         <motion.div 
-          className="absolute bottom-8 left-8 text-white flex flex-col items-center"
+          className="absolute bottom-8 left-8 text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <span className="text-sm mb-2 opacity-80">向下滚动</span>
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/70"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
           >
-            <ArrowDown size={24} className="animate-bounce" />
+            <ArrowDown size={18} className="text-white/90" />
           </motion.div>
         </motion.div>
       </div>
