@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export interface NavItem {
   title: string;
@@ -40,10 +40,20 @@ export const navItems: NavItem[] = [
 ];
 
 export const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth'
-    });
+  // 检查当前是否在首页
+  const isHomePage = window.location.pathname === "/";
+  
+  // 如果在首页，直接滚动到对应区域
+  if (isHomePage) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  } 
+  // 如果不在首页，先跳转到首页，然后滚动到对应区域
+  else {
+    window.location.href = `/#${id}`;
   }
 };

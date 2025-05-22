@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight } from 'lucide-react';
@@ -85,7 +84,7 @@ const Achievements = () => {
         keywords={['成果展示', '技术创新', '项目成果', '研发成果']}
       />
 
-      <main className="container mx-auto px-4 py-12 min-h-[80vh]">
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh]">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -159,4 +158,3 @@ const Achievements = () => {
 };
 
 export default Achievements;
-
