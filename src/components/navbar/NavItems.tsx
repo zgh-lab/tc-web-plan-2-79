@@ -52,9 +52,9 @@ export const scrollToSection = (id: string) => {
       });
     }
   } 
-  // 如果不在首页，直接跳转到首页带锚点的URL
+  // 如果不在首页，强制跳转到首页并附加锚点
   else {
-    // 使用锚点链接确保跳转到首页后自动滚动到指定元素
-    window.location.href = `/#${id}`;
+    // 使用绝对URL确保从任何页面跳转到首页的指定部分
+    window.location.href = `${window.location.origin}/#${id}`;
   }
 };
