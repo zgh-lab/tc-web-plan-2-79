@@ -5,6 +5,7 @@ import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuL
 import { cn } from '@/lib/utils';
 import { navItems, scrollToSection, type NavItem } from './NavItems';
 import SearchDialog from './SearchDialog';
+import MobileNav from './MobileNav';
 
 interface DesktopNavProps {
   isScrolled: boolean;

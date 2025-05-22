@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { cn } from '@/lib/utils';
 import Logo from './navbar/Logo';
 import DesktopNav from './navbar/DesktopNav';
-import MobileNav from './navbar/MobileNav';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
