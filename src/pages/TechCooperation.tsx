@@ -156,7 +156,7 @@ const TechCooperation = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-2"> {/* 减少了上下间距 */}
+            <div className="space-y-1"> {/* Reduced vertical spacing between items */}
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -170,7 +170,7 @@ const TechCooperation = () => {
                     {/* Timeline dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
                     
-                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                    <div className={`w-full ${index % 2 === 0 ? 'md:mr-auto md:pr-8 md:w-[55%]' : 'md:ml-auto md:pl-8 md:w-[55%]'}`}>
                       <Collapsible 
                         open={openItems.includes(team.id)} 
                         onOpenChange={() => toggleItem(team.id)}
@@ -180,7 +180,7 @@ const TechCooperation = () => {
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
                               <div 
-                                className="relative p-6 cursor-pointer overflow-hidden"
+                                className="relative p-6 cursor-pointer overflow-hidden min-h-[170px]" /* Increased minimum height */
                                 style={{
                                   backgroundImage: `url(${team.image})`,
                                   backgroundSize: 'cover',
@@ -203,17 +203,17 @@ const TechCooperation = () => {
                                       className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
                                     />
                                   </div>
-                                  <p className="text-gray-300 mt-3">{team.description}</p>
+                                  <p className="text-gray-300 mt-3 -mb-1">{team.description}</p> {/* Added negative bottom margin */}
                                 </div>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-3 border-t border-white/10"> {/* 减少了上部间距 */}
-                                <p className="text-gray-300 mb-2">{team.details}</p> {/* 减少了底部间距 */}
+                              <div className="p-6 pt-3 border-t border-white/10"> 
+                                <p className="text-gray-300 mb-2 -mt-1">{team.details}</p> {/* Added negative top margin */}
                                 
-                                <div className="mb-2"> {/* 减少了底部间距 */}
-                                  <h3 className="text-xl font-semibold text-white mb-1">核心技术</h3> {/* 减少了底部间距 */}
+                                <div className="mb-2"> 
+                                  <h3 className="text-xl font-semibold text-white mb-1">核心技术</h3> 
                                   <div className="flex flex-wrap gap-2">
                                     {team.technologies.map((tech, idx) => (
                                       <span 
@@ -226,11 +226,11 @@ const TechCooperation = () => {
                                   </div>
                                 </div>
                                 
-                                <div className="mb-2"> {/* 减少了底部间距 */}
-                                  <h3 className="text-xl font-semibold text-white mb-1">主要成果</h3> {/* 减少了底部间距 */}
-                                  <ul className="space-y-1"> {/* 已经很小的间距 */}
+                                <div className="mb-2"> 
+                                  <h3 className="text-xl font-semibold text-white mb-1">主要成果</h3> 
+                                  <ul className="space-y-0"> {/* Reduced vertical spacing between list items */}
                                     {team.achievements.map((achievement, idx) => (
-                                      <li key={idx} className="flex items-start text-gray-300">
+                                      <li key={idx} className="flex items-start text-gray-300 -mb-1"> {/* Added negative bottom margin */}
                                         <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
                                         <span>{achievement}</span>
                                       </li>

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
@@ -258,7 +259,7 @@ const KnowledgeBase = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-2"> {/* 减少了上下间距 */}
+            <div className="space-y-1"> {/* Reduced vertical spacing between items */}
               {categories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -272,7 +273,7 @@ const KnowledgeBase = () => {
                     {/* Timeline dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
                     
-                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                    <div className={`w-full ${index % 2 === 0 ? 'md:mr-auto md:pr-8 md:w-[55%]' : 'md:ml-auto md:pl-8 md:w-[55%]'}`}>
                       <Collapsible 
                         open={openItems.includes(category.id)} 
                         onOpenChange={() => toggleItem(category.id)}
@@ -282,7 +283,7 @@ const KnowledgeBase = () => {
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
                               <div 
-                                className="relative p-6 cursor-pointer overflow-hidden"
+                                className="relative p-6 cursor-pointer overflow-hidden min-h-[170px]" /* Increased minimum height */
                                 style={{
                                   backgroundImage: `url(${category.content[0].image})`,
                                   backgroundSize: 'cover',
@@ -305,17 +306,17 @@ const KnowledgeBase = () => {
                                       className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
                                     />
                                   </div>
-                                  <p className="text-gray-300 mt-3">{category.description}</p>
+                                  <p className="text-gray-300 mt-3 -mb-1">{category.description}</p> {/* Added negative bottom margin */}
                                 </div>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-3 border-t border-white/10"> {/* 减少了上部间距 */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> {/* 减少了间距 */}
+                              <div className="p-6 pt-3 border-t border-white/10"> 
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> 
                                   {category.content.map((item, idx) => (
                                     <div key={idx} className="bg-black/30 rounded-lg overflow-hidden">
-                                      <div className="relative h-32 overflow-hidden">
+                                      <div className="relative h-36 overflow-hidden"> {/* Increased height from h-32 to h-36 */}
                                         <img 
                                           src={item.image}
                                           alt={item.title}
@@ -326,8 +327,8 @@ const KnowledgeBase = () => {
                                         </div>
                                       </div>
                                       <div className="p-3">
-                                        <p className="text-gray-300 text-sm">{item.description}</p>
-                                        <button className="mt-2 text-blue-400 hover:text-blue-300 flex items-center text-sm">
+                                        <p className="text-gray-300 text-sm -mt-1">{item.description}</p> {/* Added negative top margin */}
+                                        <button className="mt-1 text-blue-400 hover:text-blue-300 flex items-center text-sm">
                                           查看详情
                                           <ChevronRight className="ml-1 w-4 h-4" />
                                         </button>
