@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
@@ -259,7 +258,7 @@ const KnowledgeBase = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-1"> {/* 减少了上下间距 */}
+            <div className="space-y-2"> {/* 减少了上下间距 */}
               {categories.map((category, index) => (
                 <motion.div 
                   key={category.id}
@@ -273,7 +272,7 @@ const KnowledgeBase = () => {
                     {/* Timeline dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
                     
-                    <div className={`w-full max-w-3xl ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                       <Collapsible 
                         open={openItems.includes(category.id)} 
                         onOpenChange={() => toggleItem(category.id)}
@@ -283,55 +282,54 @@ const KnowledgeBase = () => {
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
                               <div 
-                                className="relative p-8 cursor-pointer overflow-hidden"
+                                className="relative p-6 cursor-pointer overflow-hidden"
                                 style={{
                                   backgroundImage: `url(${category.content[0].image})`,
                                   backgroundSize: 'cover',
-                                  backgroundPosition: 'center',
-                                  height: '480px' // 增加高度到1.5倍
+                                  backgroundPosition: 'center'
                                 }}
                               >
                                 {/* Overlay for better text readability */}
                                 <div className="absolute inset-0 bg-black/70"></div>
                                 <div className="relative z-10">
                                   <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-4">
-                                      <div className="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                        <category.icon className="w-8 h-8 text-blue-400" />
+                                    <div className="flex items-center gap-3">
+                                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                        <category.icon className="w-6 h-6 text-blue-400" />
                                       </div>
-                                      <h2 className="text-3xl font-semibold text-white">
+                                      <h2 className="text-2xl font-semibold text-white">
                                         {category.title}
                                       </h2>
                                     </div>
                                     <ChevronDown 
-                                      className={`w-8 h-8 text-blue-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
+                                      className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
                                     />
                                   </div>
-                                  <p className="text-xl text-gray-300 mt-4">{category.description}</p>
+                                  <p className="text-gray-300 mt-3">{category.description}</p>
                                 </div>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-8 pt-4 border-t border-white/10"> {/* 增加内边距 */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* 增加间距 */}
+                              <div className="p-6 pt-3 border-t border-white/10"> {/* 减少了上部间距 */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> {/* 减少了间距 */}
                                   {category.content.map((item, idx) => (
                                     <div key={idx} className="bg-black/30 rounded-lg overflow-hidden">
-                                      <div className="relative h-48 overflow-hidden">
+                                      <div className="relative h-32 overflow-hidden">
                                         <img 
                                           src={item.image}
                                           alt={item.title}
                                           className="w-full h-full object-cover"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                                          <p className="text-xl text-white font-medium">{item.title}</p>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
+                                          <p className="text-white font-medium">{item.title}</p>
                                         </div>
                                       </div>
-                                      <div className="p-4">
-                                        <p className="text-lg text-gray-300">{item.description}</p>
-                                        <button className="mt-3 text-lg text-blue-400 hover:text-blue-300 flex items-center">
+                                      <div className="p-3">
+                                        <p className="text-gray-300 text-sm">{item.description}</p>
+                                        <button className="mt-2 text-blue-400 hover:text-blue-300 flex items-center text-sm">
                                           查看详情
-                                          <ChevronRight className="ml-1 w-5 h-5" />
+                                          <ChevronRight className="ml-1 w-4 h-4" />
                                         </button>
                                       </div>
                                     </div>
@@ -339,15 +337,15 @@ const KnowledgeBase = () => {
                                 </div>
                                 
                                 {/* 只显示联系特定技术组 */}
-                                <div className="mt-4 flex items-center">
-                                  <h3 className="text-xl font-semibold text-white mr-2">
+                                <div className="mt-2 flex items-center">
+                                  <h3 className="text-lg font-semibold text-white mr-2">
                                     联系{index === 0 ? "编译器组" : 
                                           index === 1 ? "服务器与工具链组" : 
                                           index === 2 ? "引擎组" : 
                                           index === 3 ? "技术AI组" : 
                                           index === 4 ? "AIGC组" : "我们"}:
                                   </h3>
-                                  <a href={`mailto:${categories[index].email}`} className="text-xl text-blue-400 hover:underline">
+                                  <a href={`mailto:${categories[index].email}`} className="text-blue-400 hover:underline">
                                     {categories[index].email}
                                   </a>
                                 </div>
