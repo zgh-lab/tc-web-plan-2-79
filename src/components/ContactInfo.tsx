@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
-import { Building, Users } from "lucide-react";
+import { Building, Users, Code, Server } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -36,10 +37,10 @@ const ContactInfo = () => {
           className="mb-12 text-center"
         >
           <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            联系我们
+            合作方式
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            无论您有任何疑问或需求，我们的团队随时准备提供帮助
+            我们提供两种合作模式，灵活满足不同项目的技术需求
           </motion.p>
         </motion.div>
 
@@ -48,31 +49,91 @@ const ContactInfo = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="w-full"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
-              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                <Building className="w-6 h-6 text-blue-400" />
+          {/* 本部合作 */}
+          <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all">
+            <div className="flex items-center mb-4">
+              <div className="bg-blue-600/20 rounded-full p-4 mr-4">
+                <Building className="w-8 h-8 text-blue-400" />
               </div>
-              <div>
-                <h3 className="font-bold text-xl mb-2 text-white">本部合作</h3>
-                <p className="text-gray-300 mb-1">针对需要技术支持的项目提供远程技术支持服务</p>
-                <p className="text-blue-400 font-medium">cooperation@g-bits.com</p>
+              <h3 className="font-bold text-2xl text-white">本部合作</h3>
+            </div>
+            
+            <p className="text-gray-300 mb-6">
+              由技术中心提供完整的技术解决方案，包括GS语言编译器、服务器架构、游戏引擎、工具链等全方位技术支持。项目团队只需提出需求，我们负责技术实现与维护。这种模式适合需要深度技术支持但团队技术资源有限的项目。
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start">
+                <Code className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-medium mb-1">编译器支持</h4>
+                  <p className="text-gray-400 text-sm">GS语言编译器与优化</p>
+                </div>
               </div>
-            </motion.div>
+              
+              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start">
+                <Server className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-medium mb-1">服务器架构</h4>
+                  <p className="text-gray-400 text-sm">高性能服务器设计</p>
+                </div>
+              </div>
+            </div>
+            
+            <Link 
+              to="/tech-cooperation" 
+              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
+            >
+              了解详情 
+              <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </motion.div>
 
-            <motion.div variants={childVariants} className="md:col-span-6 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all flex">
-              <div className="bg-blue-600/20 rounded-full p-3 mr-4 flex-shrink-0">
-                <Users className="w-6 h-6 text-blue-400" />
+          {/* 驻场合作 */}
+          <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all">
+            <div className="flex items-center mb-4">
+              <div className="bg-blue-600/20 rounded-full p-4 mr-4">
+                <Users className="w-8 h-8 text-blue-400" />
               </div>
-              <div>
-                <h3 className="font-bold text-xl mb-2 text-white">驻场合作</h3>
-                <p className="text-gray-300 mb-1">为有特定技术需求的项目提供驻场技术支持</p>
-                <p className="text-blue-400 font-medium">onsite@g-bits.com</p>
+              <h3 className="font-bold text-2xl text-white">驻场合作</h3>
+            </div>
+            
+            <p className="text-gray-300 mb-6">
+              技术中心派驻专业技术人员到项目组，与项目团队深度融合，共同解决技术难题。驻场工程师将根据项目需求提供针对性支持，包括性能优化、技术指导、问题排查等。这种模式适合需要持续技术支持的中长期项目。
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start">
+                <Code className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-medium mb-1">技术指导</h4>
+                  <p className="text-gray-400 text-sm">专业技术咨询与培训</p>
+                </div>
               </div>
-            </motion.div>
-          </div>
+              
+              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start">
+                <Server className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="text-white font-medium mb-1">性能优化</h4>
+                  <p className="text-gray-400 text-sm">前后端性能提升方案</p>
+                </div>
+              </div>
+            </div>
+            
+            <Link 
+              to="/tech-cooperation" 
+              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
+            >
+              了解详情 
+              <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
