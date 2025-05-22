@@ -17,8 +17,13 @@ const Index = () => {
       contactElements[1].id = 'contact-footer';
     }
     
-    // 添加控制台日志，用于调试背景图片问题
-    console.log("页面加载完成，检查背景图片是否正确显示");
+    // Enable smooth scrolling for the page
+    document.documentElement.classList.add('smooth-scroll');
+    
+    return () => {
+      // Clean up smooth scrolling class when component unmounts
+      document.documentElement.classList.remove('smooth-scroll');
+    };
   }, []);
 
   return (
@@ -31,7 +36,7 @@ const Index = () => {
       />
       <main>
         <Hero />
-        <div>
+        <div id="content-section">
           <WhyWrlds />
           <Projects />
           <ContactInfo />
