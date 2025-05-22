@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Book, FileCode, BookOpenText } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface Project {
@@ -10,32 +10,36 @@ interface Project {
   image: string;
   tags: string[];
   link: string;
+  icon: React.ElementType;
 }
 
 const projects: Project[] = [
   {
-    id: "firecat",
-    title: "元宇宙社交平台",
-    description: "打造跨设备、多场景的社交元宇宙空间，让用户能够以自定义形象互动交流和共同创造。",
-    image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png",
-    tags: ["社交元宇宙", "虚拟形象", "3D互动"],
-    link: "/projects/firecat"
+    id: "department",
+    title: "部门介绍",
+    description: "了解G-bits技术中心的组织结构、发展历程和技术体系。",
+    image: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
+    tags: ["组织结构", "发展历程", "技术体系"],
+    link: "/knowledge-base#department",
+    icon: Book
   },
   {
-    id: "sport-retail",
-    title: "数字藏品市场",
-    description: "基于区块链技术的NFT交易市场，为创作者、收藏家和品牌提供数字资产铸造、展示和交易服务。",
-    image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png",
-    tags: ["NFT", "数字藏品", "区块链"],
-    link: "/projects/sport-retail"
+    id: "tech-categories",
+    title: "技术分类",
+    description: "不同领域的技术资源分类，包括前端、后端、引擎、AI、工具链等。",
+    image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
+    tags: ["前端技术", "后端技术", "引擎技术"],
+    link: "/knowledge-base#tech-categories",
+    icon: FileCode
   },
   {
-    id: "workwear",
-    title: "企业元宇宙解决方案",
-    description: "为企业提供虚拟办公空间、数字展厅和沉浸式培训系统，提升远程协作效率和品牌体验。",
-    image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
-    tags: ["企业服务", "虚拟办公", "数字孪生"],
-    link: "/projects/workwear"
+    id: "learning-map",
+    title: "学习地图",
+    description: "为不同领域的技术人员提供系统化的学习路径和资源推荐。",
+    image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png",
+    tags: ["客户端开发", "服务器开发", "引擎开发"],
+    link: "/knowledge-base#learning-map",
+    icon: BookOpenText
   }
 ];
 
@@ -76,8 +80,8 @@ const Projects = () => {
             知识库
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            探索我们打造的创新虚拟世界产品，连接现实与数字空间，<br />
-            创造全新的互动体验
+            汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
+            为团队提供系统化的知识支持和技术积累。
           </motion.p>
         </motion.div>
         
@@ -101,6 +105,9 @@ const Projects = () => {
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 bg-blue-600/20 rounded-lg p-2">
+                  <project.icon className="w-5 h-5 text-blue-400" />
+                </div>
               </div>
               
               <div className="p-6">

@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import WhyWrlds from '@/components/WhyWrlds';
 import BlogPreview from '@/components/BlogPreview';
+import ContactInfo from '@/components/ContactInfo';
 import SEO from '@/components/SEO';
 import { useEffect } from 'react';
 
@@ -30,9 +31,10 @@ const Index = () => {
       />
       <main>
         <Hero />
-        <div> {/* 移除了 mt-[100vh] 类，去掉了顶部间距 */}
+        <div>
           <WhyWrlds />
           <Projects />
+          <ContactInfo />
           <BlogPreview />
         </div>
       </main>
