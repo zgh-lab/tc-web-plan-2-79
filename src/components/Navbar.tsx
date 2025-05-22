@@ -36,14 +36,19 @@ const Navbar = () => {
     }}>
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex items-center justify-between h-16">
-          {/* Logo在左侧 */}
-          <Logo isScrolled={isScrolled} />
+          {/* Logo放在左侧 */}
+          <div className="flex-shrink-0">
+            <Logo isScrolled={isScrolled} />
+          </div>
           
-          {/* Desktop Navigation */}
-          <DesktopNav isScrolled={isScrolled} />
-          
-          {/* Mobile Navigation */}
-          <MobileNav isScrolled={isScrolled} />
+          {/* Navigation放在中央 */}
+          <div className="flex-1 flex justify-center">
+            {/* Desktop Navigation */}
+            <DesktopNav isScrolled={isScrolled} />
+            
+            {/* Mobile Navigation */}
+            <MobileNav isScrolled={isScrolled} />
+          </div>
         </div>
       </div>
     </motion.nav>

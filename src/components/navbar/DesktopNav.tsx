@@ -12,45 +12,42 @@ interface DesktopNavProps {
 
 const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
   return (
-    <>
-      {/* 桌面导航菜单放在中央 */}
-      <div className="hidden md:flex items-center justify-center flex-1">
-        {/* 导航链接 */}
-        <NavigationMenu className="text-white">
-          <NavigationMenuList>
-            {navItems.map((item: NavItem) => (
-              <NavigationMenuItem key={item.title}>
-                {item.isAction ? (
-                  <button 
-                    onClick={() => scrollToSection(item.actionId || '')} 
-                    className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
-                  >
+    <div className="hidden md:flex items-center space-x-4">
+      {/* 导航菜单放在中央 */}
+      <NavigationMenu className="text-white">
+        <NavigationMenuList>
+          {navItems.map((item: NavItem) => (
+            <NavigationMenuItem key={item.title}>
+              {item.isAction ? (
+                <button 
+                  onClick={() => scrollToSection(item.actionId || '')} 
+                  className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                >
+                  {item.title}
+                </button>
+              ) : item.isExternal ? (
+                <a 
+                  href={item.path} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                >
+                  {item.title}
+                </a>
+              ) : (
+                <Link to={item.path}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
                     {item.title}
-                  </button>
-                ) : item.isExternal ? (
-                  <a 
-                    href={item.path} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
-                  >
-                    {item.title}
-                  </a>
-                ) : (
-                  <Link to={item.path}>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      {item.title}
-                    </NavigationMenuLink>
-                  </Link>
-                )}
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
+                  </NavigationMenuLink>
+                </Link>
+              )}
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
       
-      {/* 搜索和设置按钮放在右侧 */}
-      <div className="hidden md:flex items-center space-x-4">
+      {/* 搜索和设置按钮放在导航菜单右侧 */}
+      <div className="flex items-center space-x-2">
         {/* 搜索功能 */}
         <SearchDialog isScrolled={isScrolled} />
 
@@ -59,7 +56,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
           <Settings size={20} />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
