@@ -52,8 +52,9 @@ export const scrollToSection = (id: string) => {
       });
     }
   } 
-  // 如果不在首页，先跳转到首页，然后滚动到对应区域
+  // 如果不在首页，直接跳转到首页带锚点的URL
   else {
+    // 使用锚点链接确保跳转到首页后自动滚动到指定元素
     window.location.href = `/#${id}`;
   }
 };
