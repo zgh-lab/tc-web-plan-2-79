@@ -30,6 +30,7 @@ const categories = [
         image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/ce62508b-c515-40a4-912f-8309b6a1e653.png",
     email: "compiler@g-bits.com"
   },
   {
@@ -59,6 +60,7 @@ const categories = [
         image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/c1ba14e7-7999-43a4-b15f-c97ccea595d2.png",
     email: "servertools@g-bits.com"
   },
   {
@@ -83,6 +85,7 @@ const categories = [
         image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/d30067d0-4a55-4500-b582-96bac8c62789.png",
     email: "servertools@g-bits.com"
   },
   {
@@ -112,6 +115,7 @@ const categories = [
         image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/26bc221f-c24f-4b37-b7c7-d7bfa7137476.png",
     email: "engine@g-bits.com"
   },
   {
@@ -136,6 +140,7 @@ const categories = [
         image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/ef8b867d-f04a-4719-aa25-83d223645c21.png",
     email: "techai@g-bits.com"
   },
   {
@@ -160,6 +165,7 @@ const categories = [
         image: "/lovable-uploads/b862d5ae-6abb-44da-84f0-00a222f62906.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/58643d06-8975-4a17-b176-3d3b99fc3401.png",
     email: "aigc@g-bits.com"
   },
   {
@@ -189,6 +195,7 @@ const categories = [
         image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png"
       }
     ],
+    backgroundImage: "/lovable-uploads/f55f3e71-33fa-4ea1-984a-f5a5b9305a2a.png",
     email: "exploration@g-bits.com"
   }
 ];
@@ -287,17 +294,17 @@ const KnowledgeBase = () => {
                               <div 
                                 className="relative p-6 cursor-pointer overflow-hidden min-h-[190px]" /* Increased minimum height */
                                 style={{
-                                  backgroundImage: `url(${category.content[0].image})`,
+                                  backgroundImage: `url(${category.backgroundImage})`,
                                   backgroundSize: 'cover',
                                   backgroundPosition: 'center'
                                 }}
                               >
                                 {/* Overlay for better text readability */}
-                                <div className="absolute inset-0 bg-black/70"></div>
+                                <div className="absolute inset-0 bg-black/60"></div>
                                 <div className="relative z-10">
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
-                                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                      <div className="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
                                         <category.icon className="w-6 h-6 text-blue-400" />
                                       </div>
                                       <h2 className="text-2xl font-semibold text-white">
@@ -370,3 +377,4 @@ const KnowledgeBase = () => {
 };
 
 export default KnowledgeBase;
+

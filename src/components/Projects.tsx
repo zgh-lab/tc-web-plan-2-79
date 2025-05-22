@@ -18,7 +18,7 @@ const projects: Project[] = [
     id: "department",
     title: "部门介绍",
     description: "了解G-bits技术中心的组织结构、发展历程和技术体系。",
-    image: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
+    image: "/lovable-uploads/ce62508b-c515-40a4-912f-8309b6a1e653.png",
     tags: ["组织结构", "发展历程", "技术体系"],
     link: "/knowledge-base#department",
     icon: Book
@@ -27,7 +27,7 @@ const projects: Project[] = [
     id: "tech-categories",
     title: "技术分类",
     description: "不同领域的技术资源分类，包括前端、后端、引擎、AI、工具链等。",
-    image: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
+    image: "/lovable-uploads/c1ba14e7-7999-43a4-b15f-c97ccea595d2.png",
     tags: ["前端技术", "后端技术", "引擎技术"],
     link: "/knowledge-base#tech-categories",
     icon: FileCode
@@ -36,7 +36,7 @@ const projects: Project[] = [
     id: "learning-map",
     title: "学习地图",
     description: "为不同领域的技术人员提供系统化的学习路径和资源推荐。",
-    image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png",
+    image: "/lovable-uploads/d30067d0-4a55-4500-b582-96bac8c62789.png",
     tags: ["客户端开发", "服务器开发", "引擎开发"],
     link: "/knowledge-base#learning-map",
     icon: BookOpenText
