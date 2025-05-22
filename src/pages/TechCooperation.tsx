@@ -153,10 +153,10 @@ const TechCooperation = () => {
           </motion.p>
 
           <div className="max-w-6xl mx-auto relative">
-            {/* Central axis line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
+            {/* Central axis line - making it more visible */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-blue-500/30"></div>
             
-            <div className="space-y-1"> {/* Reduced vertical spacing between items */}
+            <div className="space-y-10"> {/* Increased spacing between modules to allow for vertical overlap */}
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -165,12 +165,13 @@ const TechCooperation = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative"
+                  style={{ marginTop: index > 0 ? '-30px' : '0' }} // Creating vertical overlap
                 >
-                  <div className={`flex items-center justify-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                    {/* Timeline dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
+                  <div className={`flex items-center justify-center ${index % 2 === 0 ? 'md:justify-end md:pr-8' : 'md:justify-start md:pl-8'}`}>
+                    {/* Timeline dot - making it more visible */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-blue-500/70 rounded-full z-10"></div>
                     
-                    <div className={`w-full ${index % 2 === 0 ? 'md:mr-auto md:pr-8 md:w-[55%]' : 'md:ml-auto md:pl-8 md:w-[55%]'}`}>
+                    <div className={`w-full md:w-[45%] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                       <Collapsible 
                         open={openItems.includes(team.id)} 
                         onOpenChange={() => toggleItem(team.id)}
@@ -180,7 +181,7 @@ const TechCooperation = () => {
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
                               <div 
-                                className="relative p-6 cursor-pointer overflow-hidden min-h-[170px]" /* Increased minimum height */
+                                className="relative p-6 cursor-pointer overflow-hidden min-h-[190px]" /* Increased minimum height */
                                 style={{
                                   backgroundImage: `url(${team.image})`,
                                   backgroundSize: 'cover',
@@ -203,14 +204,14 @@ const TechCooperation = () => {
                                       className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
                                     />
                                   </div>
-                                  <p className="text-gray-300 mt-3 -mb-1">{team.description}</p> {/* Added negative bottom margin */}
+                                  <p className="text-gray-300 mt-3 -mb-1">{team.description}</p>
                                 </div>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
                               <div className="p-6 pt-3 border-t border-white/10"> 
-                                <p className="text-gray-300 mb-2 -mt-1">{team.details}</p> {/* Added negative top margin */}
+                                <p className="text-gray-300 mb-2 -mt-1">{team.details}</p>
                                 
                                 <div className="mb-2"> 
                                   <h3 className="text-xl font-semibold text-white mb-1">核心技术</h3> 
@@ -228,9 +229,9 @@ const TechCooperation = () => {
                                 
                                 <div className="mb-2"> 
                                   <h3 className="text-xl font-semibold text-white mb-1">主要成果</h3> 
-                                  <ul className="space-y-0"> {/* Reduced vertical spacing between list items */}
+                                  <ul className="space-y-0">
                                     {team.achievements.map((achievement, idx) => (
-                                      <li key={idx} className="flex items-start text-gray-300 -mb-1"> {/* Added negative bottom margin */}
+                                      <li key={idx} className="flex items-start text-gray-300 -mb-1">
                                         <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
                                         <span>{achievement}</span>
                                       </li>
@@ -238,7 +239,6 @@ const TechCooperation = () => {
                                   </ul>
                                 </div>
                                 
-                                {/* 只显示联系特定技术组 */}
                                 <div className="mt-2 flex items-center">
                                   <h3 className="text-lg font-semibold text-white mr-2">联系{team.title}:</h3>
                                   <a href={`mailto:${team.email}`} className="text-blue-400 hover:underline">
