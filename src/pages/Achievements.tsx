@@ -1,7 +1,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import { Trophy, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -92,10 +92,8 @@ const Achievements = () => {
           variants={containerVariants}
           className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
         >
-          <motion.div variants={childVariants} className="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center">
-            <Trophy className="w-8 h-8 text-yellow-500" />
-          </motion.div>
-          <motion.h1 variants={childVariants} className="text-4xl font-bold text-white">成果展示</motion.h1>
+          {/* 删除了此处的奖杯图标 */}
+          <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">成果展示</motion.h1>
           <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
             展示 G-bits 技术中心的自主研发游戏及技术创新成果
           </motion.p>
@@ -161,3 +159,4 @@ const Achievements = () => {
 };
 
 export default Achievements;
+
