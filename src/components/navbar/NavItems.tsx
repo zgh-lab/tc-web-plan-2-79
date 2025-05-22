@@ -6,6 +6,7 @@ export interface NavItem {
   path: string;
   isAction?: boolean;
   actionId?: string;
+  isExternal?: boolean;
 }
 
 export const navItems: NavItem[] = [
@@ -27,7 +28,8 @@ export const navItems: NavItem[] = [
   },
   {
     title: "工具库",
-    path: "/tool-library"
+    path: "https://preview--asset-forge-hub.lovable.app/",
+    isExternal: true
   },
   {
     title: "联系我们",

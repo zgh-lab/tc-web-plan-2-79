@@ -38,32 +38,49 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
       {/* 移动端导航菜单 */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0")}>
         <div className="bg-black px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-sm">
-          {navItems.map((item) => (
-            item.isAction ? (
-              <button 
-                key={item.title}
-                onClick={() => {
-                  scrollToSection(item.actionId || '');
-                  setIsMenuOpen(false);
-                }} 
-                className="block w-full text-left px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900"
-              >
-                {item.title}
-              </button>
-            ) : (
-              <Link 
-                key={item.title}
-                to={item.path} 
-                className="block px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.scrollTo(0, 0);
-                }}
-              >
-                {item.title}
-              </Link>
-            )
-          ))}
+          {navItems.map((item) => {
+            if (item.isAction) {
+              return (
+                <button 
+                  key={item.title}
+                  onClick={() => {
+                    scrollToSection(item.actionId || '');
+                    setIsMenuOpen(false);
+                  }} 
+                  className="block w-full text-left px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900"
+                >
+                  {item.title}
+                </button>
+              );
+            } else if (item.isExternal) {
+              return (
+                <a 
+                  key={item.title}
+                  href={item.path} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.title}
+                </a>
+              );
+            } else {
+              return (
+                <Link 
+                  key={item.title}
+                  to={item.path} 
+                  className="block px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900" 
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  {item.title}
+                </Link>
+              );
+            }
+          })}
         </div>
       </div>
     </>

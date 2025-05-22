@@ -19,7 +19,6 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
-import ToolLibrary from "./pages/ToolLibrary";
 import TechCooperation from "./pages/TechCooperation";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import Achievements from "./pages/Achievements";
@@ -52,7 +51,6 @@ const App = () => {
             <Route path="/tech-cooperation" element={<TechCooperation />} />
             <Route path="/knowledge-base" element={<KnowledgeBase />} />
             <Route path="/achievements" element={<Achievements />} />
-            <Route path="/tool-library" element={<ToolLibrary />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>

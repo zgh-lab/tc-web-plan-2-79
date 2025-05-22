@@ -27,6 +27,15 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                   >
                     {item.title}
                   </button>
+                ) : item.isExternal ? (
+                  <a 
+                    href={item.path} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}
+                  >
+                    {item.title}
+                  </a>
                 ) : (
                   <Link to={item.path}>
                     <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
