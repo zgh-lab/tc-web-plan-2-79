@@ -19,8 +19,8 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
         {/* Logo由Navbar.tsx提供 */}
       </div>
       
-      {/* 导航菜单居中 */}
-      <div className="hidden md:flex items-center justify-center flex-1">
+      {/* 导航菜单稍微向左偏移 */}
+      <div className="hidden md:flex items-center justify-end pr-10 flex-1">
         <NavigationMenu className="text-white">
           <NavigationMenuList className="flex justify-center">
             {navItems.map((item: NavItem) => (
