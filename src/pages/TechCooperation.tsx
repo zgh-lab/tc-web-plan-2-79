@@ -156,7 +156,7 @@ const TechCooperation = () => {
             {/* Central axis line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-500/20"></div>
             
-            <div className="space-y-2"> {/* 减少了上下间距 */}
+            <div className="space-y-1"> {/* 减少了上下间距 */}
               {techTeams.map((team, index) => (
                 <motion.div 
                   key={team.id}
@@ -170,7 +170,7 @@ const TechCooperation = () => {
                     {/* Timeline dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
                     
-                    <div className={`w-full max-w-lg ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                    <div className={`w-full max-w-3xl ${index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                       <Collapsible 
                         open={openItems.includes(team.id)} 
                         onOpenChange={() => toggleItem(team.id)}
@@ -180,45 +180,46 @@ const TechCooperation = () => {
                           <CardContent className="p-0">
                             <CollapsibleTrigger className="w-full text-left">
                               <div 
-                                className="relative p-6 cursor-pointer overflow-hidden"
+                                className="relative p-8 cursor-pointer overflow-hidden"
                                 style={{
                                   backgroundImage: `url(${team.image})`,
                                   backgroundSize: 'cover',
-                                  backgroundPosition: 'center'
+                                  backgroundPosition: 'center',
+                                  height: '480px' // 增加高度到1.5倍
                                 }}
                               >
                                 {/* Overlay for better text readability */}
                                 <div className="absolute inset-0 bg-black/70"></div>
                                 <div className="relative z-10">
                                   <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                        <team.icon className="w-6 h-6 text-blue-400" />
+                                    <div className="flex items-center gap-4">
+                                      <div className="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                        <team.icon className="w-8 h-8 text-blue-400" />
                                       </div>
-                                      <h2 className="text-2xl font-semibold text-white">
+                                      <h2 className="text-3xl font-semibold text-white">
                                         {team.title}
                                       </h2>
                                     </div>
                                     <ChevronDown 
-                                      className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
+                                      className={`w-8 h-8 text-blue-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
                                     />
                                   </div>
-                                  <p className="text-gray-300 mt-3">{team.description}</p>
+                                  <p className="text-xl text-gray-300 mt-4">{team.description}</p>
                                 </div>
                               </div>
                             </CollapsibleTrigger>
                             
                             <CollapsibleContent>
-                              <div className="p-6 pt-3 border-t border-white/10"> {/* 减少了上部间距 */}
-                                <p className="text-gray-300 mb-2">{team.details}</p> {/* 减少了底部间距 */}
+                              <div className="p-8 pt-4 border-t border-white/10"> {/* 增加内边距 */}
+                                <p className="text-xl text-gray-300 mb-4">{team.details}</p> {/* 增加字体大小和间距 */}
                                 
-                                <div className="mb-2"> {/* 减少了底部间距 */}
-                                  <h3 className="text-xl font-semibold text-white mb-1">核心技术</h3> {/* 减少了底部间距 */}
-                                  <div className="flex flex-wrap gap-2">
+                                <div className="mb-4"> {/* 增加底部间距 */}
+                                  <h3 className="text-2xl font-semibold text-white mb-2">核心技术</h3> {/* 增加字体大小 */}
+                                  <div className="flex flex-wrap gap-3">
                                     {team.technologies.map((tech, idx) => (
                                       <span 
                                         key={idx} 
-                                        className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                                        className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-lg"
                                       >
                                         {tech}
                                       </span>
@@ -226,12 +227,12 @@ const TechCooperation = () => {
                                   </div>
                                 </div>
                                 
-                                <div className="mb-2"> {/* 减少了底部间距 */}
-                                  <h3 className="text-xl font-semibold text-white mb-1">主要成果</h3> {/* 减少了底部间距 */}
-                                  <ul className="space-y-1"> {/* 已经很小的间距 */}
+                                <div className="mb-4"> {/* 增加底部间距 */}
+                                  <h3 className="text-2xl font-semibold text-white mb-2">主要成果</h3> {/* 增加字体大小 */}
+                                  <ul className="space-y-2"> {/* 增加行间距 */}
                                     {team.achievements.map((achievement, idx) => (
-                                      <li key={idx} className="flex items-start text-gray-300">
-                                        <ChevronRight className="w-4 h-4 text-blue-400 mt-1 mr-2 shrink-0" />
+                                      <li key={idx} className="flex items-start text-xl text-gray-300">
+                                        <ChevronRight className="w-6 h-6 text-blue-400 mt-1 mr-2 shrink-0" />
                                         <span>{achievement}</span>
                                       </li>
                                     ))}
@@ -239,9 +240,9 @@ const TechCooperation = () => {
                                 </div>
                                 
                                 {/* 只显示联系特定技术组 */}
-                                <div className="mt-2 flex items-center">
-                                  <h3 className="text-lg font-semibold text-white mr-2">联系{team.title}:</h3>
-                                  <a href={`mailto:${team.email}`} className="text-blue-400 hover:underline">
+                                <div className="mt-4 flex items-center">
+                                  <h3 className="text-xl font-semibold text-white mr-2">联系{team.title}:</h3>
+                                  <a href={`mailto:${team.email}`} className="text-xl text-blue-400 hover:underline">
                                     {team.email}
                                   </a>
                                 </div>
