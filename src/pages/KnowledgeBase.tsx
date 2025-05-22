@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
@@ -241,27 +240,41 @@ const KnowledgeBase = () => {
         keywords={['知识库', '技术文档', '学习资源', '开发规范', '技术分享', '专利']}
       />
 
-      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
-        <motion.div 
-          className="container mx-auto"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
-            variants={childVariants}
+      {/* 替换为与成果展示页面相同的背景样式 */}
+      <div className="relative w-full bg-black">
+        {/* 背景图 */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* 半透明蒙版层 */}
+        <div className="absolute inset-0 z-0 bg-black/70"></div>
+        
+        <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+          <motion.div 
+            className="container mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
           >
-            知识库
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
-            variants={childVariants}
-          >
-            汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
-            为团队提供系统化的知识支持和技术积累。
-          </motion.p>
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
+              variants={childVariants}
+            >
+              知识库
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+              variants={childVariants}
+            >
+              汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
+              为团队提供系统化的知识支持和技术积累。
+            </motion.p>
 
           <div className="max-w-6xl mx-auto relative">
             {/* Central axis line - updated to white with gray opacity */}
@@ -371,10 +384,9 @@ const KnowledgeBase = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+      </main>
     </PageLayout>
   );
 };
 
 export default KnowledgeBase;
-

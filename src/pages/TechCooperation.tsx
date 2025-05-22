@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
@@ -131,35 +130,49 @@ const TechCooperation = () => {
         keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
       />
 
-      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
-        <motion.div 
-          className="container mx-auto"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
-            variants={childVariants}
+      {/* 替换为与成果展示页面相同的背景样式 */}
+      <div className="relative w-full bg-black">
+        {/* 背景图 */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* 半透明蒙版层 */}
+        <div className="absolute inset-0 z-0 bg-black/70"></div>
+        
+        <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+          <motion.div 
+            className="container mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
           >
-            技术合作
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
-            variants={childVariants}
-          >
-            我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、<br />
-            工具链、图形渲染方案、前后端性能优化等解决方案。
-          </motion.p>
-
-          <div className="max-w-6xl mx-auto relative">
-            {/* Central axis line - updated to white with gray opacity */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-white/20"></div>
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
+              variants={childVariants}
+            >
+              技术合作
+            </motion.h1>
             
-            <div className="space-y-10"> {/* Increased spacing between modules to allow for vertical overlap */}
-              {techTeams.map((team, index) => (
-                <motion.div 
+            <motion.p 
+              className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+              variants={childVariants}
+            >
+              我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、<br />
+              工具链、图形渲染方案、前后端性能优化等解决方案。
+            </motion.p>
+
+            <div className="max-w-6xl mx-auto relative">
+              {/* Central axis line - updated to white with gray opacity */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-white/20"></div>
+              
+              <div className="space-y-10"> {/* Increased spacing between modules to allow for vertical overlap */}
+                {techTeams.map((team, index) => (
+                  <motion.div 
                   key={team.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -254,10 +267,11 @@ const TechCooperation = () => {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </main>
       </div>
     </PageLayout>
   );
