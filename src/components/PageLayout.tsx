@@ -11,8 +11,13 @@ type PageLayoutProps = {
   showContact?: boolean;
 };
 
-const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
+const PageLayout = ({ children, showContact }: PageLayoutProps) => {
   const location = useLocation();
+  
+  // 只有首页显示联系我们功能
+  const isHomePage = location.pathname === "/";
+  // 如果明确设置了showContact属性，则使用该属性，否则基于是否为首页来决定
+  const shouldShowContact = showContact !== undefined ? showContact : isHomePage;
 
   // Effect to scroll to top when route changes
   useEffect(() => {
@@ -31,9 +36,9 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
          }}>
       <Navbar />
       {children}
-      {showContact && <ContactInfo />}
+      {shouldShowContact && <ContactInfo />}
       <Footer />
-      {showContact && <FloatingContactButton />}
+      {shouldShowContact && <FloatingContactButton />}
     </div>
   );
 };
