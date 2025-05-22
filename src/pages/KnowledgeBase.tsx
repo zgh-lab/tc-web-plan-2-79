@@ -256,8 +256,8 @@ const KnowledgeBase = () => {
           </motion.p>
 
           <div className="max-w-6xl mx-auto relative">
-            {/* Central axis line - making it more visible */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-blue-500/30"></div>
+            {/* Central axis line - updated to white with gray opacity */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-white/20"></div>
             
             <div className="space-y-10"> {/* Increased spacing between modules to allow for vertical overlap */}
               {categories.map((category, index) => (
