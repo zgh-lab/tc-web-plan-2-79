@@ -41,9 +41,6 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <DesktopNav isScrolled={isScrolled} />
-          
-          {/* Mobile Navigation */}
-          <MobileNav isScrolled={isScrolled} />
         </div>
       </div>
     </motion.nav>

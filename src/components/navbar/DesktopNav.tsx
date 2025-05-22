@@ -12,12 +12,16 @@ interface DesktopNavProps {
 
 const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
   return (
-    <>
-      {/* 桌面导航菜单放在中央 */}
+    <div className="flex justify-between items-center w-full">
+      {/* 搜索和设置按钮放在右侧 */}
+      <div className="hidden md:flex items-center space-x-4">
+        {/* 空白占位，保持导航居中 */}
+      </div>
+      
+      {/* 导航菜单居中 */}
       <div className="hidden md:flex items-center justify-center flex-1">
-        {/* 导航链接 */}
         <NavigationMenu className="text-white">
-          <NavigationMenuList>
+          <NavigationMenuList className="flex justify-center">
             {navItems.map((item: NavItem) => (
               <NavigationMenuItem key={item.title}>
                 {item.isAction ? (
@@ -59,7 +63,10 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
           <Settings size={20} />
         </button>
       </div>
-    </>
+      
+      {/* Mobile Navigation */}
+      <MobileNav isScrolled={isScrolled} />
+    </div>
   );
 };
 
