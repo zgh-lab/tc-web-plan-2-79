@@ -42,7 +42,8 @@ const Hero = () => {
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
               <motion.div className="flex items-center justify-center mb-4" variants={itemVariants}>
                 <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap`}>
-                  G-bits 技术中心
+                  <span className="text-white">G-bits</span>
+                  <span className="text-white"> 技术中心</span>
                 </h1>
               </motion.div>
               <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90" variants={itemVariants}>
