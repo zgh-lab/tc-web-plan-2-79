@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
@@ -130,7 +131,7 @@ const TechCooperation = () => {
         keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
       />
 
-      {/* 替换为与成果展示页面相同的背景样式 */}
+      {/* 背景样式与成果展示页面一致 */}
       <div className="relative w-full bg-black">
         {/* 背景图 */}
         <div 
