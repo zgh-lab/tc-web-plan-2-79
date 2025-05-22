@@ -29,6 +29,7 @@ const FloatingContactButton = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
   
+  // Don't render the component at all when not visible
   if (!isVisible) {
     return null;
   }
