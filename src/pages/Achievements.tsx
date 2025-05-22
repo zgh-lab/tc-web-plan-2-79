@@ -1,3 +1,4 @@
+
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight } from 'lucide-react';
@@ -84,12 +85,26 @@ const Achievements = () => {
         keywords={['成果展示', '技术创新', '项目成果', '研发成果']}
       />
 
-      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh]">
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative">
+        {/* 统一的背景图片 */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        
+        {/* 添加的半透明黑色蒙版 */}
+        <div className="absolute inset-0 z-0 bg-black/70"></div>
+        
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
+          className="flex flex-col items-center justify-center space-y-6 mb-12 text-center relative z-10"
         >
           {/* 删除了此处的奖杯图标 */}
           <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">成果展示</motion.h1>
@@ -102,7 +117,7 @@ const Achievements = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 relative z-10"
         >
           {gameShowcase.map((game, index) => (
             <motion.div 
@@ -148,7 +163,7 @@ const Achievements = () => {
           ))}
         </motion.div>
 
-        <div className="mt-12 p-6 border border-blue-500/20 rounded-lg bg-black/30 backdrop-blur-sm">
+        <div className="mt-12 p-6 border border-blue-500/20 rounded-lg bg-black/30 backdrop-blur-sm relative z-10">
           <h3 className="text-xl font-semibold mb-3 text-white">技术突破</h3>
           <p className="text-gray-300">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
         </div>
