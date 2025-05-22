@@ -149,7 +149,8 @@ const TechCooperation = () => {
             className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
             variants={childVariants}
           >
-            我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
+            我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、<br />
+            工具链、图形渲染方案、前后端性能优化等解决方案。
           </motion.p>
 
           <div className="max-w-6xl mx-auto relative">

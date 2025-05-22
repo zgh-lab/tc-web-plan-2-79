@@ -252,7 +252,8 @@ const KnowledgeBase = () => {
             className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
             variants={childVariants}
           >
-            汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，为团队提供系统化的知识支持和技术积累。
+            汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
+            为团队提供系统化的知识支持和技术积累。
           </motion.p>
 
           <div className="max-w-6xl mx-auto relative">

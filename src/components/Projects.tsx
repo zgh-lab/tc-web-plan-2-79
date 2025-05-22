@@ -76,7 +76,8 @@ const Projects = () => {
             知识库
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            探索我们打造的创新虚拟世界产品，连接现实与数字空间，创造全新的互动体验
+            探索我们打造的创新虚拟世界产品，连接现实与数字空间，<br />
+            创造全新的互动体验
           </motion.p>
         </motion.div>
         
