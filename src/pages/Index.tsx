@@ -39,7 +39,7 @@ const Index = () => {
         <div id="content-section">
           <WhyWrlds />
           <Projects />
-          <ContactInfo />
+          {/* Removed ContactInfo component from here */}
           <BlogPreview />
         </div>
       </main>
