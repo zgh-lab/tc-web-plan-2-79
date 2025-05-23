@@ -37,10 +37,10 @@ const Index = () => {
       <main>
         <Hero />
         <div id="content-section">
-          <WhyWrlds />
-          <Projects />
-          {/* Removed ContactInfo component from here */}
+          {/* Swapped the order of BlogPreview and WhyWrlds */}
           <BlogPreview />
+          <Projects />
+          <WhyWrlds />
         </div>
       </main>
     </PageLayout>
