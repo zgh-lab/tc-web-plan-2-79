@@ -47,7 +47,8 @@ const Hero = () => {
                   <span className="text-white"> 技术中心</span>
                 </h1>
               </motion.div>
-              <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90" variants={itemVariants}>
+              {/* Moved the mission statement up by adjusting the negative margin-top */}
+              <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[-20px]" variants={itemVariants}>
                 我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
               </motion.p>
             </motion.div>
