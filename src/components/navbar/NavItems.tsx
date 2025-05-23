@@ -30,13 +30,8 @@ export const navItems: NavItem[] = [
     title: "工具库",
     path: "https://preview--asset-forge-hub.lovable.app/",
     isExternal: true
-  },
-  {
-    title: "联系我们",
-    path: "#",
-    isAction: true,
-    actionId: "contact"
   }
+  // "联系我们" item has been removed
 ];
 
 export const scrollToSection = (id: string) => {

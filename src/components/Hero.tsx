@@ -54,9 +54,9 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Circular scroll down indicator - now centered at the bottom */}
+        {/* Circular scroll down indicator - now positioned higher */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
+          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
