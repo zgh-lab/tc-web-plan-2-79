@@ -152,51 +152,51 @@
   }
 }
 
-/* Neon text effects with reduced intensity and cyan color */
+/* Neon text effects with significantly reduced intensity and cyan color */
 .neon-text {
   position: relative;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5),
-               0 0 2px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3),
+               0 0 1px rgba(255, 255, 255, 0.2);
   animation: neon-pulse 3s ease-in-out infinite alternate;
 }
 
 .neon-blue, .neon-green {
   text-shadow: 
+    0 0 1px #fff,
     0 0 2px #fff,
-    0 0 4px #fff,
-    0 0 7px #fff,
-    0 0 10px #00CED1,
-    0 0 15px #00CED1;
+    0 0 3px #fff,
+    0 0 5px #00CED1,
+    0 0 8px #00CED1;
   animation: neon-pulse-unified 3s ease-in-out infinite alternate;
 }
 
 @keyframes neon-pulse {
   0%, 100% {
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5),
-                0 0 2px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3),
+                0 0 1px rgba(255, 255, 255, 0.2);
   }
   50% {
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6),
-                0 0 3px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4),
+                0 0 2px rgba(255, 255, 255, 0.3);
   }
 }
 
 @keyframes neon-pulse-unified {
   0%, 100% {
     text-shadow: 
+      0 0 1px #fff,
       0 0 2px #fff,
-      0 0 4px #fff,
-      0 0 7px #fff,
-      0 0 10px #00CED1,
-      0 0 15px #00CED1;
+      0 0 3px #fff,
+      0 0 5px #00CED1,
+      0 0 8px #00CED1;
   }
   50% {
     text-shadow: 
-      0 0 2px #fff,
-      0 0 5px #fff,
-      0 0 8px #fff,
-      0 0 12px #00CED1,
-      0 0 18px #00CED1;
+      0 0 1px #fff,
+      0 0 3px #fff,
+      0 0 4px #fff,
+      0 0 6px #00CED1,
+      0 0 9px #00CED1;
   }
 }
 
