@@ -2,7 +2,7 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
-import * as THREE from 'three';
+import * THREE from 'three';
 
 // 3D星空粒子系统 - 优化性能和视觉效果
 function StarField({ count = 3000 }) {
@@ -85,7 +85,7 @@ function StarField({ count = 3000 }) {
   );
 }
 
-// 浮动几何体 - 更复杂的动画效果
+// 浮动几何体 - 修复位置和可见性问题
 function FloatingGeometry() {
   const meshes = useRef<THREE.Group>(null);
   
@@ -110,8 +110,8 @@ function FloatingGeometry() {
         mesh.rotation.z = t * (0.4 + i * 0.08) + Math.sin(t * 0.7 + i) * 0.1;
         
         // 降低鼠标交互敏感度
-        mesh.rotation.y += mouse.x * 0.2;
-        mesh.rotation.x += mouse.y * 0.2;
+        mesh.rotation.y += mouse.x * 0.1;
+        mesh.rotation.x += mouse.y * 0.1;
         
         // 添加缩放动画
         const scale = 1 + Math.sin(t + i * 2) * 0.1;
@@ -122,63 +122,68 @@ function FloatingGeometry() {
 
   return (
     <group ref={meshes}>
-      {/* 立方体 - 更鲜艳的颜色 */}
-      <mesh position={[-8, 0, -5]}>
-        <boxGeometry args={[1.2, 1.2, 1.2]} />
+      {/* 立方体 - 调整位置到视野内，增强可见性 */}
+      <mesh position={[-4, 2, 0]}>
+        <boxGeometry args={[1.5, 1.5, 1.5]} />
         <meshStandardMaterial 
           color="#00d4ff" 
           transparent 
-          opacity={0.8}
-          wireframe
-          emissive="#001122"
+          opacity={1}
+          wireframe={false}
+          emissive="#003366"
+          emissiveIntensity={0.3}
         />
       </mesh>
       
       {/* 八面体 */}
-      <mesh position={[8, 0, -3]}>
-        <octahedronGeometry args={[1.2]} />
+      <mesh position={[4, -1, 2]}>
+        <octahedronGeometry args={[1.5]} />
         <meshStandardMaterial 
           color="#ff6b9d" 
           transparent 
-          opacity={0.8}
-          wireframe
-          emissive="#220011"
+          opacity={1}
+          wireframe={false}
+          emissive="#330022"
+          emissiveIntensity={0.3}
         />
       </mesh>
       
       {/* 圆环 */}
-      <mesh position={[0, 6, -8]}>
-        <torusGeometry args={[1.8, 0.6, 12, 32]} />
+      <mesh position={[0, 3, -2]}>
+        <torusGeometry args={[2, 0.7, 12, 32]} />
         <meshStandardMaterial 
           color="#7c3aed" 
           transparent 
-          opacity={0.7}
-          wireframe
-          emissive="#110022"
+          opacity={1}
+          wireframe={false}
+          emissive="#220033"
+          emissiveIntensity={0.3}
         />
       </mesh>
       
       {/* 四面体 */}
-      <mesh position={[-6, -4, -6]}>
-        <tetrahedronGeometry args={[1.4]} />
+      <mesh position={[-3, -2, 1]}>
+        <tetrahedronGeometry args={[1.8]} />
         <meshStandardMaterial 
           color="#06ffa5" 
           transparent 
-          opacity={0.8}
-          wireframe
-          emissive="#001122"
+          opacity={1}
+          wireframe={false}
+          emissive="#003322"
+          emissiveIntensity={0.3}
         />
       </mesh>
       
-      {/* 新增：十二面体 */}
-      <mesh position={[6, -2, -4]}>
-        <dodecahedronGeometry args={[1]} />
+      {/* 十二面体 */}
+      <mesh position={[3, 1, -1]}>
+        <dodecahedronGeometry args={[1.2]} />
         <meshStandardMaterial 
           color="#fbbf24" 
           transparent 
-          opacity={0.7}
-          wireframe
-          emissive="#221100"
+          opacity={1}
+          wireframe={false}
+          emissive="#332200"
+          emissiveIntensity={0.3}
         />
       </mesh>
     </group>
@@ -191,8 +196,8 @@ function CameraController() {
   
   useFrame(() => {
     // 更微妙的相机移动跟随鼠标
-    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 1, 0.02);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, mouse.y * 1, 0.02);
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 0.5, 0.02);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, mouse.y * 0.5, 0.02);
   });
   
   return null;
@@ -202,30 +207,31 @@ const ThreeDBackground = () => {
   return (
     <div className="absolute inset-0 w-full h-full">
       <Canvas
-        camera={{ position: [0, 0, 12], fov: 55 }}
+        camera={{ position: [0, 0, 8], fov: 65 }}
         gl={{ 
           antialias: true, 
           alpha: true,
           powerPreference: "high-performance",
-          pixelRatio: Math.min(window.devicePixelRatio, 2) // 性能优化
+          pixelRatio: Math.min(window.devicePixelRatio, 2)
         }}
         dpr={[1, 2]}
-        performance={{ min: 0.5 }} // 性能优化
+        performance={{ min: 0.5 }}
       >
         <color attach="background" args={['#000000']} />
         
-        {/* 环境光 - 调整强度 */}
-        <ambientLight intensity={0.3} color="#1a1a2e" />
+        {/* 环境光 - 增强亮度让几何体更可见 */}
+        <ambientLight intensity={0.6} color="#1a1a2e" />
         
         {/* 主光源 - 更强的光照 */}
         <directionalLight 
-          position={[15, 15, 8]} 
-          intensity={1.5} 
+          position={[10, 10, 5]} 
+          intensity={2} 
           color="#4f46e5"
         />
         
         {/* 额外的光源增强效果 */}
-        <pointLight position={[-10, -10, -10]} intensity={0.8} color="#7c3aed" />
+        <pointLight position={[-5, -5, 5]} intensity={1.2} color="#7c3aed" />
+        <pointLight position={[5, 5, -5]} intensity={1} color="#00d4ff" />
         
         {/* 粒子星空 */}
         <StarField />
@@ -245,21 +251,21 @@ const ThreeDBackground = () => {
         />
       </Canvas>
       
-      {/* 优化渐变叠加层 */}
+      {/* 优化渐变叠加层 - 降低透明度让几何体更明显 */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
             radial-gradient(circle at 30% 70%, 
-              rgba(0, 212, 255, 0.15) 0%, 
-              rgba(124, 58, 237, 0.08) 25%,
-              rgba(255, 107, 157, 0.05) 50%,
-              rgba(0, 0, 0, 0.7) 80%),
+              rgba(0, 212, 255, 0.08) 0%, 
+              rgba(124, 58, 237, 0.04) 25%,
+              rgba(255, 107, 157, 0.02) 50%,
+              rgba(0, 0, 0, 0.4) 80%),
             linear-gradient(135deg, 
-              rgba(0, 0, 0, 0.85) 0%, 
-              rgba(26, 26, 46, 0.7) 30%,
-              rgba(15, 23, 42, 0.8) 70%, 
-              rgba(0, 0, 0, 0.9) 100%)
+              rgba(0, 0, 0, 0.6) 0%, 
+              rgba(26, 26, 46, 0.4) 30%,
+              rgba(15, 23, 42, 0.5) 70%, 
+              rgba(0, 0, 0, 0.7) 100%)
           `
         }}
       />
