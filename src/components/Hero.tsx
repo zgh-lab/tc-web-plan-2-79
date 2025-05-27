@@ -3,7 +3,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
-import InteractiveBackground from "./InteractiveBackground";
+import ThreeDBackground from "./ThreeDBackground";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -68,7 +68,7 @@ const Hero = () => {
             opacity: backgroundOpacity
           }}
         >
-          <InteractiveBackground />
+          <ThreeDBackground />
         </motion.div>
         
         <motion.div 
