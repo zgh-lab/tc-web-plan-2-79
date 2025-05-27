@@ -3,6 +3,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
+import InteractiveBackground from "./InteractiveBackground";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -21,8 +22,7 @@ const Hero = () => {
   
   // 背景动画值
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const gradientOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.5]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3]);
   
   const containerVariants = {
     hidden: {
@@ -62,21 +62,13 @@ const Hero = () => {
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
         <motion.div 
-          className="absolute inset-0 bg-transparent w-full"
+          className="absolute inset-0 w-full"
           style={{
             y: backgroundY,
-            scale: backgroundScale
+            opacity: backgroundOpacity
           }}
         >
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/50"
-            style={{ opacity: gradientOpacity }}
-          ></motion.div>
-          {/* Added bottom gradient overlay for better transition to next section */}
-          <motion.div 
-            className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 via-black/30 to-transparent"
-            style={{ opacity: gradientOpacity }}
-          ></motion.div>
+          <InteractiveBackground />
         </motion.div>
         
         <motion.div 
