@@ -44,9 +44,9 @@ const Hero = () => {
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
               <motion.div className="flex items-center justify-center mb-4" variants={itemVariants}>
-                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap neon-text`}>
-                  <span className="text-white neon-blue">G-bits</span>
-                  <span className="text-white neon-green"> 技术中心</span>
+                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title`}>
+                  <span className="text-white font-extralight">G-bits</span>
+                  <span className="text-white font-normal"> 技术中心</span>
                 </h1>
               </motion.div>
               {/* Moved the mission statement down by adjusting the margin-top */}
