@@ -19,6 +19,11 @@ const Hero = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   
+  // 背景动画值
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const gradientOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.5]);
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -56,11 +61,23 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        <div className="absolute inset-0 bg-transparent w-full">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/50"></div>
+        <motion.div 
+          className="absolute inset-0 bg-transparent w-full"
+          style={{
+            y: backgroundY,
+            scale: backgroundScale
+          }}
+        >
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/50"
+            style={{ opacity: gradientOpacity }}
+          ></motion.div>
           {/* Added bottom gradient overlay for better transition to next section */}
-          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-        </div>
+          <motion.div 
+            className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 via-black/30 to-transparent"
+            style={{ opacity: gradientOpacity }}
+          ></motion.div>
+        </motion.div>
         
         <motion.div 
           className="banner-overlay bg-transparent pt-21 md:pt-24 w-full"
