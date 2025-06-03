@@ -64,7 +64,7 @@ const BlogPreview = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={post.coverImage} 
+                  src={post.image} 
                   alt={post.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -91,7 +91,7 @@ const BlogPreview = () => {
                   </div>
                   <div className="flex items-center">
                     <Calendar className="w-3 h-3 mr-1" />
-                    {post.publishedAt}
+                    {post.date}
                   </div>
                   <div className="flex items-center">
                     <Clock className="w-3 h-3 mr-1" />

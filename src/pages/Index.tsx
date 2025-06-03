@@ -47,6 +47,7 @@ const Index = () => {
           <BlogPreview />
           <Projects />
           <WhyWrlds />
+          <ContactInfo />
         </div>
       </main>
     </PageLayout>
