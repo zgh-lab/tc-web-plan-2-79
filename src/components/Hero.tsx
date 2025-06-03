@@ -2,7 +2,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import ThreeDBackground from "./ThreeDBackground";
 import ParticleTitle from "./ParticleTitle";
 
@@ -24,6 +24,24 @@ const Hero = () => {
   // 背景动画值
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3]);
+  
+  // 鼠标移动交互
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      
+      // 更新CSS变量用于背景渐变
+      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+    };
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
   
   const containerVariants = {
     hidden: {
@@ -82,11 +100,11 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 粒子标题效果 */}
-              <motion.div className="relative h-32 mb-8" variants={itemVariants}>
+              {/* 增强的粒子标题效果 */}
+              <motion.div className="relative h-40 mb-8" variants={itemVariants}>
                 <ParticleTitle />
-                {/* 传统文字作为后备 */}
-                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title absolute inset-0 flex items-center justify-center opacity-20`}>
+                {/* 半透明文字作为后备和增强效果 */}
+                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title absolute inset-0 flex items-center justify-center opacity-10`}>
                   <span className="text-white font-extralight">G-bits</span>
                   <span className="text-white font-normal"> 技术中心</span>
                 </h1>
@@ -99,7 +117,7 @@ const Hero = () => {
           </div>
         </motion.div>
         
-        {/* Circular scroll down indicator - now positioned higher */}
+        {/* 滚动指示器 */}
         <motion.div 
           className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white"
           initial={{ opacity: 0 }}
