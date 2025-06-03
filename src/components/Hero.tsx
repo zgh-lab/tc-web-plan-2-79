@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
 import ThreeDBackground from "./ThreeDBackground";
+import ParticleTitle from "./ParticleTitle";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -81,13 +82,16 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              <motion.div className="flex items-center justify-center mb-4" variants={itemVariants}>
-                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title`}>
+              {/* 粒子标题效果 */}
+              <motion.div className="relative h-32 mb-8" variants={itemVariants}>
+                <ParticleTitle />
+                {/* 传统文字作为后备 */}
+                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title absolute inset-0 flex items-center justify-center opacity-20`}>
                   <span className="text-white font-extralight">G-bits</span>
                   <span className="text-white font-normal"> 技术中心</span>
                 </h1>
               </motion.div>
-              {/* Moved the mission statement down by adjusting the margin-top */}
+              
               <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[10px]" variants={itemVariants}>
                 我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
               </motion.p>

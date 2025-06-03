@@ -85,111 +85,6 @@ function StarField({ count = 3000 }) {
   );
 }
 
-// 浮动几何体 - 修复位置和可见性问题
-function FloatingGeometry() {
-  const meshes = useRef<THREE.Group>(null);
-  
-  useFrame((state) => {
-    const { clock, mouse } = state;
-    const t = clock.getElapsedTime();
-    
-    if (meshes.current) {
-      meshes.current.children.forEach((child, i) => {
-        const mesh = child as THREE.Mesh;
-        
-        // 更复杂的浮动动画 - 添加螺旋运动
-        const amplitude = 2 + i * 0.5;
-        const frequency = 0.5 + i * 0.1;
-        mesh.position.y = Math.sin(t * frequency + i) * amplitude;
-        mesh.position.x += Math.cos(t * frequency * 0.7 + i) * 0.01;
-        mesh.position.z += Math.sin(t * frequency * 0.5 + i) * 0.01;
-        
-        // 更动态的旋转效果
-        mesh.rotation.x = t * (0.3 + i * 0.1) + Math.sin(t + i) * 0.2;
-        mesh.rotation.y = t * (0.2 + i * 0.05) + Math.cos(t + i) * 0.3;
-        mesh.rotation.z = t * (0.4 + i * 0.08) + Math.sin(t * 0.7 + i) * 0.1;
-        
-        // 降低鼠标交互敏感度
-        mesh.rotation.y += mouse.x * 0.1;
-        mesh.rotation.x += mouse.y * 0.1;
-        
-        // 添加缩放动画
-        const scale = 1 + Math.sin(t + i * 2) * 0.1;
-        mesh.scale.setScalar(scale);
-      });
-    }
-  });
-
-  return (
-    <group ref={meshes}>
-      {/* 立方体 - 调整位置到视野内，增强可见性 */}
-      <mesh position={[-4, 2, 0]}>
-        <boxGeometry args={[1.5, 1.5, 1.5]} />
-        <meshStandardMaterial 
-          color="#00d4ff" 
-          transparent 
-          opacity={1}
-          wireframe={false}
-          emissive="#003366"
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-      
-      {/* 八面体 */}
-      <mesh position={[4, -1, 2]}>
-        <octahedronGeometry args={[1.5]} />
-        <meshStandardMaterial 
-          color="#ff6b9d" 
-          transparent 
-          opacity={1}
-          wireframe={false}
-          emissive="#330022"
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-      
-      {/* 圆环 */}
-      <mesh position={[0, 3, -2]}>
-        <torusGeometry args={[2, 0.7, 12, 32]} />
-        <meshStandardMaterial 
-          color="#7c3aed" 
-          transparent 
-          opacity={1}
-          wireframe={false}
-          emissive="#220033"
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-      
-      {/* 四面体 */}
-      <mesh position={[-3, -2, 1]}>
-        <tetrahedronGeometry args={[1.8]} />
-        <meshStandardMaterial 
-          color="#06ffa5" 
-          transparent 
-          opacity={1}
-          wireframe={false}
-          emissive="#003322"
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-      
-      {/* 十二面体 */}
-      <mesh position={[3, 1, -1]}>
-        <dodecahedronGeometry args={[1.2]} />
-        <meshStandardMaterial 
-          color="#fbbf24" 
-          transparent 
-          opacity={1}
-          wireframe={false}
-          emissive="#332200"
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-    </group>
-  );
-}
-
 // 相机控制器 - 降低敏感度
 function CameraController() {
   const { camera, mouse } = useThree();
@@ -219,7 +114,7 @@ const ThreeDBackground = () => {
       >
         <color attach="background" args={['#000000']} />
         
-        {/* 环境光 - 增强亮度让几何体更可见 */}
+        {/* 环境光 - 增强亮度 */}
         <ambientLight intensity={0.6} color="#1a1a2e" />
         
         {/* 主光源 - 更强的光照 */}
@@ -236,9 +131,6 @@ const ThreeDBackground = () => {
         {/* 粒子星空 */}
         <StarField />
         
-        {/* 浮动几何体 */}
-        <FloatingGeometry />
-        
         {/* 相机控制 */}
         <CameraController />
         
@@ -251,7 +143,7 @@ const ThreeDBackground = () => {
         />
       </Canvas>
       
-      {/* 优化渐变叠加层 - 降低透明度让几何体更明显 */}
+      {/* 优化渐变叠加层 */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
