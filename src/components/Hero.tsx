@@ -1,11 +1,9 @@
 
-
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef, useEffect } from "react";
 import ThreeDBackground from "./ThreeDBackground";
-import ParticleTitle from "./ParticleTitle";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -101,10 +99,21 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 粒子组成的标题，无泛光效果 */}
-              <motion.div className="relative h-40 mb-8" variants={itemVariants}>
-                <ParticleTitle />
-              </motion.div>
+              {/* 清晰的文字标题，去除粒子效果 */}
+              <motion.h1 
+                className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8 elegant-title"
+                variants={itemVariants}
+                style={{
+                  background: 'linear-gradient(135deg, #ffffff 0%, #e5e7eb 50%, #9ca3af 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)',
+                  letterSpacing: '0.02em'
+                }}
+              >
+                G-bits 技术中心
+              </motion.h1>
               
               <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-95 mt-[10px]" variants={itemVariants}>
                 我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
@@ -135,4 +144,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
