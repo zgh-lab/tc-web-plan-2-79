@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogPosts } from "@/data/blogPosts";
-import ThreeDBackground from "./ThreeDBackground";
 
 const BlogPreview = () => {
   // 获取最新的3篇博客文章
@@ -32,14 +31,9 @@ const BlogPreview = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
-      {/* 3D背景 */}
-      <div className="absolute inset-0 w-full h-full">
-        <ThreeDBackground />
-      </div>
-      
+    <section className="relative py-16 md:py-24 z-10">
       {/* 内容层 */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -70,7 +64,7 @@ const BlogPreview = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={post.image} 
+                  src={post.coverImage} 
                   alt={post.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -97,11 +91,11 @@ const BlogPreview = () => {
                   </div>
                   <div className="flex items-center">
                     <Calendar className="w-3 h-3 mr-1" />
-                    {post.date}
+                    {post.publishedAt}
                   </div>
                   <div className="flex items-center">
                     <Clock className="w-3 h-3 mr-1" />
-                    {post.readTime}
+                    阅读时间: 5分钟
                   </div>
                 </div>
                 
