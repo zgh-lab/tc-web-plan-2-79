@@ -1,8 +1,7 @@
-
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
-import * THREE from 'three';
+import * as THREE from 'three';
 
 // 3D星空粒子系统 - 优化性能和视觉效果
 function StarField({ count = 3000 }) {
