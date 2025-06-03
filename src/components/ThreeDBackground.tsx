@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
@@ -136,7 +135,7 @@ const ThreeDBackground = () => {
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
       >
-        <color attach="background" args={['#0a0a1a']} />
+        <color attach="background" args={['#0f1020']} />
         
         {/* 环境光 - 增加亮度 */}
         <ambientLight intensity={0.6} color="#1a1a3e" />
@@ -166,18 +165,19 @@ const ThreeDBackground = () => {
         />
       </Canvas>
       
-      {/* 调整渐变叠加层 - 减少暗度，增加色彩层次 */}
+      {/* 增大鼠标光晕直径的渐变叠加层 */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-300"
         style={{
           background: `
             radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-              rgba(0, 212, 255, 0.12) 0%, 
-              rgba(124, 58, 237, 0.08) 30%,
-              rgba(255, 107, 157, 0.04) 60%,
-              rgba(0, 0, 0, 0.2) 100%),
+              rgba(0, 212, 255, 0.15) 0%, 
+              rgba(124, 58, 237, 0.10) 25%,
+              rgba(255, 107, 157, 0.06) 50%,
+              rgba(0, 0, 0, 0.1) 75%,
+              rgba(0, 0, 0, 0.3) 100%),
             linear-gradient(135deg, 
-              rgba(10, 10, 26, 0.4) 0%, 
+              rgba(15, 16, 32, 0.4) 0%, 
               rgba(26, 26, 46, 0.2) 40%,
               rgba(15, 23, 42, 0.3) 80%, 
               rgba(0, 0, 0, 0.4) 100%)

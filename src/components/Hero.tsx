@@ -1,9 +1,11 @@
 
+
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef, useEffect } from "react";
 import ThreeDBackground from "./ThreeDBackground";
+import ParticleTitle from "./ParticleTitle";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -99,12 +101,9 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 移除粒子效果，保留更亮更白的文字标题 */}
+              {/* 粒子组成的标题，无泛光效果 */}
               <motion.div className="relative h-40 mb-8" variants={itemVariants}>
-                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title flex items-center justify-center h-full`}>
-                  <span className="text-white font-extralight drop-shadow-2xl" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6)' }}>G-bits</span>
-                  <span className="text-white font-normal drop-shadow-2xl ml-2" style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6)' }}> 技术中心</span>
-                </h1>
+                <ParticleTitle />
               </motion.div>
               
               <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-95 mt-[10px]" variants={itemVariants}>
@@ -136,3 +135,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
