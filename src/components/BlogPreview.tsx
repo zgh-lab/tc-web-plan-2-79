@@ -1,64 +1,14 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem
-} from "@/components/ui/carousel";
-
-// Define the game showcase items
-const gameShowcase = [
-  {
-    id: "game1",
-    title: "XXX",
-    imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
-    description: "经典东方玄幻风格的修仙冒险游戏，融合仙侠世界观与独特的战斗系统",
-    category: "角色扮演",
-    year: "2023"
-  },
-  {
-    id: "game2",
-    title: "XXX",
-    imageUrl: "/lovable-uploads/da393bd2-41b5-476f-9bab-baec29aa6ec5.png",
-    description: "国风武侠世界，玩家在修炼中探索神秘剑道，体验独特的江湖人生",
-    category: "动作冒险",
-    year: "2022"
-  },
-  {
-    id: "game3",
-    title: "XXX",
-    imageUrl: "/lovable-uploads/421bed1b-6f82-4bd4-9505-32cec7e98532.png",
-    description: "一周年特别版本，全新角色及玩法，带来前所未有的游戏体验",
-    category: "策略角色",
-    year: "2024"
-  },
-  {
-    id: "game4",
-    title: "XXX",
-    imageUrl: "/lovable-uploads/e7b5a53f-f4f9-45bc-828a-a909896c792a.png",
-    description: "古风仙侠题材，探索奇妙仙境，感受深厚传统文化底蕴",
-    category: "冒险探索",
-    year: "2023"
-  },
-  {
-    id: "game5",
-    title: "XXX",
-    imageUrl: "/lovable-uploads/247840ca-80a0-4c4e-9374-070ad3088344.png",
-    description: "轻松可爱的恋爱模拟游戏，让玩家体验浪漫互动剧情",
-    category: "恋爱模拟",
-    year: "2024"
-  }
-];
+import { blogPosts } from "@/data/blogPosts";
+import ThreeDBackground from "./ThreeDBackground";
 
 const BlogPreview = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const animationRef = useRef<number | null>(null);
-  const scrollSpeed = 1; // 每帧滚动的像素数，调整此值可以改变滚动速度
-  
+  // 获取最新的3篇博客文章
+  const latestPosts = blogPosts.slice(0, 3);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -81,64 +31,27 @@ const BlogPreview = () => {
     }
   };
 
-  // 实现平滑滚动的动画函数
-  const scrollAnimation = () => {
-    if (scrollContainerRef.current && !isPaused) {
-      const container = scrollContainerRef.current;
-      
-      // 如果已经滚动到最右侧，则重置到左侧开始位置
-      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-        container.scrollLeft = 0;
-      } else {
-        // 否则继续向右滚动
-        container.scrollLeft += scrollSpeed;
-      }
-    }
-    
-    // 继续下一帧的动画
-    animationRef.current = requestAnimationFrame(scrollAnimation);
-  };
-
-  // 启动和停止滚动动画
-  useEffect(() => {
-    // 启动动画
-    animationRef.current = requestAnimationFrame(scrollAnimation);
-    
-    // 清理函数
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [isPaused]);
-
-  // 鼠标悬停暂停，离开继续滚动
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-  };
-
-  // 确保组件中卡片的数量足够填满容器并实现无缝滚动
-  const duplicatedShowcase = [...gameShowcase, ...gameShowcase];
-
   return (
-    <section id="blog" className="py-16 md:py-24 bg-gradient-to-b from-black/90 to-black/85 backdrop-blur-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 md:py-24 overflow-hidden">
+      {/* 3D背景 */}
+      <div className="absolute inset-0 w-full h-full">
+        <ThreeDBackground />
+      </div>
+      
+      {/* 内容层 */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="mb-8 text-center"
+          className="mb-12 text-center"
         >
-          <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white">
-            合作项目
+          <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            最新动态
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产
+            了解G-bits技术中心的最新技术研究、项目进展和行业洞察
           </motion.p>
         </motion.div>
         
@@ -147,65 +60,70 @@ const BlogPreview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative mb-8"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {/* Left gradient mask */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-black/90 to-transparent pointer-events-none" />
-          
-          {/* 滚动容器 */}
-          <div className="overflow-hidden">
-            <div 
-              ref={scrollContainerRef}
-              className="flex py-4 gap-4 w-full"
-              style={{ overflowX: 'hidden' }}
+          {latestPosts.map((post) => (
+            <motion.article 
+              key={post.slug}
+              variants={childVariants}
+              className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all"
             >
-              {duplicatedShowcase.map((game, index) => (
-                <motion.div 
-                  key={`${game.id}-${index}`}
-                  variants={childVariants}
-                  className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 pl-4"
-                >
-                  <div 
-                    className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
-                  >
-                    <div className="block h-full">
-                      <div className="relative h-64 overflow-hidden">
-                        <img 
-                          src={game.imageUrl} 
-                          alt={game.title}
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                      </div>
-                      
-                      <div className="p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-blue-400 text-sm">{game.category}</span>
-                          <span className="text-gray-400 text-sm">{game.year}</span>
-                        </div>
-                        
-                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
-                        <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
-                      </div>
-                    </div>
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <span className="bg-blue-600/20 backdrop-blur-sm text-blue-400 text-xs px-2 py-1 rounded-full">
+                    {post.category}
+                  </span>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3 text-white line-clamp-2 group-hover:text-blue-300 transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-gray-300 mb-4 line-clamp-3 text-sm leading-relaxed">
+                  {post.excerpt}
+                </p>
+                
+                <div className="flex items-center text-xs text-gray-400 mb-4 space-x-4">
+                  <div className="flex items-center">
+                    <User className="w-3 h-3 mr-1" />
+                    {post.author}
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Right gradient mask */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-black/90 to-transparent pointer-events-none" />
+                  <div className="flex items-center">
+                    <Calendar className="w-3 h-3 mr-1" />
+                    {post.date}
+                  </div>
+                  <div className="flex items-center">
+                    <Clock className="w-3 h-3 mr-1" />
+                    {post.readTime}
+                  </div>
+                </div>
+                
+                <Link 
+                  to={`/blog/${post.slug}`} 
+                  className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group/link text-sm font-medium"
+                >
+                  阅读全文 
+                  <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </motion.article>
+          ))}
         </motion.div>
         
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-12">
           <Link 
-            to="/achievements" 
-            className="px-6 py-3 bg-blue-600/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
+            to="/blog" 
+            onClick={() => window.scrollTo(0, 0)}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
           >
-            查看更多成果
+            查看所有文章
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </div>
