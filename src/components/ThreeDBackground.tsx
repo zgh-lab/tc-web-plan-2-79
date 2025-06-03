@@ -136,21 +136,21 @@ const ThreeDBackground = () => {
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
       >
-        <color attach="background" args={['#000000']} />
+        <color attach="background" args={['#0a0a1a']} />
         
-        {/* 环境光 */}
-        <ambientLight intensity={0.4} color="#0a0a2e" />
+        {/* 环境光 - 增加亮度 */}
+        <ambientLight intensity={0.6} color="#1a1a3e" />
         
         {/* 主光源 */}
         <directionalLight 
           position={[10, 10, 5]} 
-          intensity={1.5} 
+          intensity={2} 
           color="#4f46e5"
         />
         
         {/* 额外光源 */}
-        <pointLight position={[-10, -10, 5]} intensity={1} color="#7c3aed" />
-        <pointLight position={[10, -10, -5]} intensity={0.8} color="#06ffa5" />
+        <pointLight position={[-10, -10, 5]} intensity={1.5} color="#7c3aed" />
+        <pointLight position={[10, -10, -5]} intensity={1.2} color="#06ffa5" />
         
         {/* 5000个粒子的星空系统 */}
         <StarField />
@@ -166,21 +166,21 @@ const ThreeDBackground = () => {
         />
       </Canvas>
       
-      {/* 动态渐变叠加层 - 响应鼠标移动 */}
+      {/* 调整渐变叠加层 - 减少暗度，增加色彩层次 */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-300"
         style={{
           background: `
             radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-              rgba(0, 212, 255, 0.06) 0%, 
-              rgba(124, 58, 237, 0.03) 30%,
-              rgba(255, 107, 157, 0.02) 60%,
-              rgba(0, 0, 0, 0.3) 100%),
+              rgba(0, 212, 255, 0.12) 0%, 
+              rgba(124, 58, 237, 0.08) 30%,
+              rgba(255, 107, 157, 0.04) 60%,
+              rgba(0, 0, 0, 0.2) 100%),
             linear-gradient(135deg, 
-              rgba(0, 0, 0, 0.5) 0%, 
-              rgba(26, 26, 46, 0.3) 40%,
-              rgba(15, 23, 42, 0.4) 80%, 
-              rgba(0, 0, 0, 0.6) 100%)
+              rgba(10, 10, 26, 0.4) 0%, 
+              rgba(26, 26, 46, 0.2) 40%,
+              rgba(15, 23, 42, 0.3) 80%, 
+              rgba(0, 0, 0, 0.4) 100%)
           `
         }}
       />

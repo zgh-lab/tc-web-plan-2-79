@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
@@ -7,7 +6,6 @@ import * as THREE from 'three';
 function ParticleText() {
   const pointsRef = useRef<THREE.Points>(null);
   
-  // 生成"G-bits 技术中心"的噪点粒子效果
   const particleData = useMemo(() => {
     const positions = [];
     const colors = [];
@@ -37,29 +35,29 @@ function ParticleText() {
         (Math.random() - 0.5) * 0.02
       );
       
-      // 更丰富的颜色变化 - 白色到蓝色渐变
+      // 更亮的颜色变化 - 白色到蓝色渐变
       const intensity = Math.random();
       const colorType = Math.random();
       
-      if (colorType < 0.6) {
-        // 白色粒子
+      if (colorType < 0.5) {
+        // 更亮的白色粒子
         colors.push(
-          0.9 + intensity * 0.1,
-          0.9 + intensity * 0.1,
+          0.95 + intensity * 0.05,
+          0.95 + intensity * 0.05,
           1.0
         );
-      } else if (colorType < 0.8) {
-        // 蓝色粒子
+      } else if (colorType < 0.75) {
+        // 更亮的蓝色粒子
         colors.push(
-          0.2 + intensity * 0.3,
-          0.6 + intensity * 0.4,
+          0.4 + intensity * 0.4,
+          0.7 + intensity * 0.3,
           1.0
         );
       } else {
-        // 青色粒子
+        // 更亮的青色粒子
         colors.push(
-          0.0 + intensity * 0.2,
-          0.8 + intensity * 0.2,
+          0.2 + intensity * 0.3,
+          0.9 + intensity * 0.1,
           1.0
         );
       }
@@ -125,7 +123,7 @@ function ParticleText() {
       <PointMaterial
         transparent
         vertexColors
-        size={0.03}
+        size={0.04}
         sizeAttenuation={true}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
@@ -141,9 +139,9 @@ const ParticleTitle = () => {
         camera={{ position: [0, 0, 12], fov: 60 }}
         gl={{ alpha: true, antialias: true }}
       >
-        <ambientLight intensity={0.3} />
-        <pointLight position={[5, 5, 5]} intensity={1} color="#00d4ff" />
-        <pointLight position={[-5, -5, 5]} intensity={0.8} color="#7c3aed" />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[5, 5, 5]} intensity={1.5} color="#00d4ff" />
+        <pointLight position={[-5, -5, 5]} intensity={1.2} color="#7c3aed" />
         <ParticleText />
       </Canvas>
     </div>

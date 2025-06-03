@@ -1,4 +1,3 @@
-
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -103,14 +102,14 @@ const Hero = () => {
               {/* 增强的粒子标题效果 */}
               <motion.div className="relative h-40 mb-8" variants={itemVariants}>
                 <ParticleTitle />
-                {/* 半透明文字作为后备和增强效果 */}
-                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title absolute inset-0 flex items-center justify-center opacity-10`}>
+                {/* 提高后备文字透明度和增强效果 */}
+                <h1 className={`${isMobile ? 'text-[2.5rem]' : 'text-[7rem]'} font-bold text-white tracking-wider whitespace-nowrap elegant-title absolute inset-0 flex items-center justify-center opacity-25`}>
                   <span className="text-white font-extralight">G-bits</span>
                   <span className="text-white font-normal"> 技术中心</span>
                 </h1>
               </motion.div>
               
-              <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[10px]" variants={itemVariants}>
+              <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-95 mt-[10px]" variants={itemVariants}>
                 我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
               </motion.p>
             </motion.div>
