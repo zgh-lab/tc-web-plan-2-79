@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Building, Users, Code, Server } from "lucide-react";
 import { Link } from "react-router-dom";
+import ThreeDBackground from "./ThreeDBackground";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -27,8 +28,14 @@ const ContactInfo = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-16 md:py-24 overflow-hidden">
+      {/* 3D背景 */}
+      <div className="absolute inset-0 w-full h-full">
+        <ThreeDBackground />
+      </div>
+      
+      {/* 内容层 */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
