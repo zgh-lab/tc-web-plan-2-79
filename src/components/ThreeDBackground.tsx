@@ -1,3 +1,4 @@
+
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
@@ -10,10 +11,10 @@ const colorSchemes = {
     ambient: '#1a1a3e',
     lights: ['#4f46e5', '#7c3aed', '#06ffa5', '#f59e0b'],
     gradient: {
-      primary: 'rgba(0, 212, 255, 0.15)',
-      secondary: 'rgba(124, 58, 237, 0.08)',
-      tertiary: 'rgba(255, 107, 157, 0.05)',
-      quaternary: 'rgba(6, 255, 165, 0.04)'
+      primary: 'rgba(0, 212, 255, 0.2)',
+      secondary: 'rgba(124, 58, 237, 0.12)',
+      tertiary: 'rgba(255, 107, 157, 0.08)',
+      quaternary: 'rgba(6, 255, 165, 0.06)'
     }
   },
   knowledge: {
@@ -21,10 +22,10 @@ const colorSchemes = {
     ambient: '#1a3e1a',
     lights: ['#10b981', '#06d6a0', '#34d399', '#6ee7b7'],
     gradient: {
-      primary: 'rgba(16, 185, 129, 0.15)',
-      secondary: 'rgba(6, 214, 160, 0.08)',
-      tertiary: 'rgba(52, 211, 153, 0.05)',
-      quaternary: 'rgba(110, 231, 183, 0.04)'
+      primary: 'rgba(16, 185, 129, 0.2)',
+      secondary: 'rgba(6, 214, 160, 0.12)',
+      tertiary: 'rgba(52, 211, 153, 0.08)',
+      quaternary: 'rgba(110, 231, 183, 0.06)'
     }
   },
   cooperation: {
@@ -32,10 +33,10 @@ const colorSchemes = {
     ambient: '#3e1a1a',
     lights: ['#ef4444', '#f97316', '#f59e0b', '#eab308'],
     gradient: {
-      primary: 'rgba(239, 68, 68, 0.15)',
-      secondary: 'rgba(249, 115, 22, 0.08)',
-      tertiary: 'rgba(245, 158, 11, 0.05)',
-      quaternary: 'rgba(234, 179, 8, 0.04)'
+      primary: 'rgba(239, 68, 68, 0.2)',
+      secondary: 'rgba(249, 115, 22, 0.12)',
+      tertiary: 'rgba(245, 158, 11, 0.08)',
+      quaternary: 'rgba(234, 179, 8, 0.06)'
     }
   },
   achievements: {
@@ -43,10 +44,10 @@ const colorSchemes = {
     ambient: '#3e3e1a',
     lights: ['#8b5cf6', '#a855f7', '#c084fc', '#d8b4fe'],
     gradient: {
-      primary: 'rgba(139, 92, 246, 0.15)',
-      secondary: 'rgba(168, 85, 247, 0.08)',
-      tertiary: 'rgba(192, 132, 252, 0.05)',
-      quaternary: 'rgba(216, 180, 254, 0.04)'
+      primary: 'rgba(139, 92, 246, 0.2)',
+      secondary: 'rgba(168, 85, 247, 0.12)',
+      tertiary: 'rgba(192, 132, 252, 0.08)',
+      quaternary: 'rgba(216, 180, 254, 0.06)'
     }
   }
 };
@@ -234,17 +235,17 @@ const ThreeDBackground = ({ variant = 'default' }: { variant?: keyof typeof colo
         />
       </Canvas>
       
-      {/* 鼠标光晕渐变 */}
+      {/* 鼠标光晕渐变 - 增大直径 */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-1000"
         style={{
           background: `
-            radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+            radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
               ${colorScheme.gradient.primary} 0%, 
-              ${colorScheme.gradient.secondary} 20%,
-              ${colorScheme.gradient.tertiary} 40%,
-              ${colorScheme.gradient.quaternary} 60%,
-              rgba(0, 0, 0, 0.05) 80%,
+              ${colorScheme.gradient.secondary} 25%,
+              ${colorScheme.gradient.tertiary} 50%,
+              ${colorScheme.gradient.quaternary} 75%,
+              rgba(0, 0, 0, 0.05) 85%,
               rgba(0, 0, 0, 0.2) 100%),
             linear-gradient(135deg, 
               rgba(10, 10, 26, 0.3) 0%, 
