@@ -1,7 +1,8 @@
+
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -17,25 +18,6 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.7, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  
-  // 鼠标移动交互 - 精确对齐光标位置
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      // 获取相对于视口的精确位置
-      const x = e.clientX;
-      const y = e.clientY;
-      
-      // 直接使用像素值，确保光晕中心与鼠标光标精确对齐
-      document.documentElement.style.setProperty('--mouse-x', `${x}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${y}px`);
-    };
-    
-    document.addEventListener('mousemove', handleMouseMove);
-    
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
   
   const containerVariants = {
     hidden: {
@@ -84,24 +66,25 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 优化升级的文字标题样式 */}
+              {/* 增强的标题样式 */}
               <motion.h1 
                 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 elegant-title tracking-tight"
                 variants={itemVariants}
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #94a3b8 70%, #64748b 100%)',
+                  background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #cbd5e1 60%, #94a3b8 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  textShadow: '0 4px 30px rgba(255, 255, 255, 0.25), 0 8px 60px rgba(79, 70, 229, 0.45)',
-                  letterSpacing: '-0.02em',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontWeight: 700,
+                  textShadow: '0 8px 32px rgba(255, 255, 255, 0.3), 0 16px 64px rgba(79, 70, 229, 0.4), 0 24px 96px rgba(124, 58, 237, 0.3)',
+                  letterSpacing: '-0.025em',
+                  fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
+                  fontWeight: 800,
+                  filter: 'drop-shadow(0 4px 20px rgba(255, 255, 255, 0.1))'
                 }}
                 whileHover={{
-                  textShadow: '0 4px 30px rgba(255, 255, 255, 0.35), 0 8px 70px rgba(79, 70, 229, 0.55)',
+                  textShadow: '0 8px 40px rgba(255, 255, 255, 0.4), 0 16px 80px rgba(79, 70, 229, 0.5), 0 24px 120px rgba(124, 58, 237, 0.4)',
                   scale: 1.02,
-                  transition: { duration: 0.5 }
+                  transition: { duration: 0.6, ease: "easeOut" }
                 }}
               >
                 G-bits 技术中心
@@ -123,7 +106,7 @@ const Hero = () => {
           </div>
         </motion.div>
         
-        {/* 滚动指示器 - 添加悬停效果 */}
+        {/* 滚动指示器 */}
         <motion.div 
           className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
           initial={{ opacity: 0 }}

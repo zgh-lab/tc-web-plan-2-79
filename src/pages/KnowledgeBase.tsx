@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Folder, BookOpenText, FileCode, Presentation, Award, Lightbulb, ChevronRight, ChevronDown } from 'lucide-react';
@@ -21,7 +20,7 @@ const categories = [
       },
       {
         title: "发展历程",
-        description: "从2010年成立至今，技术中心经历了从基础工具开发到AI技术应用的全面发展，持续推动游戏技术创新。",
+        description: "从2010年成立至今，技术中心经历了从基础工具开发到AI技术应用的全面发展。",
         image: "/lovable-uploads/7293c494-769c-421b-9028-d8ccb0bdd80a.png"
       },
       {
@@ -234,159 +233,125 @@ const KnowledgeBase = () => {
   };
 
   return (
-    <PageLayout>
+    <PageLayout backgroundVariant="knowledge">
       <SEO 
         title="知识库 - G-bits 技术中心" 
         description="G-bits技术中心知识库，提供部门介绍、技术分类、学习地图、开发规范、技术分享、软著专利和前沿技术探索等内容。"
         keywords={['知识库', '技术文档', '学习资源', '开发规范', '技术分享', '专利']}
       />
 
-      {/* 背景样式与成果展示页面一致 */}
-      <div className="relative w-full bg-black">
-        {/* 背景图 */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        {/* 半透明蒙版层 */}
-        <div className="absolute inset-0 z-0 bg-black/70"></div>
-        
-        <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
-          <motion.div 
-            className="container mx-auto"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+        <motion.div 
+          className="container mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
+            variants={childVariants}
           >
-            <motion.h1 
-              className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
-              variants={childVariants}
-            >
-              知识库
-            </motion.h1>
-            
-            <motion.p 
-              className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
-              variants={childVariants}
-            >
-              汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
-              为团队提供系统化的知识支持和技术积累。
-            </motion.p>
+            知识库
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+            variants={childVariants}
+          >
+            汇聚G-bits技术中心的技术文档、学习资源、开发规范和研究成果，<br />
+            为团队提供系统化的知识支持和技术积累。
+          </motion.p>
 
-            <div className="max-w-6xl mx-auto relative">
-              {/* Central axis line - updated to white with gray opacity */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-white/20"></div>
-              
-              <div className="space-y-10"> {/* Increased spacing between modules to allow for vertical overlap */}
-                {categories.map((category, index) => (
-                  <motion.div 
-                    key={category.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative"
-                    style={{ marginTop: index > 0 ? '-30px' : '0' }} // Creating vertical overlap
-                  >
-                    <div className={`flex items-center justify-center ${index % 2 === 0 ? 'md:justify-end md:pr-8' : 'md:justify-start md:pl-8'}`}>
-                      {/* Timeline dot - making it more visible */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-blue-500/70 rounded-full z-10"></div>
-                      
-                      <div className={`w-full md:w-[45%] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                        <Collapsible 
-                          open={openItems.includes(category.id)} 
-                          onOpenChange={() => toggleItem(category.id)}
-                          className="w-full"
+          {/* 卡片式布局 */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          >
+            {categories.map((category) => (
+              <motion.div 
+                key={category.id}
+                variants={childVariants}
+                className="w-full"
+              >
+                <Collapsible 
+                  open={openItems.includes(category.id)} 
+                  onOpenChange={() => toggleItem(category.id)}
+                  className="w-full"
+                >
+                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-green-500/50 transition-all shadow-lg hover:shadow-green-500/10 overflow-hidden rounded-xl h-full">
+                    <CardContent className="p-0">
+                      <CollapsibleTrigger className="w-full text-left">
+                        <div 
+                          className="relative p-6 cursor-pointer overflow-hidden min-h-[200px]"
+                          style={{
+                            backgroundImage: `url(${category.backgroundImage})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                          }}
                         >
-                          <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-blue-500/50 transition-all shadow-lg hover:shadow-blue-500/10 overflow-hidden rounded-xl">
-                            <CardContent className="p-0">
-                              <CollapsibleTrigger className="w-full text-left">
-                                <div 
-                                  className="relative p-6 cursor-pointer overflow-hidden min-h-[190px]" /* Increased minimum height */
-                                  style={{
-                                    backgroundImage: `url(${category.backgroundImage})`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center'
-                                  }}
-                                >
-                                  {/* Overlay for better text readability */}
-                                  <div className="absolute inset-0 bg-black/60"></div>
-                                  <div className="relative z-10">
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex items-center gap-3">
-                                        <div className="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                          <category.icon className="w-6 h-6 text-blue-400" />
-                                        </div>
-                                        <h2 className="text-2xl font-semibold text-white">
-                                          {category.title}
-                                        </h2>
-                                      </div>
-                                      <ChevronDown 
-                                        className={`w-6 h-6 text-blue-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
-                                      />
-                                    </div>
-                                    <p className="text-gray-300 mt-3 -mb-1">{category.description}</p>
+                          <div className="absolute inset-0 bg-black/60"></div>
+                          <div className="relative z-10">
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="w-12 h-12 bg-green-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                                <category.icon className="w-6 h-6 text-green-400" />
+                              </div>
+                              <ChevronDown 
+                                className={`w-6 h-6 text-green-400 transition-transform ${openItems.includes(category.id) ? 'rotate-180' : ''}`} 
+                              />
+                            </div>
+                            <h2 className="text-xl font-semibold text-white mb-3">
+                              {category.title}
+                            </h2>
+                            <p className="text-gray-300 text-sm">{category.description}</p>
+                          </div>
+                        </div>
+                      </CollapsibleTrigger>
+                      
+                      <CollapsibleContent>
+                        <div className="p-6 pt-3 border-t border-white/10"> 
+                          <div className="grid grid-cols-1 gap-3 mb-4"> 
+                            {category.content.map((item, idx) => (
+                              <div key={idx} className="bg-black/30 rounded-lg overflow-hidden">
+                                <div className="relative h-24 overflow-hidden">
+                                  <img 
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-3">
+                                    <p className="text-white font-medium text-sm">{item.title}</p>
                                   </div>
                                 </div>
-                              </CollapsibleTrigger>
-                              
-                              <CollapsibleContent>
-                                <div className="p-6 pt-3 border-t border-white/10"> 
-                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> 
-                                    {category.content.map((item, idx) => (
-                                      <div key={idx} className="bg-black/30 rounded-lg overflow-hidden">
-                                        <div className="relative h-40 overflow-hidden"> {/* Increased height from h-36 to h-40 */}
-                                          <img 
-                                            src={item.image}
-                                            alt={item.title}
-                                            className="w-full h-full object-cover"
-                                          />
-                                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
-                                            <p className="text-white font-medium">{item.title}</p>
-                                          </div>
-                                        </div>
-                                        <div className="p-3">
-                                          <p className="text-gray-300 text-sm -mt-1">{item.description}</p>
-                                          <button className="mt-1 text-blue-400 hover:text-blue-300 flex items-center text-sm">
-                                            查看详情
-                                            <ChevronRight className="ml-1 w-4 h-4" />
-                                          </button>
-                                        </div>
-                                      </div>
-                                    ))}
-                                  </div>
-                                  
-                                  {/* 只显示联系特定技术组 */}
-                                  <div className="mt-2 flex items-center">
-                                    <h3 className="text-lg font-semibold text-white mr-2">
-                                      联系{index === 0 ? "编译器组" : 
-                                            index === 1 ? "服务器与工具链组" : 
-                                            index === 2 ? "引擎组" : 
-                                            index === 3 ? "技术AI组" : 
-                                            index === 4 ? "AIGC组" : "我们"}:
-                                    </h3>
-                                    <a href={`mailto:${categories[index].email}`} className="text-blue-400 hover:underline">
-                                      {categories[index].email}
-                                    </a>
-                                  </div>
+                                <div className="p-3">
+                                  <p className="text-gray-300 text-xs mb-2">{item.description}</p>
+                                  <button className="text-green-400 hover:text-green-300 flex items-center text-xs">
+                                    查看详情
+                                    <ChevronRight className="ml-1 w-3 h-3" />
+                                  </button>
                                 </div>
-                              </CollapsibleContent>
-                            </CardContent>
-                          </Card>
-                        </Collapsible>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                              </div>
+                            ))}
+                          </div>
+                          
+                          <div className="flex items-center text-sm">
+                            <span className="text-white mr-2">联系邮箱:</span>
+                            <a href={`mailto:${category.email}`} className="text-green-400 hover:underline">
+                              {category.email}
+                            </a>
+                          </div>
+                        </div>
+                      </CollapsibleContent>
+                    </CardContent>
+                  </Card>
+                </Collapsible>
+              </motion.div>
+            ))}
           </motion.div>
-        </main>
-      </div>
+        </motion.div>
+      </main>
     </PageLayout>
   );
 };
