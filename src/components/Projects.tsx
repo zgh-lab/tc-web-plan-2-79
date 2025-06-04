@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Book, FileCode, BookOpenText } from "lucide-react";
 import { Link } from "react-router-dom";
+import ThreeDBackground from "./ThreeDBackground";
 
 interface Project {
   id: string;
@@ -67,9 +68,14 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative py-16 md:py-24 z-10">
+    <section id="projects" className="relative py-16 md:py-24 overflow-hidden">
+      {/* 3D背景 */}
+      <div className="absolute inset-0 w-full h-full">
+        <ThreeDBackground />
+      </div>
+      
       {/* 内容层 */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
