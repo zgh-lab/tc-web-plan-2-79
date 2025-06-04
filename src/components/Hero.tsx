@@ -25,7 +25,7 @@ const Hero = () => {
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
       
-      // 更新CSS变量用于背景渐变
+      // 更新CSS变量用于背景渐变，响应更灵敏
       document.documentElement.style.setProperty('--mouse-x', `${x}%`);
       document.documentElement.style.setProperty('--mouse-y', `${y}%`);
     };
@@ -84,39 +84,65 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 清晰的文字标题，去除粒子效果 */}
+              {/* 优化升级的文字标题样式 */}
               <motion.h1 
-                className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8 elegant-title"
+                className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 elegant-title tracking-tight"
                 variants={itemVariants}
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #e5e7eb 50%, #9ca3af 100%)',
+                  background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #94a3b8 70%, #64748b 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)',
-                  letterSpacing: '0.02em'
+                  textShadow: '0 4px 30px rgba(255, 255, 255, 0.25), 0 8px 60px rgba(79, 70, 229, 0.45)',
+                  letterSpacing: '-0.02em',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 700,
+                }}
+                whileHover={{
+                  textShadow: '0 4px 30px rgba(255, 255, 255, 0.35), 0 8px 70px rgba(79, 70, 229, 0.55)',
+                  scale: 1.02,
+                  transition: { duration: 0.5 }
                 }}
               >
                 G-bits 技术中心
               </motion.h1>
               
-              <motion.p className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-95 mt-[10px]" variants={itemVariants}>
+              <motion.p 
+                className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-95 mt-[15px]" 
+                variants={itemVariants}
+                whileHover={{
+                  scale: 1.03,
+                  color: 'rgba(255, 255, 255, 1)',
+                  textShadow: '0 0 8px rgba(79, 70, 229, 0.5)',
+                  transition: { duration: 0.4 }
+                }}
+              >
                 我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
               </motion.p>
             </motion.div>
           </div>
         </motion.div>
         
-        {/* 滚动指示器 */}
+        {/* 滚动指示器 - 添加悬停效果 */}
         <motion.div 
-          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white"
+          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
           style={{ opacity }}
+          onClick={() => {
+            const scrollTarget = document.getElementById('content-section');
+            if (scrollTarget) {
+              scrollTarget.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          whileHover={{ 
+            scale: 1.2, 
+            transition: { duration: 0.3 } 
+          }}
         >
           <motion.div
-            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/70"
+            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/70 hover:border-white/90 transition-colors"
             animate={{ y: [0, 5, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
           >

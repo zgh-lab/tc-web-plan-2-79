@@ -87,10 +87,10 @@ function StarField({ count = 8000 }) {
     const time = clock.getElapsedTime();
     
     if (mesh.current) {
-      // 根据鼠标移动进行旋转，更加流畅
-      mesh.current.rotation.x = time * 0.03 + mouse.y * 0.2;
-      mesh.current.rotation.y = time * 0.05 + mouse.x * 0.2;
-      mesh.current.rotation.z = Math.sin(time * 0.02) * 0.1;
+      // 根据鼠标移动进行旋转，更加流畅缓慢
+      mesh.current.rotation.x = time * 0.02 + mouse.y * 0.15;
+      mesh.current.rotation.y = time * 0.03 + mouse.x * 0.15;
+      mesh.current.rotation.z = Math.sin(time * 0.015) * 0.08;
       
       // 动态粒子效果 - 让星星闪烁和轻微移动
       const positions = mesh.current.geometry.attributes.position.array as Float32Array;
@@ -98,24 +98,24 @@ function StarField({ count = 8000 }) {
         const i3 = i * 3;
         
         // 基于初始位置添加微妙的动画
-        const noise1 = Math.sin(time * 0.5 + i * 0.01) * 0.2;
-        const noise2 = Math.cos(time * 0.3 + i * 0.015) * 0.15;
-        const noise3 = Math.sin(time * 0.4 + i * 0.02) * 0.1;
+        const noise1 = Math.sin(time * 0.4 + i * 0.01) * 0.15;
+        const noise2 = Math.cos(time * 0.3 + i * 0.015) * 0.12;
+        const noise3 = Math.sin(time * 0.35 + i * 0.02) * 0.08;
         
         positions[i3] = initialPositions[i3] + noise1;
         positions[i3 + 1] = initialPositions[i3 + 1] + noise2;
         positions[i3 + 2] = initialPositions[i3 + 2] + noise3;
         
-        // 鼠标交互 - 轻微的吸引效果
-        const mouseInfluence = 0.08;
-        const dx = mouse.x * 10 - positions[i3];
-        const dy = mouse.y * 6 - positions[i3 + 1];
+        // 鼠标交互 - 轻微的吸引效果，但更加缓慢自然
+        const mouseInfluence = 0.06; // 减小影响力
+        const dx = mouse.x * 12 - positions[i3];
+        const dy = mouse.y * 8 - positions[i3 + 1];
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 5) {
-          const force = (5 - distance) / 5;
-          positions[i3] += dx * force * mouseInfluence;
-          positions[i3 + 1] += dy * force * mouseInfluence;
+        if (distance < 6) {
+          const force = (6 - distance) / 6;
+          positions[i3] += dx * force * mouseInfluence * 0.5; // 减半速度
+          positions[i3 + 1] += dy * force * mouseInfluence * 0.5;
         }
       }
       
@@ -123,17 +123,17 @@ function StarField({ count = 8000 }) {
     }
     
     if (light.current) {
-      // 动态光源跟随鼠标，增加强度
-      light.current.position.x = mouse.x * 15;
-      light.current.position.y = mouse.y * 15;
+      // 动态光源跟随鼠标，但移动更缓慢
+      light.current.position.x = THREE.MathUtils.lerp(light.current.position.x, mouse.x * 12, 0.03);
+      light.current.position.y = THREE.MathUtils.lerp(light.current.position.y, mouse.y * 12, 0.03);
       light.current.position.z = 8;
-      light.current.intensity = 2 + Math.sin(time) * 0.5;
+      light.current.intensity = 1.5 + Math.sin(time * 0.6) * 0.3; // 减缓光强变化
     }
   });
 
   return (
     <group>
-      <pointLight ref={light} intensity={4} color="#00d4ff" distance={100} />
+      <pointLight ref={light} intensity={3} color="#00d4ff" distance={100} />
       <Points ref={mesh} positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial 
           transparent 
@@ -148,23 +148,36 @@ function StarField({ count = 8000 }) {
   );
 }
 
-// 相机控制器 - 增强鼠标交互
+// 相机控制器 - 增强鼠标交互，更缓慢平滑
 function CameraController() {
   const { camera, mouse } = useThree();
   
   useFrame(() => {
-    // 相机跟随鼠标移动，创造深度感
-    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 2, 0.05);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, mouse.y * 2, 0.05);
+    // 相机跟随鼠标移动，创造深度感，降低速度使其更平滑
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 1.5, 0.03);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, mouse.y * 1.5, 0.03);
     
-    // 轻微的相机旋转跟随
-    camera.rotation.z = THREE.MathUtils.lerp(camera.rotation.z, mouse.x * 0.03, 0.03);
+    // 轻微的相机旋转跟随，更加缓慢
+    camera.rotation.z = THREE.MathUtils.lerp(camera.rotation.z, mouse.x * 0.02, 0.02);
   });
   
   return null;
 }
 
 const ThreeDBackground = () => {
+  // 创建滚动事件处理器的引用
+  const scrollRef = useRef(0);
+  
+  // 监听滚动事件，更新滚动位置
+  React.useEffect(() => {
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="absolute inset-0 w-full h-full">
       <Canvas
@@ -186,12 +199,12 @@ const ThreeDBackground = () => {
         {/* 多个动态光源创造丰富的光影效果 */}
         <directionalLight 
           position={[15, 15, 8]} 
-          intensity={1.5} 
+          intensity={1.2} 
           color="#4f46e5"
         />
-        <pointLight position={[-15, -10, 8]} intensity={1.2} color="#7c3aed" />
-        <pointLight position={[10, -15, -8]} intensity={1} color="#06ffa5" />
-        <pointLight position={[-8, 12, 5]} intensity={0.8} color="#f59e0b" />
+        <pointLight position={[-15, -10, 8]} intensity={0.9} color="#7c3aed" />
+        <pointLight position={[10, -15, -8]} intensity={0.8} color="#06ffa5" />
+        <pointLight position={[-8, 12, 5]} intensity={0.6} color="#f59e0b" />
         
         {/* 8000个粒子的丰富星空系统 */}
         <StarField />
@@ -207,18 +220,18 @@ const ThreeDBackground = () => {
         />
       </Canvas>
       
-      {/* 增强的鼠标光晕和多层渐变叠加层 */}
+      {/* 增强的鼠标光晕和多层渐变叠加层 - 更加缓慢平滑的过渡效果 */}
       <div 
-        className="absolute inset-0 pointer-events-none transition-all duration-500"
+        className="absolute inset-0 pointer-events-none transition-all duration-1000"
         style={{
           background: `
             radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-              rgba(0, 212, 255, 0.25) 0%, 
-              rgba(124, 58, 237, 0.15) 20%,
-              rgba(255, 107, 157, 0.10) 40%,
-              rgba(6, 255, 165, 0.08) 60%,
-              rgba(0, 0, 0, 0.1) 80%,
-              rgba(0, 0, 0, 0.4) 100%),
+              rgba(0, 212, 255, 0.15) 0%, 
+              rgba(124, 58, 237, 0.08) 20%,
+              rgba(255, 107, 157, 0.05) 40%,
+              rgba(6, 255, 165, 0.04) 60%,
+              rgba(0, 0, 0, 0.05) 80%,
+              rgba(0, 0, 0, 0.2) 100%),
             linear-gradient(135deg, 
               rgba(10, 10, 26, 0.3) 0%, 
               rgba(26, 26, 62, 0.2) 25%,
@@ -226,25 +239,25 @@ const ThreeDBackground = () => {
               rgba(30, 41, 59, 0.15) 75%,
               rgba(0, 0, 0, 0.3) 100%),
             radial-gradient(ellipse at 20% 80%, 
-              rgba(124, 58, 237, 0.1) 0%, 
+              rgba(124, 58, 237, 0.08) 0%, 
               transparent 50%),
             radial-gradient(ellipse at 80% 20%, 
-              rgba(6, 255, 165, 0.08) 0%, 
+              rgba(6, 255, 165, 0.06) 0%, 
               transparent 50%)
           `
         }}
       />
       
-      {/* 额外的装饰性渐变层 */}
+      {/* 额外的装饰性渐变层 - 更加细微 */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-60"
+        className="absolute inset-0 pointer-events-none opacity-40"
         style={{
           background: `
             linear-gradient(45deg, 
               transparent 0%, 
-              rgba(79, 70, 229, 0.03) 25%, 
+              rgba(79, 70, 229, 0.02) 25%, 
               transparent 50%, 
-              rgba(124, 58, 237, 0.03) 75%, 
+              rgba(124, 58, 237, 0.02) 75%, 
               transparent 100%)
           `
         }}

@@ -3,11 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem
-} from "@/components/ui/carousel";
 
 // Define the game showcase items
 const gameShowcase = [
@@ -57,7 +52,7 @@ const BlogPreview = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const animationRef = useRef<number | null>(null);
-  const scrollSpeed = 1; // 每帧滚动的像素数，调整此值可以改变滚动速度
+  const scrollSpeed = 0.8; // 降低滚动速度
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -134,10 +129,26 @@ const BlogPreview = () => {
           variants={containerVariants}
           className="mb-8 text-center"
         >
-          <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white">
+          <motion.h2 
+            variants={childVariants} 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white"
+            whileHover={{
+              textShadow: '0 0 15px rgba(59, 130, 246, 0.5)',
+              scale: 1.02,
+              transition: { duration: 0.3 }
+            }}
+          >
             合作项目
           </motion.h2>
-          <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <motion.p 
+            variants={childVariants} 
+            className="text-lg text-gray-300 max-w-3xl mx-auto"
+            whileHover={{
+              color: 'rgba(255, 255, 255, 0.9)',
+              scale: 1.01,
+              transition: { duration: 0.3 }
+            }}
+          >
             为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产
           </motion.p>
         </motion.div>
@@ -147,12 +158,12 @@ const BlogPreview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative mb-8"
+          className="relative mb-8 rounded-xl overflow-hidden"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {/* Left gradient mask */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-black/90 to-transparent pointer-events-none" />
+          {/* Left gradient mask - 调整透明度和大小与卡片一致 */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-r from-black/80 to-transparent pointer-events-none" />
           
           {/* 滚动容器 */}
           <div className="overflow-hidden">
@@ -166,6 +177,10 @@ const BlogPreview = () => {
                   key={`${game.id}-${index}`}
                   variants={childVariants}
                   className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 pl-4"
+                  whileHover={{ 
+                    scale: 1.03,
+                    transition: { duration: 0.3 }
+                  }}
                 >
                   <div 
                     className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
@@ -182,8 +197,8 @@ const BlogPreview = () => {
                       
                       <div className="p-4">
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-blue-400 text-sm">{game.category}</span>
-                          <span className="text-gray-400 text-sm">{game.year}</span>
+                          <span className="text-blue-400 text-sm group-hover:text-blue-300 transition-colors">{game.category}</span>
+                          <span className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{game.year}</span>
                         </div>
                         
                         <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
@@ -196,17 +211,17 @@ const BlogPreview = () => {
             </div>
           </div>
           
-          {/* Right gradient mask */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-black/90 to-transparent pointer-events-none" />
+          {/* Right gradient mask - 调整透明度和大小与卡片一致 */}
+          <div className="absolute right-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-l from-black/80 to-transparent pointer-events-none" />
         </motion.div>
         
         <div className="flex justify-center">
           <Link 
             to="/achievements" 
-            className="px-6 py-3 bg-blue-600/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
+            className="px-6 py-3 bg-blue-600/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center hover:scale-105"
           >
             查看更多成果
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
