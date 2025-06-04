@@ -50,25 +50,10 @@ const Index = () => {
               <BlogPreview />
               <Projects />
               <WhyWrlds />
-              {/* 合作方式的上半部分，与ContactInfo组件的上半部分对应 */}
-              <div className="py-16 md:py-24">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="mb-12 text-center">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-                      合作方式
-                    </h2>
-                    <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                      我们提供两种合作模式，灵活满足不同项目的技术需求
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <ContactInfo />
             </div>
           </div>
         </div>
-        
-        {/* 底部联系信息保持独立背景 */}
-        <ContactInfo />
       </main>
     </PageLayout>
   );
