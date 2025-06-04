@@ -125,9 +125,8 @@ const BlogPreview = () => {
   const duplicatedShowcase = [...gameShowcase, ...gameShowcase];
 
   return (
-    <section id="blog" className="relative py-16 md:py-24 overflow-hidden">
-      {/* 内容层 */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="blog" className="py-16 md:py-24 bg-gradient-to-b from-black/90 to-black/85 backdrop-blur-sm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -169,7 +168,7 @@ const BlogPreview = () => {
                   className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 pl-4"
                 >
                   <div 
-                    className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
+                    className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
                   >
                     <div className="block h-full">
                       <div className="relative h-64 overflow-hidden">
