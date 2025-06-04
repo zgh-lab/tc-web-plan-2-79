@@ -220,7 +220,7 @@ const ThreeDBackground = () => {
         />
       </Canvas>
       
-      {/* 增强的鼠标光晕和多层渐变叠加层 - 更加缓慢平滑的过渡效果 */}
+      {/* 修正的鼠标光晕渐变 - 使用像素值确保精确对齐 */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-1000"
         style={{

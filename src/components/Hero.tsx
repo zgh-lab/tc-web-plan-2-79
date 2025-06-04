@@ -1,4 +1,3 @@
-
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -19,15 +18,16 @@ const Hero = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   
-  // 鼠标移动交互
+  // 鼠标移动交互 - 精确对齐光标位置
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
+      // 获取相对于视口的精确位置
+      const x = e.clientX;
+      const y = e.clientY;
       
-      // 更新CSS变量用于背景渐变，响应更灵敏
-      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
-      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+      // 直接使用像素值，确保光晕中心与鼠标光标精确对齐
+      document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${y}px`);
     };
     
     document.addEventListener('mousemove', handleMouseMove);
