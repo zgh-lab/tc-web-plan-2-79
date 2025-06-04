@@ -51,7 +51,7 @@ const ContactInfo = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 mb-16"
+          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* 本部合作 */}
@@ -139,22 +139,6 @@ const ContactInfo = () => {
             </motion.div>
           </div>
         </motion.div>
-
-        {/* 底部联系信息保持独立背景 */}
-        <div className="text-center relative">
-          <div className="absolute inset-0 rounded-xl overflow-hidden">
-            <div className="absolute inset-0 bg-amber-900/30"></div>
-          </div>
-          <div className="relative bg-amber-900/20 backdrop-blur-sm rounded-xl p-8 border border-amber-700/30">
-            <h3 className="text-2xl font-bold text-white mb-4">G-bits技术中心</h3>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              专注于游戏开发、人工智能和云计算技术的研发中心。我们致力于为游戏产业提供先进的技术解决方案，推动创新发展。
-            </p>
-            <div className="mt-6 text-gray-400">
-              <p>联系我们获取更多技术支持和合作方案</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
