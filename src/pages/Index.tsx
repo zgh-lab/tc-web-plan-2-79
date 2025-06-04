@@ -6,6 +6,7 @@ import WhyWrlds from '@/components/WhyWrlds';
 import BlogPreview from '@/components/BlogPreview';
 import ContactInfo from '@/components/ContactInfo';
 import SEO from '@/components/SEO';
+import ThreeDBackground from '@/components/ThreeDBackground';
 import { useEffect } from 'react';
 
 const Index = () => {
@@ -34,15 +35,25 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['游戏开发', '人工智能', '云计算', '技术研发', '创新发展']}
       />
-      <main>
-        <Hero />
-        <div id="content-section">
-          {/* Swapped the order of BlogPreview and WhyWrlds */}
-          <BlogPreview />
-          <Projects />
-          <WhyWrlds />
-        </div>
-      </main>
+      
+      {/* 共享的3D背景 - 固定在整个页面 */}
+      <div className="fixed inset-0 w-full h-full z-0">
+        <ThreeDBackground />
+      </div>
+      
+      {/* 内容层 - 确保在背景之上 */}
+      <div className="relative z-10">
+        <main>
+          <Hero />
+          <div id="content-section">
+            {/* Swapped the order of BlogPreview and WhyWrlds */}
+            <BlogPreview />
+            <Projects />
+            <WhyWrlds />
+            <ContactInfo />
+          </div>
+        </main>
+      </div>
     </PageLayout>
   );
 };
