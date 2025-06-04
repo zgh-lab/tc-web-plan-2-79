@@ -29,25 +29,30 @@ const ContactInfo = () => {
   return (
     <section id="contact" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 合作方式标题与内容连通 */}
+        {/* 合作方式标题 - 与其他部分格式保持一致 */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+          className="mb-12 text-center"
+        >
+          <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            合作方式
+          </motion.h2>
+          <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
+            我们提供两种合作模式，灵活满足不同项目的技术需求
+          </motion.p>
+        </motion.div>
+
+        {/* 合作方式内容 */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 mb-16"
         >
-          {/* 合作方式标题 */}
-          <div className="mb-8 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-              合作方式
-            </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              我们提供两种合作模式，灵活满足不同项目的技术需求
-            </p>
-          </div>
-
-          {/* 合作方式内容 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* 本部合作 */}
             <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all">
@@ -136,7 +141,7 @@ const ContactInfo = () => {
         </motion.div>
 
         {/* 底部联系信息保持独立背景 */}
-        <div className="mt-16 text-center relative">
+        <div className="text-center relative">
           <div className="absolute inset-0 rounded-xl overflow-hidden">
             <div className="absolute inset-0 bg-amber-900/30"></div>
           </div>
