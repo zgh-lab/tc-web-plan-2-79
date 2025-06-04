@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Building, Users, Code, Server } from "lucide-react";
+import { Building, Users, Code, Server, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ContactInfo = () => {
@@ -50,7 +50,7 @@ const ContactInfo = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
         >
           {/* 本部合作 */}
           <motion.div variants={childVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all">
@@ -134,6 +134,57 @@ const ContactInfo = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* 联系方式部分 */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="border-t border-white/10 pt-12"
+        >
+          <motion.div variants={childVariants} className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white mb-4">联系我们</h3>
+            <p className="text-gray-300">
+              欢迎联系G-bits技术中心，我们将为您提供专业的技术支持和解决方案
+            </p>
+          </motion.div>
+
+          <motion.div 
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            <motion.div variants={childVariants} className="text-center">
+              <div className="bg-blue-600/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <MapPin className="w-8 h-8 text-blue-400" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">公司地址</h4>
+              <p className="text-gray-300 text-sm">
+                福建省厦门市思明区软件园二期望海路25号
+              </p>
+            </motion.div>
+
+            <motion.div variants={childVariants} className="text-center">
+              <div className="bg-blue-600/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Phone className="w-8 h-8 text-blue-400" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">联系电话</h4>
+              <p className="text-gray-300 text-sm">
+                +86 592-123-4567
+              </p>
+            </motion.div>
+
+            <motion.div variants={childVariants} className="text-center">
+              <div className="bg-blue-600/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Mail className="w-8 h-8 text-blue-400" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">邮箱地址</h4>
+              <p className="text-gray-300 text-sm">
+                tech-center@g-bits.com
+              </p>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
