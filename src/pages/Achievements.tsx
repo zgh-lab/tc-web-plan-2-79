@@ -1,3 +1,4 @@
+
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight } from 'lucide-react';
@@ -77,84 +78,99 @@ const Achievements = () => {
   };
   
   return (
-    <PageLayout backgroundVariant="achievements">
+    <PageLayout>
       <SEO 
         title="成果展示 - G-bits 技术中心" 
         description="G-bits技术中心的成果展示，包括技术创新、项目成果和研发成果。"
         keywords={['成果展示', '技术创新', '项目成果', '研发成果']}
       />
 
-      <main className="container mx-auto px-4 py-12 pt-36 min-h-[80vh] relative z-10">
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
-        >
-          <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">成果展示</motion.h1>
-          <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
-            展示 G-bits 技术中心的自主研发游戏及技术创新成果
-          </motion.p>
-        </motion.div>
+      {/* 添加背景图和半透明蒙版，保持与知识库页面风格一致 */}
+      <div className="relative w-full bg-black">
+        {/* 背景图 */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url("/lovable-uploads/beb9d119-8b42-41d1-b055-03fe5758e90e.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* 半透明蒙版层 */}
+        <div className="absolute inset-0 z-0 bg-black/70"></div>
         
-        {/* 长方形卡片布局 - 游戏展示 */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 max-w-6xl mx-auto"
-        >
-          {gameShowcase.map((game, index) => (
-            <motion.div 
-              key={game.id}
-              variants={childVariants}
-              className="bg-gray-900/80 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row hover:shadow-lg hover:shadow-purple-900/20 transition-all"
-            >
-              <div className="md:w-2/5 h-48 md:h-auto relative">
-                <img 
-                  src={game.imageUrl} 
-                  alt={game.title}
-                  className="w-full h-full object-cover" 
-                />
-                <div className="absolute top-2 right-2 px-3 py-1 bg-purple-600/80 backdrop-blur-sm rounded-full text-white text-xs">
-                  {game.year}
-                </div>
-              </div>
-              
-              <div className="p-6 md:w-3/5 flex flex-col justify-between">
-                <div>
-                  <span className="text-purple-400 text-sm mb-2 block">{game.category}</span>
-                  <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
-                  <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {game.features.map((feature, i) => (
-                      <span 
-                        key={i} 
-                        className="text-xs px-2 py-1 rounded-full bg-purple-600/20 text-purple-400"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+        <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
+          >
+            <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">成果展示</motion.h1>
+            <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
+              展示 G-bits 技术中心的自主研发游戏及技术创新成果
+            </motion.p>
+          </motion.div>
+          
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+          >
+            {gameShowcase.map((game, index) => (
+              <motion.div 
+                key={game.id}
+                variants={childVariants}
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row hover:shadow-lg hover:shadow-blue-900/20 transition-all"
+              >
+                <div className="md:w-2/5 h-48 md:h-auto relative">
+                  <img 
+                    src={game.imageUrl} 
+                    alt={game.title}
+                    className="w-full h-full object-cover" 
+                  />
+                  <div className="absolute top-2 right-2 px-3 py-1 bg-blue-600/80 backdrop-blur-sm rounded-full text-white text-xs">
+                    {game.year}
                   </div>
                 </div>
                 
-                <button className="flex items-center text-purple-400 hover:text-purple-300 transition-all group mt-2">
-                  查看详情 
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div className="p-6 md:w-3/5 flex flex-col justify-between">
+                  <div>
+                    <span className="text-blue-400 text-sm mb-2 block">{game.category}</span>
+                    <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
+                    <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {game.features.map((feature, i) => (
+                        <span 
+                          key={i} 
+                          className="text-xs px-2 py-1 rounded-full bg-blue-600/20 text-blue-400"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <button className="flex items-center text-blue-400 hover:text-blue-300 transition-all group mt-2">
+                    查看详情 
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-        <div className="mt-12 p-6 border border-purple-500/20 rounded-lg bg-gray-900/50 backdrop-blur-sm max-w-6xl mx-auto">
-          <h3 className="text-xl font-semibold mb-3 text-white">技术突破</h3>
-          <p className="text-gray-300">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
-        </div>
-      </main>
+          <div className="mt-12 p-6 border border-blue-500/20 rounded-lg bg-black/30 backdrop-blur-sm">
+            <h3 className="text-xl font-semibold mb-3 text-white">技术突破</h3>
+            <p className="text-gray-300">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
+          </div>
+        </main>
+      </div>
     </PageLayout>
   );
 };
 
 export default Achievements;
+

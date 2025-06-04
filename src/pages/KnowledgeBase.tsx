@@ -240,7 +240,7 @@ const KnowledgeBase = () => {
         keywords={['知识库', '技术文档', '学习资源', '开发规范', '技术分享', '专利']}
       />
 
-      <main className="container mx-auto px-4 py-12 pt-36 min-h-[80vh] relative z-10">
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
         <motion.div 
           className="container mx-auto"
           initial="hidden"
@@ -262,13 +262,13 @@ const KnowledgeBase = () => {
             为团队提供系统化的知识支持和技术积累。
           </motion.p>
 
-          {/* 长方形卡片布局 - 4行2列或2行4列 */}
+          {/* 卡片式布局 */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           >
             {categories.map((category) => (
               <motion.div 
@@ -285,7 +285,7 @@ const KnowledgeBase = () => {
                     <CardContent className="p-0">
                       <CollapsibleTrigger className="w-full text-left">
                         <div 
-                          className="relative p-6 cursor-pointer overflow-hidden min-h-[180px]"
+                          className="relative p-6 cursor-pointer overflow-hidden min-h-[200px]"
                           style={{
                             backgroundImage: `url(${category.backgroundImage})`,
                             backgroundSize: 'cover',

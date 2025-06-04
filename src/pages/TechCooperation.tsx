@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
@@ -130,7 +131,7 @@ const TechCooperation = () => {
         keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
       />
 
-      <main className="container mx-auto px-4 py-12 pt-36 min-h-[80vh] relative z-10">
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
         <motion.div 
           className="container mx-auto"
           initial="hidden"
@@ -152,13 +153,13 @@ const TechCooperation = () => {
             工具链、图形渲染方案、前后端性能优化等解决方案。
           </motion.p>
 
-          {/* 长方形卡片布局 - 2行3列或3行2列 */}
+          {/* 卡片式布局 */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           >
             {techTeams.map((team) => (
               <motion.div 
@@ -175,7 +176,7 @@ const TechCooperation = () => {
                     <CardContent className="p-0">
                       <CollapsibleTrigger className="w-full text-left">
                         <div 
-                          className="relative p-6 cursor-pointer overflow-hidden min-h-[180px]"
+                          className="relative p-6 cursor-pointer overflow-hidden min-h-[200px]"
                           style={{
                             backgroundImage: `url(${team.image})`,
                             backgroundSize: 'cover',
