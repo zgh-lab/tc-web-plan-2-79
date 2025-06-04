@@ -6,6 +6,7 @@ import WhyWrlds from '@/components/WhyWrlds';
 import BlogPreview from '@/components/BlogPreview';
 import ContactInfo from '@/components/ContactInfo';
 import SEO from '@/components/SEO';
+import ThreeDBackground from '@/components/ThreeDBackground';
 import { useEffect } from 'react';
 
 const Index = () => {
@@ -35,13 +36,39 @@ const Index = () => {
         keywords={['游戏开发', '人工智能', '云计算', '技术研发', '创新发展']}
       />
       <main>
-        <Hero />
-        <div id="content-section">
-          {/* Swapped the order of BlogPreview and WhyWrlds */}
-          <BlogPreview />
-          <Projects />
-          <WhyWrlds />
+        {/* 共享背景的连通区域 */}
+        <div className="relative">
+          {/* 共享的3D背景 */}
+          <div className="absolute inset-0 w-full h-full">
+            <ThreeDBackground />
+          </div>
+          
+          {/* 内容层，所有共享背景的部分 */}
+          <div className="relative z-10">
+            <Hero />
+            <div id="content-section">
+              <BlogPreview />
+              <Projects />
+              <WhyWrlds />
+              {/* 合作方式的上半部分，与ContactInfo组件的上半部分对应 */}
+              <div className="py-16 md:py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="mb-12 text-center">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+                      合作方式
+                    </h2>
+                    <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                      我们提供两种合作模式，灵活满足不同项目的技术需求
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        
+        {/* 底部联系信息保持独立背景 */}
+        <ContactInfo />
       </main>
     </PageLayout>
   );

@@ -125,7 +125,7 @@ const BlogPreview = () => {
   const duplicatedShowcase = [...gameShowcase, ...gameShowcase];
 
   return (
-    <section id="blog" className="py-16 md:py-24 bg-gradient-to-b from-black/90 to-black/85 backdrop-blur-sm">
+    <section id="blog" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"

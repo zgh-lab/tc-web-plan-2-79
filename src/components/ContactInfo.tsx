@@ -37,21 +37,6 @@ const ContactInfo = () => {
       {/* 内容层 */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="mb-12 text-center"
-        >
-          <motion.h2 variants={childVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            合作方式
-          </motion.h2>
-          <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-3xl mx-auto">
-            我们提供两种合作模式，灵活满足不同项目的技术需求
-          </motion.p>
-        </motion.div>
-
-        <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -142,6 +127,19 @@ const ContactInfo = () => {
             </Link>
           </motion.div>
         </motion.div>
+
+        {/* 底部联系信息 */}
+        <div className="mt-16 text-center">
+          <div className="bg-amber-900/20 backdrop-blur-sm rounded-xl p-8 border border-amber-700/30">
+            <h3 className="text-2xl font-bold text-white mb-4">G-bits技术中心</h3>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              专注于游戏开发、人工智能和云计算技术的研发中心。我们致力于为游戏产业提供先进的技术解决方案，推动创新发展。
+            </p>
+            <div className="mt-6 text-gray-400">
+              <p>联系我们获取更多技术支持和合作方案</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
