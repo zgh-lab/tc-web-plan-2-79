@@ -3,7 +3,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef, useEffect } from "react";
-import ThreeDBackground from "./ThreeDBackground";
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -19,10 +18,6 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.7, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  
-  // 背景动画值
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3]);
   
   // 鼠标移动交互
   useEffect(() => {
@@ -79,16 +74,6 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        <motion.div 
-          className="absolute inset-0 w-full"
-          style={{
-            y: backgroundY,
-            opacity: backgroundOpacity
-          }}
-        >
-          <ThreeDBackground />
-        </motion.div>
-        
         <motion.div 
           className="banner-overlay bg-transparent pt-21 md:pt-24 w-full"
           style={{
