@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="lg:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <h1 className="font-light text-2xl">
                 <span className="text-blue-400">G-</span>
@@ -36,58 +36,6 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">解决方案</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/tech-cooperation" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/firecat" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/sport-retail" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/workwear" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">资源</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/knowledge-base" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-              <li>
-                <Link to="/achievements" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
-                  XXXXXXX
-                </Link>
-              </li>
-            </ul>
           </div>
           
           <div>
