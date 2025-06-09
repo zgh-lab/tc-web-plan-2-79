@@ -19,10 +19,6 @@ export const navItems: NavItem[] = [
     path: "/tech-cooperation"
   },
   {
-    title: "知识库",
-    path: "/knowledge-base"
-  },
-  {
     title: "成果展示",
     path: "/achievements"
   },
@@ -31,7 +27,6 @@ export const navItems: NavItem[] = [
     path: "https://preview--asset-forge-hub.lovable.app/",
     isExternal: true
   }
-  // "联系我们" item has been removed
 ];
 
 export const scrollToSection = (id: string) => {

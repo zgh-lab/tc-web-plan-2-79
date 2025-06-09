@@ -16,17 +16,6 @@ const colorSchemes = {
       quaternary: 'rgba(6, 255, 165, 0.04)'
     }
   },
-  knowledge: {
-    background: '#0a1a0a',
-    ambient: '#1a3e1a',
-    lights: ['#10b981', '#06d6a0', '#34d399', '#6ee7b7'],
-    gradient: {
-      primary: 'rgba(16, 185, 129, 0.15)',
-      secondary: 'rgba(6, 214, 160, 0.08)',
-      tertiary: 'rgba(52, 211, 153, 0.05)',
-      quaternary: 'rgba(110, 231, 183, 0.04)'
-    }
-  },
   cooperation: {
     background: '#1a0a1a',
     ambient: '#3e1a1a',

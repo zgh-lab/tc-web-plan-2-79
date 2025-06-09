@@ -20,7 +20,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
 import TechCooperation from "./pages/TechCooperation";
-import KnowledgeBase from "./pages/KnowledgeBase";
 import Achievements from "./pages/Achievements";
 
 const App = () => {
@@ -49,7 +48,6 @@ const App = () => {
             
             {/* 新增路由 */}
             <Route path="/tech-cooperation" element={<TechCooperation />} />
-            <Route path="/knowledge-base" element={<KnowledgeBase />} />
             <Route path="/achievements" element={<Achievements />} />
             
             <Route path="*" element={<NotFound />} />

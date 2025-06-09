@@ -1,7 +1,6 @@
 
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
-import Projects from '@/components/Projects';
 import WhyWrlds from '@/components/WhyWrlds';
 import BlogPreview from '@/components/BlogPreview';
 import ContactInfo from '@/components/ContactInfo';
@@ -35,7 +34,6 @@ const Index = () => {
         <Hero />
         <div id="content-section">
           <BlogPreview />
-          <Projects />
           <WhyWrlds />
           <ContactInfo />
         </div>
