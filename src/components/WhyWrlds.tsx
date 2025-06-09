@@ -82,8 +82,7 @@ const WhyWrlds = () => {
               技术方向
             </motion.h2>
             <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              我们为各项目提供 基于GS语言的前后端框架、GS插件、公共服务器、<br />
-              工具链、图形渲染方案、前后端性能优化 等解决方案。
+              我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
             </motion.p>
           </div>
           

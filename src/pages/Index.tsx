@@ -33,8 +33,8 @@ const Index = () => {
       <main>
         <Hero />
         <div id="content-section">
-          <BlogPreview />
           <WhyWrlds />
+          <BlogPreview />
           <ContactInfo />
         </div>
       </main>

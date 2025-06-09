@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -138,7 +137,7 @@ const BlogPreview = () => {
               transition: { duration: 0.3 }
             }}
           >
-            合作项目
+            项目合作
           </motion.h2>
           <motion.p 
             variants={childVariants} 
