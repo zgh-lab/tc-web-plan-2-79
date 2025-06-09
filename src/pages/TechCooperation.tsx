@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
@@ -131,7 +130,7 @@ const TechCooperation = () => {
         keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
       />
 
-      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+      <main className="container mx-auto px-4 py-12 pt-32 min-h-[80vh] relative z-10">
         <motion.div 
           className="container mx-auto"
           initial="hidden"
@@ -146,104 +145,194 @@ const TechCooperation = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-16"
             variants={childVariants}
           >
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、<br />
             工具链、图形渲染方案、前后端性能优化等解决方案。
           </motion.p>
 
-          {/* 卡片式布局 */}
+          {/* 规整的长方形卡片布局 */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
-            {techTeams.map((team) => (
-              <motion.div 
-                key={team.id}
-                variants={childVariants}
-                className="w-full"
-              >
-                <Collapsible 
-                  open={openItems.includes(team.id)} 
-                  onOpenChange={() => toggleItem(team.id)}
+            {/* 第一行：3个卡片 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              {techTeams.slice(0, 3).map((team) => (
+                <motion.div 
+                  key={team.id}
+                  variants={childVariants}
                   className="w-full"
                 >
-                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
-                    <CardContent className="p-0">
-                      <CollapsibleTrigger className="w-full text-left">
-                        <div 
-                          className="relative p-6 cursor-pointer overflow-hidden min-h-[200px]"
-                          style={{
-                            backgroundImage: `url(${team.image})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }}
-                        >
-                          <div className="absolute inset-0 bg-black/70"></div>
-                          <div className="relative z-10">
-                            <div className="flex items-center justify-between mb-4">
-                              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                                <team.icon className="w-6 h-6 text-orange-400" />
+                  <Collapsible 
+                    open={openItems.includes(team.id)} 
+                    onOpenChange={() => toggleItem(team.id)}
+                    className="w-full"
+                  >
+                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
+                      <CardContent className="p-0">
+                        <CollapsibleTrigger className="w-full text-left">
+                          <div 
+                            className="relative p-6 cursor-pointer overflow-hidden h-[220px]"
+                            style={{
+                              backgroundImage: `url(${team.image})`,
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center'
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-black/70"></div>
+                            <div className="relative z-10">
+                              <div className="flex items-center justify-between mb-4">
+                                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                                  <team.icon className="w-6 h-6 text-orange-400" />
+                                </div>
+                                <ChevronDown 
+                                  className={`w-6 h-6 text-orange-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
+                                />
                               </div>
-                              <ChevronDown 
-                                className={`w-6 h-6 text-orange-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
-                              />
-                            </div>
-                            <h2 className="text-xl font-semibold text-white mb-3">
-                              {team.title}
-                            </h2>
-                            <p className="text-gray-300 text-sm">{team.description}</p>
-                          </div>
-                        </div>
-                      </CollapsibleTrigger>
-                      
-                      <CollapsibleContent>
-                        <div className="p-6 pt-3 border-t border-white/10"> 
-                          <p className="text-gray-300 mb-4 text-sm">{team.details}</p>
-                          
-                          <div className="mb-4"> 
-                            <h3 className="text-lg font-semibold text-white mb-2">核心技术</h3> 
-                            <div className="flex flex-wrap gap-2">
-                              {team.technologies.map((tech, idx) => (
-                                <span 
-                                  key={idx} 
-                                  className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
+                              <h2 className="text-xl font-semibold text-white mb-3">
+                                {team.title}
+                              </h2>
+                              <p className="text-gray-300 text-sm line-clamp-3">{team.description}</p>
                             </div>
                           </div>
-                          
-                          <div className="mb-4"> 
-                            <h3 className="text-lg font-semibold text-white mb-2">主要成果</h3> 
-                            <ul className="space-y-1">
-                              {team.achievements.slice(0, 3).map((achievement, idx) => (
-                                <li key={idx} className="flex items-start text-gray-300 text-sm">
-                                  <ChevronRight className="w-3 h-3 text-orange-400 mt-1 mr-2 shrink-0" />
-                                  <span>{achievement}</span>
-                                </li>
-                              ))}
-                            </ul>
+                        </CollapsibleTrigger>
+                        
+                        <CollapsibleContent>
+                          <div className="p-6 pt-3 border-t border-white/10"> 
+                            <p className="text-gray-300 mb-4 text-sm">{team.details}</p>
+                            
+                            <div className="mb-4"> 
+                              <h3 className="text-lg font-semibold text-white mb-2">核心技术</h3> 
+                              <div className="flex flex-wrap gap-2">
+                                {team.technologies.map((tech, idx) => (
+                                  <span 
+                                    key={idx} 
+                                    className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <div className="mb-4"> 
+                              <h3 className="text-lg font-semibold text-white mb-2">主要成果</h3> 
+                              <ul className="space-y-1">
+                                {team.achievements.slice(0, 3).map((achievement, idx) => (
+                                  <li key={idx} className="flex items-start text-gray-300 text-sm">
+                                    <ChevronRight className="w-3 h-3 text-orange-400 mt-1 mr-2 shrink-0" />
+                                    <span>{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            
+                            <div className="flex items-center text-sm">
+                              <span className="text-white mr-2">联系邮箱:</span>
+                              <a href={`mailto:${team.email}`} className="text-orange-400 hover:underline">
+                                {team.email}
+                              </a>
+                            </div>
                           </div>
-                          
-                          <div className="flex items-center text-sm">
-                            <span className="text-white mr-2">联系邮箱:</span>
-                            <a href={`mailto:${team.email}`} className="text-orange-400 hover:underline">
-                              {team.email}
-                            </a>
+                        </CollapsibleContent>
+                      </CardContent>
+                    </Card>
+                  </Collapsible>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* 第二行：2个卡片，居中排列 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {techTeams.slice(3, 5).map((team) => (
+                <motion.div 
+                  key={team.id}
+                  variants={childVariants}
+                  className="w-full"
+                >
+                  <Collapsible 
+                    open={openItems.includes(team.id)} 
+                    onOpenChange={() => toggleItem(team.id)}
+                    className="w-full"
+                  >
+                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
+                      <CardContent className="p-0">
+                        <CollapsibleTrigger className="w-full text-left">
+                          <div 
+                            className="relative p-6 cursor-pointer overflow-hidden h-[220px]"
+                            style={{
+                              backgroundImage: `url(${team.image})`,
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center'
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-black/70"></div>
+                            <div className="relative z-10">
+                              <div className="flex items-center justify-between mb-4">
+                                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                                  <team.icon className="w-6 h-6 text-orange-400" />
+                                </div>
+                                <ChevronDown 
+                                  className={`w-6 h-6 text-orange-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
+                                />
+                              </div>
+                              <h2 className="text-xl font-semibold text-white mb-3">
+                                {team.title}
+                              </h2>
+                              <p className="text-gray-300 text-sm line-clamp-3">{team.description}</p>
+                            </div>
                           </div>
-                        </div>
-                      </CollapsibleContent>
-                    </CardContent>
-                  </Card>
-                </Collapsible>
-              </motion.div>
-            ))}
+                        </CollapsibleTrigger>
+                        
+                        <CollapsibleContent>
+                          <div className="p-6 pt-3 border-t border-white/10"> 
+                            <p className="text-gray-300 mb-4 text-sm">{team.details}</p>
+                            
+                            <div className="mb-4"> 
+                              <h3 className="text-lg font-semibold text-white mb-2">核心技术</h3> 
+                              <div className="flex flex-wrap gap-2">
+                                {team.technologies.map((tech, idx) => (
+                                  <span 
+                                    key={idx} 
+                                    className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <div className="mb-4"> 
+                              <h3 className="text-lg font-semibold text-white mb-2">主要成果</h3> 
+                              <ul className="space-y-1">
+                                {team.achievements.slice(0, 3).map((achievement, idx) => (
+                                  <li key={idx} className="flex items-start text-gray-300 text-sm">
+                                    <ChevronRight className="w-3 h-3 text-orange-400 mt-1 mr-2 shrink-0" />
+                                    <span>{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            
+                            <div className="flex items-center text-sm">
+                              <span className="text-white mr-2">联系邮箱:</span>
+                              <a href={`mailto:${team.email}`} className="text-orange-400 hover:underline">
+                                {team.email}
+                              </a>
+                            </div>
+                          </div>
+                        </CollapsibleContent>
+                      </CardContent>
+                    </Card>
+                  </Collapsible>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </main>
