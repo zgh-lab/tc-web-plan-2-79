@@ -18,7 +18,9 @@ const Footer = () => {
               </h1>
             </Link>
             <p className="mb-6 text-sm text-gray-400">
-              专注于游戏开发、人工智能和云计算技术的研发中心。我们致力于为游戏产业提供先进的技术解决方案，推动创新发展。
+              G社技术中心，由编译器组、服务器与工具链组、引擎组、技术AI组、AIGC组构成，在GS语言、Unity引擎、服务器框架、游戏开发工具链、AI技术应用等领域均有深厚的技术积累，为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产。<br />
+              我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆。<br />
+              我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。同时，针对不同项目需求，我们也能提供驻组技术支持，助力项目高效推进。
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -41,22 +43,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link to="/tech-cooperation" className="text-gray-400 hover:text-white transition-colors">
-                  技术合作
+                  XXXXXXX
                 </Link>
               </li>
               <li>
                 <Link to="/projects/firecat" className="text-gray-400 hover:text-white transition-colors">
-                  火猫游戏平台
+                  XXXXXXX
                 </Link>
               </li>
               <li>
                 <Link to="/projects/sport-retail" className="text-gray-400 hover:text-white transition-colors">
-                  数字化游戏交易系统
+                  XXXXXXX
                 </Link>
               </li>
               <li>
                 <Link to="/projects/workwear" className="text-gray-400 hover:text-white transition-colors">
-                  云游戏服务
+                  XXXXXXX
                 </Link>
               </li>
             </ul>
@@ -67,41 +69,33 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link to="/knowledge-base" className="text-gray-400 hover:text-white transition-colors">
-                  知识库
+                  XXXXXXX
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  技术博客
+                  XXXXXXX
                 </Link>
               </li>
               <li>
                 <Link to="/achievements" className="text-gray-400 hover:text-white transition-colors">
-                  成果展示
+                  XXXXXXX
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
-                  关于我们
+                  XXXXXXX
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">联系方式</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">联系地址</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>福建省厦门市思明区软件园二期望海路25号</span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0" />
-                <span>+86 592-123-4567</span>
-              </li>
-              <li className="flex items-center">
-                <Mail className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0" />
-                <span>tech-center@g-bits.com</span>
+                <span>广东省深圳市南山区方大城T2栋17楼技术中心</span>
               </li>
             </ul>
           </div>
