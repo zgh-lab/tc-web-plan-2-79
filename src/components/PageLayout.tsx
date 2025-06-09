@@ -9,7 +9,7 @@ import ThreeDBackground from '@/components/ThreeDBackground';
 type PageLayoutProps = {
   children: React.ReactNode;
   showContact?: boolean;
-  backgroundVariant?: 'default' | 'knowledge' | 'cooperation' | 'achievements';
+  backgroundVariant?: 'default' | 'cooperation' | 'achievements';
 };
 
 const PageLayout = ({ children, showContact, backgroundVariant = 'default' }: PageLayoutProps) => {

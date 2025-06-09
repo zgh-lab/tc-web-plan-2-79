@@ -66,23 +66,18 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 增强的标题样式 */}
+              {/* 更新的标题样式 - 更细更简约的白色字体 */}
               <motion.h1 
-                className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 elegant-title tracking-tight"
+                className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight text-white"
                 variants={itemVariants}
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #cbd5e1 60%, #94a3b8 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  textShadow: '0 8px 32px rgba(255, 255, 255, 0.3), 0 16px 64px rgba(79, 70, 229, 0.4), 0 24px 96px rgba(124, 58, 237, 0.3)',
-                  letterSpacing: '-0.025em',
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 800,
-                  filter: 'drop-shadow(0 4px 20px rgba(255, 255, 255, 0.1))'
+                  fontWeight: 200, // 更细的字体
+                  letterSpacing: '-0.025em',
+                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.1)'
                 }}
                 whileHover={{
-                  textShadow: '0 8px 40px rgba(255, 255, 255, 0.4), 0 16px 80px rgba(79, 70, 229, 0.5), 0 24px 120px rgba(124, 58, 237, 0.4)',
+                  textShadow: '0 8px 40px rgba(255, 255, 255, 0.2)',
                   scale: 1.02,
                   transition: { duration: 0.6, ease: "easeOut" }
                 }}
