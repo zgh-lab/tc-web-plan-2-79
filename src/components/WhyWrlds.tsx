@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -80,7 +79,7 @@ const WhyWrlds = () => {
         >
           <div className="mb-12 text-center">
             <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              技术合作
+              技术方向
             </motion.h2>
             <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
               我们为各项目提供 基于GS语言的前后端框架、GS插件、公共服务器、<br />

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
@@ -126,9 +125,9 @@ const TechCooperation = () => {
   return (
     <PageLayout backgroundVariant="cooperation">
       <SEO 
-        title="技术合作 - G-bits 技术中心" 
+        title="技术方向 - G-bits 技术中心" 
         description="G-bits技术中心提供编译器、服务器架构、游戏引擎、技术AI和AIGC等多方面的技术合作解决方案。"
-        keywords={['技术合作', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
+        keywords={['技术方向', '游戏编译器', '服务器架构', '游戏引擎', '技术AI', 'AIGC']}
       />
 
       <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
@@ -142,7 +141,7 @@ const TechCooperation = () => {
             className="text-4xl md:text-5xl font-bold text-white mb-6 text-center"
             variants={childVariants}
           >
-            技术合作
+            技术方向
           </motion.h1>
           
           <motion.p 

@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight } from 'lucide-react';
@@ -80,9 +79,9 @@ const Achievements = () => {
   return (
     <PageLayout>
       <SEO 
-        title="成果展示 - G-bits 技术中心" 
-        description="G-bits技术中心的成果展示，包括技术创新、项目成果和研发成果。"
-        keywords={['成果展示', '技术创新', '项目成果', '研发成果']}
+        title="项目合作 - G-bits 技术中心" 
+        description="G-bits技术中心的项目合作展示，包括技术创新、项目成果和研发成果。"
+        keywords={['项目合作', '技术创新', '项目成果', '研发成果']}
       />
 
       {/* 添加背景图和半透明蒙版，保持与知识库页面风格一致 */}
@@ -106,7 +105,7 @@ const Achievements = () => {
             variants={containerVariants}
             className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
           >
-            <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">成果展示</motion.h1>
+            <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">项目合作</motion.h1>
             <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
               展示 G-bits 技术中心的自主研发游戏及技术创新成果
             </motion.p>
@@ -173,4 +172,3 @@ const Achievements = () => {
 };
 
 export default Achievements;
-

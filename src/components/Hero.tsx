@@ -66,13 +66,13 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 更新的标题样式 - 更细更简约的白色字体 */}
+              {/* 更新的标题样式 - 略微加粗一点点的白色字体 */}
               <motion.h1 
                 className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight text-white"
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 200, // 更细的字体
+                  fontWeight: 300, // 从200改为300，略微加粗
                   letterSpacing: '-0.025em',
                   textShadow: '0 4px 20px rgba(255, 255, 255, 0.1)'
                 }}

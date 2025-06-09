@@ -15,11 +15,11 @@ export const navItems: NavItem[] = [
     path: "/"
   },
   {
-    title: "技术合作",
+    title: "技术方向",
     path: "/tech-cooperation"
   },
   {
-    title: "成果展示",
+    title: "项目合作",
     path: "/achievements"
   },
   {
