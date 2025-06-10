@@ -1,11 +1,11 @@
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const techTeams = [
   {
@@ -91,6 +91,34 @@ const techTeams = [
 ];
 
 const TechCooperation = () => {  
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // 监听URL参数变化
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const expanded = params.get('expanded');
+    if (expanded && techTeams.find(team => team.id === expanded)) {
+      setActiveModal(expanded);
+    }
+  }, [location.search]);
+
+  const openModal = (id: string) => {
+    setActiveModal(id);
+    const params = new URLSearchParams(location.search);
+    params.set('expanded', id);
+    navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+  };
+
+  const closeModal = () => {
+    setActiveModal(null);
+    const params = new URLSearchParams(location.search);
+    params.delete('expanded');
+    const newSearch = params.toString();
+    navigate(`${location.pathname}${newSearch ? `?${newSearch}` : ''}`, { replace: true });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -113,14 +141,36 @@ const TechCooperation = () => {
     }
   };
 
-  const [openItems, setOpenItems] = useState<string[]>([]);
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      y: 50
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 25,
+        stiffness: 300
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      y: 50,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
 
-  const toggleItem = (id: string) => {
-    setOpenItems(prev => 
-      prev.includes(id) 
-        ? prev.filter(item => item !== id) 
-        : [...prev, id]
-    );
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 }
   };
 
   return (
@@ -152,7 +202,6 @@ const TechCooperation = () => {
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
           </motion.p>
 
-          {/* 重新设计的卡片布局 - 形成规整长方形 */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -168,81 +217,33 @@ const TechCooperation = () => {
                   variants={childVariants}
                   className="w-full"
                 >
-                  <Collapsible 
-                    open={openItems.includes(team.id)} 
-                    onOpenChange={() => toggleItem(team.id)}
-                    className="w-full"
-                  >
-                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
-                      <CardContent className="p-0">
-                        <CollapsibleTrigger className="w-full text-left">
-                          <div 
-                            className="relative p-6 cursor-pointer overflow-hidden min-h-[240px]"
-                            style={{
-                              backgroundImage: `url(${team.image})`,
-                              backgroundSize: 'cover',
-                              backgroundPosition: 'center'
-                            }}
-                          >
-                            <div className="absolute inset-0 bg-black/70"></div>
-                            <div className="relative z-10">
-                              <div className="flex items-center justify-between mb-4">
-                                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                                  <team.icon className="w-6 h-6 text-orange-400" />
-                                </div>
-                                <ChevronDown 
-                                  className={`w-6 h-6 text-orange-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
-                                />
-                              </div>
-                              <h2 className="text-xl font-semibold text-white mb-3">
-                                {team.title}
-                              </h2>
-                              <p className="text-gray-300 text-sm">{team.description}</p>
+                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
+                    <CardContent className="p-0">
+                      <div 
+                        className="relative p-6 cursor-pointer overflow-hidden min-h-[240px]"
+                        style={{
+                          backgroundImage: `url(${team.image})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
+                        onClick={() => openModal(team.id)}
+                      >
+                        <div className="absolute inset-0 bg-black/70"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                              <team.icon className="w-6 h-6 text-orange-400" />
                             </div>
+                            <ChevronDown className="w-6 h-6 text-orange-400" />
                           </div>
-                        </CollapsibleTrigger>
-                        
-                        <CollapsibleContent>
-                          <div className="p-6 pt-3 border-t border-white/10"> 
-                            <p className="text-gray-300 mb-4 text-sm">{team.details}</p>
-                            
-                            <div className="mb-4"> 
-                              <h3 className="text-lg font-semibold text-white mb-2">核心技术</h3> 
-                              <div className="flex flex-wrap gap-2">
-                                {team.technologies.map((tech, idx) => (
-                                  <span 
-                                    key={idx} 
-                                    className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                            
-                            <div className="mb-4"> 
-                              <h3 className="text-lg font-semibold text-white mb-2">主要成果</h3> 
-                              <ul className="space-y-1">
-                                {team.achievements.slice(0, 3).map((achievement, idx) => (
-                                  <li key={idx} className="flex items-start text-gray-300 text-sm">
-                                    <ChevronRight className="w-3 h-3 text-orange-400 mt-1 mr-2 shrink-0" />
-                                    <span>{achievement}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            
-                            <div className="flex items-center text-sm">
-                              <span className="text-white mr-2">联系邮箱:</span>
-                              <a href={`mailto:${team.email}`} className="text-orange-400 hover:underline">
-                                {team.email}
-                              </a>
-                            </div>
-                          </div>
-                        </CollapsibleContent>
-                      </CardContent>
-                    </Card>
-                  </Collapsible>
+                          <h2 className="text-xl font-semibold text-white mb-3">
+                            {team.title}
+                          </h2>
+                          <p className="text-gray-300 text-sm">{team.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -255,86 +256,156 @@ const TechCooperation = () => {
                   variants={childVariants}
                   className="w-full"
                 >
-                  <Collapsible 
-                    open={openItems.includes(team.id)} 
-                    onOpenChange={() => toggleItem(team.id)}
-                    className="w-full"
-                  >
-                    <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
-                      <CardContent className="p-0">
-                        <CollapsibleTrigger className="w-full text-left">
-                          <div 
-                            className="relative p-6 cursor-pointer overflow-hidden min-h-[240px]"
-                            style={{
-                              backgroundImage: `url(${team.image})`,
-                              backgroundSize: 'cover',
-                              backgroundPosition: 'center'
-                            }}
-                          >
-                            <div className="absolute inset-0 bg-black/70"></div>
-                            <div className="relative z-10">
-                              <div className="flex items-center justify-between mb-4">
-                                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                                  <team.icon className="w-6 h-6 text-orange-400" />
-                                </div>
-                                <ChevronDown 
-                                  className={`w-6 h-6 text-orange-400 transition-transform ${openItems.includes(team.id) ? 'rotate-180' : ''}`} 
-                                />
-                              </div>
-                              <h2 className="text-xl font-semibold text-white mb-3">
-                                {team.title}
-                              </h2>
-                              <p className="text-gray-300 text-sm">{team.description}</p>
+                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
+                    <CardContent className="p-0">
+                      <div 
+                        className="relative p-6 cursor-pointer overflow-hidden min-h-[240px]"
+                        style={{
+                          backgroundImage: `url(${team.image})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
+                        onClick={() => openModal(team.id)}
+                      >
+                        <div className="absolute inset-0 bg-black/70"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                              <team.icon className="w-6 h-6 text-orange-400" />
                             </div>
+                            <ChevronDown className="w-6 h-6 text-orange-400" />
                           </div>
-                        </CollapsibleTrigger>
-                        
-                        <CollapsibleContent>
-                          <div className="p-6 pt-3 border-t border-white/10"> 
-                            <p className="text-gray-300 mb-4 text-sm">{team.details}</p>
-                            
-                            <div className="mb-4"> 
-                              <h3 className="text-lg font-semibold text-white mb-2">核心技术</h3> 
-                              <div className="flex flex-wrap gap-2">
-                                {team.technologies.map((tech, idx) => (
-                                  <span 
-                                    key={idx} 
-                                    className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                            
-                            <div className="mb-4"> 
-                              <h3 className="text-lg font-semibold text-white mb-2">主要成果</h3> 
-                              <ul className="space-y-1">
-                                {team.achievements.slice(0, 3).map((achievement, idx) => (
-                                  <li key={idx} className="flex items-start text-gray-300 text-sm">
-                                    <ChevronRight className="w-3 h-3 text-orange-400 mt-1 mr-2 shrink-0" />
-                                    <span>{achievement}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            
-                            <div className="flex items-center text-sm">
-                              <span className="text-white mr-2">联系邮箱:</span>
-                              <a href={`mailto:${team.email}`} className="text-orange-400 hover:underline">
-                                {team.email}
-                              </a>
-                            </div>
-                          </div>
-                        </CollapsibleContent>
-                      </CardContent>
-                    </Card>
-                  </Collapsible>
+                          <h2 className="text-xl font-semibold text-white mb-3">
+                            {team.title}
+                          </h2>
+                          <p className="text-gray-300 text-sm">{team.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </motion.div>
+
+        {/* 浮层模态框 */}
+        <AnimatePresence>
+          {activeModal && (
+            <motion.div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              {/* 背景遮罩 */}
+              <motion.div
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                onClick={closeModal}
+              />
+              
+              {/* 模态框内容 */}
+              <motion.div
+                className="relative bg-gray-900/95 border border-orange-500/30 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                variants={modalVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {(() => {
+                  const team = techTeams.find(t => t.id === activeModal);
+                  if (!team) return null;
+
+                  return (
+                    <>
+                      {/* 关闭按钮 */}
+                      <button
+                        onClick={closeModal}
+                        className="absolute top-4 right-4 z-10 w-8 h-8 bg-gray-800/80 hover:bg-gray-700/80 rounded-full flex items-center justify-center transition-colors"
+                      >
+                        <X className="w-4 h-4 text-white" />
+                      </button>
+
+                      {/* 头部背景图 */}
+                      <div 
+                        className="relative h-48 overflow-hidden rounded-t-xl"
+                        style={{
+                          backgroundImage: `url(${team.image})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-black/70"></div>
+                        <div className="absolute bottom-6 left-6">
+                          <div className="flex items-center gap-4 mb-3">
+                            <div className="w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                              <team.icon className="w-8 h-8 text-orange-400" />
+                            </div>
+                            <h2 className="text-3xl font-bold text-white">
+                              {team.title}
+                            </h2>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 内容区域 */}
+                      <div className="p-8">
+                        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                          {team.details}
+                        </p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          {/* 核心技术 */}
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-4">核心技术</h3>
+                            <div className="flex flex-wrap gap-3">
+                              {team.technologies.map((tech, idx) => (
+                                <span 
+                                  key={idx} 
+                                  className="px-3 py-2 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* 主要成果 */}
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-4">主要成果</h3>
+                            <ul className="space-y-3">
+                              {team.achievements.map((achievement, idx) => (
+                                <li key={idx} className="flex items-start text-gray-300">
+                                  <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
+                                  <span>{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* 联系信息 */}
+                        <div className="mt-8 pt-6 border-t border-white/10">
+                          <div className="flex items-center text-lg">
+                            <span className="text-white mr-3">联系邮箱:</span>
+                            <a 
+                              href={`mailto:${team.email}`} 
+                              className="text-orange-400 hover:text-orange-300 transition-colors font-medium"
+                            >
+                              {team.email}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })()}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
     </PageLayout>
   );

@@ -1,6 +1,7 @@
+
 import { motion } from "framer-motion";
 import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -46,6 +47,13 @@ const features = [
 ];
 
 const WhyWrlds = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (featureId: string) => {
+    navigate(`/tech-cooperation?expanded=${featureId}`);
+    window.scrollTo(0, 0);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -81,7 +89,7 @@ const WhyWrlds = () => {
             <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
               技术方向
             </motion.h2>
-            <motion.p variants={childVariants} className="text-lg text-gray-400 max-w-5xl mx-auto whitespace-nowrap opacity-80">
+            <motion.p variants={childVariants} className="text-lg text-gray-500 max-w-5xl mx-auto whitespace-nowrap opacity-60">
               我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
             </motion.p>
           </div>
@@ -91,13 +99,16 @@ const WhyWrlds = () => {
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className="md:col-span-4 overflow-hidden rounded-lg relative"
+                className="md:col-span-4 overflow-hidden rounded-lg relative cursor-pointer"
                 style={{
                   backgroundImage: `url(${feature.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   height: '320px'
                 }}
+                onClick={() => handleCardClick(feature.id)}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-black/70"></div>
                 
@@ -111,15 +122,12 @@ const WhyWrlds = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-400 flex-grow opacity-85">{feature.description}</p>
+                  <p className="text-gray-500 flex-grow opacity-60">{feature.description}</p>
                   
-                  <Link 
-                    to={feature.link} 
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4"
-                  >
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -128,13 +136,16 @@ const WhyWrlds = () => {
               <motion.div 
                 key={feature.id}
                 variants={childVariants}
-                className="md:col-span-6 overflow-hidden rounded-lg relative"
+                className="md:col-span-6 overflow-hidden rounded-lg relative cursor-pointer"
                 style={{
                   backgroundImage: `url(${feature.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   height: '320px'
                 }}
+                onClick={() => handleCardClick(feature.id)}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-black/70"></div>
                 
@@ -148,15 +159,12 @@ const WhyWrlds = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-400 flex-grow opacity-85">{feature.description}</p>
+                  <p className="text-gray-500 flex-grow opacity-60">{feature.description}</p>
                   
-                  <Link 
-                    to={feature.link} 
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4"
-                  >
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
