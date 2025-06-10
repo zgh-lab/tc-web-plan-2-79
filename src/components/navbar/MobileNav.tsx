@@ -47,7 +47,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                     scrollToSection(item.actionId || '');
                     setIsMenuOpen(false);
                   }} 
-                  className="block w-full text-left px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900"
+                  className="block w-full text-left px-3 py-2 rounded-md text-gray-300 hover:bg-gray-900"
                 >
                   {item.title}
                 </button>
@@ -59,7 +59,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                   href={item.path} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="block px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900"
+                  className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
@@ -70,7 +70,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                 <Link 
                   key={item.title}
                   to={item.path} 
-                  className="block px-3 py-2 rounded-md text-gray-200 hover:bg-gray-900" 
+                  className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-900" 
                   onClick={() => {
                     setIsMenuOpen(false);
                     window.scrollTo(0, 0);

@@ -97,7 +97,7 @@ const Hero = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-gray-400 text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[15px]" 
+                className="text-gray-300 text-lg md:text-xl lg:text-2xl mb-8 opacity-80 mt-[15px]" 
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.03,
