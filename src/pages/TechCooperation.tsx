@@ -146,7 +146,7 @@ const TechCooperation = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-12"
+            className="text-xl text-gray-300 max-w-5xl mx-auto text-center mb-12 whitespace-nowrap"
             variants={childVariants}
           >
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
