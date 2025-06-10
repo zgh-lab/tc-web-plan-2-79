@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -82,13 +81,12 @@ const WhyWrlds = () => {
             <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
               技术方向
             </motion.h2>
-            <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-5xl mx-auto whitespace-nowrap">
+            <motion.p variants={childVariants} className="text-lg text-gray-400 max-w-5xl mx-auto whitespace-nowrap opacity-80">
               我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
             </motion.p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* First row with 3 items */}
             {features.slice(0, 3).map((feature, index) => (
               <motion.div 
                 key={feature.id}
@@ -113,7 +111,7 @@ const WhyWrlds = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-200 flex-grow">{feature.description}</p>
+                  <p className="text-gray-400 flex-grow opacity-85">{feature.description}</p>
                   
                   <Link 
                     to={feature.link} 
@@ -126,7 +124,6 @@ const WhyWrlds = () => {
               </motion.div>
             ))}
 
-            {/* Second row with 2 items side by side */}
             {features.slice(3, 5).map((feature, index) => (
               <motion.div 
                 key={feature.id}
@@ -151,7 +148,7 @@ const WhyWrlds = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-200 flex-grow">{feature.description}</p>
+                  <p className="text-gray-400 flex-grow opacity-85">{feature.description}</p>
                   
                   <Link 
                     to={feature.link} 

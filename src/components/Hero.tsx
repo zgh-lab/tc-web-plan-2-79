@@ -14,7 +14,6 @@ const Hero = () => {
     offset: ["start start", "end start"]
   });
   
-  // 基于滚动进度创建动画值
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.7, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
@@ -66,32 +65,43 @@ const Hero = () => {
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-full text-center" variants={itemVariants}>
-              {/* 更新的标题样式 - 略微加粗一点点的白色字体 */}
               <motion.h1 
-                className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight text-white"
+                className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight"
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 300, // 从200改为300，略微加粗
-                  letterSpacing: '-0.025em',
-                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.1)'
+                  fontWeight: 300,
+                  letterSpacing: '-0.025em'
                 }}
                 whileHover={{
-                  textShadow: '0 8px 40px rgba(255, 255, 255, 0.2)',
                   scale: 1.02,
                   transition: { duration: 0.6, ease: "easeOut" }
                 }}
               >
-                G-bits 技术中心
+                <span 
+                  className="text-sky-300"
+                  style={{
+                    textShadow: '0 0 10px rgba(125, 211, 252, 0.3), 0 0 20px rgba(125, 211, 252, 0.1), 0 4px 20px rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  G-
+                </span>
+                <span 
+                  className="text-white"
+                  style={{
+                    textShadow: '0 4px 20px rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  bits 技术中心
+                </span>
               </motion.h1>
               
               <motion.p 
-                className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-95 mt-[15px]" 
+                className="text-gray-400 text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[15px]" 
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.03,
-                  color: 'rgba(255, 255, 255, 1)',
-                  textShadow: '0 0 8px rgba(79, 70, 229, 0.5)',
+                  color: 'rgba(156, 163, 175, 1)',
                   transition: { duration: 0.4 }
                 }}
               >
