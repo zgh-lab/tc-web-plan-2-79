@@ -70,7 +70,7 @@ const Hero = () => {
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 300,
+                  fontWeight: 550,
                   letterSpacing: '-0.025em'
                 }}
                 whileHover={{

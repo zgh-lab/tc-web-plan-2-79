@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Settings } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { navItems, scrollToSection } from './NavItems';
 import SearchDialog from './SearchDialog';
@@ -24,11 +24,6 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
         {/* 移动端搜索按钮 */}
         <SearchDialog isScrolled={isScrolled} isMobile={true} />
         
-        {/* 设置按钮 */}
-        <button className="p-2 rounded-full hover:bg-gray-200/20 text-white">
-          <Settings size={18} />
-        </button>
-        
         {/* 菜单按钮 */}
         <button onClick={toggleMenu} className="focus:outline-none text-white">
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -47,7 +42,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                     scrollToSection(item.actionId || '');
                     setIsMenuOpen(false);
                   }} 
-                  className="block w-full text-left px-3 py-2 rounded-md text-gray-300 hover:bg-gray-900"
+                  className="block w-full text-left px-3 py-2 rounded-md text-white hover:bg-gray-900"
                 >
                   {item.title}
                 </button>
@@ -59,7 +54,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                   href={item.path} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-900"
+                  className="block px-3 py-2 rounded-md text-white hover:bg-gray-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
@@ -70,7 +65,7 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
                 <Link 
                   key={item.title}
                   to={item.path} 
-                  className="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-900" 
+                  className="block px-3 py-2 rounded-md text-white hover:bg-gray-900" 
                   onClick={() => {
                     setIsMenuOpen(false);
                     window.scrollTo(0, 0);
