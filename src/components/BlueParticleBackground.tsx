@@ -17,19 +17,19 @@ function BlueLines() {
     const generatePoints = (count: number, yRange: [number, number]) => {
       const points = [];
       for (let i = 0; i < count; i++) {
-        const x = (Math.random() - 0.5) * 30;
+        const x = (Math.random() - 0.5) * 20; // 减小范围让线条更集中
         const y = yRange[0] + Math.random() * (yRange[1] - yRange[0]);
-        const z = (Math.random() - 0.5) * 15;
+        const z = (Math.random() - 0.5) * 10; // 减小Z轴范围
         points.push(new THREE.Vector3(x, y, z));
       }
       return points;
     };
     
     // 上半部分较少连线 (屏幕上方)
-    const upperPoints = generatePoints(8, [3, 12]);
+    const upperPoints = generatePoints(6, [2, 8]);
     
     // 下半部分较多连线 (屏幕下方)
-    const lowerPoints = generatePoints(15, [-12, -2]);
+    const lowerPoints = generatePoints(12, [-8, -1]);
     
     const allPoints = [...upperPoints, ...lowerPoints];
     
@@ -38,16 +38,16 @@ function BlueLines() {
       circles.push({
         position: point.clone(),
         velocity: new THREE.Vector3(
-          (Math.random() - 0.5) * 0.004,
           (Math.random() - 0.5) * 0.003,
-          (Math.random() - 0.5) * 0.002
+          (Math.random() - 0.5) * 0.002,
+          (Math.random() - 0.5) * 0.001
         )
       });
     });
     
     // 创建连线
-    const maxDistance = 12;
-    const maxConnections = 3;
+    const maxDistance = 8; // 减小连接距离
+    const maxConnections = 2;
     
     for (let i = 0; i < allPoints.length; i++) {
       let connections = 0;
@@ -61,7 +61,7 @@ function BlueLines() {
           lines.push({
             start: pos1.clone(),
             end: pos2.clone(),
-            opacity: Math.max(0.4, (maxDistance - distance) / maxDistance * 0.8)
+            opacity: Math.max(0.6, (maxDistance - distance) / maxDistance * 1.0) // 提高透明度
           });
           connections++;
         }
@@ -82,17 +82,17 @@ function BlueLines() {
         const circleData = lineData.circles[index];
         if (circleData) {
           // 缓慢漂浮动画
-          circleData.position.x += circleData.velocity.x * (1 + Math.sin(time * 0.15 + index * 0.1) * 0.5);
-          circleData.position.y += circleData.velocity.y * (1 + Math.cos(time * 0.12 + index * 0.1) * 0.3);
-          circleData.position.z += circleData.velocity.z * (1 + Math.sin(time * 0.08 + index * 0.1) * 0.2);
+          circleData.position.x += circleData.velocity.x * (1 + Math.sin(time * 0.1 + index * 0.1) * 0.3);
+          circleData.position.y += circleData.velocity.y * (1 + Math.cos(time * 0.08 + index * 0.1) * 0.2);
+          circleData.position.z += circleData.velocity.z * (1 + Math.sin(time * 0.05 + index * 0.1) * 0.1);
           
           // 边界循环
-          if (circleData.position.x > 15) circleData.position.x = -15;
-          if (circleData.position.x < -15) circleData.position.x = 15;
-          if (circleData.position.y > 12) circleData.position.y = -12;
-          if (circleData.position.y < -12) circleData.position.y = 12;
-          if (circleData.position.z > 8) circleData.position.z = -8;
-          if (circleData.position.z < -8) circleData.position.z = 8;
+          if (circleData.position.x > 10) circleData.position.x = -10;
+          if (circleData.position.x < -10) circleData.position.x = 10;
+          if (circleData.position.y > 8) circleData.position.y = -8;
+          if (circleData.position.y < -8) circleData.position.y = 8;
+          if (circleData.position.z > 5) circleData.position.z = -5;
+          if (circleData.position.z < -5) circleData.position.z = 5;
           
           circle.position.copy(circleData.position);
         }
@@ -103,10 +103,10 @@ function BlueLines() {
         const lineData_ = lineData.lines[index];
         if (lineData_ && lineObject instanceof THREE.Line) {
           const startCircle = lineData.circles.find(c => 
-            c.position.distanceTo(lineData_.start) < 0.5
+            c.position.distanceTo(lineData_.start) < 1.0
           );
           const endCircle = lineData.circles.find(c => 
-            c.position.distanceTo(lineData_.end) < 0.5
+            c.position.distanceTo(lineData_.end) < 1.0
           );
           
           if (startCircle && endCircle) {
@@ -133,34 +133,32 @@ function BlueLines() {
       <group ref={circlesRef}>
         {lineData.circles.map((circle, index) => (
           <mesh key={index} position={circle.position}>
-            <sphereGeometry args={[0.15, 8, 6]} />
+            <sphereGeometry args={[0.2, 8, 6]} />
             <meshBasicMaterial 
-              color="#60A5FA" 
+              color="#3B82F6" 
               transparent 
-              opacity={0.9}
+              opacity={0.8}
             />
           </mesh>
         ))}
       </group>
       
-      {/* 渲染连线 */}
+      {/* 渲染连线 - 使用 TubeGeometry 替代 Line 以确保可见性 */}
       <group ref={linesRef}>
         {lineData.lines.map((lineData_, index) => {
-          const geometry = new THREE.BufferGeometry().setFromPoints([
-            lineData_.start, 
-            lineData_.end
-          ]);
+          // 创建路径
+          const curve = new THREE.LineCurve3(lineData_.start, lineData_.end);
+          const tubeGeometry = new THREE.TubeGeometry(curve, 2, 0.02, 4, false);
           
           return (
-            <line key={index}>
-              <primitive object={geometry} attach="geometry" />
-              <lineBasicMaterial 
-                color="#60A5FA"
+            <mesh key={index}>
+              <primitive object={tubeGeometry} attach="geometry" />
+              <meshBasicMaterial 
+                color="#3B82F6"
                 transparent 
                 opacity={lineData_.opacity}
-                linewidth={2}
               />
-            </line>
+            </mesh>
           );
         })}
       </group>
@@ -174,7 +172,7 @@ const BlueParticleBackground = () => {
   return (
     <div className="w-full h-full">
       <Canvas
-        camera={{ position: [0, 0, 25], fov: 60 }}
+        camera={{ position: [0, 0, 15], fov: 75 }} // 调整相机位置更近一些
         gl={{ alpha: true, antialias: true }}
         style={{ 
           background: 'transparent',
@@ -182,8 +180,8 @@ const BlueParticleBackground = () => {
           height: '100%'
         }}
       >
-        <ambientLight intensity={0.6} />
-        <pointLight position={[10, 10, 10]} intensity={0.8} />
+        <ambientLight intensity={0.8} />
+        <pointLight position={[5, 5, 5]} intensity={1.0} />
         <BlueLines />
       </Canvas>
     </div>
