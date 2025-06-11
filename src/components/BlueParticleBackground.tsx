@@ -95,9 +95,9 @@ function BlueLines() {
       });
       
       // 更新连线
-      linesRef.current.children.forEach((line, index) => {
+      linesRef.current.children.forEach((lineObject, index) => {
         const lineData_ = lineData.lines[index];
-        if (lineData_) {
+        if (lineData_ && lineObject instanceof THREE.Line) {
           const startCircle = lineData.circles.find(c => 
             c.position.distanceTo(lineData_.start) < 0.1
           );
@@ -106,7 +106,7 @@ function BlueLines() {
           );
           
           if (startCircle && endCircle) {
-            const geometry = line.geometry as THREE.BufferGeometry;
+            const geometry = lineObject.geometry as THREE.BufferGeometry;
             const positions = geometry.attributes.position.array as Float32Array;
             
             positions[0] = startCircle.position.x;
@@ -148,13 +148,17 @@ function BlueLines() {
           ]);
           
           return (
-            <line key={index} geometry={geometry}>
-              <lineBasicMaterial 
-                color="#4A90E2" 
-                transparent 
-                opacity={lineData_.opacity}
-              />
-            </line>
+            <primitive 
+              key={index} 
+              object={new THREE.Line(
+                geometry, 
+                new THREE.LineBasicMaterial({
+                  color: "#4A90E2",
+                  transparent: true,
+                  opacity: lineData_.opacity
+                })
+              )}
+            />
           );
         })}
       </group>
