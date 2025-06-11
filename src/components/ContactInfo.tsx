@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Building, Users, Code, Server } from "lucide-react";
+import { Building, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ContactInfo = () => {
@@ -85,27 +85,13 @@ const ContactInfo = () => {
               <h3 className="font-bold text-2xl text-white">特定需求合作</h3>
             </div>
             
-            <p className="text-gray-300 mb-6">
-              技术中心指派具备相应专长的技术同学完成具体需求，负责特定需求的技术研究、方案设计及落地实施。适用于解决短期、单一的技术难点。
+            <p className="text-gray-300 mb-4">
+              技术中心指派具备相应专长的技术同学完成具体需求，负责特定需求的技术研究、方案设计及落地实施。
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start hover:bg-gray-800/70 transition-colors">
-                <Code className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-medium mb-1">编译器支持</h4>
-                  <p className="text-gray-400 text-sm">GS语言编译器与优化</p>
-                </div>
-              </div>
-              
-              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start hover:bg-gray-800/70 transition-colors">
-                <Server className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-medium mb-1">服务器架构</h4>
-                  <p className="text-gray-400 text-sm">高性能服务器设计</p>
-                </div>
-              </div>
-            </div>
+            <p className="text-gray-300 mb-6">
+              适用于解决短期、单一的技术难点。
+            </p>
             
             <Link 
               to="/tech-cooperation" 
@@ -134,27 +120,13 @@ const ContactInfo = () => {
               <h3 className="font-bold text-2xl text-white">驻组合作</h3>
             </div>
             
-            <p className="text-gray-300 mb-6">
-              技术中心选派技术同学常驻项目组进行开发支持，与项目团队深度协同，提供全流程技术支持与解决方案。适用于需要长期、深度技术支撑的项目。
+            <p className="text-gray-300 mb-4">
+              技术中心选派技术同学常驻项目组进行开发支持，与项目团队深度协同，提供全流程技术支持与解决方案。
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start hover:bg-gray-800/70 transition-colors">
-                <Code className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-medium mb-1">技术指导</h4>
-                  <p className="text-gray-400 text-sm">专业技术咨询与培训</p>
-                </div>
-              </div>
-              
-              <div className="bg-gray-800/50 rounded-lg p-4 flex items-start hover:bg-gray-800/70 transition-colors">
-                <Server className="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-medium mb-1">性能优化</h4>
-                  <p className="text-gray-400 text-sm">前后端性能提升方案</p>
-                </div>
-              </div>
-            </div>
+            <p className="text-gray-300 mb-6">
+              适用于需要长期、深度技术支撑的项目。
+            </p>
             
             <Link 
               to="/tech-cooperation" 
