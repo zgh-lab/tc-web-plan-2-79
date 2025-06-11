@@ -17,19 +17,19 @@ function BlueLines() {
     const generatePoints = (count: number, yRange: [number, number]) => {
       const points = [];
       for (let i = 0; i < count; i++) {
-        const x = (Math.random() - 0.5) * 40;
+        const x = (Math.random() - 0.5) * 30;
         const y = yRange[0] + Math.random() * (yRange[1] - yRange[0]);
-        const z = (Math.random() - 0.5) * 20;
+        const z = (Math.random() - 0.5) * 15;
         points.push(new THREE.Vector3(x, y, z));
       }
       return points;
     };
     
     // 上半部分较少连线 (屏幕上方)
-    const upperPoints = generatePoints(6, [5, 15]);
+    const upperPoints = generatePoints(8, [3, 12]);
     
     // 下半部分较多连线 (屏幕下方)
-    const lowerPoints = generatePoints(12, [-15, -2]);
+    const lowerPoints = generatePoints(15, [-12, -2]);
     
     const allPoints = [...upperPoints, ...lowerPoints];
     
@@ -38,15 +38,15 @@ function BlueLines() {
       circles.push({
         position: point.clone(),
         velocity: new THREE.Vector3(
+          (Math.random() - 0.5) * 0.004,
           (Math.random() - 0.5) * 0.003,
-          (Math.random() - 0.5) * 0.002,
-          (Math.random() - 0.5) * 0.001
+          (Math.random() - 0.5) * 0.002
         )
       });
     });
     
     // 创建连线
-    const maxDistance = 15;
+    const maxDistance = 12;
     const maxConnections = 3;
     
     for (let i = 0; i < allPoints.length; i++) {
@@ -61,7 +61,7 @@ function BlueLines() {
           lines.push({
             start: pos1.clone(),
             end: pos2.clone(),
-            opacity: Math.max(0.2, (maxDistance - distance) / maxDistance * 0.6)
+            opacity: Math.max(0.4, (maxDistance - distance) / maxDistance * 0.8)
           });
           connections++;
         }
@@ -82,17 +82,17 @@ function BlueLines() {
         const circleData = lineData.circles[index];
         if (circleData) {
           // 缓慢漂浮动画
-          circleData.position.x += circleData.velocity.x * (1 + Math.sin(time * 0.1 + index * 0.05) * 0.3);
-          circleData.position.y += circleData.velocity.y * (1 + Math.cos(time * 0.08 + index * 0.05) * 0.2);
-          circleData.position.z += circleData.velocity.z * (1 + Math.sin(time * 0.06 + index * 0.05) * 0.1);
+          circleData.position.x += circleData.velocity.x * (1 + Math.sin(time * 0.15 + index * 0.1) * 0.5);
+          circleData.position.y += circleData.velocity.y * (1 + Math.cos(time * 0.12 + index * 0.1) * 0.3);
+          circleData.position.z += circleData.velocity.z * (1 + Math.sin(time * 0.08 + index * 0.1) * 0.2);
           
           // 边界循环
-          if (circleData.position.x > 20) circleData.position.x = -20;
-          if (circleData.position.x < -20) circleData.position.x = 20;
-          if (circleData.position.y > 15) circleData.position.y = -15;
-          if (circleData.position.y < -15) circleData.position.y = 15;
-          if (circleData.position.z > 10) circleData.position.z = -10;
-          if (circleData.position.z < -10) circleData.position.z = 10;
+          if (circleData.position.x > 15) circleData.position.x = -15;
+          if (circleData.position.x < -15) circleData.position.x = 15;
+          if (circleData.position.y > 12) circleData.position.y = -12;
+          if (circleData.position.y < -12) circleData.position.y = 12;
+          if (circleData.position.z > 8) circleData.position.z = -8;
+          if (circleData.position.z < -8) circleData.position.z = 8;
           
           circle.position.copy(circleData.position);
         }
@@ -103,10 +103,10 @@ function BlueLines() {
         const lineData_ = lineData.lines[index];
         if (lineData_ && lineObject instanceof THREE.Line) {
           const startCircle = lineData.circles.find(c => 
-            c.position.distanceTo(lineData_.start) < 0.1
+            c.position.distanceTo(lineData_.start) < 0.5
           );
           const endCircle = lineData.circles.find(c => 
-            c.position.distanceTo(lineData_.end) < 0.1
+            c.position.distanceTo(lineData_.end) < 0.5
           );
           
           if (startCircle && endCircle) {
@@ -133,11 +133,11 @@ function BlueLines() {
       <group ref={circlesRef}>
         {lineData.circles.map((circle, index) => (
           <mesh key={index} position={circle.position}>
-            <sphereGeometry args={[0.1, 8, 6]} />
+            <sphereGeometry args={[0.15, 8, 6]} />
             <meshBasicMaterial 
-              color="#4A90E2" 
+              color="#60A5FA" 
               transparent 
-              opacity={0.8}
+              opacity={0.9}
             />
           </mesh>
         ))}
@@ -152,17 +152,15 @@ function BlueLines() {
           ]);
           
           return (
-            <primitive 
-              key={index} 
-              object={new THREE.Line(
-                geometry, 
-                new THREE.LineBasicMaterial({
-                  color: "#4A90E2",
-                  transparent: true,
-                  opacity: lineData_.opacity
-                })
-              )}
-            />
+            <line key={index}>
+              <primitive object={geometry} attach="geometry" />
+              <lineBasicMaterial 
+                color="#60A5FA"
+                transparent 
+                opacity={lineData_.opacity}
+                linewidth={2}
+              />
+            </line>
           );
         })}
       </group>
@@ -176,7 +174,7 @@ const BlueParticleBackground = () => {
   return (
     <div className="w-full h-full">
       <Canvas
-        camera={{ position: [0, 0, 20], fov: 75 }}
+        camera={{ position: [0, 0, 25], fov: 60 }}
         gl={{ alpha: true, antialias: true }}
         style={{ 
           background: 'transparent',
@@ -184,7 +182,8 @@ const BlueParticleBackground = () => {
           height: '100%'
         }}
       >
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={0.6} />
+        <pointLight position={[10, 10, 10]} intensity={0.8} />
         <BlueLines />
       </Canvas>
     </div>
