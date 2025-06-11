@@ -59,7 +59,9 @@ function BlueLines() {
           lines.push({
             start: pos1.clone(),
             end: pos2.clone(),
-            opacity: Math.max(0.1, (maxDistance - distance) / maxDistance * 0.4)
+            opacity: Math.max(0.1, (maxDistance - distance) / maxDistance * 0.4),
+            startIndex: i,
+            endIndex: j
           });
           connections++;
         }
@@ -95,17 +97,14 @@ function BlueLines() {
       });
       
       // 更新连线
-      linesRef.current.children.forEach((line, index) => {
+      linesRef.current.children.forEach((lineGroup, index) => {
         const lineData_ = lineData.lines[index];
-        if (lineData_) {
-          const startCircle = lineData.circles.find(c => 
-            c.position.distanceTo(lineData_.start) < 0.1
-          );
-          const endCircle = lineData.circles.find(c => 
-            c.position.distanceTo(lineData_.end) < 0.1
-          );
+        if (lineData_ && lineGroup.children[0]) {
+          const line = lineGroup.children[0] as THREE.Line;
+          const startCircle = lineData.circles[lineData_.startIndex];
+          const endCircle = lineData.circles[lineData_.endIndex];
           
-          if (startCircle && endCircle) {
+          if (startCircle && endCircle && line.geometry) {
             const geometry = line.geometry as THREE.BufferGeometry;
             const positions = geometry.attributes.position.array as Float32Array;
             
@@ -148,13 +147,15 @@ function BlueLines() {
           ]);
           
           return (
-            <line key={index} geometry={geometry}>
-              <lineBasicMaterial 
-                color="#4A90E2" 
-                transparent 
-                opacity={lineData_.opacity}
-              />
-            </line>
+            <group key={index}>
+              <line geometry={geometry}>
+                <lineBasicMaterial 
+                  color="#4A90E2" 
+                  transparent 
+                  opacity={lineData_.opacity}
+                />
+              </line>
+            </group>
           );
         })}
       </group>
