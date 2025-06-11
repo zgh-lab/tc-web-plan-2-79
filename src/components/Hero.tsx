@@ -3,7 +3,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
-import BlueParticleBackground from './BlueParticleBackground';
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -56,18 +55,12 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        {/* 蓝色粒子背景层 - 调整层级确保可见 */}
-        <div className="absolute inset-0" style={{ zIndex: 1 }}>
-          <BlueParticleBackground />
-        </div>
-        
         <motion.div 
-          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative"
+          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full"
           style={{
             opacity,
             scale,
-            y,
-            zIndex: 10
+            y
           }}
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
@@ -77,7 +70,7 @@ const Hero = () => {
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 550,
+                  fontWeight: 300,
                   letterSpacing: '-0.025em'
                 }}
                 whileHover={{
@@ -104,11 +97,11 @@ const Hero = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-gray-200 text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[15px]" 
+                className="text-gray-300 text-lg md:text-xl lg:text-2xl mb-8 opacity-80 mt-[15px]" 
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.03,
-                  color: 'rgba(229, 231, 235, 1)',
+                  color: 'rgba(156, 163, 175, 1)',
                   transition: { duration: 0.4 }
                 }}
               >
@@ -124,7 +117,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          style={{ opacity, zIndex: 20 }}
+          style={{ opacity }}
           onClick={() => {
             const scrollTarget = document.getElementById('content-section');
             if (scrollTarget) {

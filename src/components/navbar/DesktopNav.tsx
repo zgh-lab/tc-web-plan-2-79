@@ -28,7 +28,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                 {item.isAction ? (
                   <button 
                     onClick={() => scrollToSection(item.actionId || '')} 
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-white bg-transparent hover:bg-gray-800")}
+                    className={cn(navigationMenuTriggerStyle(), "text-gray-300 hover:text-white bg-transparent hover:bg-gray-800")}
                   >
                     {item.title}
                   </button>
@@ -37,13 +37,13 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                     href={item.path} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-white bg-transparent hover:bg-gray-800")}
+                    className={cn(navigationMenuTriggerStyle(), "text-gray-300 hover:text-white bg-transparent hover:bg-gray-800")}
                   >
                     {item.title}
                   </a>
                 ) : (
                   <Link to={item.path}>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-white bg-transparent hover:bg-gray-800")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-gray-300 hover:text-white bg-transparent hover:bg-gray-800")}>
                       {item.title}
                     </NavigationMenuLink>
                   </Link>
