@@ -8,41 +8,90 @@ const features = [
     id: "compiler",
     icon: Code,
     title: "编译器组",
-    description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
+    description: "负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png"
+    image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png",
+    details: [
+      "GS编译器底层功能开发和问题修复",
+      "GS编译器底层性能优化", 
+      "为上层工具（如调试、性能工具）提供底层功能支持",
+      "高度契合游戏开发细分领域，调整GS语言特性和功能"
+    ],
+    contact: "@楚耀翔 @徐鑫荣"
   },
   {
     id: "server",
     icon: Server,
     title: "服务器与工具链组",
-    description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
+    description: "提供游戏项目组覆盖从开发、测试、部署、运维 全生命周期的GS解决方案及全方位的技术支持。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png"
+    image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png",
+    details: [
+      "开发工具：语言支持、调试分析、通用工具",
+      "游戏框架：代码包PKG、服务器引擎、公共服务器模块、引擎插件",
+      "DevOps：CI/CD、监控系统、协作安全",
+      "技术支持：快速响应、全方位技术支持、性能分析与优化"
+    ],
+    caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?table=tblOGlj9u9W5Kruv&view=vewEMkh4kx",
+    contact: "@吴荣钦"
   },
   {
     id: "engine",
     icon: Wrench,
     title: "引擎组",
-    description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
+    description: "为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png"
+    image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png",
+    details: [
+      "渲染管线：builtin/jrp/urp/hdrp 渲染管线搭建与渲染特性开发",
+      "性能优化：优化内存管理、CPU耗时、GPU渲染压力",
+      "开发编辑器工具：开发配合程序、美术、策划的可视化编辑器工具",
+      "通用游戏开发模块：提供通用客户端开发框架和通用模块",
+      "解决疑难杂症：攻坚项目组解决不了的问题bug和技术难题",
+      "美术资源制作标准：制定美术资源制作标准及对应开发工具流"
+    ],
+    caseLink: "https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink",
+    contact: "@张兴捷"
   },
   {
     id: "tech-ai",
     icon: Terminal,
     title: "技术AI组",
-    description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
+    description: "紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png"
+    image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png",
+    details: [
+      "AI流程研发与场景化落地：采用NLP、深度学习等技术，针对垂直场景开发定制化AI解决方案",
+      "AI工具与平台开发：整合前沿AI技术，构建企业级工具平台"
+    ],
+    cases: [
+      "AIWebhub 线上AIGC平台",
+      "G-pilot 代码补全IDE插件", 
+      "G社贾维斯（内测）AI工具服务机器人",
+      "DingCode（内测）AI代码审核平台"
+    ],
+    contact: "@梁钰彬 @张文豪"
   },
   {
     id: "aigc",
     icon: Cpu,
     title: "AIGC组",
-    description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
+    description: "AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。",
     link: "/tech-cooperation",
-    image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png"
+    image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png",
+    details: [
+      "2D AIGC-SD/FLUX/视频 模型训练：LORA少量图集训练画风和深度训练设计风格特征",
+      "2D AIGC-ComfyUI工作流定制/多模态模型工作流：可定制美术各类生成式-ComfyUI工作流",
+      "3D AIGC-方案整合和落地项目：整合3DAIGC生成技术落地方案",
+      "AIGC智能NPC/AIGC智能体应用/知识库-技术探索落地"
+    ],
+    cases: [
+      "AIGC智能NPC探索：ai智能NPC对话交互",
+      "AIGC世界观前置知识库探索",
+      "项目使用AI图标流程：多模态AI模型-项目图标应用流程",
+      "AIGC知识库和教学分享"
+    ],
+    contact: "@李智宇"
   }
 ];
 
