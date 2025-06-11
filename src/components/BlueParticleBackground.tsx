@@ -159,9 +159,6 @@ const BlueParticleBackground = () => {
           height: '100%'
         }}
       >
-        <ambientLight intensity={0.3} />
-        <pointLight position={[20, 20, 20]} intensity={0.4} color="#4A90E2" />
-        <pointLight position={[-20, -20, 15]} intensity={0.3} color="#6BB6FF" />
         <BlueParticles />
       </Canvas>
     </div>
