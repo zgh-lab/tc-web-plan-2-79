@@ -1,148 +1,163 @@
 
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
-function BlueParticles() {
-  const pointsRef = useRef<THREE.Points>(null);
+function BlueLines() {
   const linesRef = useRef<THREE.Group>(null);
+  const circlesRef = useRef<THREE.Group>(null);
   
-  const particleData = useMemo(() => {
-    const positions = [];
-    const colors = [];
-    const velocities = [];
-    
-    const particleCount = 300; // 减少粒子数量
-    
-    for (let i = 0; i < particleCount; i++) {
-      // 更分散的随机分布，避免聚集
-      const x = (Math.random() - 0.5) * 50;
-      const y = (Math.random() - 0.5) * 35;
-      const z = (Math.random() - 0.5) * 25;
-      
-      positions.push(x, y, z);
-      
-      // 更缓慢的随机漂浮速度
-      velocities.push(
-        (Math.random() - 0.5) * 0.008,
-        (Math.random() - 0.5) * 0.006,
-        (Math.random() - 0.5) * 0.004
-      );
-      
-      // 蓝色系颜色变化
-      const blueVariations = [
-        [0.4, 0.8, 1.0],    // 亮蓝色
-        [0.3, 0.6, 0.9],    // 深蓝色
-        [0.5, 0.85, 1.0],   // 天蓝色
-        [0.2, 0.7, 0.85],   // 海蓝色
-        [0.6, 0.9, 1.0],    // 浅蓝色
-        [0.35, 0.75, 0.95], // 中蓝色
-      ];
-      
-      const colorIndex = Math.floor(Math.random() * blueVariations.length);
-      const selectedColor = blueVariations[colorIndex];
-      
-      colors.push(selectedColor[0], selectedColor[1], selectedColor[2]);
-    }
-    
-    return { 
-      positions: new Float32Array(positions), 
-      colors: new Float32Array(colors),
-      velocities: new Float32Array(velocities)
-    };
-  }, []);
-
-  // 创建连线
-  const createLines = (positions: Float32Array) => {
+  const lineData = useMemo(() => {
     const lines = [];
-    const maxDistance = 8; // 连线的最大距离
-    const maxConnections = 2; // 每个粒子最多连接数
+    const circles = [];
     
-    for (let i = 0; i < positions.length; i += 3) {
+    // 生成连线端点
+    const generatePoints = (count: number, yRange: [number, number]) => {
+      const points = [];
+      for (let i = 0; i < count; i++) {
+        const x = (Math.random() - 0.5) * 50;
+        const y = yRange[0] + Math.random() * (yRange[1] - yRange[0]);
+        const z = (Math.random() - 0.5) * 25;
+        points.push(new THREE.Vector3(x, y, z));
+      }
+      return points;
+    };
+    
+    // 上半部分较少连线 (屏幕上方)
+    const upperPoints = generatePoints(8, [8, 17.5]);
+    
+    // 下半部分较多连线 (屏幕下方)
+    const lowerPoints = generatePoints(15, [-17.5, -3]);
+    
+    const allPoints = [...upperPoints, ...lowerPoints];
+    
+    // 为每个点创建小圆
+    allPoints.forEach(point => {
+      circles.push({
+        position: point.clone(),
+        velocity: new THREE.Vector3(
+          (Math.random() - 0.5) * 0.005,
+          (Math.random() - 0.5) * 0.003,
+          (Math.random() - 0.5) * 0.002
+        )
+      });
+    });
+    
+    // 创建连线
+    const maxDistance = 12;
+    const maxConnections = 3;
+    
+    for (let i = 0; i < allPoints.length; i++) {
       let connections = 0;
-      const pos1 = new THREE.Vector3(positions[i], positions[i + 1], positions[i + 2]);
+      const pos1 = allPoints[i];
       
-      for (let j = i + 3; j < positions.length && connections < maxConnections; j += 3) {
-        const pos2 = new THREE.Vector3(positions[j], positions[j + 1], positions[j + 2]);
+      for (let j = i + 1; j < allPoints.length && connections < maxConnections; j++) {
+        const pos2 = allPoints[j];
         const distance = pos1.distanceTo(pos2);
         
         if (distance < maxDistance) {
-          const geometry = new THREE.BufferGeometry().setFromPoints([pos1, pos2]);
-          const material = new THREE.LineBasicMaterial({ 
-            color: 0x4A90E2, 
-            transparent: true, 
-            opacity: Math.max(0.1, (maxDistance - distance) / maxDistance * 0.3)
+          lines.push({
+            start: pos1.clone(),
+            end: pos2.clone(),
+            opacity: Math.max(0.1, (maxDistance - distance) / maxDistance * 0.4)
           });
-          const line = new THREE.Line(geometry, material);
-          lines.push(line);
           connections++;
         }
       }
     }
     
-    return lines;
-  };
-  
+    return { lines, circles };
+  }, []);
+
   useFrame((state) => {
-    if (pointsRef.current) {
-      const time = state.clock.getElapsedTime();
-      
-      const positions = pointsRef.current.geometry.attributes.position.array as Float32Array;
-      const { velocities } = particleData;
-      
-      for (let i = 0; i < positions.length; i += 3) {
-        // 更缓慢的漂浮动画，避免朝镜头移动
-        positions[i] += velocities[i] * (1 + Math.sin(time * 0.2 + i * 0.01) * 0.3);
-        positions[i + 1] += velocities[i + 1] * (1 + Math.cos(time * 0.15 + i * 0.01) * 0.2);
-        positions[i + 2] += velocities[i + 2] * (1 + Math.sin(time * 0.1 + i * 0.01) * 0.1);
-        
-        // 边界循环 - 更大的边界避免聚集
-        if (positions[i] > 25) positions[i] = -25;
-        if (positions[i] < -25) positions[i] = 25;
-        if (positions[i + 1] > 17.5) positions[i + 1] = -17.5;
-        if (positions[i + 1] < -17.5) positions[i + 1] = 17.5;
-        if (positions[i + 2] > 12.5) positions[i + 2] = -12.5;
-        if (positions[i + 2] < -12.5) positions[i + 2] = 12.5;
-      }
-      
-      pointsRef.current.geometry.attributes.position.needsUpdate = true;
+    const time = state.clock.getElapsedTime();
+    
+    if (circlesRef.current && linesRef.current) {
+      // 更新小圆位置
+      circlesRef.current.children.forEach((circle, index) => {
+        const circleData = lineData.circles[index];
+        if (circleData) {
+          // 缓慢漂浮动画
+          circleData.position.x += circleData.velocity.x * (1 + Math.sin(time * 0.1 + index * 0.05) * 0.3);
+          circleData.position.y += circleData.velocity.y * (1 + Math.cos(time * 0.08 + index * 0.05) * 0.2);
+          circleData.position.z += circleData.velocity.z * (1 + Math.sin(time * 0.06 + index * 0.05) * 0.1);
+          
+          // 边界循环
+          if (circleData.position.x > 25) circleData.position.x = -25;
+          if (circleData.position.x < -25) circleData.position.x = 25;
+          if (circleData.position.y > 17.5) circleData.position.y = -17.5;
+          if (circleData.position.y < -17.5) circleData.position.y = 17.5;
+          if (circleData.position.z > 12.5) circleData.position.z = -12.5;
+          if (circleData.position.z < -12.5) circleData.position.z = 12.5;
+          
+          circle.position.copy(circleData.position);
+        }
+      });
       
       // 更新连线
-      if (linesRef.current) {
-        // 清除旧连线
-        linesRef.current.clear();
-        
-        // 创建新连线
-        const lines = createLines(positions);
-        lines.forEach(line => linesRef.current?.add(line));
-      }
-      
-      // 非常轻微的整体旋转
-      pointsRef.current.rotation.z = Math.sin(time * 0.02) * 0.008;
-      pointsRef.current.rotation.y = time * 0.005;
+      linesRef.current.children.forEach((line, index) => {
+        const lineData_ = lineData.lines[index];
+        if (lineData_) {
+          const startCircle = lineData.circles.find(c => 
+            c.position.distanceTo(lineData_.start) < 0.1
+          );
+          const endCircle = lineData.circles.find(c => 
+            c.position.distanceTo(lineData_.end) < 0.1
+          );
+          
+          if (startCircle && endCircle) {
+            const geometry = line.geometry as THREE.BufferGeometry;
+            const positions = geometry.attributes.position.array as Float32Array;
+            
+            positions[0] = startCircle.position.x;
+            positions[1] = startCircle.position.y;
+            positions[2] = startCircle.position.z;
+            positions[3] = endCircle.position.x;
+            positions[4] = endCircle.position.y;
+            positions[5] = endCircle.position.z;
+            
+            geometry.attributes.position.needsUpdate = true;
+          }
+        }
+      });
     }
   });
   
   return (
     <>
-      <Points 
-        ref={pointsRef} 
-        positions={particleData.positions} 
-        colors={particleData.colors}
-        stride={3}
-      >
-        <PointMaterial
-          transparent
-          vertexColors
-          size={0.08} // 减小粒子大小
-          sizeAttenuation={true}
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-          opacity={0.7} // 降低透明度
-        />
-      </Points>
-      <group ref={linesRef} />
+      {/* 渲染小圆 */}
+      <group ref={circlesRef}>
+        {lineData.circles.map((circle, index) => (
+          <mesh key={index} position={circle.position}>
+            <sphereGeometry args={[0.08, 8, 6]} />
+            <meshBasicMaterial 
+              color="#4A90E2" 
+              transparent 
+              opacity={0.8}
+            />
+          </mesh>
+        ))}
+      </group>
+      
+      {/* 渲染连线 */}
+      <group ref={linesRef}>
+        {lineData.lines.map((lineData_, index) => {
+          const geometry = new THREE.BufferGeometry().setFromPoints([
+            lineData_.start, 
+            lineData_.end
+          ]);
+          
+          return (
+            <line key={index} geometry={geometry}>
+              <lineBasicMaterial 
+                color="#4A90E2" 
+                transparent 
+                opacity={lineData_.opacity}
+              />
+            </line>
+          );
+        })}
+      </group>
     </>
   );
 }
@@ -151,7 +166,7 @@ const BlueParticleBackground = () => {
   return (
     <div className="w-full h-full">
       <Canvas
-        camera={{ position: [0, 0, 15], fov: 60 }} // 调整相机位置和视野
+        camera={{ position: [0, 0, 15], fov: 60 }}
         gl={{ alpha: true, antialias: true }}
         style={{ 
           background: 'transparent',
@@ -159,7 +174,7 @@ const BlueParticleBackground = () => {
           height: '100%'
         }}
       >
-        <BlueParticles />
+        <BlueLines />
       </Canvas>
     </div>
   );
