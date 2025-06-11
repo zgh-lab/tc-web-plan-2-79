@@ -3,7 +3,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
-import ParticleTitle from './ParticleTitle';
 import BlueParticleBackground from './BlueParticleBackground';
 
 const Hero = () => {
@@ -57,14 +56,9 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        {/* 蓝色粒子背景层 - 调整到最底层 */}
+        {/* 蓝色粒子背景层 */}
         <div className="absolute inset-0 z-0">
           <BlueParticleBackground />
-        </div>
-        
-        {/* 粒子背景层 */}
-        <div className="absolute inset-0 z-[1]">
-          <ParticleTitle />
         </div>
         
         <motion.div 
