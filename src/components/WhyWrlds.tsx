@@ -110,7 +110,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/70"></div>
+                <div className="absolute inset-0 bg-black/50"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -147,7 +147,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/70"></div>
+                <div className="absolute inset-0 bg-black/50"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
