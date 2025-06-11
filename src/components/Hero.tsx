@@ -3,6 +3,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
+import ParticleTitle from './ParticleTitle';
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -55,8 +56,11 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
+        {/* 粒子背景层 */}
+        <ParticleTitle />
+        
         <motion.div 
-          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full"
+          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative z-10"
           style={{
             opacity,
             scale,
@@ -70,7 +74,7 @@ const Hero = () => {
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 300,
+                  fontWeight: 800, // 加粗字体
                   letterSpacing: '-0.025em'
                 }}
                 whileHover={{
