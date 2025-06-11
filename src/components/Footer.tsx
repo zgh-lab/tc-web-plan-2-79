@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-          {/* Company Info - 缩窄 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Company Info */}
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <h1 className="font-light text-2xl">
@@ -19,7 +19,9 @@ const Footer = () => {
               </h1>
             </Link>
             <p className="mb-6 text-sm text-gray-400 leading-relaxed">
-              在GS语言、Unity引擎、服务器框架、游戏开发工具链、AI技术应用等领域均有深厚的技术积累，为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产。<br />
+              在GS语言、Unity引擎、服务器框架、游戏开发工具链、AI技术应用等领域均有深厚的技术积累，为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产。
+            </p>
+            <p className="mb-6 text-sm text-gray-400 leading-relaxed">
               我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆。
             </p>
             <div className="flex space-x-4">
@@ -37,20 +39,11 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
-          {/* Contact Address - 向左移动 */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4 text-white">联系地址</h3>
-            <div className="flex items-start">
-              <MapPin className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0 mt-0.5" />
-              <span className="text-sm text-gray-400">广东省深圳市南山区方大城T2栋17楼技术中心</span>
-            </div>
-          </div>
 
           {/* Contact Persons - 分成两列显示 */}
           <div className="md:col-span-2">
             <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-6">
               <div className="space-y-3">
                 <div>
                   <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
@@ -74,6 +67,15 @@ const Footer = () => {
                   <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
                   <p className="text-gray-400">李智宇</p>
                 </div>
+              </div>
+            </div>
+            
+            {/* Contact Address - 放在联系人下方 */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-white">联系地址</h3>
+              <div className="flex items-start">
+                <MapPin className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-gray-400">广东省深圳市南山区方大城T2栋17楼技术中心</span>
               </div>
             </div>
           </div>

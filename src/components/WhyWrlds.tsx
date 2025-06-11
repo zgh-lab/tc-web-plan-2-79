@@ -164,7 +164,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-black/50"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -178,11 +178,11 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 */}
+                  {/* 核心技术标签 - 显示全部 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
-                        {feature.technologies.slice(0, 3).map((tech, idx) => (
+                        {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
                             className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium"
@@ -190,11 +190,6 @@ const WhyWrlds = () => {
                             {tech}
                           </span>
                         ))}
-                        {feature.technologies.length > 3 && (
-                          <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium">
-                            +{feature.technologies.length - 3}
-                          </span>
-                        )}
                       </div>
                     </div>
                   )}
@@ -222,7 +217,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-black/50"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -236,11 +231,11 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 */}
+                  {/* 核心技术标签 - 显示全部 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
-                        {feature.technologies.slice(0, 3).map((tech, idx) => (
+                        {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
                             className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium"
@@ -248,11 +243,6 @@ const WhyWrlds = () => {
                             {tech}
                           </span>
                         ))}
-                        {feature.technologies.length > 3 && (
-                          <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium">
-                            +{feature.technologies.length - 3}
-                          </span>
-                        )}
                       </div>
                     </div>
                   )}
