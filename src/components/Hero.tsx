@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
 import ParticleTitle from './ParticleTitle';
+import BlueParticleBackground from './BlueParticleBackground';
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -56,6 +57,9 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
+        {/* 蓝色粒子背景层 */}
+        <BlueParticleBackground />
+        
         {/* 粒子背景层 */}
         <ParticleTitle />
         
@@ -74,7 +78,7 @@ const Hero = () => {
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 800, // 加粗字体
+                  fontWeight: 550, // 从800调整为550
                   letterSpacing: '-0.025em'
                 }}
                 whileHover={{
@@ -101,11 +105,11 @@ const Hero = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-gray-300 text-lg md:text-xl lg:text-2xl mb-8 opacity-80 mt-[15px]" 
+                className="text-gray-200 text-lg md:text-xl lg:text-2xl mb-8 opacity-90 mt-[15px]" 
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.03,
-                  color: 'rgba(156, 163, 175, 1)',
+                  color: 'rgba(229, 231, 235, 1)',
                   transition: { duration: 0.4 }
                 }}
               >
