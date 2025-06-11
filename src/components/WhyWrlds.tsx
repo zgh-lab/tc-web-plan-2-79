@@ -8,7 +8,7 @@ const features = [
     id: "compiler",
     icon: Code,
     title: "编译器组",
-    description: "XXX",
+    description: "负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png",
     details: [
@@ -17,13 +17,14 @@ const features = [
       "为上层工具（如调试、性能工具）提供底层功能支持",
       "高度契合游戏开发细分领域，调整GS语言特性和功能"
     ],
+    technologies: ["词法分析", "语法分析", "中间代码生成", "代码优化", "目标代码生成"],
     contact: "楚耀翔 徐鑫荣"
   },
   {
     id: "server",
     icon: Server,
     title: "服务器与工具链组",
-    description: "XXX",
+    description: "提供游戏项目组覆盖从开发、测试、部署、运维 全生命周期的GS解决方案及全方位的技术支持。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png",
     details: [
@@ -32,6 +33,7 @@ const features = [
       "DevOps：CI/CD、监控系统、协作安全",
       "技术支持：快速响应、全方位技术支持、性能分析与优化"
     ],
+    technologies: ["GS开发生态", "服务器架构设计", "客户端引擎插件", "DevOps"],
     caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?table=tblOGlj9u9W5Kruv&view=vewEMkh4kx",
     contact: "吴荣钦"
   },
@@ -39,7 +41,7 @@ const features = [
     id: "engine",
     icon: Wrench,
     title: "引擎组",
-    description: "XXX",
+    description: "为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png",
     details: [
@@ -50,6 +52,7 @@ const features = [
       "解决疑难杂症：攻坚项目组解决不了的问题bug和技术难题",
       "美术资源制作标准：制定美术资源制作标准及对应开发工具流"
     ],
+    technologies: ["图形渲染", "物理模拟", "动画系统", "场景管理", "资源优化"],
     caseLink: "https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink",
     contact: "张兴捷"
   },
@@ -57,13 +60,14 @@ const features = [
     id: "tech-ai",
     icon: Terminal,
     title: "技术AI组",
-    description: "XXX",
+    description: "紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png",
     details: [
       "AI流程研发与场景化落地：采用NLP、深度学习等技术，针对垂直场景开发定制化AI解决方案",
       "AI工具与平台开发：整合前沿AI技术，构建企业级工具平台"
     ],
+    technologies: ["机器学习", "数据分析", "行为决策树", "自然语言处理", "计算机视觉"],
     cases: [
       "AIWebhub 线上AIGC平台",
       "G-pilot 代码补全IDE插件", 
@@ -76,15 +80,16 @@ const features = [
     id: "aigc",
     icon: Cpu,
     title: "AIGC组",
-    description: "XXX",
+    description: "AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。",
     link: "/tech-cooperation",
     image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png",
     details: [
       "2D AIGC-SD/FLUX/视频 模型训练：LORA少量图集训练画风和深度训练设计风格特征",
-      "2D AIGC-ComfyUI工作流定制/多模态模型工作流：可定制美术各类生成式-ComfyUI工作流",
+      "2D AIGC-ComfyUI工作流定制/多模态模型工作流：可定制美术各类生成式工作流",
       "3D AIGC-方案整合和落地项目：整合3DAIGC生成技术落地方案",
       "AIGC智能NPC/AIGC智能体应用/知识库-技术探索落地"
     ],
+    technologies: ["2D AIGC", "3D AIGC", "AIGC智能体", "AIGC教学推广"],
     cases: [
       "AIGC智能NPC探索：ai智能NPC对话交互",
       "AIGC世界观前置知识库探索",
@@ -159,7 +164,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/70"></div>
+                <div className="absolute inset-0 bg-black/60"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -171,9 +176,30 @@ const WhyWrlds = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-200 flex-grow opacity-90">{feature.description}</p>
+                  <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
+                  {/* 核心技术标签 */}
+                  {feature.technologies && (
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {feature.technologies.slice(0, 3).map((tech, idx) => (
+                          <span 
+                            key={idx} 
+                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {feature.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium">
+                            +{feature.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -196,7 +222,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/70"></div>
+                <div className="absolute inset-0 bg-black/60"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -208,9 +234,30 @@ const WhyWrlds = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-200 flex-grow opacity-90">{feature.description}</p>
+                  <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
+                  {/* 核心技术标签 */}
+                  {feature.technologies && (
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {feature.technologies.slice(0, 3).map((tech, idx) => (
+                          <span 
+                            key={idx} 
+                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {feature.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium">
+                            +{feature.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
