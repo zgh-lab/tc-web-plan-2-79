@@ -57,14 +57,18 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        {/* 蓝色粒子背景层 */}
-        <BlueParticleBackground />
+        {/* 蓝色粒子背景层 - 调整到最底层 */}
+        <div className="absolute inset-0 z-0">
+          <BlueParticleBackground />
+        </div>
         
         {/* 粒子背景层 */}
-        <ParticleTitle />
+        <div className="absolute inset-0 z-[1]">
+          <ParticleTitle />
+        </div>
         
         <motion.div 
-          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative z-10"
+          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative z-[2]"
           style={{
             opacity,
             scale,
@@ -78,7 +82,7 @@ const Hero = () => {
                 variants={itemVariants}
                 style={{
                   fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-                  fontWeight: 550, // 从800调整为550
+                  fontWeight: 550,
                   letterSpacing: '-0.025em'
                 }}
                 whileHover={{
@@ -121,7 +125,7 @@ const Hero = () => {
         
         {/* 滚动指示器 */}
         <motion.div 
-          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
+          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer z-[3]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}

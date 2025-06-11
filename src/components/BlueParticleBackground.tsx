@@ -12,30 +12,31 @@ function BlueParticles() {
     const colors = [];
     const velocities = [];
     
-    const particleCount = 800;
+    const particleCount = 1200; // 增加粒子数量
     
     for (let i = 0; i < particleCount; i++) {
       // 随机分布粒子
-      const x = (Math.random() - 0.5) * 25;
-      const y = (Math.random() - 0.5) * 15;
-      const z = (Math.random() - 0.5) * 10;
+      const x = (Math.random() - 0.5) * 30;
+      const y = (Math.random() - 0.5) * 20;
+      const z = (Math.random() - 0.5) * 15;
       
       positions.push(x, y, z);
       
       // 随机速度
       velocities.push(
-        (Math.random() - 0.5) * 0.02,
-        (Math.random() - 0.5) * 0.02,
-        (Math.random() - 0.5) * 0.02
+        (Math.random() - 0.5) * 0.015,
+        (Math.random() - 0.5) * 0.015,
+        (Math.random() - 0.5) * 0.015
       );
       
       // 蓝色系颜色变化
       const blueVariations = [
-        [0.2, 0.6, 1.0],    // 亮蓝色
-        [0.1, 0.4, 0.9],    // 深蓝色
-        [0.3, 0.7, 1.0],    // 天蓝色
-        [0.0, 0.5, 0.8],    // 海蓝色
-        [0.4, 0.8, 1.0],    // 浅蓝色
+        [0.3, 0.7, 1.0],    // 亮蓝色
+        [0.2, 0.5, 0.9],    // 深蓝色
+        [0.4, 0.8, 1.0],    // 天蓝色
+        [0.1, 0.6, 0.8],    // 海蓝色
+        [0.5, 0.9, 1.0],    // 浅蓝色
+        [0.2, 0.6, 0.95],   // 中蓝色
       ];
       
       const colorIndex = Math.floor(Math.random() * blueVariations.length);
@@ -61,26 +62,26 @@ function BlueParticles() {
       
       for (let i = 0; i < positions.length; i += 3) {
         // 缓慢的浮动动画
-        positions[i] += velocities[i] * (1 + Math.sin(time * 0.5 + i) * 0.3);
-        positions[i + 1] += velocities[i + 1] * (1 + Math.cos(time * 0.3 + i) * 0.2);
-        positions[i + 2] += velocities[i + 2] * (1 + Math.sin(time * 0.2 + i) * 0.1);
+        positions[i] += velocities[i] * (1 + Math.sin(time * 0.4 + i) * 0.2);
+        positions[i + 1] += velocities[i + 1] * (1 + Math.cos(time * 0.25 + i) * 0.15);
+        positions[i + 2] += velocities[i + 2] * (1 + Math.sin(time * 0.15 + i) * 0.1);
         
         // 边界循环
-        if (positions[i] > 12.5) positions[i] = -12.5;
-        if (positions[i] < -12.5) positions[i] = 12.5;
-        if (positions[i + 1] > 7.5) positions[i + 1] = -7.5;
-        if (positions[i + 1] < -7.5) positions[i + 1] = 7.5;
-        if (positions[i + 2] > 5) positions[i + 2] = -5;
-        if (positions[i + 2] < -5) positions[i + 2] = 5;
+        if (positions[i] > 15) positions[i] = -15;
+        if (positions[i] < -15) positions[i] = 15;
+        if (positions[i + 1] > 10) positions[i + 1] = -10;
+        if (positions[i + 1] < -10) positions[i + 1] = 10;
+        if (positions[i + 2] > 7.5) positions[i + 2] = -7.5;
+        if (positions[i + 2] < -7.5) positions[i + 2] = 7.5;
         
         // 鼠标交互效果
-        const mouseInfluence = 0.03;
-        const dx = mouse.x * 10 - positions[i];
-        const dy = mouse.y * 5 - positions[i + 1];
+        const mouseInfluence = 0.025;
+        const dx = mouse.x * 12 - positions[i];
+        const dy = mouse.y * 8 - positions[i + 1];
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 4) {
-          const force = (4 - distance) / 4;
+        if (distance < 5) {
+          const force = (5 - distance) / 5;
           positions[i] += dx * force * mouseInfluence;
           positions[i + 1] += dy * force * mouseInfluence;
         }
@@ -89,8 +90,8 @@ function BlueParticles() {
       pointsRef.current.geometry.attributes.position.needsUpdate = true;
       
       // 整体缓慢旋转
-      pointsRef.current.rotation.z = Math.sin(time * 0.05) * 0.02;
-      pointsRef.current.rotation.y = time * 0.01;
+      pointsRef.current.rotation.z = Math.sin(time * 0.03) * 0.015;
+      pointsRef.current.rotation.y = time * 0.008;
     }
   });
   
@@ -104,11 +105,11 @@ function BlueParticles() {
       <PointMaterial
         transparent
         vertexColors
-        size={0.12}
+        size={0.15}
         sizeAttenuation={true}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
-        opacity={0.8}
+        opacity={0.9}
       />
     </Points>
   );
@@ -116,15 +117,20 @@ function BlueParticles() {
 
 const BlueParticleBackground = () => {
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none">
+    <div className="w-full h-full">
       <Canvas
-        camera={{ position: [0, 0, 8], fov: 75 }}
+        camera={{ position: [0, 0, 10], fov: 75 }}
         gl={{ alpha: true, antialias: true }}
-        style={{ background: 'transparent' }}
+        style={{ 
+          background: 'transparent',
+          width: '100%',
+          height: '100%'
+        }}
       >
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} color="#4A90E2" />
-        <pointLight position={[-10, -10, 5]} intensity={0.3} color="#6BB6FF" />
+        <ambientLight intensity={0.4} />
+        <pointLight position={[15, 15, 15]} intensity={0.6} color="#4A90E2" />
+        <pointLight position={[-15, -15, 10]} intensity={0.4} color="#6BB6FF" />
+        <pointLight position={[0, 0, 20]} intensity={0.3} color="#87CEEB" />
         <BlueParticles />
       </Canvas>
     </div>
