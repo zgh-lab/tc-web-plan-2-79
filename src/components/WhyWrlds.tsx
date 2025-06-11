@@ -8,7 +8,7 @@ const features = [
     id: "compiler",
     icon: Code,
     title: "编译器组",
-    description: "负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。",
+    description: "XXX",
     link: "/tech-cooperation",
     image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png",
     details: [
@@ -17,13 +17,13 @@ const features = [
       "为上层工具（如调试、性能工具）提供底层功能支持",
       "高度契合游戏开发细分领域，调整GS语言特性和功能"
     ],
-    contact: "@楚耀翔 @徐鑫荣"
+    contact: "楚耀翔 徐鑫荣"
   },
   {
     id: "server",
     icon: Server,
     title: "服务器与工具链组",
-    description: "提供游戏项目组覆盖从开发、测试、部署、运维 全生命周期的GS解决方案及全方位的技术支持。",
+    description: "XXX",
     link: "/tech-cooperation",
     image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png",
     details: [
@@ -33,13 +33,13 @@ const features = [
       "技术支持：快速响应、全方位技术支持、性能分析与优化"
     ],
     caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?table=tblOGlj9u9W5Kruv&view=vewEMkh4kx",
-    contact: "@吴荣钦"
+    contact: "吴荣钦"
   },
   {
     id: "engine",
     icon: Wrench,
     title: "引擎组",
-    description: "为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。",
+    description: "XXX",
     link: "/tech-cooperation",
     image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png",
     details: [
@@ -51,13 +51,13 @@ const features = [
       "美术资源制作标准：制定美术资源制作标准及对应开发工具流"
     ],
     caseLink: "https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink",
-    contact: "@张兴捷"
+    contact: "张兴捷"
   },
   {
     id: "tech-ai",
     icon: Terminal,
     title: "技术AI组",
-    description: "紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。",
+    description: "XXX",
     link: "/tech-cooperation",
     image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png",
     details: [
@@ -70,13 +70,13 @@ const features = [
       "G社贾维斯（内测）AI工具服务机器人",
       "DingCode（内测）AI代码审核平台"
     ],
-    contact: "@梁钰彬 @张文豪"
+    contact: "梁钰彬 张文豪"
   },
   {
     id: "aigc",
     icon: Cpu,
     title: "AIGC组",
-    description: "AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。",
+    description: "XXX",
     link: "/tech-cooperation",
     image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png",
     details: [
@@ -91,7 +91,7 @@ const features = [
       "项目使用AI图标流程：多模态AI模型-项目图标应用流程",
       "AIGC知识库和教学分享"
     ],
-    contact: "@李智宇"
+    contact: "李智宇"
   }
 ];
 
@@ -159,7 +159,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/80"></div>
+                <div className="absolute inset-0 bg-black/70"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -196,7 +196,7 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/80"></div>
+                <div className="absolute inset-0 bg-black/70"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">

@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+          {/* Company Info - 缩窄 */}
+          <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <h1 className="font-light text-2xl">
                 <span className="text-blue-400">G-</span>
@@ -38,8 +38,8 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Contact Address */}
-          <div>
+          {/* Contact Address - 向左移动 */}
+          <div className="md:col-span-1">
             <h3 className="text-lg font-semibold mb-4 text-white">联系地址</h3>
             <div className="flex items-start">
               <MapPin className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0 mt-0.5" />
@@ -47,29 +47,33 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Persons */}
-          <div>
+          {/* Contact Persons - 分成两列显示 */}
+          <div className="md:col-span-2">
             <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
-            <div className="space-y-3 text-sm">
-              <div>
-                <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
-                <p className="text-gray-400">楚耀翔、徐鑫荣</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div className="space-y-3">
+                <div>
+                  <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
+                  <p className="text-gray-400">楚耀翔、徐鑫荣</p>
+                </div>
+                <div>
+                  <h4 className="text-blue-400 font-medium mb-1">服务器与工具链组</h4>
+                  <p className="text-gray-400">吴荣钦</p>
+                </div>
+                <div>
+                  <h4 className="text-blue-400 font-medium mb-1">引擎组</h4>
+                  <p className="text-gray-400">张兴捷</p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-blue-400 font-medium mb-1">服务器与工具链组</h4>
-                <p className="text-gray-400">吴荣钦</p>
-              </div>
-              <div>
-                <h4 className="text-blue-400 font-medium mb-1">引擎组</h4>
-                <p className="text-gray-400">张兴捷</p>
-              </div>
-              <div>
-                <h4 className="text-blue-400 font-medium mb-1">技术AI组</h4>
-                <p className="text-gray-400">梁钰彬、张文豪</p>
-              </div>
-              <div>
-                <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
-                <p className="text-gray-400">李智宇</p>
+              <div className="space-y-3">
+                <div>
+                  <h4 className="text-blue-400 font-medium mb-1">技术AI组</h4>
+                  <p className="text-gray-400">梁钰彬、张文豪</p>
+                </div>
+                <div>
+                  <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
+                  <p className="text-gray-400">李智宇</p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown, X } from 'lucide-react';
+import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown, X, ExternalLink } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
@@ -59,7 +58,7 @@ const techTeams = [
       },
       "技术支持": "为GS开发生态产品提供快速响应、全方位的技术支持，以及GS服务器性能分析与优化、GS代码质量评审等服务"
     },
-    technologies: ["分布式系统", "高并发处理", "网络协议优化", "CI/CD", "云服务架构"],
+    technologies: ["GS开发生态", "服务器架构设计", "客户端引擎插件", "DevOps"],
     email: "servertools@g-bits.com",
     caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink",
     contact: "吴荣钦"
@@ -137,12 +136,12 @@ const techTeams = [
       "AIGC智能NPC/AIGC智能体应用/知识库-技术探索落地": "对于前沿的AIGC智能NPC交互和AI智能体应用，知识库探索解决方案，应用于项目和AIGC工作流自动化"
     },
     cases: [
-      { text: "AIGC智能NPC探索：ai智能NPC对话交互", link: "https://leiting.feishu.cn/wiki/EhklwUO0EitvhZkmUm1cXEQ9n9d?from=from_copylink" },
-      { text: "AIGC世界观前置知识库探索：AI 世界观前置工具开发 & 流程测试", link: "https://leiting.feishu.cn/wiki/HnFvwPjZviV6eMkSj0Ccehhnnac?from=from_copylink" },
-      { text: "项目使用AI图标流程：多模态AI模型-项目图标应用流程（以M72旧版图标风格为例）", link: "https://leiting.feishu.cn/wiki/EfxRwwGFkifkhrk7yeFchsiynic?from=from_copylink" },
-      { text: "AIGC知识库和教学分享：AIGC知识库/AIGC图像模型训练技术分享", links: ["https://leiting.feishu.cn/wiki/BZUyw4rwyi4w7fkwbswcj1vMnlH?from=from_copylink", "https://leiting.feishu.cn/wiki/EuEMwQ6MmibpkckI75ncP9tanxg?from=from_copylink"] }
+      { text: "AIGC智能NPC探索", link: "https://leiting.feishu.cn/wiki/EhklwUO0EitvhZkmUm1cXEQ9n9d?from=from_copylink" },
+      { text: "AIGC世界观前置知识库探索", link: "https://leiting.feishu.cn/wiki/HnFvwPjZviV6eMkSj0Ccehhnnac?from=from_copylink" },
+      { text: "项目使用AI图标流程", link: "https://leiting.feishu.cn/wiki/EfxRwwGFkifkhrk7yeFchsiynic?from=from_copylink" },
+      { text: "AIGC知识库和教学分享", links: ["https://leiting.feishu.cn/wiki/BZUyw4rwyi4w7fkwbswcj1vMnlH?from=from_copylink", "https://leiting.feishu.cn/wiki/EuEMwQ6MmibpkckI75ncP9tanxg?from=from_copylink"] }
     ],
-    technologies: ["生成对抗网络", "深度学习", "自然语言生成", "计算机图形学", "程序化生成"],
+    technologies: ["2D AIGC", "3D AIGC", "AIGC智能体", "AIGC教学推广"],
     email: "aigc@g-bits.com",
     contact: "李智宇"
   }
@@ -153,7 +152,6 @@ const TechCooperation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // 监听URL参数变化
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const expanded = params.get('expanded');
@@ -467,36 +465,34 @@ const TechCooperation = () => {
                                 team.cases.map((item, idx) => (
                                   <li key={idx} className="flex items-start text-gray-300">
                                     <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
-                                    <div>
+                                    <div className="flex-1">
+                                      <h4 className="text-orange-400 font-medium mb-2">{item.text}</h4>
                                       {item.link ? (
                                         <a 
                                           href={item.link} 
                                           target="_blank" 
                                           rel="noopener noreferrer"
-                                          className="text-orange-400 hover:text-orange-300 transition-colors"
+                                          className="inline-flex items-center px-3 py-1 bg-orange-500/20 text-orange-300 rounded-md text-sm hover:bg-orange-500/30 transition-colors"
                                         >
-                                          {item.text}
+                                          <ExternalLink className="w-3 h-3 mr-1" />
+                                          点击链接
                                         </a>
                                       ) : item.links ? (
-                                        <div>
-                                          <span className="text-gray-300">{item.text.split('：')[0]}：</span>
+                                        <div className="flex flex-wrap gap-2">
                                           {item.links.map((link, linkIdx) => (
-                                            <span key={linkIdx}>
-                                              <a 
-                                                href={link} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                className="text-orange-400 hover:text-orange-300 transition-colors ml-2"
-                                              >
-                                                链接{linkIdx + 1}
-                                              </a>
-                                              {linkIdx < item.links.length - 1 && '、'}
-                                            </span>
+                                            <a 
+                                              key={linkIdx}
+                                              href={link} 
+                                              target="_blank" 
+                                              rel="noopener noreferrer"
+                                              className="inline-flex items-center px-3 py-1 bg-orange-500/20 text-orange-300 rounded-md text-sm hover:bg-orange-500/30 transition-colors"
+                                            >
+                                              <ExternalLink className="w-3 h-3 mr-1" />
+                                              点击链接
+                                            </a>
                                           ))}
                                         </div>
-                                      ) : (
-                                        <span>{item.text || item}</span>
-                                      )}
+                                      ) : null}
                                     </div>
                                   </li>
                                 ))
@@ -521,9 +517,10 @@ const TechCooperation = () => {
                                 href={team.caseLink} 
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-orange-400 hover:text-orange-300 transition-colors font-medium"
+                                className="inline-flex items-center px-4 py-2 bg-orange-500/20 text-orange-300 rounded-md hover:bg-orange-500/30 transition-colors"
                               >
-                                进这个链接
+                                <ExternalLink className="w-4 h-4 mr-2" />
+                                点击链接
                               </a>
                             </div>
                           </div>
