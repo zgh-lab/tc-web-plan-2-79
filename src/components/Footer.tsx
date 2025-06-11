@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <h1 className="font-light text-2xl">
@@ -45,6 +45,32 @@ const Footer = () => {
                 <span>广东省深圳市南山区方大城T2栋17楼技术中心</span>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
+            <div className="space-y-3 text-sm">
+              <div>
+                <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
+                <p className="text-gray-400">楚耀翔、徐鑫荣</p>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-medium mb-1">服务器与工具链组</h4>
+                <p className="text-gray-400">吴荣钦</p>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-medium mb-1">引擎组</h4>
+                <p className="text-gray-400">张兴捷</p>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-medium mb-1">技术AI组</h4>
+                <p className="text-gray-400">梁钰彬、张文豪</p>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
+                <p className="text-gray-400">李智宇</p>
+              </div>
+            </div>
           </div>
         </div>
         

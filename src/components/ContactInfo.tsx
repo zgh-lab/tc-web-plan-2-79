@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 import { Building, Users } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const ContactInfo = () => {
   const containerVariants = {
@@ -93,15 +92,17 @@ const ContactInfo = () => {
               适用于解决短期、单一的技术难点。
             </p>
             
-            <Link 
-              to="/tech-cooperation" 
+            <a 
+              href="https://leiting.feishu.cn/wiki/WcwtwLJbTi0gRLkIbn0cDjbmnAb" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
             >
               了解详情 
               <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </Link>
+            </a>
           </motion.div>
 
           {/* 驻组合作 */}
@@ -128,15 +129,17 @@ const ContactInfo = () => {
               适用于需要长期、深度技术支撑的项目。
             </p>
             
-            <Link 
-              to="/tech-cooperation" 
+            <a 
+              href="https://leiting.feishu.cn/wiki/WcwtwLJbTi0gRLkIbn0cDjbmnAb" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
             >
               了解详情 
               <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>
