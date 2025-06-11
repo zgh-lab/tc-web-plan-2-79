@@ -69,7 +69,7 @@ const ContactInfo = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {/* 本部合作 */}
+          {/* 特定需求合作 */}
           <motion.div 
             variants={childVariants} 
             className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all hover:shadow-xl hover:shadow-blue-900/10"
@@ -82,11 +82,11 @@ const ContactInfo = () => {
               <div className="bg-blue-600/20 rounded-full p-4 mr-4">
                 <Building className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="font-bold text-2xl text-white">本部合作</h3>
+              <h3 className="font-bold text-2xl text-white">特定需求合作</h3>
             </div>
             
             <p className="text-gray-300 mb-6">
-              由技术中心提供完整的技术解决方案，包括GS语言编译器、服务器架构、游戏引擎、工具链等全方位技术支持。项目团队只需提出需求，我们负责技术实现与维护。这种模式适合需要深度技术支持但团队技术资源有限的项目。
+              技术中心指派具备相应专长的技术同学完成具体需求，负责特定需求的技术研究、方案设计及落地实施。适用于解决短期、单一的技术难点。
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -118,7 +118,7 @@ const ContactInfo = () => {
             </Link>
           </motion.div>
 
-          {/* 驻场合作 */}
+          {/* 驻组合作 */}
           <motion.div 
             variants={childVariants} 
             className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all hover:shadow-xl hover:shadow-blue-900/10"
@@ -131,11 +131,11 @@ const ContactInfo = () => {
               <div className="bg-blue-600/20 rounded-full p-4 mr-4">
                 <Users className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="font-bold text-2xl text-white">驻场合作</h3>
+              <h3 className="font-bold text-2xl text-white">驻组合作</h3>
             </div>
             
             <p className="text-gray-300 mb-6">
-              技术中心派驻专业技术人员到项目组，与项目团队深度融合，共同解决技术难题。驻场工程师将根据项目需求提供针对性支持，包括性能优化、技术指导、问题排查等。这种模式适合需要持续技术支持的中长期项目。
+              技术中心选派技术同学常驻项目组进行开发支持，与项目团队深度协同，提供全流程技术支持与解决方案。适用于需要长期、深度技术支撑的项目。
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">

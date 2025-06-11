@@ -110,21 +110,21 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 bg-white/40"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-gray-800">
                       {feature.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-300 flex-grow opacity-80">{feature.description}</p>
+                  <p className="text-gray-700 flex-grow opacity-90">{feature.description}</p>
                   
-                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
+                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors group mt-4">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -147,21 +147,21 @@ const WhyWrlds = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 bg-white/40"></div>
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-gray-800">
                       {feature.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-300 flex-grow opacity-80">{feature.description}</p>
+                  <p className="text-gray-700 flex-grow opacity-90">{feature.description}</p>
                   
-                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
+                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors group mt-4">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
