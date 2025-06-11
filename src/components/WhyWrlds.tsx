@@ -117,14 +117,14 @@ const WhyWrlds = () => {
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800">
+                    <h3 className="text-xl font-semibold text-white">
                       {feature.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-700 flex-grow opacity-90">{feature.description}</p>
+                  <p className="text-gray-200 flex-grow opacity-90">{feature.description}</p>
                   
-                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors group mt-4">
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -154,14 +154,14 @@ const WhyWrlds = () => {
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800">
+                    <h3 className="text-xl font-semibold text-white">
                       {feature.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-700 flex-grow opacity-90">{feature.description}</p>
+                  <p className="text-gray-200 flex-grow opacity-90">{feature.description}</p>
                   
-                  <div className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors group mt-4">
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group mt-4">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
