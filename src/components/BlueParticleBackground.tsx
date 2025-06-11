@@ -83,9 +83,9 @@ function BlueLines() {
         position: pointData.position.clone(),
         density: pointData.density,
         velocity: new THREE.Vector3(
-          (Math.random() - 0.5) * 0.008, // 加速运动
-          (Math.random() - 0.5) * 0.006,
-          (Math.random() - 0.5) * 0.005
+          (Math.random() - 0.5) * 0.002, // 降低运动速度
+          (Math.random() - 0.5) * 0.0015,
+          (Math.random() - 0.5) * 0.001
         ),
         phase: Math.random() * Math.PI * 2 // 随机相位
       });
@@ -130,15 +130,15 @@ function BlueLines() {
     const time = state.clock.getElapsedTime();
     
     if (circlesRef.current && linesRef.current) {
-      // 大大加速动画 - 更新小圆位置
+      // 降低动画速度 - 更新小圆位置
       circlesRef.current.children.forEach((circle, index) => {
         const circleData = lineData.circles[index];
         if (circleData) {
-          // 加速漂浮动画，更高频率
-          const speedMultiplier = 3; // 3倍速度
-          circleData.position.x += circleData.velocity.x * speedMultiplier * (1 + Math.sin(time * 0.5 + circleData.phase) * 0.6);
-          circleData.position.y += circleData.velocity.y * speedMultiplier * (1 + Math.cos(time * 0.4 + circleData.phase) * 0.5);
-          circleData.position.z += circleData.velocity.z * speedMultiplier * (1 + Math.sin(time * 0.3 + circleData.phase) * 0.3);
+          // 降低漂浮动画速度
+          const speedMultiplier = 0.8; // 降低速度
+          circleData.position.x += circleData.velocity.x * speedMultiplier * (1 + Math.sin(time * 0.2 + circleData.phase) * 0.3);
+          circleData.position.y += circleData.velocity.y * speedMultiplier * (1 + Math.cos(time * 0.15 + circleData.phase) * 0.25);
+          circleData.position.z += circleData.velocity.z * speedMultiplier * (1 + Math.sin(time * 0.1 + circleData.phase) * 0.15);
           
           // 边界循环
           if (circleData.position.x > 10) circleData.position.x = -10;
@@ -151,12 +151,12 @@ function BlueLines() {
           circle.position.copy(circleData.position);
           
           // 根据密度调整透明度
-          const material = circle.material as THREE.MeshBasicMaterial;
+          const material = (circle as THREE.Mesh).material as THREE.MeshBasicMaterial;
           material.opacity = circleData.density * 0.8;
         }
       });
       
-      // 快速更新连线
+      // 降低连线更新速度
       linesRef.current.children.forEach((lineObject, index) => {
         const lineData_ = lineData.lines[index];
         if (lineData_ && lineObject instanceof THREE.Mesh) {
@@ -170,13 +170,13 @@ function BlueLines() {
           if (startCircle && endCircle) {
             // 重新创建更细的管道几何体
             const curve = new THREE.LineCurve3(startCircle.position, endCircle.position);
-            const newGeometry = new THREE.TubeGeometry(curve, 2, 0.02, 6, false); // 更细的管道
+            const newGeometry = new THREE.TubeGeometry(curve, 2, 0.01, 4, false); // 更细的管道
             lineObject.geometry.dispose();
             lineObject.geometry = newGeometry;
             
-            // 动态调整透明度
+            // 动态调整透明度，降低脉冲速度
             const material = lineObject.material as THREE.MeshBasicMaterial;
-            const pulseEffect = 0.8 + 0.2 * Math.sin(time * 2 + index * 0.1);
+            const pulseEffect = 0.8 + 0.2 * Math.sin(time * 0.8 + index * 0.1); // 降低脉冲速度
             material.opacity = lineData_.opacity * pulseEffect;
           }
         }
@@ -190,7 +190,7 @@ function BlueLines() {
       <group ref={circlesRef}>
         {lineData.circles.map((circle, index) => (
           <mesh key={index} position={circle.position}>
-            <sphereGeometry args={[0.08, 8, 6]} />
+            <sphereGeometry args={[0.05, 6, 4]} />
             <meshBasicMaterial 
               color="#60A5FA" 
               transparent 
@@ -204,7 +204,7 @@ function BlueLines() {
       <group ref={linesRef}>
         {lineData.lines.map((lineData_, index) => {
           const curve = new THREE.LineCurve3(lineData_.start, lineData_.end);
-          const tubeGeometry = new THREE.TubeGeometry(curve, 2, 0.02, 6, false); // 更细
+          const tubeGeometry = new THREE.TubeGeometry(curve, 2, 0.01, 4, false); // 更细
           
           return (
             <mesh key={index}>
@@ -226,7 +226,7 @@ const BlueParticleBackground = () => {
   console.log('BlueParticleBackground rendering...');
   
   return (
-    <div className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+    <div className="absolute inset-0 w-full h-full" style={{ zIndex: 5 }}>
       <Canvas
         camera={{ position: [0, 0, 12], fov: 60 }}
         gl={{ 
@@ -241,7 +241,7 @@ const BlueParticleBackground = () => {
           position: 'absolute',
           top: 0,
           left: 0,
-          zIndex: 0
+          zIndex: 5
         }}
         dpr={Math.min(window.devicePixelRatio, 2)}
       >
