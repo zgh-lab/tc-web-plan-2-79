@@ -23,7 +23,7 @@ const techTeams = [
     ],
     technologies: ["词法分析", "语法分析", "中间代码生成", "代码优化", "目标代码生成"],
     email: "compiler@g-bits.com",
-    contact: "@楚耀翔 @徐鑫荣"
+    contact: "楚耀翔 徐鑫荣"
   },
   {
     id: "server",
@@ -61,8 +61,8 @@ const techTeams = [
     },
     technologies: ["分布式系统", "高并发处理", "网络协议优化", "CI/CD", "云服务架构"],
     email: "servertools@g-bits.com",
-    caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?table=tblOGlj9u9W5Kruv&view=vewEMkh4kx",
-    contact: "@吴荣钦"
+    caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink",
+    contact: "吴荣钦"
   },
   {
     id: "engine",
@@ -90,7 +90,7 @@ const techTeams = [
     technologies: ["图形渲染", "物理模拟", "动画系统", "场景管理", "资源优化"],
     email: "engine@g-bits.com",
     caseLink: "https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink",
-    contact: "@张兴捷"
+    contact: "张兴捷"
   },
   {
     id: "tech-ai",
@@ -108,14 +108,14 @@ const techTeams = [
       "AI工具与平台开发": "整合前沿AI技术，构建企业级工具平台（如AIWebhub、G社贾维斯），降低使用门槛，便利AI落地应用"
     },
     cases: [
-      "AIWebhub 线上AIGC平台",
-      "G-pilot 代码补全IDE插件",
-      "G社贾维斯（内测）AI工具服务机器人",
-      "DingCode（内测）AI代码审核平台"
+      { text: "AIWebhub 线上AIGC平台", link: "https://aiwebhub.g-bits.com/feishu_login?url=/" },
+      { text: "G-pilot 代码补全IDE插件", link: "https://leiting.feishu.cn/docx/JlKSdnvCbo7x9dxEsxScgwWKnkx?from=from_copylink" },
+      { text: "G社贾维斯（内测）AI工具服务机器人", link: "https://leiting.feishu.cn/wiki/BIjqwWadEiVz57kOsKmcEJDYnee?from=from_copylink" },
+      { text: "DingCode（内测）AI代码审核平台" }
     ],
     technologies: ["机器学习", "数据分析", "行为决策树", "自然语言处理", "计算机视觉"],
     email: "techai@g-bits.com",
-    contact: "@梁钰彬 @张文豪"
+    contact: "梁钰彬 张文豪"
   },
   {
     id: "aigc",
@@ -137,14 +137,14 @@ const techTeams = [
       "AIGC智能NPC/AIGC智能体应用/知识库-技术探索落地": "对于前沿的AIGC智能NPC交互和AI智能体应用，知识库探索解决方案，应用于项目和AIGC工作流自动化"
     },
     cases: [
-      "AIGC智能NPC探索：ai智能NPC对话交互",
-      "AIGC世界观前置知识库探索：AI 世界观前置工具开发 & 流程测试",
-      "项目使用AI图标流程：多模态AI模型-项目图标应用流程（以M72旧版图标风格为例）",
-      "AIGC知识库和教学分享：AIGC知识库/AIGC图像模型训练技术分享"
+      { text: "AIGC智能NPC探索：ai智能NPC对话交互", link: "https://leiting.feishu.cn/wiki/EhklwUO0EitvhZkmUm1cXEQ9n9d?from=from_copylink" },
+      { text: "AIGC世界观前置知识库探索：AI 世界观前置工具开发 & 流程测试", link: "https://leiting.feishu.cn/wiki/HnFvwPjZviV6eMkSj0Ccehhnnac?from=from_copylink" },
+      { text: "项目使用AI图标流程：多模态AI模型-项目图标应用流程（以M72旧版图标风格为例）", link: "https://leiting.feishu.cn/wiki/EfxRwwGFkifkhrk7yeFchsiynic?from=from_copylink" },
+      { text: "AIGC知识库和教学分享：AIGC知识库/AIGC图像模型训练技术分享", links: ["https://leiting.feishu.cn/wiki/BZUyw4rwyi4w7fkwbswcj1vMnlH?from=from_copylink", "https://leiting.feishu.cn/wiki/EuEMwQ6MmibpkckI75ncP9tanxg?from=from_copylink"] }
     ],
     technologies: ["生成对抗网络", "深度学习", "自然语言生成", "计算机图形学", "程序化生成"],
     email: "aigc@g-bits.com",
-    contact: "@李智宇"
+    contact: "李智宇"
   }
 ];
 
@@ -260,6 +260,7 @@ const TechCooperation = () => {
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
           </motion.p>
 
+          {/* 卡片网格部分保持不变 */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -456,18 +457,57 @@ const TechCooperation = () => {
                             </div>
                           </div>
 
-                          {/* 主要成果/相关案例 */}
+                          {/* 主要方向/相关案例 */}
                           <div>
                             <h3 className="text-xl font-semibold text-white mb-4">
-                              {team.cases ? '相关案例' : '主要成果'}
+                              {team.cases ? '相关案例' : '主要方向'}
                             </h3>
                             <ul className="space-y-3">
-                              {(team.cases || team.achievements).map((item, idx) => (
-                                <li key={idx} className="flex items-start text-gray-300">
-                                  <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
+                              {team.cases ? (
+                                team.cases.map((item, idx) => (
+                                  <li key={idx} className="flex items-start text-gray-300">
+                                    <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
+                                    <div>
+                                      {item.link ? (
+                                        <a 
+                                          href={item.link} 
+                                          target="_blank" 
+                                          rel="noopener noreferrer"
+                                          className="text-orange-400 hover:text-orange-300 transition-colors"
+                                        >
+                                          {item.text}
+                                        </a>
+                                      ) : item.links ? (
+                                        <div>
+                                          <span className="text-gray-300">{item.text.split('：')[0]}：</span>
+                                          {item.links.map((link, linkIdx) => (
+                                            <span key={linkIdx}>
+                                              <a 
+                                                href={link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="text-orange-400 hover:text-orange-300 transition-colors ml-2"
+                                              >
+                                                链接{linkIdx + 1}
+                                              </a>
+                                              {linkIdx < item.links.length - 1 && '、'}
+                                            </span>
+                                          ))}
+                                        </div>
+                                      ) : (
+                                        <span>{item.text || item}</span>
+                                      )}
+                                    </div>
+                                  </li>
+                                ))
+                              ) : (
+                                team.achievements.map((item, idx) => (
+                                  <li key={idx} className="flex items-start text-gray-300">
+                                    <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
+                                    <span>{item}</span>
+                                  </li>
+                                ))
+                              )}
                             </ul>
                           </div>
                         </div>
