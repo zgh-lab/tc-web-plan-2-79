@@ -56,17 +56,18 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        {/* 蓝色粒子背景层 */}
-        <div className="absolute inset-0 z-0">
+        {/* 蓝色粒子背景层 - 调整层级确保可见 */}
+        <div className="absolute inset-0" style={{ zIndex: 1 }}>
           <BlueParticleBackground />
         </div>
         
         <motion.div 
-          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative z-[2]"
+          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative"
           style={{
             opacity,
             scale,
-            y
+            y,
+            zIndex: 10
           }}
         >
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
@@ -119,11 +120,11 @@ const Hero = () => {
         
         {/* 滚动指示器 */}
         <motion.div 
-          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer z-[3]"
+          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          style={{ opacity }}
+          style={{ opacity, zIndex: 20 }}
           onClick={() => {
             const scrollTarget = document.getElementById('content-section');
             if (scrollTarget) {
