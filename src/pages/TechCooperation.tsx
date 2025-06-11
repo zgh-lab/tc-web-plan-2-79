@@ -12,81 +12,139 @@ const techTeams = [
     id: "compiler",
     title: "编译器组",
     icon: Code,
-    description: "自主研发高性能游戏脚本编译器，支持多平台编译与优化，提升游戏性能与开发效率。",
-    details: "我们的编译器组专注于打造高性能、跨平台的游戏脚本编译器。通过先进的编译优化技术，我们能够显著提升游戏运行效率和开发体验。",
+    description: "负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。",
+    details: "负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。",
     image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png",
     achievements: [
-      "自主研发GS语言编译器，支持多平台编译",
-      "优化的中间代码表示与代码生成技术",
-      "完整的调试与性能分析工具链",
-      "支持热更新与增量编译功能"
+      "GS编译器底层功能开发和问题修复",
+      "GS编译器底层性能优化",
+      "为上层工具（如调试、性能工具）提供底层功能支持",
+      "高度契合游戏开发细分领域，调整GS语言特性和功能"
     ],
     technologies: ["词法分析", "语法分析", "中间代码生成", "代码优化", "目标代码生成"],
-    email: "compiler@g-bits.com"
+    email: "compiler@g-bits.com",
+    contact: "@楚耀翔 @徐鑫荣"
   },
   {
     id: "server",
     title: "服务器与工具链组",
     icon: Server,
-    description: "设计高可用、可扩展的游戏服务器架构，支持全球范围的低延迟接入和稳定体验。",
-    details: "服务器与工具链组致力于构建强大、可靠的游戏后端架构和开发工具链。我们的服务器架构能够处理海量并发请求，提供稳定的全球服务。",
+    description: "提供游戏项目组覆盖从开发、测试、部署、运维 全生命周期的GS解决方案及全方位的技术支持。",
+    details: "提供游戏项目组覆盖从开发、测试、部署、运维 全生命周期的GS解决方案及全方位的技术支持。",
     image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png",
     achievements: [
-      "分布式服务器架构支持百万级并发",
-      "全球化部署方案，实现低延迟体验",
-      "完整的CI/CD工具链",
-      "高效的资源管理与自动化测试系统"
+      "开发工具：语言支持：VSCode的语法插件(GsLang)、GS的PKG包管理工具(Gip)，GS的项目管理工具(GsHub)",
+      "调试分析：GS的性能分析工具(Profiler)，GS进程的调试连接工具(TelnetClient)",
+      "通用工具：表格差异合并工具(ExcelMerge)，数字资产管理系统(DAM)",
+      "游戏框架：代码包PKG、服务器引擎、公共服模块、引擎插件",
+      "DevOps：CI/CD、监控系统、协作安全",
+      "技术支持：快速响应、全方位技术支持、性能分析与优化"
     ],
+    capabilities: {
+      "开发工具": {
+        "语言支持": "VSCode的语法插件(GsLang)、GS的PKG包管理工具(Gip)，GS的项目管理工具(GsHub)",
+        "调试分析": "GS的性能分析工具(Profiler)，GS进程的调试连接工具(TelnetClient)",
+        "通用工具": "表格差异合并工具(ExcelMerge)，数字资产管理系统(DAM)"
+      },
+      "游戏框架": {
+        "代码包PKG": "网络框架，数据存储，配置加载，安全校验，业务模块等",
+        "服务器引擎": "集成基础业务的游戏服引擎(engine0)，轻量级的游戏服引擎(server_core)",
+        "公共服模块": "提供常用且通用的公共服务器(auth/social/rank/webgm等)",
+        "引擎插件": "通过ToGS/UEGS 使Unity/Unreal能用GS脚本进行游戏业务开发"
+      },
+      "DevOps": {
+        "CI/CD": "提供GS项目组的自动化构建流程规范，并提供一键打包/部署的解决方案",
+        "监控系统": "报错日志监控系统(WatcherCenter)、游戏统一管理后台(AllInOne)",
+        "协作安全": "提供GS项目组在域内开发与域外发布的代码安全管理方案"
+      },
+      "技术支持": "为GS开发生态产品提供快速响应、全方位的技术支持，以及GS服务器性能分析与优化、GS代码质量评审等服务"
+    },
     technologies: ["分布式系统", "高并发处理", "网络协议优化", "CI/CD", "云服务架构"],
-    email: "servertools@g-bits.com"
+    email: "servertools@g-bits.com",
+    caseLink: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?table=tblOGlj9u9W5Kruv&view=vewEMkh4kx",
+    contact: "@吴荣钦"
   },
   {
     id: "engine",
     title: "引擎组",
     icon: Wrench,
-    description: "开发完整的游戏开发工具链，包括资源管理、自动化测试与部署，提高团队协作效率。",
-    details: "引擎组负责游戏引擎核心技术的研发与优化，为游戏项目提供强大的技术基础。",
+    description: "为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。",
+    details: "为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。",
     image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png",
     achievements: [
-      "高性能渲染管线与物理系统",
-      "优化的内存管理与资源加载机制",
-      "跨平台兼容性与设备适配方案",
-      "先进的材质与光照系统"
+      "渲染管线：builtin/jrp/urp/hdrp 渲染管线搭建与渲染特性开发，满足美术渲染效果",
+      "性能优化：优化内存管理、CPU耗时、GPU渲染压力，解决卡顿、发热、包体过大等问题",
+      "开发编辑器工具：开发配合程序、美术、策划的可视化编辑器工具",
+      "通用游戏开发模块：提供通用客户端开发框架和通用模块",
+      "解决疑难杂症：攻坚项目组解决不了的问题bug和技术难题",
+      "美术资源制作标准：制定美术资源制作标准及对应开发工具流"
     ],
+    capabilities: {
+      "渲染管线": "builtin/jrp/urp/hdrp 渲染管线搭建与渲染特性开发，满足美术渲染效果",
+      "性能优化": "优化内存管理、CPU耗时、GPU渲染压力，解决卡顿、发热、包体过大等问题，保证移动平台的性能帧率要求和兼容性",
+      "开发编辑器工具": "开发配合程序、美术、策划的可视化编辑器工具",
+      "通用游戏开发模块": "提供通用客户端开发框架和通用模块（如资源加载，热更框架，网络同步架构），缩短项目前期开发时间",
+      "解决疑难杂症": "攻坚项目组解决不了的问题bug和技术难题",
+      "美术资源制作标准": "结合已有项目和市面游戏游戏规格经验，制定美术资源制作标准及对应开发工具流"
+    },
     technologies: ["图形渲染", "物理模拟", "动画系统", "场景管理", "资源优化"],
-    email: "engine@g-bits.com"
+    email: "engine@g-bits.com",
+    caseLink: "https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink",
+    contact: "@张兴捷"
   },
   {
     id: "tech-ai",
     title: "技术AI组",
     icon: Terminal,
-    description: "提供专业的游戏引擎开发与优化，包括渲染系统、物理引擎和跨平台框架设计。",
-    details: "技术AI组将人工智能技术应用于游戏开发的各个环节，提升开发效率和游戏体验。",
+    description: "紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。",
+    details: "紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。",
     image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png",
     achievements: [
-      "智能化开发辅助系统",
-      "基于机器学习的游戏测试与优化",
-      "自适应难度与内容推荐系统",
-      "复杂NPC行为与决策AI"
+      "AI流程研发与场景化落地：采用NLP、深度学习等技术，针对垂直场景开发定制化AI解决方案",
+      "AI工具与平台开发：整合前沿AI技术，构建企业级工具平台"
+    ],
+    capabilities: {
+      "AI流程研发与场景化落地": "采用NLP、深度学习等技术，针对垂直场景开发定制化AI解决方案，实现传统流程和方案的升级提效，如AI小说摘要、AI捏脸、AI多语种翻译",
+      "AI工具与平台开发": "整合前沿AI技术，构建企业级工具平台（如AIWebhub、G社贾维斯），降低使用门槛，便利AI落地应用"
+    },
+    cases: [
+      "AIWebhub 线上AIGC平台",
+      "G-pilot 代码补全IDE插件",
+      "G社贾维斯（内测）AI工具服务机器人",
+      "DingCode（内测）AI代码审核平台"
     ],
     technologies: ["机器学习", "数据分析", "行为决策树", "自然语言处理", "计算机视觉"],
-    email: "techai@g-bits.com"
+    email: "techai@g-bits.com",
+    contact: "@梁钰彬 @张文豪"
   },
   {
     id: "aigc",
     title: "AIGC组",
     icon: Cpu,
-    description: "人工智能生成内容技术，为游戏提供智能NPC行为、程序化内容生成与个性化游戏体验。",
-    details: "AIGC（AI生成内容）组专注于利用人工智能技术自动生成游戏内容，包括角色、场景、剧情等。",
+    description: "AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。",
+    details: "AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。",
     image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png",
     achievements: [
-      "基于AI的游戏资产生成系统",
-      "智能化剧情与任务生成",
-      "程序化地形与场景构建",
-      "个性化NPC对话与行为系统"
+      "2D AIGC-SD/FLUX/视频 模型训练：LORA少量图集训练画风和深度训练设计风格特征",
+      "2D AIGC-ComfyUI工作流定制/多模态模型工作流：可定制美术各类生成式工作流",
+      "3D AIGC-方案整合和落地项目：整合3DAIGC生成技术落地方案",
+      "AIGC智能NPC/AIGC智能体应用/知识库-技术探索落地"
+    ],
+    capabilities: {
+      "2D AIGC-SD/FLUX/视频 模型训练": "LORA少量图集训练画风和深度训练设计风格特征，DB大模型的缺失概念补充，视频模型训练",
+      "2D AIGC-ComfyUI工作流定制/多模态模型工作流": "可定制美术各类生成式-ComfyUI工作流用于项目美术生产，提升生产效率",
+      "3D AIGC-方案整合和落地项目": "整合3DAIGC生成技术落地方案，提供AI程序化纹理，模型，等PCG技术落地项目使用方案",
+      "AIGC智能NPC/AIGC智能体应用/知识库-技术探索落地": "对于前沿的AIGC智能NPC交互和AI智能体应用，知识库探索解决方案，应用于项目和AIGC工作流自动化"
+    },
+    cases: [
+      "AIGC智能NPC探索：ai智能NPC对话交互",
+      "AIGC世界观前置知识库探索：AI 世界观前置工具开发 & 流程测试",
+      "项目使用AI图标流程：多模态AI模型-项目图标应用流程（以M72旧版图标风格为例）",
+      "AIGC知识库和教学分享：AIGC知识库/AIGC图像模型训练技术分享"
     ],
     technologies: ["生成对抗网络", "深度学习", "自然语言生成", "计算机图形学", "程序化生成"],
-    email: "aigc@g-bits.com"
+    email: "aigc@g-bits.com",
+    contact: "@李智宇"
   }
 ];
 
@@ -356,6 +414,32 @@ const TechCooperation = () => {
                           {team.details}
                         </p>
                         
+                        {/* 核心能力部分 */}
+                        {team.capabilities && (
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold text-white mb-4">核心能力</h3>
+                            <div className="space-y-4">
+                              {Object.entries(team.capabilities).map(([category, content]) => (
+                                <div key={category}>
+                                  <h4 className="text-lg font-medium text-orange-400 mb-2">{category}</h4>
+                                  {typeof content === 'string' ? (
+                                    <p className="text-gray-300 leading-relaxed pl-4">{content}</p>
+                                  ) : (
+                                    <div className="pl-4 space-y-2">
+                                      {Object.entries(content).map(([subCategory, subContent]) => (
+                                        <div key={subCategory}>
+                                          <span className="text-white font-medium">{subCategory}：</span>
+                                          <span className="text-gray-300">{subContent}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                           {/* 核心技术 */}
                           <div>
@@ -372,30 +456,46 @@ const TechCooperation = () => {
                             </div>
                           </div>
 
-                          {/* 主要成果 */}
+                          {/* 主要成果/相关案例 */}
                           <div>
-                            <h3 className="text-xl font-semibold text-white mb-4">主要成果</h3>
+                            <h3 className="text-xl font-semibold text-white mb-4">
+                              {team.cases ? '相关案例' : '主要成果'}
+                            </h3>
                             <ul className="space-y-3">
-                              {team.achievements.map((achievement, idx) => (
+                              {(team.cases || team.achievements).map((item, idx) => (
                                 <li key={idx} className="flex items-start text-gray-300">
                                   <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
-                                  <span>{achievement}</span>
+                                  <span>{item}</span>
                                 </li>
                               ))}
                             </ul>
                           </div>
                         </div>
 
+                        {/* 相关案例链接 */}
+                        {team.caseLink && (
+                          <div className="mt-6 pt-4 border-t border-white/10">
+                            <div className="flex items-center text-lg">
+                              <span className="text-white mr-3">相关案例：</span>
+                              <a 
+                                href={team.caseLink} 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-orange-400 hover:text-orange-300 transition-colors font-medium"
+                              >
+                                进这个链接
+                              </a>
+                            </div>
+                          </div>
+                        )}
+
                         {/* 联系信息 */}
                         <div className="mt-8 pt-6 border-t border-white/10">
                           <div className="flex items-center text-lg">
-                            <span className="text-white mr-3">联系邮箱:</span>
-                            <a 
-                              href={`mailto:${team.email}`} 
-                              className="text-orange-400 hover:text-orange-300 transition-colors font-medium"
-                            >
-                              {team.email}
-                            </a>
+                            <span className="text-white mr-3">联系人:</span>
+                            <span className="text-orange-400 font-medium">
+                              {team.contact}
+                            </span>
                           </div>
                         </div>
                       </div>
