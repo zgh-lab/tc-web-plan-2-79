@@ -1,3 +1,4 @@
+
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight, ExternalLink } from 'lucide-react';
@@ -18,10 +19,8 @@ const gameShowcase = [
     title: "一念逍遥",
     imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
     description: "多次获得各大商店推荐，App Store游戏畅销榜最高至榜单第4名 累计总注册用户超2600万 由吉比特自研的《一念逍遥》是一款水墨国风放置仙侠手游，随时随地踏入仙途，轻松体验从无名小卒一步步成长，最终问鼎乾坤的过程。 人界的懵懂热血，灵界的仙魔抉择，仙界的创世风云，量劫之下，六大仙域，道祖之路......一个或壮阔或逍遥的长生路，待你开启。",
-    category: "仙侠放置",
     year: "2023",
-    features: ["水墨国风", "放置仙侠", "多元剧情", "成长体验"],
-    detailedDescription: `为项目组全面接入GS开发生态与Unity引擎支持，提供全链路技术支持：
+    supportDescription: `为项目组全面接入GS开发生态与Unity引擎支持，提供全链路技术支持：
 
 开发工具：集成gslang/gip/gshub开发工具链，Profiler性能分析保障效率；
 
@@ -30,52 +29,44 @@ const gameShowcase = [
 DevOps：搭建自动化构建流程与客户端一键打包，接入WatcherCenter监控；
 
 深度优化：驻场支援服务端性能调优与代码评审，客户端提供渲染效果支持及全周期性能优化。`,
-    techStack: ["Unity引擎", "GS开发生态", "engine0框架", "自动化构建"],
     documentUrl: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink"
   },
   {
     id: "game2",
-    title: "XXX",
-    imageUrl: "/lovable-uploads/da393bd2-41b5-476f-9bab-baec29aa6ec5.png",
-    description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    category: "XXX",
-    year: "2022",
-    features: ["XXX", "XXX", "XXX", "XXX"],
-    detailedDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    techStack: ["XXX", "XXX", "XXX", "XXX"]
+    title: "问剑长生",
+    imageUrl: "/lovable-uploads/e7b5a53f-f4f9-45bc-828a-a909896c792a.png",
+    description: "《问剑长生》是雷霆全新3D御剑飞行修仙手游。在一方荒败的世界中，你将成为一位志在修行的证道者，捡到了寄居着星官真魂的至宝碎片，踏上了一条御剑寻道，叩问长生的修行之路……",
+    year: "2023",
+    supportDescription: `为项目组全面接入GS开发生态与Unity引擎支持，提供全链路技术支持：
+- 开发工具：集成gslang/gip/gshub开发工具链，Profiler性能分析保障效率；
+- 游戏框架：服务端基于engine0框架接入PKG包及公共服，客户端实现捏脸系统与多人同屏渲染；
+- DevOps：搭建自动化构建流程与客户端一键打包，接入WatcherCenter监控；
+- 深度优化：驻场支援服务端性能调优与代码评审，客户端提供渲染效果支持及全周期性能优化。`,
+    documentUrl: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink"
   },
   {
     id: "game3",
     title: "XXX",
     imageUrl: "/lovable-uploads/421bed1b-6f82-4bd4-9505-32cec7e98532.png",
     description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    category: "XXX",
     year: "2024",
-    features: ["XXX", "XXX", "XXX", "XXX"],
-    detailedDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    techStack: ["XXX", "XXX", "XXX", "XXX"]
+    supportDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX"
   },
   {
     id: "game4",
     title: "XXX",
-    imageUrl: "/lovable-uploads/e7b5a53f-f4f9-45bc-828a-a909896c792a.png",
+    imageUrl: "/lovable-uploads/da393bd2-41b5-476f-9bab-baec29aa6ec5.png",
     description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    category: "XXX",
-    year: "2023",
-    features: ["XXX", "XXX", "XXX", "XXX"],
-    detailedDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    techStack: ["XXX", "XXX", "XXX", "XXX"]
+    year: "2022",
+    supportDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX"
   },
   {
     id: "game5",
     title: "XXX",
     imageUrl: "/lovable-uploads/247840ca-80a0-4c4e-9374-070ad3088344.png",
     description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    category: "XXX",
     year: "2024",
-    features: ["XXX", "XXX", "XXX", "XXX"],
-    detailedDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    techStack: ["XXX", "XXX", "XXX", "XXX"]
+    supportDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX"
   }
 ];
 
@@ -148,20 +139,8 @@ const Achievements = () => {
               
               <div className="p-6 md:w-3/5 flex flex-col justify-between">
                 <div>
-                  <span className="text-blue-400 text-sm mb-2 block">{game.category}</span>
                   <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
                   <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {game.features.map((feature, i) => (
-                      <span 
-                        key={i} 
-                        className="text-xs px-2 py-1 rounded-full bg-blue-600/20 text-blue-400"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
                 </div>
                 
                 <button className="flex items-center text-blue-400 hover:text-blue-300 transition-all group mt-2">
@@ -191,7 +170,7 @@ const Achievements = () => {
                       className="w-20 h-20 object-cover rounded-lg" 
                     />
                     <div>
-                      <span className="text-blue-400 text-sm">{selectedGame.category} • {selectedGame.year}</span>
+                      <span className="text-blue-400 text-sm">{selectedGame.year}</span>
                       <DialogTitle className="text-2xl font-bold text-white">{selectedGame.title}</DialogTitle>
                     </div>
                   </div>
@@ -204,37 +183,9 @@ const Achievements = () => {
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">技术详情</h4>
+                    <h4 className="text-lg font-semibold text-white mb-2">支持说明</h4>
                     <div className="text-gray-300 leading-relaxed whitespace-pre-line">
-                      {selectedGame.detailedDescription}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">核心特性</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedGame.features.map((feature, i) => (
-                        <span 
-                          key={i} 
-                          className="px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-sm"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">技术栈</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedGame.techStack.map((tech, i) => (
-                        <span 
-                          key={i} 
-                          className="px-3 py-1 rounded-full bg-gray-600/20 text-gray-300 text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      {selectedGame.supportDescription}
                     </div>
                   </div>
                   
