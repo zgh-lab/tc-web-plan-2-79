@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,10 +7,10 @@ import { useEffect, useRef, useState } from "react";
 const gameShowcase = [
   {
     id: "game1",
-    title: "雷霆游戏",
+    title: "XXX",
     imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
-    description: "专注于网页游戏和手机游戏的开发与运营，致力于为玩家提供优质的游戏体验和服务",
-    category: "游戏开发与运营",
+    description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
+    category: "XXX",
     year: "2023"
   },
   {

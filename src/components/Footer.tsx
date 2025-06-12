@@ -42,9 +42,9 @@ const Footer = () => {
 
           {/* Contact Section - Contact Persons and Address */}
           <div className="md:col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Contact Persons */}
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Contact Persons - moved to the right */}
+              <div className="md:ml-8">
                 <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                   <div className="space-y-3">

@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight } from 'lucide-react';
@@ -16,14 +15,14 @@ import {
 const gameShowcase = [
   {
     id: "game1",
-    title: "雷霆游戏",
+    title: "XXX",
     imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
-    description: "专注于网页游戏和手机游戏的开发与运营，致力于为玩家提供优质的游戏体验和服务",
-    category: "游戏开发与运营",
+    description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
+    category: "XXX",
     year: "2023",
-    features: ["网页游戏开发", "手机游戏开发", "游戏运营", "玩家服务"],
-    detailedDescription: "雷霆游戏是一家专业的游戏开发与运营公司，在网页游戏和手机游戏领域拥有丰富的经验和技术积累。公司致力于为广大玩家提供高质量、富有创意的游戏产品，同时提供完善的游戏运营服务和玩家支持。我们的团队由经验丰富的游戏开发者、设计师和运营专家组成，具备从游戏策划、开发到上线运营的全流程服务能力。通过持续的技术创新和产品优化，我们已经成功推出了多款受到玩家喜爱的游戏作品，在行业内建立了良好的口碑和品牌影响力。",
-    techStack: ["Unity引擎", "Cocos引擎", "前端技术", "服务器架构"]
+    features: ["XXX", "XXX", "XXX", "XXX"],
+    detailedDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
+    techStack: ["XXX", "XXX", "XXX", "XXX"]
   },
   {
     id: "game2",
