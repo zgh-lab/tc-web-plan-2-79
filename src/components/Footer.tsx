@@ -43,37 +43,33 @@ const Footer = () => {
           {/* Contact Section - Contact Persons and Address */}
           <div className="md:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Contact Persons - moved to the right */}
+              {/* Contact Persons - reorganized into two columns with three titles each */}
               <div className="md:ml-8">
                 <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="text-blue-400 font-medium mb-1">技术中心负责人</h4>
-                      <p className="text-gray-400">沈予卿</p>
-                    </div>
-                    <div>
-                      <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
-                      <p className="text-gray-400">楚耀翔、徐鑫荣</p>
-                    </div>
-                    <div>
-                      <h4 className="text-blue-400 font-medium mb-1">服务器与工具链组</h4>
-                      <p className="text-gray-400">吴荣钦</p>
-                    </div>
-                    <div>
-                      <h4 className="text-blue-400 font-medium mb-1">引擎组</h4>
-                      <p className="text-gray-400">张兴捷</p>
-                    </div>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+                  <div>
+                    <h4 className="text-blue-400 font-medium mb-1">技术中心负责人</h4>
+                    <p className="text-gray-400">沈予卿</p>
                   </div>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="text-blue-400 font-medium mb-1">技术AI组</h4>
-                      <p className="text-gray-400">梁钰彬、张文豪</p>
-                    </div>
-                    <div>
-                      <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
-                      <p className="text-gray-400">李智宇</p>
-                    </div>
+                  <div>
+                    <h4 className="text-blue-400 font-medium mb-1">技术AI组</h4>
+                    <p className="text-gray-400">梁钰彬、张文豪</p>
+                  </div>
+                  <div>
+                    <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
+                    <p className="text-gray-400">楚耀翔、徐鑫荣</p>
+                  </div>
+                  <div>
+                    <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
+                    <p className="text-gray-400">李智宇</p>
+                  </div>
+                  <div>
+                    <h4 className="text-blue-400 font-medium mb-1">服务器与工具链组</h4>
+                    <p className="text-gray-400">吴荣钦</p>
+                  </div>
+                  <div>
+                    <h4 className="text-blue-400 font-medium mb-1">引擎组</h4>
+                    <p className="text-gray-400">张兴捷</p>
                   </div>
                 </div>
               </div>
