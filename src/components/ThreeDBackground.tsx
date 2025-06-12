@@ -191,9 +191,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           />
         </mesh>
         
-        {/* 最内层光环 - 直径5，增加泛光 */}
+        {/* 最内层光环 - 直径调整为4.2，比球体最大直径稍大，增加泛光 */}
         <mesh rotation={[0, 0, 0]}>
-          <torusGeometry args={[5, 0.12, 16, 100]} />
+          <torusGeometry args={[4.2, 0.12, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[1]}
             emissive={colorScheme.lights[1]}
