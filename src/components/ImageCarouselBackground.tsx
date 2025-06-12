@@ -38,25 +38,14 @@ interface ImageCarouselBackgroundProps {
 const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroundProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // 自动轮播 - 每6秒切换一张图片
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsTransitioning(true);
-      
-      // 慢慢变暗，然后切换图片，再慢慢显示
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => 
-          (prevIndex + 1) % carouselImages.length
-        );
-        
-        // 切换图片后，立即开始慢慢显示新图片
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 50);
-      }, 800); // 变暗过程800ms
-    }, 6000); // 改为6秒切换
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % carouselImages.length
+      );
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -109,26 +98,26 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* 轮播图片容器 */}
+      {/* 轮播图片容器 - 使用 AnimatePresence 实现淡入淡出 */}
       <div className="relative w-full h-full">
-        <img
-          src={carouselImages[currentImageIndex].src}
-          alt={carouselImages[currentImageIndex].alt}
-          className="w-full h-full object-cover"
-          style={{
-            filter: getFilterStyle(variant)
-          }}
-        />
-        
-        {/* 切换时的黑色遮罩 - 慢慢变暗，慢慢恢复 */}
-        <div 
-          className={`absolute inset-0 bg-black transition-all duration-800 ease-in-out ${
-            isTransitioning ? 'opacity-70' : 'opacity-0'
-          }`}
-          style={{
-            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
-          }}
-        />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentImageIndex}
+            src={carouselImages[currentImageIndex].src}
+            alt={carouselImages[currentImageIndex].alt}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              filter: getFilterStyle(variant)
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 1.2,
+              ease: "easeInOut"
+            }}
+          />
+        </AnimatePresence>
         
         {/* 图片上的渐变遮罩 */}
         <div 
