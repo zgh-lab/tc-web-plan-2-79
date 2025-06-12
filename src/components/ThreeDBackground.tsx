@@ -4,39 +4,39 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
-// 不同页面的配色方案
+// 不同页面的配色方案 - 更冷清的科技配色
 const colorSchemes = {
   default: {
     background: '#0a0a1a',
     ambient: '#1a1a3e',
-    lights: ['#4f46e5', '#7c3aed', '#06ffa5', '#f59e0b'],
+    lights: ['#2563eb', '#1e40af', '#1d4ed8', '#3b82f6'], // 更冷的蓝色系
     gradient: {
-      primary: 'rgba(0, 212, 255, 0.15)',
-      secondary: 'rgba(124, 58, 237, 0.08)',
-      tertiary: 'rgba(255, 107, 157, 0.05)',
-      quaternary: 'rgba(6, 255, 165, 0.04)'
+      primary: 'rgba(37, 99, 235, 0.08)',
+      secondary: 'rgba(30, 64, 175, 0.05)',
+      tertiary: 'rgba(29, 78, 216, 0.03)',
+      quaternary: 'rgba(59, 130, 246, 0.02)'
     }
   },
   cooperation: {
     background: '#1a0a1a',
     ambient: '#3e1a1a',
-    lights: ['#ef4444', '#f97316', '#f59e0b', '#eab308'],
+    lights: ['#374151', '#4b5563', '#6b7280', '#9ca3af'], // 冷灰色系
     gradient: {
-      primary: 'rgba(239, 68, 68, 0.15)',
-      secondary: 'rgba(249, 115, 22, 0.08)',
-      tertiary: 'rgba(245, 158, 11, 0.05)',
-      quaternary: 'rgba(234, 179, 8, 0.04)'
+      primary: 'rgba(55, 65, 81, 0.08)',
+      secondary: 'rgba(75, 85, 99, 0.05)',
+      tertiary: 'rgba(107, 114, 128, 0.03)',
+      quaternary: 'rgba(156, 163, 175, 0.02)'
     }
   },
   achievements: {
     background: '#1a1a0a',
     ambient: '#3e3e1a',
-    lights: ['#8b5cf6', '#a855f7', '#c084fc', '#d8b4fe'],
+    lights: ['#0891b2', '#0e7490', '#155e75', '#164e63'], // 冷青色系
     gradient: {
-      primary: 'rgba(139, 92, 246, 0.15)',
-      secondary: 'rgba(168, 85, 247, 0.08)',
-      tertiary: 'rgba(192, 132, 252, 0.05)',
-      quaternary: 'rgba(216, 180, 254, 0.04)'
+      primary: 'rgba(8, 145, 178, 0.08)',
+      secondary: 'rgba(14, 116, 144, 0.05)',
+      tertiary: 'rgba(21, 94, 117, 0.03)',
+      quaternary: 'rgba(22, 78, 99, 0.02)'
     }
   }
 };
@@ -54,10 +54,10 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
     
     // 内层 - 小球体
     const innerLayer = [];
-    for (let i = 0; i < 30; i++) {
-      const angle = (i / 30) * Math.PI * 2;
+    for (let i = 0; i < 20; i++) { // 减少数量
+      const angle = (i / 20) * Math.PI * 2;
       const radius = 4 + Math.random() * 2;
-      const height = (Math.random() - 0.5) * 6;
+      const height = (Math.random() - 0.5) * 4;
       innerLayer.push({
         position: [
           Math.cos(angle) * radius,
@@ -65,17 +65,17 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           Math.sin(angle) * radius
         ],
         color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
-        size: 0.08 + Math.random() * 0.12,
-        speed: 0.5 + Math.random() * 0.5
+        size: 0.08 + Math.random() * 0.08,
+        speed: 0.2 + Math.random() * 0.2 // 减慢速度
       });
     }
     
     // 中层 - 中等球体
     const middleLayer = [];
-    for (let i = 0; i < 20; i++) {
-      const angle = (i / 20) * Math.PI * 2;
-      const radius = 7 + Math.random() * 3;
-      const height = (Math.random() - 0.5) * 8;
+    for (let i = 0; i < 15; i++) { // 减少数量
+      const angle = (i / 15) * Math.PI * 2;
+      const radius = 7 + Math.random() * 2;
+      const height = (Math.random() - 0.5) * 6;
       middleLayer.push({
         position: [
           Math.cos(angle) * radius,
@@ -83,17 +83,17 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           Math.sin(angle) * radius
         ],
         color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
-        size: 0.15 + Math.random() * 0.15,
-        speed: 0.3 + Math.random() * 0.3
+        size: 0.12 + Math.random() * 0.08,
+        speed: 0.15 + Math.random() * 0.15 // 减慢速度
       });
     }
     
     // 外层 - 大球体
     const outerLayer = [];
-    for (let i = 0; i < 15; i++) {
-      const angle = (i / 15) * Math.PI * 2;
-      const radius = 12 + Math.random() * 4;
-      const height = (Math.random() - 0.5) * 10;
+    for (let i = 0; i < 10; i++) { // 减少数量
+      const angle = (i / 10) * Math.PI * 2;
+      const radius = 12 + Math.random() * 3;
+      const height = (Math.random() - 0.5) * 8;
       outerLayer.push({
         position: [
           Math.cos(angle) * radius,
@@ -101,8 +101,8 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           Math.sin(angle) * radius
         ],
         color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
-        size: 0.2 + Math.random() * 0.2,
-        speed: 0.2 + Math.random() * 0.2
+        size: 0.15 + Math.random() * 0.1,
+        speed: 0.1 + Math.random() * 0.1 // 减慢速度
       });
     }
     
@@ -114,58 +114,58 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
     const time = state.clock.getElapsedTime();
     
     if (mainSphereRef.current && groupRef.current && outerRingRef.current) {
-      // 主球体复杂旋转和脉动
-      mainSphereRef.current.rotation.x = Math.sin(time * 0.3) * 0.2;
-      mainSphereRef.current.rotation.y = time * 0.4;
-      mainSphereRef.current.rotation.z = Math.cos(time * 0.2) * 0.1;
+      // 主球体复杂旋转和脉动 - 减慢速度
+      mainSphereRef.current.rotation.x = Math.sin(time * 0.15) * 0.1;
+      mainSphereRef.current.rotation.y = time * 0.2;
+      mainSphereRef.current.rotation.z = Math.cos(time * 0.1) * 0.05;
       
-      // 主球体大小脉动
-      const scale = 1 + Math.sin(time * 1.5) * 0.15;
+      // 主球体大小脉动 - 减慢速度
+      const scale = 1 + Math.sin(time * 0.8) * 0.08;
       mainSphereRef.current.scale.setScalar(scale);
       
-      // 鼠标交互 - 更强烈的响应
-      const targetX = mouse.x * viewport.width * 0.15;
-      const targetY = mouse.y * viewport.height * 0.15;
+      // 鼠标交互 - 更温和的响应
+      const targetX = mouse.x * viewport.width * 0.08;
+      const targetY = mouse.y * viewport.height * 0.08;
       
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
         groupRef.current.rotation.x,
-        targetY * 0.3,
-        0.03
+        targetY * 0.15,
+        0.02
       );
       groupRef.current.rotation.y = THREE.MathUtils.lerp(
         groupRef.current.rotation.y,
-        targetX * 0.3,
-        0.03
+        targetX * 0.15,
+        0.02
       );
       
-      // 整体浮动和摆动
-      groupRef.current.position.y = Math.sin(time * 0.6) * 0.5 + Math.cos(time * 0.4) * 0.2;
-      groupRef.current.position.x = Math.sin(time * 0.3) * 0.3;
+      // 整体浮动和摆动 - 减慢速度
+      groupRef.current.position.y = Math.sin(time * 0.3) * 0.3 + Math.cos(time * 0.2) * 0.1;
+      groupRef.current.position.x = Math.sin(time * 0.15) * 0.2;
       
-      // 外环旋转
-      outerRingRef.current.rotation.z = time * 0.5;
-      outerRingRef.current.rotation.x = Math.sin(time * 0.2) * 0.3;
+      // 外环旋转 - 减慢速度
+      outerRingRef.current.rotation.z = time * 0.25;
+      outerRingRef.current.rotation.x = Math.sin(time * 0.1) * 0.15;
       
-      // 材质动画 - 更强烈的发光效果
+      // 材质动画 - 更柔和的发光效果
       if (mainSphereRef.current.material instanceof THREE.MeshStandardMaterial) {
-        mainSphereRef.current.material.emissiveIntensity = 0.3 + Math.sin(time * 3) * 0.2;
+        mainSphereRef.current.material.emissiveIntensity = 0.15 + Math.sin(time * 1.5) * 0.1;
       }
     }
   });
 
   return (
     <group ref={groupRef}>
-      {/* 主球体 - 更大更亮 */}
+      {/* 主球体 - 更冷清的配色 */}
       <mesh ref={mainSphereRef} position={[0, 0, 0]}>
         <sphereGeometry args={[2.5, 128, 64]} />
         <meshStandardMaterial
           color={colorScheme.lights[0]}
           emissive={colorScheme.lights[0]}
-          emissiveIntensity={0.4}
-          roughness={0.1}
-          metalness={0.9}
+          emissiveIntensity={0.2}
+          roughness={0.2}
+          metalness={0.8}
           transparent
-          opacity={0.85}
+          opacity={0.7}
         />
       </mesh>
       
@@ -175,9 +175,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
         <meshStandardMaterial
           color={colorScheme.lights[1]}
           emissive={colorScheme.lights[1]}
-          emissiveIntensity={0.6}
+          emissiveIntensity={0.3}
           transparent
-          opacity={0.3}
+          opacity={0.2}
         />
       </mesh>
       
@@ -193,9 +193,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
               <meshStandardMaterial
                 color={sat.color}
                 emissive={sat.color}
-                emissiveIntensity={0.7}
+                emissiveIntensity={0.4}
                 transparent
-                opacity={0.9}
+                opacity={0.8}
               />
             </mesh>
           ))}
@@ -206,85 +206,58 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
       <group ref={outerRingRef}>
         {/* 主光环 */}
         <mesh rotation={[0, 0, 0]}>
-          <torusGeometry args={[5, 0.08, 16, 100]} />
+          <torusGeometry args={[5, 0.06, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[1]}
             emissive={colorScheme.lights[1]}
-            emissiveIntensity={0.5}
-            transparent
-            opacity={0.8}
-          />
-        </mesh>
-        
-        {/* 倾斜光环 */}
-        <mesh rotation={[Math.PI / 3, 0, 0]}>
-          <torusGeometry args={[6, 0.06, 16, 100]} />
-          <meshStandardMaterial
-            color={colorScheme.lights[2]}
-            emissive={colorScheme.lights[2]}
-            emissiveIntensity={0.4}
+            emissiveIntensity={0.3}
             transparent
             opacity={0.6}
           />
         </mesh>
         
-        {/* 垂直光环 */}
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[6.5, 0.04, 16, 100]} />
+        {/* 倾斜光环 */}
+        <mesh rotation={[Math.PI / 3, 0, 0]}>
+          <torusGeometry args={[6, 0.04, 16, 100]} />
           <meshStandardMaterial
-            color={colorScheme.lights[3]}
-            emissive={colorScheme.lights[3]}
-            emissiveIntensity={0.3}
+            color={colorScheme.lights[2]}
+            emissive={colorScheme.lights[2]}
+            emissiveIntensity={0.25}
             transparent
             opacity={0.5}
           />
         </mesh>
         
-        {/* 外围超大光环 */}
-        <mesh rotation={[Math.PI / 4, Math.PI / 4, 0]}>
-          <torusGeometry args={[8, 0.03, 16, 100]} />
+        {/* 垂直光环 */}
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[6.5, 0.03, 16, 100]} />
           <meshStandardMaterial
-            color={colorScheme.lights[0]}
-            emissive={colorScheme.lights[0]}
+            color={colorScheme.lights[3]}
+            emissive={colorScheme.lights[3]}
             emissiveIntensity={0.2}
             transparent
             opacity={0.4}
           />
         </mesh>
-      </group>
-      
-      {/* 能量粒子效果 */}
-      <group>
-        {Array.from({ length: 50 }, (_, i) => {
-          const angle = (i / 50) * Math.PI * 2;
-          const radius = 3 + Math.sin(i * 0.5) * 2;
-          return (
-            <mesh
-              key={i}
-              position={[
-                Math.cos(angle) * radius,
-                Math.sin(i * 0.3) * 4,
-                Math.sin(angle) * radius
-              ]}
-            >
-              <sphereGeometry args={[0.03, 8, 8]} />
-              <meshStandardMaterial
-                color={colorScheme.lights[i % colorScheme.lights.length]}
-                emissive={colorScheme.lights[i % colorScheme.lights.length]}
-                emissiveIntensity={1}
-                transparent
-                opacity={0.8}
-              />
-            </mesh>
-          );
-        })}
+        
+        {/* 外围超大光环 */}
+        <mesh rotation={[Math.PI / 4, Math.PI / 4, 0]}>
+          <torusGeometry args={[8, 0.02, 16, 100]} />
+          <meshStandardMaterial
+            color={colorScheme.lights[0]}
+            emissive={colorScheme.lights[0]}
+            emissiveIntensity={0.15}
+            transparent
+            opacity={0.3}
+          />
+        </mesh>
       </group>
     </group>
   );
 }
 
 // 增强的3D星空粒子系统
-function EnhancedStarField({ count = 8000, colorScheme }: { count?: number; colorScheme: any }) {
+function EnhancedStarField({ count = 6000, colorScheme }: { count?: number; colorScheme: any }) {
   const mesh = useRef<THREE.Points>(null);
   const light = useRef<THREE.PointLight>(null);
   
@@ -329,7 +302,7 @@ function EnhancedStarField({ count = 8000, colorScheme }: { count?: number; colo
       const g = parseInt(hex.substr(2, 2), 16) / 255;
       const b = parseInt(hex.substr(4, 2), 16) / 255;
       
-      const brightness = 0.3 + Math.random() * 0.7;
+      const brightness = 0.2 + Math.random() * 0.5; // 降低亮度
       colors[i * 3] = r * brightness;
       colors[i * 3 + 1] = g * brightness;
       colors[i * 3 + 2] = b * brightness;
@@ -338,37 +311,37 @@ function EnhancedStarField({ count = 8000, colorScheme }: { count?: number; colo
     return [positions, colors, initialPositions];
   }, [count, colorScheme]);
   
-  // 动画逻辑
+  // 动画逻辑 - 减慢速度
   useFrame((state) => {
     const { clock, mouse } = state;
     const time = clock.getElapsedTime();
     
     if (mesh.current) {
-      mesh.current.rotation.x = time * 0.02 + mouse.y * 0.15;
-      mesh.current.rotation.y = time * 0.03 + mouse.x * 0.15;
-      mesh.current.rotation.z = Math.sin(time * 0.015) * 0.08;
+      mesh.current.rotation.x = time * 0.01 + mouse.y * 0.08;
+      mesh.current.rotation.y = time * 0.015 + mouse.x * 0.08;
+      mesh.current.rotation.z = Math.sin(time * 0.008) * 0.04;
       
       const positions = mesh.current.geometry.attributes.position.array as Float32Array;
       for (let i = 0; i < count; i++) {
         const i3 = i * 3;
         
-        const noise1 = Math.sin(time * 0.4 + i * 0.01) * 0.2;
-        const noise2 = Math.cos(time * 0.3 + i * 0.015) * 0.15;
-        const noise3 = Math.sin(time * 0.35 + i * 0.02) * 0.1;
+        const noise1 = Math.sin(time * 0.2 + i * 0.005) * 0.1;
+        const noise2 = Math.cos(time * 0.15 + i * 0.008) * 0.08;
+        const noise3 = Math.sin(time * 0.18 + i * 0.01) * 0.05;
         
         positions[i3] = initialPositions[i3] + noise1;
         positions[i3 + 1] = initialPositions[i3 + 1] + noise2;
         positions[i3 + 2] = initialPositions[i3 + 2] + noise3;
         
-        const mouseInfluence = 0.08;
-        const dx = mouse.x * 15 - positions[i3];
-        const dy = mouse.y * 10 - positions[i3 + 1];
+        const mouseInfluence = 0.04;
+        const dx = mouse.x * 10 - positions[i3];
+        const dy = mouse.y * 8 - positions[i3 + 1];
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 8) {
-          const force = (8 - distance) / 8;
-          positions[i3] += dx * force * mouseInfluence * 0.6;
-          positions[i3 + 1] += dy * force * mouseInfluence * 0.6;
+        if (distance < 6) {
+          const force = (6 - distance) / 6;
+          positions[i3] += dx * force * mouseInfluence * 0.4;
+          positions[i3 + 1] += dy * force * mouseInfluence * 0.4;
         }
       }
       
@@ -376,21 +349,21 @@ function EnhancedStarField({ count = 8000, colorScheme }: { count?: number; colo
     }
     
     if (light.current) {
-      light.current.position.x = THREE.MathUtils.lerp(light.current.position.x, mouse.x * 15, 0.03);
-      light.current.position.y = THREE.MathUtils.lerp(light.current.position.y, mouse.y * 15, 0.03);
-      light.current.position.z = 10;
-      light.current.intensity = 2 + Math.sin(time * 0.8) * 0.5;
+      light.current.position.x = THREE.MathUtils.lerp(light.current.position.x, mouse.x * 10, 0.02);
+      light.current.position.y = THREE.MathUtils.lerp(light.current.position.y, mouse.y * 10, 0.02);
+      light.current.position.z = 8;
+      light.current.intensity = 1.5 + Math.sin(time * 0.4) * 0.3;
     }
   });
 
   return (
     <group>
-      <pointLight ref={light} intensity={4} color={colorScheme.lights[0]} distance={150} />
+      <pointLight ref={light} intensity={2} color={colorScheme.lights[0]} distance={120} />
       <Points ref={mesh} positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial 
           transparent 
           vertexColors
-          size={0.15}
+          size={0.1}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -400,14 +373,14 @@ function EnhancedStarField({ count = 8000, colorScheme }: { count?: number; colo
   );
 }
 
-// 增强的相机控制器
+// 增强的相机控制器 - 减慢速度
 function EnhancedCameraController() {
   const { camera, mouse } = useThree();
   
   useFrame(() => {
-    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 2, 0.03);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, mouse.y * 2, 0.03);
-    camera.rotation.z = THREE.MathUtils.lerp(camera.rotation.z, mouse.x * 0.03, 0.02);
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 1, 0.02);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, mouse.y * 1, 0.02);
+    camera.rotation.z = THREE.MathUtils.lerp(camera.rotation.z, mouse.x * 0.015, 0.01);
   });
   
   return null;
@@ -441,16 +414,16 @@ const ThreeDBackground = ({ variant = 'default' }: { variant?: keyof typeof colo
       >
         <color attach="background" args={[colorScheme.background]} />
         
-        <ambientLight intensity={0.4} color={colorScheme.ambient} />
+        <ambientLight intensity={0.3} color={colorScheme.ambient} />
         
         <directionalLight 
           position={[20, 20, 10]} 
-          intensity={1.5} 
+          intensity={1.0} 
           color={colorScheme.lights[0]}
         />
-        <pointLight position={[-20, -15, 10]} intensity={1.2} color={colorScheme.lights[1]} />
-        <pointLight position={[15, -20, -10]} intensity={1.0} color={colorScheme.lights[2]} />
-        <pointLight position={[-10, 15, 8]} intensity={0.8} color={colorScheme.lights[3]} />
+        <pointLight position={[-20, -15, 10]} intensity={0.8} color={colorScheme.lights[1]} />
+        <pointLight position={[15, -20, -10]} intensity={0.6} color={colorScheme.lights[2]} />
+        <pointLight position={[-10, 15, 8]} intensity={0.5} color={colorScheme.lights[3]} />
         
         {/* 超级交互球体 */}
         <SuperInteractiveSphere colorScheme={colorScheme} />
@@ -466,7 +439,7 @@ const ThreeDBackground = ({ variant = 'default' }: { variant?: keyof typeof colo
         />
       </Canvas>
       
-      {/* 增强的鼠标光晕渐变 */}
+      {/* 增强的鼠标光晕渐变 - 更冷清的配色 */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-1000"
         style={{
@@ -476,14 +449,14 @@ const ThreeDBackground = ({ variant = 'default' }: { variant?: keyof typeof colo
               ${colorScheme.gradient.secondary} 15%,
               ${colorScheme.gradient.tertiary} 30%,
               ${colorScheme.gradient.quaternary} 45%,
-              rgba(0, 0, 0, 0.1) 60%,
-              rgba(0, 0, 0, 0.3) 100%),
+              rgba(0, 0, 0, 0.2) 60%,
+              rgba(0, 0, 0, 0.4) 100%),
             linear-gradient(135deg, 
-              rgba(10, 10, 26, 0.4) 0%, 
-              rgba(26, 26, 62, 0.3) 25%,
-              rgba(15, 23, 42, 0.35) 50%, 
-              rgba(30, 41, 59, 0.25) 75%,
-              rgba(0, 0, 0, 0.4) 100%)
+              rgba(10, 10, 26, 0.5) 0%, 
+              rgba(26, 26, 62, 0.4) 25%,
+              rgba(15, 23, 42, 0.45) 50%, 
+              rgba(30, 41, 59, 0.35) 75%,
+              rgba(0, 0, 0, 0.5) 100%)
           `
         }}
       />
