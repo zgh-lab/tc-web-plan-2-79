@@ -49,6 +49,10 @@ const Footer = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                   <div className="space-y-3">
                     <div>
+                      <h4 className="text-blue-400 font-medium mb-1">技术中心负责人</h4>
+                      <p className="text-gray-400">沈予卿</p>
+                    </div>
+                    <div>
                       <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
                       <p className="text-gray-400">楚耀翔、徐鑫荣</p>
                     </div>

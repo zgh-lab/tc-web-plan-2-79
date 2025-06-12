@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -148,7 +149,7 @@ const BlogPreview = () => {
               transition: { duration: 0.3 }
             }}
           >
-            为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产
+            为公司自研项目提供坚实的底层技术支撑，并不断积累与沉淀通用技术资产
           </motion.p>
         </motion.div>
         
