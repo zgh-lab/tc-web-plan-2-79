@@ -151,11 +151,6 @@ const Achievements = () => {
           ))}
         </motion.div>
 
-        <div className="mt-12 p-6 border border-blue-500/20 rounded-lg bg-black/30 backdrop-blur-sm">
-          <h3 className="text-xl font-semibold mb-3 text-white">技术突破</h3>
-          <p className="text-gray-300">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
-        </div>
-
         {/* Project Detail Dialog */}
         <Dialog open={!!selectedGame} onOpenChange={() => setSelectedGame(null)}>
           <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-black/90 border-white/20">
