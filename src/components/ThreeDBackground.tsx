@@ -1,6 +1,7 @@
+
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
+import { Points, PointMaterial, OrbitControls, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
 // 不同页面的配色方案
@@ -40,8 +41,125 @@ const colorSchemes = {
   }
 };
 
+// 交互式球体组件
+function InteractiveSphere({ colorScheme }: { colorScheme: any }) {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
+  const { mouse, viewport } = useThree();
+  
+  // 创建环绕小球体
+  const satellites = useMemo(() => {
+    const sats = [];
+    for (let i = 0; i < 20; i++) {
+      const angle = (i / 20) * Math.PI * 2;
+      const radius = 3 + Math.random() * 2;
+      sats.push({
+        position: [
+          Math.cos(angle) * radius,
+          (Math.random() - 0.5) * 4,
+          Math.sin(angle) * radius
+        ],
+        color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
+        size: 0.1 + Math.random() * 0.1
+      });
+    }
+    return sats;
+  }, [colorScheme]);
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    
+    if (meshRef.current && groupRef.current) {
+      // 主球体旋转
+      meshRef.current.rotation.x = time * 0.2;
+      meshRef.current.rotation.y = time * 0.3;
+      
+      // 鼠标交互
+      const targetX = mouse.x * viewport.width * 0.1;
+      const targetY = mouse.y * viewport.height * 0.1;
+      
+      groupRef.current.rotation.x = THREE.MathUtils.lerp(
+        groupRef.current.rotation.x,
+        targetY * 0.2,
+        0.02
+      );
+      groupRef.current.rotation.y = THREE.MathUtils.lerp(
+        groupRef.current.rotation.y,
+        targetX * 0.2,
+        0.02
+      );
+      
+      // 整体浮动
+      groupRef.current.position.y = Math.sin(time * 0.5) * 0.3;
+      
+      // 材质动画
+      if (meshRef.current.material instanceof THREE.MeshStandardMaterial) {
+        meshRef.current.material.emissiveIntensity = 0.2 + Math.sin(time * 2) * 0.1;
+      }
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      {/* 主球体 */}
+      <mesh ref={meshRef} position={[0, 0, 0]}>
+        <sphereGeometry args={[1.5, 64, 32]} />
+        <meshStandardMaterial
+          color={colorScheme.lights[0]}
+          emissive={colorScheme.lights[0]}
+          emissiveIntensity={0.2}
+          roughness={0.3}
+          metalness={0.8}
+          transparent
+          opacity={0.8}
+        />
+      </mesh>
+      
+      {/* 环绕小球体 */}
+      {satellites.map((sat, index) => (
+        <mesh
+          key={index}
+          position={sat.position as [number, number, number]}
+        >
+          <sphereGeometry args={[sat.size, 16, 16]} />
+          <meshStandardMaterial
+            color={sat.color}
+            emissive={sat.color}
+            emissiveIntensity={0.5}
+            transparent
+            opacity={0.9}
+          />
+        </mesh>
+      ))}
+      
+      {/* 外围光环 */}
+      <mesh rotation={[0, 0, 0]}>
+        <torusGeometry args={[3, 0.05, 16, 100]} />
+        <meshStandardMaterial
+          color={colorScheme.lights[1]}
+          emissive={colorScheme.lights[1]}
+          emissiveIntensity={0.3}
+          transparent
+          opacity={0.6}
+        />
+      </mesh>
+      
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[3.5, 0.03, 16, 100]} />
+        <meshStandardMaterial
+          color={colorScheme.lights[2]}
+          emissive={colorScheme.lights[2]}
+          emissiveIntensity={0.3}
+          transparent
+          opacity={0.4}
+        />
+      </mesh>
+    </group>
+  );
+}
+
 // 3D星空粒子系统
-function StarField({ count = 8000, colorScheme }: { count?: number; colorScheme: any }) {
+function StarField({ count = 6000, colorScheme }: { count?: number; colorScheme: any }) {
   const mesh = useRef<THREE.Points>(null);
   const light = useRef<THREE.PointLight>(null);
   
@@ -78,13 +196,11 @@ function StarField({ count = 8000, colorScheme }: { count?: number; colorScheme:
       initialPositions[i * 3 + 1] = y;
       initialPositions[i * 3 + 2] = z;
       
-      // 使用配色方案的颜色
       const colorVariation = Math.random();
       const brightness = 0.4 + Math.random() * 0.6;
       const lightColors = colorScheme.lights;
       const selectedColor = lightColors[Math.floor(Math.random() * lightColors.length)];
       
-      // 将hex颜色转换为RGB
       const hex = selectedColor.replace('#', '');
       const r = parseInt(hex.substr(0, 2), 16) / 255;
       const g = parseInt(hex.substr(2, 2), 16) / 255;
@@ -201,7 +317,7 @@ const ThreeDBackground = ({ variant = 'default' }: { variant?: keyof typeof colo
       >
         <color attach="background" args={[colorScheme.background]} />
         
-        <ambientLight intensity={0.4} color={colorScheme.ambient} />
+        <ambientLight intensity={0.3} color={colorScheme.ambient} />
         
         <directionalLight 
           position={[15, 15, 8]} 
@@ -211,6 +327,9 @@ const ThreeDBackground = ({ variant = 'default' }: { variant?: keyof typeof colo
         <pointLight position={[-15, -10, 8]} intensity={0.9} color={colorScheme.lights[1]} />
         <pointLight position={[10, -15, -8]} intensity={0.8} color={colorScheme.lights[2]} />
         <pointLight position={[-8, 12, 5]} intensity={0.6} color={colorScheme.lights[3]} />
+        
+        {/* 新增的交互式球体 */}
+        <InteractiveSphere colorScheme={colorScheme} />
         
         <StarField colorScheme={colorScheme} />
         <CameraController />
