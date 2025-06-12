@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight, ExternalLink } from 'lucide-react';
@@ -170,7 +169,6 @@ const Achievements = () => {
                       className="w-20 h-20 object-cover rounded-lg" 
                     />
                     <div>
-                      <span className="text-blue-400 text-sm">{selectedGame.year}</span>
                       <DialogTitle className="text-2xl font-bold text-white">{selectedGame.title}</DialogTitle>
                     </div>
                   </div>
