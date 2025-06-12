@@ -45,13 +45,17 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
     const interval = setInterval(() => {
       setIsTransitioning(true);
       
-      // 先变暗，然后切换图片
+      // 慢慢变暗，然后切换图片，再慢慢显示
       setTimeout(() => {
         setCurrentImageIndex((prevIndex) => 
           (prevIndex + 1) % carouselImages.length
         );
-        setIsTransitioning(false);
-      }, 600); // 变暗持续600ms
+        
+        // 切换图片后，再等一下让新图片慢慢显示
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 100);
+      }, 800); // 变暗过程800ms
     }, 6000); // 改为6秒切换
 
     return () => clearInterval(interval);
@@ -116,11 +120,14 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
           }}
         />
         
-        {/* 切换时的黑色遮罩 */}
+        {/* 切换时的黑色遮罩 - 使用更平滑的过渡 */}
         <div 
-          className={`absolute inset-0 bg-black transition-opacity duration-600 ease-in-out ${
-            isTransitioning ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 bg-black transition-all duration-1000 ease-in-out ${
+            isTransitioning ? 'opacity-70' : 'opacity-0'
           }`}
+          style={{
+            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
         />
         
         {/* 图片上的渐变遮罩 */}
