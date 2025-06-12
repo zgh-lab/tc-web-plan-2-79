@@ -1,7 +1,7 @@
 
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 // 不同页面的配色方案 - 恢复一些饱和度，保持科技感
@@ -41,87 +41,30 @@ const colorSchemes = {
   }
 };
 
-// 超级交互球体组件 - 更大更酷的效果
+// 超级交互球体组件 - 移除粒子，专注核心球体
 function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
   const mainSphereRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
   const outerRingRef = useRef<THREE.Group>(null);
+  const glowRef = useRef<THREE.Mesh>(null);
   const { mouse, viewport } = useThree();
-  
-  // 创建多层环绕球体群
-  const satelliteLayers = useMemo(() => {
-    const layers = [];
-    
-    // 内层 - 小球体
-    const innerLayer = [];
-    for (let i = 0; i < 20; i++) {
-      const angle = (i / 20) * Math.PI * 2;
-      const radius = 4 + Math.random() * 2;
-      const height = (Math.random() - 0.5) * 4;
-      innerLayer.push({
-        position: [
-          Math.cos(angle) * radius,
-          height,
-          Math.sin(angle) * radius
-        ],
-        color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
-        size: 0.08 + Math.random() * 0.08,
-        speed: 0.2 + Math.random() * 0.2
-      });
-    }
-    
-    // 中层 - 中等球体
-    const middleLayer = [];
-    for (let i = 0; i < 15; i++) {
-      const angle = (i / 15) * Math.PI * 2;
-      const radius = 7 + Math.random() * 2;
-      const height = (Math.random() - 0.5) * 6;
-      middleLayer.push({
-        position: [
-          Math.cos(angle) * radius,
-          height,
-          Math.sin(angle) * radius
-        ],
-        color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
-        size: 0.12 + Math.random() * 0.08,
-        speed: 0.15 + Math.random() * 0.15
-      });
-    }
-    
-    // 外层 - 大球体
-    const outerLayer = [];
-    for (let i = 0; i < 10; i++) {
-      const angle = (i / 10) * Math.PI * 2;
-      const radius = 12 + Math.random() * 3;
-      const height = (Math.random() - 0.5) * 8;
-      outerLayer.push({
-        position: [
-          Math.cos(angle) * radius,
-          height,
-          Math.sin(angle) * radius
-        ],
-        color: colorScheme.lights[Math.floor(Math.random() * colorScheme.lights.length)],
-        size: 0.15 + Math.random() * 0.1,
-        speed: 0.1 + Math.random() * 0.1
-      });
-    }
-    
-    layers.push(innerLayer, middleLayer, outerLayer);
-    return layers;
-  }, [colorScheme]);
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     
-    if (mainSphereRef.current && groupRef.current && outerRingRef.current) {
-      // 主球体复杂旋转和脉动
-      mainSphereRef.current.rotation.x = Math.sin(time * 0.15) * 0.1;
-      mainSphereRef.current.rotation.y = time * 0.2;
-      mainSphereRef.current.rotation.z = Math.cos(time * 0.1) * 0.05;
+    if (mainSphereRef.current && groupRef.current && outerRingRef.current && glowRef.current) {
+      // 主球体复杂旋转和脉动 - 减慢动画速度
+      mainSphereRef.current.rotation.x = Math.sin(time * 0.08) * 0.1;
+      mainSphereRef.current.rotation.y = time * 0.1;
+      mainSphereRef.current.rotation.z = Math.cos(time * 0.05) * 0.05;
       
-      // 主球体大小脉动
-      const scale = 1 + Math.sin(time * 0.8) * 0.08;
+      // 主球体大小脉动 - 减慢速度
+      const scale = 1 + Math.sin(time * 0.4) * 0.08;
       mainSphereRef.current.scale.setScalar(scale);
+      
+      // 泛光效果脉动
+      const glowScale = 1 + Math.sin(time * 0.6) * 0.1;
+      glowRef.current.scale.setScalar(glowScale);
       
       // 鼠标交互 - 更温和的响应
       const targetX = mouse.x * viewport.width * 0.08;
@@ -138,23 +81,40 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
         0.02
       );
       
-      // 整体浮动和摆动
-      groupRef.current.position.y = Math.sin(time * 0.3) * 0.3 + Math.cos(time * 0.2) * 0.1;
-      groupRef.current.position.x = Math.sin(time * 0.15) * 0.2;
+      // 整体浮动和摆动 - 减慢速度
+      groupRef.current.position.y = Math.sin(time * 0.15) * 0.3 + Math.cos(time * 0.1) * 0.1;
+      groupRef.current.position.x = Math.sin(time * 0.08) * 0.2;
       
-      // 外环旋转
-      outerRingRef.current.rotation.z = time * 0.25;
-      outerRingRef.current.rotation.x = Math.sin(time * 0.1) * 0.15;
+      // 外环旋转 - 减慢速度
+      outerRingRef.current.rotation.z = time * 0.12;
+      outerRingRef.current.rotation.x = Math.sin(time * 0.05) * 0.15;
       
       // 材质动画 - 更柔和的发光效果
       if (mainSphereRef.current.material instanceof THREE.MeshStandardMaterial) {
-        mainSphereRef.current.material.emissiveIntensity = 0.15 + Math.sin(time * 1.5) * 0.1;
+        mainSphereRef.current.material.emissiveIntensity = 0.15 + Math.sin(time * 0.75) * 0.1;
+      }
+      
+      // 泛光材质动画
+      if (glowRef.current.material instanceof THREE.MeshStandardMaterial) {
+        glowRef.current.material.emissiveIntensity = 0.1 + Math.sin(time * 0.5) * 0.05;
       }
     }
   });
 
   return (
     <group ref={groupRef}>
+      {/* 泛光效果 - 外层光晕 */}
+      <mesh ref={glowRef} position={[0, 0, 0]}>
+        <sphereGeometry args={[3.5, 64, 32]} />
+        <meshStandardMaterial
+          color={colorScheme.lights[0]}
+          emissive={colorScheme.lights[0]}
+          emissiveIntensity={0.08}
+          transparent
+          opacity={0.15}
+        />
+      </mesh>
+      
       {/* 主球体 - 恢复一些色彩饱和度 */}
       <mesh ref={mainSphereRef} position={[0, 0, 0]}>
         <sphereGeometry args={[2.5, 128, 64]} />
@@ -181,32 +141,11 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
         />
       </mesh>
       
-      {/* 多层环绕球体 */}
-      {satelliteLayers.map((layer, layerIndex) => (
-        <group key={layerIndex}>
-          {layer.map((sat, index) => (
-            <mesh
-              key={`${layerIndex}-${index}`}
-              position={sat.position as [number, number, number]}
-            >
-              <sphereGeometry args={[sat.size, 16, 16]} />
-              <meshStandardMaterial
-                color={sat.color}
-                emissive={sat.color}
-                emissiveIntensity={0.5}
-                transparent
-                opacity={0.9}
-              />
-            </mesh>
-          ))}
-        </group>
-      ))}
-      
-      {/* 复杂的光环系统 - 从外向内等差递减 */}
+      {/* 复杂的光环系统 - 更大的直径，从外向内等差递减 */}
       <group ref={outerRingRef}>
-        {/* 最外层光环 */}
+        {/* 最外层光环 - 直径25 */}
         <mesh rotation={[Math.PI / 6, Math.PI / 8, 0]}>
-          <torusGeometry args={[15, 0.05, 16, 100]} />
+          <torusGeometry args={[25, 0.05, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[0]}
             emissive={colorScheme.lights[0]}
@@ -216,9 +155,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           />
         </mesh>
         
-        {/* 第二层光环 */}
+        {/* 第二层光环 - 直径20 */}
         <mesh rotation={[Math.PI / 4, 0, Math.PI / 6]}>
-          <torusGeometry args={[12, 0.06, 16, 100]} />
+          <torusGeometry args={[20, 0.06, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[1]}
             emissive={colorScheme.lights[1]}
@@ -228,9 +167,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           />
         </mesh>
         
-        {/* 第三层光环 */}
+        {/* 第三层光环 - 直径15 */}
         <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
-          <torusGeometry args={[9, 0.07, 16, 100]} />
+          <torusGeometry args={[15, 0.07, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[2]}
             emissive={colorScheme.lights[2]}
@@ -240,9 +179,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           />
         </mesh>
         
-        {/* 内层光环 */}
+        {/* 第四层光环 - 直径10 */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[6, 0.08, 16, 100]} />
+          <torusGeometry args={[10, 0.08, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[3]}
             emissive={colorScheme.lights[3]}
@@ -252,9 +191,9 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           />
         </mesh>
         
-        {/* 最内层光环 */}
+        {/* 最内层光环 - 直径5 */}
         <mesh rotation={[0, 0, 0]}>
-          <torusGeometry args={[3, 0.09, 16, 100]} />
+          <torusGeometry args={[5, 0.09, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[1]}
             emissive={colorScheme.lights[1]}
