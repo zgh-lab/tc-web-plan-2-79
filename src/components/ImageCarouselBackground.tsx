@@ -38,13 +38,13 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 自动轮播 - 每6秒切换一张图片
+  // 自动轮播 - 每5秒切换一张图片
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % carouselImages.length
       );
-    }, 6000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
