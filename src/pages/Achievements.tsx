@@ -1,9 +1,18 @@
 
-import { motion } from "framer-motion";
-import { ArrowRight, Star, Users, Code, Zap, Award, TrendingUp } from "lucide-react";
-import { useState } from "react";
-import PageLayout from "@/components/PageLayout";
+import PageLayout from '@/components/PageLayout';
+import SEO from '@/components/SEO';
+import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
+// Define the game showcase items with more detailed information for the dedicated page
 const gameShowcase = [
   {
     id: "game1",
@@ -63,7 +72,7 @@ const gameShowcase = [
 ];
 
 const Achievements = () => {
-  const [selectedGame, setSelectedGame] = useState<any>(null);
+  const [selectedGame, setSelectedGame] = useState<typeof gameShowcase[0] | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -76,7 +85,7 @@ const Achievements = () => {
     }
   };
 
-  const itemVariants = {
+  const childVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -86,161 +95,134 @@ const Achievements = () => {
       }
     }
   };
-
+  
   return (
-    <PageLayout>
-      <div className="min-h-screen bg-gradient-to-b from-black/90 to-black/70 text-white">
-        {/* Hero Section */}
-        <motion.section 
+    <PageLayout backgroundVariant="achievements">
+      <SEO 
+        title="项目合作 - G-bits 技术中心" 
+        description="G-bits技术中心的项目合作展示，包括技术创新、项目成果和研发成果。"
+        keywords={['项目合作', '技术创新', '项目成果', '研发成果']}
+      />
+
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+        <motion.div 
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="py-16 md:py-24"
+          className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <motion.h1 
-                variants={itemVariants}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
-              >
-                项目合作
-              </motion.h1>
-              <motion.p 
-                variants={itemVariants}
-                className="text-xl text-gray-300 max-w-3xl mx-auto"
-              >
-                为公司自研项目提供坚实的底层技术支撑，并不断在积累与沉淀通用技术资产
-              </motion.p>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Featured Games Grid */}
-        <motion.section 
+          <motion.h1 variants={childVariants} className="text-3xl md:text-5xl font-bold text-white">项目合作</motion.h1>
+          <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
+            展示 G-bits 技术中心的自主研发游戏及技术创新成果
+          </motion.p>
+        </motion.div>
+        
+        <motion.div 
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="py-16"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-8">
-              {gameShowcase.map((game, index) => (
-                <motion.div 
-                  key={game.id}
-                  variants={itemVariants}
-                  className="bg-black/40 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 group"
-                >
-                  <div className="md:flex">
-                    <div className="md:w-2/5 relative">
-                      <img 
-                        src={game.imageUrl} 
-                        alt={game.title}
-                        className="w-full h-full object-cover" 
-                      />
-                    </div>
-                    
-                    <div className="p-6 md:w-3/5 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="px-3 py-1 bg-blue-600/80 text-blue-100 rounded-full text-sm">
-                            {game.category}
-                          </span>
-                        </div>
-                        
-                        <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-blue-300 transition-colors">
-                          {game.title}
-                        </h3>
-                        
-                        <p className="text-gray-300 mb-4 text-base leading-relaxed">
-                          {game.description}
-                        </p>
-                        
-                        <div className="mb-4">
-                          <h4 className="text-lg font-semibold text-white mb-2">核心特色</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {game.features.map((feature, idx) => (
-                              <span 
-                                key={idx}
-                                className="px-3 py-1 bg-gray-700/50 text-gray-300 rounded-lg text-sm"
-                              >
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <button 
-                        onClick={() => setSelectedGame(game)}
-                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group/btn mt-4"
-                      >
-                        查看详情
-                        <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Game Detail Modal */}
-        {selectedGame && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          {gameShowcase.map((game, index) => (
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              key={game.id}
+              variants={childVariants}
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row hover:shadow-lg hover:shadow-blue-900/20 transition-all cursor-pointer"
+              onClick={() => setSelectedGame(game)}
             >
-              <div className="relative">
+              <div className="md:w-2/5 h-48 md:h-auto relative">
                 <img 
-                  src={selectedGame.imageUrl} 
-                  alt={selectedGame.title}
-                  className="w-full h-64 md:h-80 object-cover rounded-t-xl" 
+                  src={game.imageUrl} 
+                  alt={game.title}
+                  className="w-full h-full object-cover" 
                 />
-                <button 
-                  onClick={() => setSelectedGame(null)}
-                  className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
-                >
-                  ×
-                </button>
               </div>
               
-              <div className="p-6 md:p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-3xl font-bold text-white">{selectedGame.title}</h2>
-                  <span className="px-3 py-1 bg-blue-600/80 text-blue-100 rounded-full text-sm">
-                    {selectedGame.category}
-                  </span>
+              <div className="p-6 md:w-3/5 flex flex-col justify-between">
+                <div>
+                  <span className="text-blue-400 text-sm mb-2 block">{game.category}</span>
+                  <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
+                  <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {game.features.map((feature, i) => (
+                      <span 
+                        key={i} 
+                        className="text-xs px-2 py-1 rounded-full bg-blue-600/20 text-blue-400"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  {selectedGame.detailedDescription}
-                </p>
+                <button className="flex items-center text-blue-400 hover:text-blue-300 transition-all group mt-2">
+                  查看详情 
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="mt-12 p-6 border border-blue-500/20 rounded-lg bg-black/30 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold mb-3 text-white">技术突破</h3>
+          <p className="text-gray-300">G-bits技术中心在游戏开发过程中取得了多项技术突破，包括自研渲染引擎、AI驱动的NPC行为系统、多平台适配框架等。更多技术成果详情将陆续更新...</p>
+        </div>
+
+        {/* Project Detail Dialog */}
+        <Dialog open={!!selectedGame} onOpenChange={() => setSelectedGame(null)}>
+          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-black/90 border-white/20">
+            {selectedGame && (
+              <>
+                <DialogHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <img 
+                      src={selectedGame.imageUrl} 
+                      alt={selectedGame.title}
+                      className="w-20 h-20 object-cover rounded-lg" 
+                    />
+                    <div>
+                      <span className="text-blue-400 text-sm">{selectedGame.category} • {selectedGame.year}</span>
+                      <DialogTitle className="text-2xl font-bold text-white">{selectedGame.title}</DialogTitle>
+                    </div>
+                  </div>
+                </DialogHeader>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-6">
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-3">核心特色</h4>
-                    <div className="space-y-2">
-                      {selectedGame.features.map((feature: string, idx: number) => (
-                        <div key={idx} className="flex items-center text-gray-300">
-                          <Star className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" />
+                    <h4 className="text-lg font-semibold text-white mb-2">项目简介</h4>
+                    <p className="text-gray-300 leading-relaxed">{selectedGame.description}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">技术详情</h4>
+                    <div className="text-gray-300 leading-relaxed whitespace-pre-line">
+                      {selectedGame.detailedDescription}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">核心特性</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedGame.features.map((feature, i) => (
+                        <span 
+                          key={i} 
+                          className="px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-sm"
+                        >
                           {feature}
-                        </div>
+                        </span>
                       ))}
                     </div>
                   </div>
                   
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-3">技术栈</h4>
+                    <h4 className="text-lg font-semibold text-white mb-2">技术栈</h4>
                     <div className="flex flex-wrap gap-2">
-                      {selectedGame.techStack.map((tech: string, idx: number) => (
+                      {selectedGame.techStack.map((tech, i) => (
                         <span 
-                          key={idx}
-                          className="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-lg text-sm"
+                          key={i} 
+                          className="px-3 py-1 rounded-full bg-gray-600/20 text-gray-300 text-sm"
                         >
                           {tech}
                         </span>
@@ -248,11 +230,11 @@ const Achievements = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+      </main>
     </PageLayout>
   );
 };

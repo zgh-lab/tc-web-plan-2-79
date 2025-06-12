@@ -198,6 +198,7 @@ const BlogPreview = () => {
                       <div className="p-4">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-blue-400 text-sm group-hover:text-blue-300 transition-colors">{game.category}</span>
+                          <span className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{game.year}</span>
                         </div>
                         
                         <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>

@@ -1,6 +1,10 @@
 
-import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { Link } from 'react-router-dom';
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { cn } from '@/lib/utils';
+import { navItems, scrollToSection, type NavItem } from './NavItems';
+import SearchDialog from './SearchDialog';
+import MobileNav from './MobileNav';
 
 interface DesktopNavProps {
   isScrolled: boolean;
@@ -8,43 +12,55 @@ interface DesktopNavProps {
 
 const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
   return (
-    <div className="hidden md:flex items-center space-x-8">
-      <Link 
-        to="/" 
-        className={cn(
-          "text-gray-300 hover:text-white transition-colors duration-200 font-medium",
-          isScrolled ? "text-gray-300" : "text-gray-300"
-        )}
-      >
-        首页
-      </Link>
-      <Link 
-        to="/tech-details" 
-        className={cn(
-          "text-gray-300 hover:text-white transition-colors duration-200 font-medium",
-          isScrolled ? "text-gray-300" : "text-gray-300"
-        )}
-      >
-        技术方向
-      </Link>
-      <Link 
-        to="/achievements" 
-        className={cn(
-          "text-gray-300 hover:text-white transition-colors duration-200 font-medium",
-          isScrolled ? "text-gray-300" : "text-gray-300"
-        )}
-      >
-        项目合作
-      </Link>
-      <Link 
-        to="/about" 
-        className={cn(
-          "text-gray-300 hover:text-white transition-colors duration-200 font-medium",
-          isScrolled ? "text-gray-300" : "text-gray-300"
-        )}
-      >
-        关于我们
-      </Link>
+    <div className="flex justify-between items-center w-full">
+      {/* 左侧 - Logo */}
+      <div className="flex-shrink-0">
+        {/* Logo由Navbar.tsx提供 */}
+      </div>
+      
+      {/* 导航菜单居中并微向左偏移 */}
+      <div className="hidden md:flex items-center justify-center flex-1 -ml-12">
+        <NavigationMenu className="text-white">
+          <NavigationMenuList className="flex justify-center">
+            {navItems.map((item: NavItem) => (
+              <NavigationMenuItem key={item.title}>
+                {item.isAction ? (
+                  <button 
+                    onClick={() => scrollToSection(item.actionId || '')} 
+                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}
+                  >
+                    {item.title}
+                  </button>
+                ) : item.isExternal ? (
+                  <a 
+                    href={item.path} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  <Link to={item.path}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}>
+                      {item.title}
+                    </NavigationMenuLink>
+                  </Link>
+                )}
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+      
+      {/* 搜索按钮放在右侧 */}
+      <div className="hidden md:flex items-center space-x-4">
+        {/* 搜索功能 */}
+        <SearchDialog isScrolled={isScrolled} />
+      </div>
+      
+      {/* Mobile Navigation */}
+      <MobileNav isScrolled={isScrolled} />
     </div>
   );
 };
