@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -98,7 +97,7 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* 轮播图片容器 - 使用 AnimatePresence 实现淡入淡出 */}
+      {/* 轮播图片容器 - 使用 AnimatePresence 实现淡入淡出，中间时刻为黑色 */}
       <div className="relative w-full h-full">
         <AnimatePresence mode="wait">
           <motion.img
@@ -118,6 +117,9 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
             }}
           />
         </AnimatePresence>
+        
+        {/* 黑色背景层，在图片切换时显示 */}
+        <div className="absolute inset-0 bg-black -z-10" />
         
         {/* 图片上的渐变遮罩 */}
         <div 
