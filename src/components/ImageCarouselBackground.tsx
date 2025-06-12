@@ -39,13 +39,13 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 自动轮播
+  // 自动轮播 - 每6秒切换一张图片
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % carouselImages.length
       );
-    }, 4000); // 每4秒切换一张图片
+    }, 6000); // 改为6秒切换
 
     return () => clearInterval(interval);
   }, []);
@@ -104,9 +104,9 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
           <motion.div
             key={currentImageIndex}
             className="absolute inset-0 w-full h-full"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ 
               duration: 1.2,
               ease: "easeInOut"
@@ -139,22 +139,6 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
             />
           </motion.div>
         </AnimatePresence>
-      </div>
-
-      {/* 轮播指示器 */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        {carouselImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImageIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentImageIndex
-                ? 'bg-white shadow-lg scale-110'
-                : 'bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`切换到第${index + 1}张图片`}
-          />
-        ))}
       </div>
 
       {/* 动态粒子效果叠加 */}
