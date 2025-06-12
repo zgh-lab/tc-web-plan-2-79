@@ -51,10 +51,10 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
           (prevIndex + 1) % carouselImages.length
         );
         
-        // 切换图片后，再等一下让新图片慢慢显示
+        // 切换图片后，立即开始慢慢显示新图片
         setTimeout(() => {
           setIsTransitioning(false);
-        }, 100);
+        }, 50);
       }, 800); // 变暗过程800ms
     }, 6000); // 改为6秒切换
 
@@ -120,9 +120,9 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
           }}
         />
         
-        {/* 切换时的黑色遮罩 - 使用更平滑的过渡 */}
+        {/* 切换时的黑色遮罩 - 慢慢变暗，慢慢恢复 */}
         <div 
-          className={`absolute inset-0 bg-black transition-all duration-1000 ease-in-out ${
+          className={`absolute inset-0 bg-black transition-all duration-800 ease-in-out ${
             isTransitioning ? 'opacity-70' : 'opacity-0'
           }`}
           style={{
