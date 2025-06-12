@@ -1,6 +1,6 @@
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import {
@@ -15,14 +15,23 @@ import {
 const gameShowcase = [
   {
     id: "game1",
-    title: "XXX",
+    title: "一念逍遥",
     imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
-    description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    category: "XXX",
+    description: "多次获得各大商店推荐，App Store游戏畅销榜最高至榜单第4名 累计总注册用户超2600万 由吉比特自研的《一念逍遥》是一款水墨国风放置仙侠手游，随时随地踏入仙途，轻松体验从无名小卒一步步成长，最终问鼎乾坤的过程。 人界的懵懂热血，灵界的仙魔抉择，仙界的创世风云，量劫之下，六大仙域，道祖之路......一个或壮阔或逍遥的长生路，待你开启。",
+    category: "仙侠放置",
     year: "2023",
-    features: ["XXX", "XXX", "XXX", "XXX"],
-    detailedDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
-    techStack: ["XXX", "XXX", "XXX", "XXX"]
+    features: ["水墨国风", "放置仙侠", "多元剧情", "成长体验"],
+    detailedDescription: `为项目组全面接入GS开发生态与Unity引擎支持，提供全链路技术支持：
+
+开发工具：集成gslang/gip/gshub开发工具链，Profiler性能分析保障效率；
+
+游戏框架：服务端基于engine0框架接入PKG包及公共服，客户端实现捏脸系统与多人同屏渲染；
+
+DevOps：搭建自动化构建流程与客户端一键打包，接入WatcherCenter监控；
+
+深度优化：驻场支援服务端性能调优与代码评审，客户端提供渲染效果支持及全周期性能优化。`,
+    techStack: ["Unity引擎", "GS开发生态", "engine0框架", "自动化构建"],
+    documentUrl: "https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink"
   },
   {
     id: "game2",
@@ -228,6 +237,20 @@ const Achievements = () => {
                       ))}
                     </div>
                   </div>
+                  
+                  {/* 添加详情文档链接 */}
+                  {selectedGame.documentUrl && (
+                    <div>
+                      <h4 className="text-lg font-semibold text-white mb-2">详情文档</h4>
+                      <button
+                        onClick={() => window.open(selectedGame.documentUrl, '_blank', 'noopener,noreferrer')}
+                        className="flex items-center px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-700 transition-all"
+                      >
+                        查看详情文档
+                        <ExternalLink className="ml-2 w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </>
             )}
