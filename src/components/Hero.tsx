@@ -55,44 +55,8 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-transparent relative overflow-hidden h-[100vh] w-full">
-        {/* 彩色晶体叠加层 */}
         <motion.div 
-          className="absolute inset-0 z-5"
-          initial={{ opacity: 0, scale: 1.1, rotate: 0 }}
-          animate={{ 
-            opacity: 0.15,
-            scale: 1,
-            rotate: 360
-          }}
-          transition={{
-            opacity: { duration: 2, ease: "easeOut" },
-            scale: { duration: 3, ease: "easeOut" },
-            rotate: { duration: 60, ease: "linear", repeat: Infinity }
-          }}
-          style={{
-            opacity,
-            mixBlendMode: "overlay"
-          }}
-        >
-          <img 
-            src="/lovable-uploads/da641c57-e364-437f-ac28-19784902830a.png" 
-            alt="Crystal overlay"
-            className="w-full h-full object-cover"
-            style={{
-              filter: "blur(1px) brightness(1.2) contrast(1.1)"
-            }}
-          />
-          {/* 额外的光晕效果 */}
-          <div 
-            className="absolute inset-0 bg-gradient-radial from-blue-500/10 via-purple-500/5 to-transparent"
-            style={{
-              animation: "pulse 8s ease-in-out infinite"
-            }}
-          />
-        </motion.div>
-
-        <motion.div 
-          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full relative z-10"
+          className="banner-overlay bg-transparent pt-21 md:pt-24 w-full"
           style={{
             opacity,
             scale,
@@ -149,7 +113,7 @@ const Hero = () => {
         
         {/* 滚动指示器 */}
         <motion.div 
-          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer z-10"
+          className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}

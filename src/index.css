@@ -112,11 +112,6 @@
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Radial gradient utility */
-.bg-gradient-radial {
-  background: radial-gradient(var(--tw-gradient-stops));
-}
-
 /* Animation classes */
 @keyframes float {
   0% {
@@ -163,17 +158,6 @@
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
   }
 }
 
