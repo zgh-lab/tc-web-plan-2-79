@@ -38,13 +38,20 @@ interface ImageCarouselBackgroundProps {
 const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroundProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // 自动轮播 - 每6秒切换一张图片
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % carouselImages.length
-      );
+      setIsTransitioning(true);
+      
+      // 先变暗，然后切换图片
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => 
+          (prevIndex + 1) % carouselImages.length
+        );
+        setIsTransitioning(false);
+      }, 600); // 变暗持续600ms
     }, 6000); // 改为6秒切换
 
     return () => clearInterval(interval);
@@ -100,45 +107,39 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
     <div className="absolute inset-0 w-full h-full overflow-hidden">
       {/* 轮播图片容器 */}
       <div className="relative w-full h-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentImageIndex}
-            className="absolute inset-0 w-full h-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ 
-              duration: 1.2,
-              ease: "easeInOut"
-            }}
-          >
-            <img
-              src={carouselImages[currentImageIndex].src}
-              alt={carouselImages[currentImageIndex].alt}
-              className="w-full h-full object-cover"
-              style={{
-                filter: getFilterStyle(variant)
-              }}
-            />
-            {/* 图片上的渐变遮罩 */}
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: `
-                  linear-gradient(45deg, 
-                    rgba(0, 0, 0, 0.7) 0%, 
-                    rgba(0, 0, 0, 0.4) 25%,
-                    rgba(0, 0, 0, 0.3) 50%, 
-                    rgba(0, 0, 0, 0.5) 75%,
-                    rgba(0, 0, 0, 0.8) 100%),
-                  radial-gradient(circle at center, 
-                    rgba(59, 130, 246, 0.1) 0%, 
-                    rgba(0, 0, 0, 0.6) 70%)
-                `
-              }}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <img
+          src={carouselImages[currentImageIndex].src}
+          alt={carouselImages[currentImageIndex].alt}
+          className="w-full h-full object-cover"
+          style={{
+            filter: getFilterStyle(variant)
+          }}
+        />
+        
+        {/* 切换时的黑色遮罩 */}
+        <div 
+          className={`absolute inset-0 bg-black transition-opacity duration-600 ease-in-out ${
+            isTransitioning ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+        
+        {/* 图片上的渐变遮罩 */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `
+              linear-gradient(45deg, 
+                rgba(0, 0, 0, 0.7) 0%, 
+                rgba(0, 0, 0, 0.4) 25%,
+                rgba(0, 0, 0, 0.3) 50%, 
+                rgba(0, 0, 0, 0.5) 75%,
+                rgba(0, 0, 0, 0.8) 100%),
+              radial-gradient(circle at center, 
+                rgba(59, 130, 246, 0.1) 0%, 
+                rgba(0, 0, 0, 0.6) 70%)
+            `
+          }}
+        />
       </div>
 
       {/* 动态粒子效果叠加 */}
