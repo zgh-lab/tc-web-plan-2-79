@@ -62,8 +62,8 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
       const scale = 1 + Math.sin(time * 0.4) * 0.08;
       mainSphereRef.current.scale.setScalar(scale);
       
-      // 泛光效果脉动
-      const glowScale = 1 + Math.sin(time * 0.6) * 0.1;
+      // 泛光效果脉动 - 增强效果
+      const glowScale = 1.2 + Math.sin(time * 0.6) * 0.15;
       glowRef.current.scale.setScalar(glowScale);
       
       // 鼠标交互 - 更温和的响应
@@ -89,117 +89,117 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
       outerRingRef.current.rotation.z = time * 0.12;
       outerRingRef.current.rotation.x = Math.sin(time * 0.05) * 0.15;
       
-      // 材质动画 - 更柔和的发光效果
+      // 材质动画 - 增强发光效果
       if (mainSphereRef.current.material instanceof THREE.MeshStandardMaterial) {
-        mainSphereRef.current.material.emissiveIntensity = 0.15 + Math.sin(time * 0.75) * 0.1;
+        mainSphereRef.current.material.emissiveIntensity = 0.3 + Math.sin(time * 0.75) * 0.15;
       }
       
-      // 泛光材质动画
+      // 泛光材质动画 - 增强
       if (glowRef.current.material instanceof THREE.MeshStandardMaterial) {
-        glowRef.current.material.emissiveIntensity = 0.1 + Math.sin(time * 0.5) * 0.05;
+        glowRef.current.material.emissiveIntensity = 0.2 + Math.sin(time * 0.5) * 0.1;
       }
     }
   });
 
   return (
     <group ref={groupRef}>
-      {/* 泛光效果 - 外层光晕 */}
+      {/* 泛光效果 - 外层光晕，增强效果 */}
       <mesh ref={glowRef} position={[0, 0, 0]}>
-        <sphereGeometry args={[3.5, 64, 32]} />
+        <sphereGeometry args={[3.8, 64, 32]} />
         <meshStandardMaterial
           color={colorScheme.lights[0]}
           emissive={colorScheme.lights[0]}
-          emissiveIntensity={0.08}
+          emissiveIntensity={0.15}
           transparent
-          opacity={0.15}
+          opacity={0.2}
         />
       </mesh>
       
-      {/* 主球体 - 恢复一些色彩饱和度 */}
+      {/* 主球体 - 增强亮度和发光 */}
       <mesh ref={mainSphereRef} position={[0, 0, 0]}>
         <sphereGeometry args={[2.5, 128, 64]} />
         <meshStandardMaterial
           color={colorScheme.lights[0]}
           emissive={colorScheme.lights[0]}
-          emissiveIntensity={0.25}
+          emissiveIntensity={0.4}
           roughness={0.2}
           metalness={0.8}
           transparent
-          opacity={0.8}
+          opacity={0.9}
         />
       </mesh>
       
-      {/* 内部核心球体 */}
+      {/* 内部核心球体 - 增强亮度 */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[1.8, 64, 32]} />
         <meshStandardMaterial
           color={colorScheme.lights[1]}
           emissive={colorScheme.lights[1]}
-          emissiveIntensity={0.35}
+          emissiveIntensity={0.5}
           transparent
-          opacity={0.3}
+          opacity={0.4}
         />
       </mesh>
       
-      {/* 复杂的光环系统 - 更大的直径，从外向内等差递减 */}
+      {/* 复杂的光环系统 - 更大的直径，从外向内等差递减，增加泛光 */}
       <group ref={outerRingRef}>
-        {/* 最外层光环 - 直径25 */}
+        {/* 最外层光环 - 直径25，增加泛光 */}
         <mesh rotation={[Math.PI / 6, Math.PI / 8, 0]}>
-          <torusGeometry args={[25, 0.05, 16, 100]} />
+          <torusGeometry args={[25, 0.08, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[0]}
             emissive={colorScheme.lights[0]}
-            emissiveIntensity={0.2}
-            transparent
-            opacity={0.4}
-          />
-        </mesh>
-        
-        {/* 第二层光环 - 直径20 */}
-        <mesh rotation={[Math.PI / 4, 0, Math.PI / 6]}>
-          <torusGeometry args={[20, 0.06, 16, 100]} />
-          <meshStandardMaterial
-            color={colorScheme.lights[1]}
-            emissive={colorScheme.lights[1]}
-            emissiveIntensity={0.25}
+            emissiveIntensity={0.3}
             transparent
             opacity={0.5}
           />
         </mesh>
         
-        {/* 第三层光环 - 直径15 */}
-        <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
-          <torusGeometry args={[15, 0.07, 16, 100]} />
+        {/* 第二层光环 - 直径20，增加泛光 */}
+        <mesh rotation={[Math.PI / 4, 0, Math.PI / 6]}>
+          <torusGeometry args={[20, 0.09, 16, 100]} />
           <meshStandardMaterial
-            color={colorScheme.lights[2]}
-            emissive={colorScheme.lights[2]}
-            emissiveIntensity={0.3}
+            color={colorScheme.lights[1]}
+            emissive={colorScheme.lights[1]}
+            emissiveIntensity={0.35}
             transparent
             opacity={0.6}
           />
         </mesh>
         
-        {/* 第四层光环 - 直径10 */}
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[10, 0.08, 16, 100]} />
+        {/* 第三层光环 - 直径15，增加泛光 */}
+        <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
+          <torusGeometry args={[15, 0.1, 16, 100]} />
           <meshStandardMaterial
-            color={colorScheme.lights[3]}
-            emissive={colorScheme.lights[3]}
-            emissiveIntensity={0.35}
+            color={colorScheme.lights[2]}
+            emissive={colorScheme.lights[2]}
+            emissiveIntensity={0.4}
             transparent
             opacity={0.7}
           />
         </mesh>
         
-        {/* 最内层光环 - 直径5 */}
+        {/* 第四层光环 - 直径10，增加泛光 */}
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[10, 0.11, 16, 100]} />
+          <meshStandardMaterial
+            color={colorScheme.lights[3]}
+            emissive={colorScheme.lights[3]}
+            emissiveIntensity={0.45}
+            transparent
+            opacity={0.8}
+          />
+        </mesh>
+        
+        {/* 最内层光环 - 直径5，增加泛光 */}
         <mesh rotation={[0, 0, 0]}>
-          <torusGeometry args={[5, 0.09, 16, 100]} />
+          <torusGeometry args={[5, 0.12, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[1]}
             emissive={colorScheme.lights[1]}
-            emissiveIntensity={0.4}
+            emissiveIntensity={0.5}
             transparent
-            opacity={0.8}
+            opacity={0.9}
           />
         </mesh>
       </group>
