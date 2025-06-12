@@ -36,7 +36,11 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                     href={item.path} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}
+                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800 cursor-pointer")}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(item.path, '_blank', 'noopener,noreferrer');
+                    }}
                   >
                     {item.title}
                   </a>

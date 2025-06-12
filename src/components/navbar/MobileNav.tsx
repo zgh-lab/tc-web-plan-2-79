@@ -49,16 +49,16 @@ const MobileNav = ({ isScrolled }: MobileNavProps) => {
               );
             } else if (item.isExternal) {
               return (
-                <a 
+                <button
                   key={item.title}
-                  href={item.path} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block px-3 py-2 rounded-md text-white hover:bg-gray-900"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    window.open(item.path, '_blank', 'noopener,noreferrer');
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-3 py-2 rounded-md text-white hover:bg-gray-900"
                 >
                   {item.title}
-                </a>
+                </button>
               );
             } else {
               return (
