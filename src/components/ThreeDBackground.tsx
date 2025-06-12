@@ -47,12 +47,13 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
   const groupRef = useRef<THREE.Group>(null);
   const outerRingRef = useRef<THREE.Group>(null);
   const glowRef = useRef<THREE.Mesh>(null);
+  const innerRingRef = useRef<THREE.Mesh>(null); // 添加最内侧光环的引用
   const { mouse, viewport } = useThree();
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     
-    if (mainSphereRef.current && groupRef.current && outerRingRef.current && glowRef.current) {
+    if (mainSphereRef.current && groupRef.current && outerRingRef.current && glowRef.current && innerRingRef.current) {
       // 主球体复杂旋转和脉动 - 减慢动画速度
       mainSphereRef.current.rotation.x = Math.sin(time * 0.08) * 0.1;
       mainSphereRef.current.rotation.y = time * 0.1;
@@ -97,6 +98,16 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
       // 泛光材质动画 - 增强
       if (glowRef.current.material instanceof THREE.MeshStandardMaterial) {
         glowRef.current.material.emissiveIntensity = 0.2 + Math.sin(time * 0.5) * 0.1;
+      }
+      
+      // 最内侧光环忽明忽暗动画
+      if (innerRingRef.current.material instanceof THREE.MeshStandardMaterial) {
+        const flickerIntensity = 0.3 + Math.sin(time * 1.2) * 0.25 + Math.sin(time * 2.5) * 0.15;
+        innerRingRef.current.material.emissiveIntensity = Math.max(0.1, flickerIntensity);
+        
+        // 添加透明度变化增强忽明忽暗效果
+        const opacityFlicker = 0.7 + Math.sin(time * 1.5) * 0.2;
+        innerRingRef.current.material.opacity = Math.max(0.3, opacityFlicker);
       }
     }
   });
@@ -191,8 +202,8 @@ function SuperInteractiveSphere({ colorScheme }: { colorScheme: any }) {
           />
         </mesh>
         
-        {/* 最内层光环 - 直径调整为6，增加泛光 */}
-        <mesh rotation={[0, 0, 0]}>
+        {/* 最内层光环 - 直径6，添加忽明忽暗效果 */}
+        <mesh ref={innerRingRef} rotation={[0, 0, 0]}>
           <torusGeometry args={[6, 0.12, 16, 100]} />
           <meshStandardMaterial
             color={colorScheme.lights[1]}
