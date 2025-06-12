@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -38,13 +39,13 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 自动轮播 - 每5秒切换一张图片
+  // 自动轮播 - 每4.5秒切换一张图片
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % carouselImages.length
       );
-    }, 5000);
+    }, 4500);
 
     return () => clearInterval(interval);
   }, []);
@@ -97,7 +98,7 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* 轮播图片容器 - 使用 AnimatePresence 实现淡入淡出，中间时刻为黑色 */}
+      {/* 轮播图片容器 - 使用 AnimatePresence 实现更柔和的淡入淡出 */}
       <div className="relative w-full h-full">
         <AnimatePresence mode="wait">
           <motion.img
@@ -108,12 +109,13 @@ const ImageCarouselBackground = ({ variant = 'default' }: ImageCarouselBackgroun
             style={{
               filter: getFilterStyle(variant)
             }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ 
-              duration: 1.2,
-              ease: "easeInOut"
+              duration: 1.5,
+              ease: "easeInOut",
+              scale: { duration: 2 }
             }}
           />
         </AnimatePresence>
