@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,10 +8,10 @@ import { useEffect, useRef, useState } from "react";
 const gameShowcase = [
   {
     id: "game1",
-    title: "XXX",
+    title: "雷霆游戏",
     imageUrl: "/lovable-uploads/dbe2f670-341e-45a6-852d-4b6a49e5381e.png",
-    description: "经典东方玄幻风格的修仙冒险游戏，融合仙侠世界观与独特的战斗系统",
-    category: "角色扮演",
+    description: "专注于网页游戏和手机游戏的开发与运营，致力于为玩家提供优质的游戏体验和服务",
+    category: "游戏开发与运营",
     year: "2023"
   },
   {
