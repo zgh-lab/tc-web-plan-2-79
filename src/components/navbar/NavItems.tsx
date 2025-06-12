@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom';
 
 export interface NavItem {
@@ -24,7 +23,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "工具库",
-    path: "https://preview--asset-forge-hub.lovable.app/",
+    path: "http://10.5.1.106:8080/",
     isExternal: true
   }
 ];
