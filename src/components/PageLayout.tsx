@@ -8,9 +8,10 @@ import FloatingContactButton from './FloatingContactButton';
 interface PageLayoutProps {
   children: ReactNode;
   backgroundVariant?: 'default' | 'cooperation' | 'achievements';
+  showContact?: boolean;
 }
 
-const PageLayout = ({ children, backgroundVariant = 'default' }: PageLayoutProps) => {
+const PageLayout = ({ children, backgroundVariant = 'default', showContact }: PageLayoutProps) => {
   return (
     <div className="min-h-screen relative">
       {/* 背景 */}
