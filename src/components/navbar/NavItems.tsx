@@ -17,29 +17,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "技术方向",
-    path: "/tech-cooperation",
-    children: [
-      {
-        title: "编译器组",
-        path: "/tech-cooperation/compiler"
-      },
-      {
-        title: "服务器与工具链组", 
-        path: "/tech-cooperation/server"
-      },
-      {
-        title: "引擎组",
-        path: "/tech-cooperation/engine"
-      },
-      {
-        title: "技术AI组",
-        path: "/tech-cooperation/tech-ai"
-      },
-      {
-        title: "AIGC组",
-        path: "/tech-cooperation/aigc"
-      }
-    ]
+    path: "/tech-cooperation"
   },
   {
     title: "项目合作",

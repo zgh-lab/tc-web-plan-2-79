@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
 import { navItems, scrollToSection, type NavItem } from './NavItems';
 import SearchDialog from './SearchDialog';
@@ -24,24 +24,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
           <NavigationMenuList className="flex justify-center">
             {navItems.map((item: NavItem) => (
               <NavigationMenuItem key={item.title}>
-                {item.children ? (
-                  <>
-                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}>
-                      {item.title}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="w-48 p-2">
-                        {item.children.map((child) => (
-                          <Link key={child.title} to={child.path}>
-                            <div className="block px-3 py-2 text-sm text-white hover:bg-gray-800 rounded-md transition-colors">
-                              {child.title}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </NavigationMenuContent>
-                  </>
-                ) : item.isAction ? (
+                {item.isAction ? (
                   <button 
                     onClick={() => scrollToSection(item.actionId || '')} 
                     className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}
