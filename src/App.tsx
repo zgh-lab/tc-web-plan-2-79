@@ -19,9 +19,10 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
+import TechCooperation from "./pages/TechCooperation";
 import Achievements from "./pages/Achievements";
 
-// 技术方向的各个子页面
+// 新增的二级页面
 import CompilerDetail from "./pages/CompilerDetail";
 import ServerDetail from "./pages/ServerDetail";
 import EngineDetail from "./pages/EngineDetail";
@@ -52,7 +53,8 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />
             
-            {/* 技术方向的各个子页面 - 移除了总览页面路由 */}
+            {/* 技术合作路由 */}
+            <Route path="/tech-cooperation" element={<TechCooperation />} />
             <Route path="/tech-cooperation/compiler" element={<CompilerDetail />} />
             <Route path="/tech-cooperation/server" element={<ServerDetail />} />
             <Route path="/tech-cooperation/engine" element={<EngineDetail />} />

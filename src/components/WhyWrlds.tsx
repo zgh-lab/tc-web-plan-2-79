@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
-import { Code, Server, Wrench, Terminal, Cpu, ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -9,7 +9,7 @@ const features = [
     icon: Code,
     title: "编译器组",
     description: "负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。",
-    link: "/tech-cooperation/compiler",
+    link: "/tech-cooperation",
     image: "/lovable-uploads/0af8ac47-703e-457c-b65f-a7b7cd8cb1cc.png",
     details: [
       "GS编译器底层功能开发和问题修复",
@@ -25,7 +25,7 @@ const features = [
     icon: Server,
     title: "服务器与工具链组",
     description: "提供游戏项目组覆盖从开发、测试、部署、运维 全生命周期的GS解决方案及全方位的技术支持。",
-    link: "/tech-cooperation/server",
+    link: "/tech-cooperation",
     image: "/lovable-uploads/9cf46b7e-ae02-45b6-8e03-1211b1dc3c3c.png",
     details: [
       "开发工具：语言支持、调试分析、通用工具",
@@ -42,7 +42,7 @@ const features = [
     icon: Wrench,
     title: "引擎组",
     description: "为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。",
-    link: "/tech-cooperation/engine",
+    link: "/tech-cooperation",
     image: "/lovable-uploads/c4e79bdd-859c-445e-b4d5-6dfc39871707.png",
     details: [
       "渲染管线：builtin/jrp/urp/hdrp 渲染管线搭建与渲染特性开发",
@@ -61,7 +61,7 @@ const features = [
     icon: Terminal,
     title: "技术AI组",
     description: "紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。",
-    link: "/tech-cooperation/tech-ai",
+    link: "/tech-cooperation",
     image: "/lovable-uploads/2008a0a3-f03c-4295-866e-0feb9ee20b9e.png",
     details: [
       "AI流程研发与场景化落地：采用NLP、深度学习等技术，针对垂直场景开发定制化AI解决方案",
@@ -81,7 +81,7 @@ const features = [
     icon: Cpu,
     title: "AIGC组",
     description: "AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。",
-    link: "/tech-cooperation/aigc",
+    link: "/tech-cooperation",
     image: "/lovable-uploads/44bbadbc-5ae3-405e-b533-909a9f956bed.png",
     details: [
       "2D AIGC-SD/FLUX/视频 模型训练：LORA少量图集训练画风和深度训练设计风格特征",
@@ -103,8 +103,8 @@ const features = [
 const WhyWrlds = () => {
   const navigate = useNavigate();
 
-  const handleCardClick = (link: string) => {
-    navigate(link);
+  const handleCardClick = (featureId: string) => {
+    navigate(`/tech-cooperation?expanded=${featureId}`);
     window.scrollTo(0, 0);
   };
 
@@ -160,7 +160,7 @@ const WhyWrlds = () => {
                   backgroundPosition: 'center',
                   height: '320px'
                 }}
-                onClick={() => handleCardClick(feature.link)}
+                onClick={() => handleCardClick(feature.id)}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -213,7 +213,7 @@ const WhyWrlds = () => {
                   backgroundPosition: 'center',
                   height: '320px'
                 }}
-                onClick={() => handleCardClick(feature.link)}
+                onClick={() => handleCardClick(feature.id)}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -256,7 +256,16 @@ const WhyWrlds = () => {
             ))}
           </div>
           
-          {/* 移除了"查看全部服务"按钮，因为现在没有总览页面 */}
+          <div className="flex justify-center mt-16">
+            <Link 
+              to="/tech-cooperation" 
+              onClick={() => window.scrollTo(0, 0)}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
+            >
+              查看全部服务
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

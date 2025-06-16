@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
 import { navItems, scrollToSection, type NavItem } from './NavItems';
 import SearchDialog from './SearchDialog';
@@ -26,18 +26,14 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
               <NavigationMenuItem key={item.title}>
                 {item.children ? (
                   <>
-                    <NavigationMenuTrigger className="text-white hover:text-sky-300 bg-transparent hover:bg-gray-800">
+                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}>
                       {item.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-gray-900 border border-gray-700">
+                      <div className="w-48 p-2">
                         {item.children.map((child) => (
-                          <Link
-                            key={child.title}
-                            to={child.path}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white"
-                          >
-                            <div className="text-sm font-medium leading-none text-white">
+                          <Link key={child.title} to={child.path}>
+                            <div className="block px-3 py-2 text-sm text-white hover:bg-gray-800 rounded-md transition-colors">
                               {child.title}
                             </div>
                           </Link>
