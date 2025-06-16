@@ -22,6 +22,13 @@ import BlogPostDetail from "./pages/BlogPostDetail";
 import TechCooperation from "./pages/TechCooperation";
 import Achievements from "./pages/Achievements";
 
+// 新增的二级页面
+import CompilerDetail from "./pages/CompilerDetail";
+import ServerDetail from "./pages/ServerDetail";
+import EngineDetail from "./pages/EngineDetail";
+import TechAIDetail from "./pages/TechAIDetail";
+import AigcDetail from "./pages/AigcDetail";
+
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
 
@@ -46,8 +53,14 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />
             
-            {/* 新增路由 */}
+            {/* 技术合作路由 */}
             <Route path="/tech-cooperation" element={<TechCooperation />} />
+            <Route path="/tech-cooperation/compiler" element={<CompilerDetail />} />
+            <Route path="/tech-cooperation/server" element={<ServerDetail />} />
+            <Route path="/tech-cooperation/engine" element={<EngineDetail />} />
+            <Route path="/tech-cooperation/tech-ai" element={<TechAIDetail />} />
+            <Route path="/tech-cooperation/aigc" element={<AigcDetail />} />
+            
             <Route path="/achievements" element={<Achievements />} />
             
             <Route path="*" element={<NotFound />} />

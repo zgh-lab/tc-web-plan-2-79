@@ -1,0 +1,167 @@
+
+import { motion } from 'framer-motion';
+import { Server, ExternalLink, ChevronRight } from 'lucide-react';
+import PageLayout from '@/components/PageLayout';
+import SEO from '@/components/SEO';
+import { Card, CardContent } from "@/components/ui/card";
+
+const ServerDetail = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        duration: 0.3
+      }
+    }
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const capabilities = {
+    "开发工具": {
+      "语言支持": "VSCode的语法插件(GsLang)、GS的PKG包管理工具(Gip)，GS的项目管理工具(GsHub)",
+      "调试分析": "GS的性能分析工具(Profiler)，GS进程的调试连接工具(TelnetClient)",
+      "通用工具": "表格差异合并工具(ExcelMerge)，数字资产管理系统(DAM)"
+    },
+    "游戏框架": {
+      "代码包PKG": "网络框架，数据存储，配置加载，安全校验，业务模块等",
+      "服务器引擎": "集成基础业务的游戏服引擎(engine0)，轻量级的游戏服引擎(server_core)",
+      "公共服模块": "提供常用且通用的公共服务器(auth/social/rank/webgm等)",
+      "引擎插件": "通过ToGS/UEGS 使Unity/Unreal能用GS脚本进行游戏业务开发"
+    },
+    "DevOps": {
+      "CI/CD": "提供GS项目组的自动化构建流程规范，并提供一键打包/部署的解决方案",
+      "监控系统": "报错日志监控系统(WatcherCenter)、游戏统一管理后台(AllInOne)",
+      "协作安全": "提供GS项目组在域内开发与域外发布的代码安全管理方案"
+    }
+  };
+
+  return (
+    <PageLayout backgroundVariant="cooperation">
+      <SEO 
+        title="服务器与工具链组 - G-bits 技术中心" 
+        description="提供游戏项目组覆盖从开发、测试、部署、运维全生命周期的GS解决方案。"
+        keywords={['服务器架构', '工具链', 'DevOps', 'GS开发生态']}
+      />
+
+      <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          {/* 头部 */}
+          <motion.div variants={childVariants} className="text-center mb-12">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                <Server className="w-8 h-8 text-orange-400" />
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white">服务器与工具链组</h1>
+            </div>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              提供游戏项目组覆盖从开发、测试、部署、运维全生命周期的GS解决方案及全方位的技术支持。
+            </p>
+          </motion.div>
+
+          {/* 核心能力 */}
+          <motion.div variants={childVariants} className="mb-12">
+            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold text-white mb-6">核心能力</h2>
+                <div className="space-y-8">
+                  {Object.entries(capabilities).map(([category, content]) => (
+                    <div key={category}>
+                      <h3 className="text-xl font-semibold text-orange-400 mb-4">{category}</h3>
+                      <div className="grid grid-cols-1 gap-4">
+                        {Object.entries(content).map(([subCategory, subContent]) => (
+                          <div key={subCategory} className="flex items-start">
+                            <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0" />
+                            <div>
+                              <span className="text-white font-medium">{subCategory}：</span>
+                              <span className="text-gray-300">{subContent}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <div>
+                    <h3 className="text-xl font-semibold text-orange-400 mb-4">技术支持</h3>
+                    <div className="flex items-start">
+                      <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0" />
+                      <span className="text-gray-300">为GS开发生态产品提供快速响应、全方位的技术支持，以及GS服务器性能分析与优化、GS代码质量评审等服务</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* 核心技术 */}
+          <motion.div variants={childVariants} className="mb-12">
+            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold text-white mb-6">核心技术</h2>
+                <div className="flex flex-wrap gap-4">
+                  {['GS开发生态', '服务器架构设计', '客户端引擎插件', 'DevOps'].map((tech, idx) => (
+                    <span 
+                      key={idx} 
+                      className="px-4 py-2 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* 相关案例 */}
+          <motion.div variants={childVariants} className="mb-12">
+            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold text-white mb-6">相关案例</h2>
+                <a 
+                  href="https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-3 bg-orange-500/20 text-orange-300 rounded-lg hover:bg-orange-500/30 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  查看详细案例
+                </a>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* 联系信息 */}
+          <motion.div variants={childVariants}>
+            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold text-white mb-6">联系我们</h2>
+                <div className="flex items-center text-lg">
+                  <span className="text-white mr-3">联系人:</span>
+                  <span className="text-orange-400 font-medium">吴荣钦</span>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
+      </main>
+    </PageLayout>
+  );
+};
+
+export default ServerDetail;

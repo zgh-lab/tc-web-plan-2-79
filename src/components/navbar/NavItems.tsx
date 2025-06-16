@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from 'react-router-dom';
 
 export interface NavItem {
@@ -6,6 +7,7 @@ export interface NavItem {
   isAction?: boolean;
   actionId?: string;
   isExternal?: boolean;
+  children?: NavItem[];
 }
 
 export const navItems: NavItem[] = [
@@ -15,7 +17,29 @@ export const navItems: NavItem[] = [
   },
   {
     title: "技术方向",
-    path: "/tech-cooperation"
+    path: "/tech-cooperation",
+    children: [
+      {
+        title: "编译器组",
+        path: "/tech-cooperation/compiler"
+      },
+      {
+        title: "服务器与工具链组", 
+        path: "/tech-cooperation/server"
+      },
+      {
+        title: "引擎组",
+        path: "/tech-cooperation/engine"
+      },
+      {
+        title: "技术AI组",
+        path: "/tech-cooperation/tech-ai"
+      },
+      {
+        title: "AIGC组",
+        path: "/tech-cooperation/aigc"
+      }
+    ]
   },
   {
     title: "项目合作",
