@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
-import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Code, Server, Wrench, Terminal, Cpu, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -256,16 +256,7 @@ const WhyWrlds = () => {
             ))}
           </div>
           
-          <div className="flex justify-center mt-16">
-            <Link 
-              to="/tech-cooperation" 
-              onClick={() => window.scrollTo(0, 0)}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center"
-            >
-              查看全部服务
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </div>
+          {/* 移除了"查看全部服务"按钮，因为现在没有总览页面 */}
         </motion.div>
       </div>
     </section>

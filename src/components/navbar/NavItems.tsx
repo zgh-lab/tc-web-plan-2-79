@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom';
 
 export interface NavItem {
@@ -17,7 +16,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "技术方向",
-    path: "/tech-cooperation",
+    path: "#", // 设置为占位符，不实际跳转
     children: [
       {
         title: "编译器组",
