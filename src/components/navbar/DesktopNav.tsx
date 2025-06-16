@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
 import { navItems, scrollToSection, type NavItem } from './NavItems';
 import SearchDialog from './SearchDialog';
@@ -24,7 +24,28 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
           <NavigationMenuList className="flex justify-center">
             {navItems.map((item: NavItem) => (
               <NavigationMenuItem key={item.title}>
-                {item.isAction ? (
+                {item.children ? (
+                  <>
+                    <NavigationMenuTrigger className="text-white hover:text-sky-300 bg-transparent hover:bg-gray-800">
+                      {item.title}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.title}
+                            to={child.path}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none text-white">
+                              {child.title}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </>
+                ) : item.isAction ? (
                   <button 
                     onClick={() => scrollToSection(item.actionId || '')} 
                     className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}
