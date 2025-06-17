@@ -30,7 +30,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                       {item.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="w-48 p-2">
+                      <div className="w-48 p-2 bg-gray-900 border border-gray-700">
                         {item.children.map((child) => (
                           <Link key={child.title} to={child.path}>
                             <div className="block px-3 py-2 text-sm text-white hover:bg-gray-800 rounded-md transition-colors">
