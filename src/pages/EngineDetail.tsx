@@ -47,93 +47,118 @@ const EngineDetail = () => {
 
       <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
         <motion.div 
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
           {/* 头部 */}
-          <motion.div variants={childVariants} className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                <Wrench className="w-8 h-8 text-orange-400" />
+          <motion.div variants={childVariants} className="text-center mb-16">
+            <div className="flex items-center justify-center gap-6 mb-8">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-2xl flex items-center justify-center border border-orange-500/20">
+                <Wrench className="w-10 h-10 text-orange-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white">引擎组</h1>
+              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                引擎组
+              </h1>
             </div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               为游戏项目组设计、开发和维护引擎的核心功能与工具链，提供高效、稳定且易用的技术解决方案。
             </p>
           </motion.div>
 
-          {/* 核心能力 */}
+          {/* 核心能力区域 */}
           <motion.div variants={childVariants} className="mb-12">
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">核心能力</h2>
-                <div className="space-y-6">
-                  {Object.entries(capabilities).map(([category, content]) => (
-                    <div key={category} className="flex items-start">
-                      <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0" />
+            <div className="flex items-center mb-8">
+              <div className="w-4 h-10 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
+              <h2 className="text-3xl font-bold text-white">核心能力</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {Object.entries(capabilities).map(([category, content], idx) => (
+                <Card key={category} className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm group hover:border-orange-400/50 transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start mb-4">
+                      <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0 group-hover:translate-x-1 transition-transform" />
                       <div>
-                        <h3 className="text-white font-medium mb-2">{category}</h3>
-                        <p className="text-gray-300">{content}</p>
+                        <h3 className="text-white font-semibold mb-3 group-hover:text-orange-300 transition-colors text-lg">
+                          {category}
+                        </h3>
+                        <p className="text-gray-400 leading-relaxed">{content}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </motion.div>
 
-          {/* 核心技术 */}
-          <motion.div variants={childVariants} className="mb-12">
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">核心技术</h2>
-                <div className="flex flex-wrap gap-4">
-                  {['图形渲染', '物理模拟', '动画系统', '场景管理', '资源优化'].map((tech, idx) => (
-                    <span 
-                      key={idx} 
-                      className="px-4 py-2 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+          {/* 底部信息区域 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 核心技术 */}
+            <motion.div variants={childVariants}>
+              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm h-full">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-3 h-8 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
+                    <h2 className="text-2xl font-bold text-white">核心技术</h2>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4">
+                    {['图形渲染', '物理模拟', '动画系统', '场景管理', '资源优化'].map((tech, idx) => (
+                      <div 
+                        key={idx} 
+                        className="group p-4 bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-xl hover:border-orange-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
+                      >
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                          <span className="text-orange-300 font-medium group-hover:text-orange-200 transition-colors">
+                            {tech}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-          {/* 相关案例 */}
-          <motion.div variants={childVariants} className="mb-12">
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">相关案例</h2>
-                <a 
-                  href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-3 bg-orange-500/20 text-orange-300 rounded-lg hover:bg-orange-500/30 transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  查看详细案例
-                </a>
-              </CardContent>
-            </Card>
-          </motion.div>
+            {/* 联系信息和案例 */}
+            <motion.div variants={childVariants} className="space-y-6">
+              {/* 相关案例 */}
+              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-3 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-3"></div>
+                    <h3 className="text-xl font-bold text-white">相关案例</h3>
+                  </div>
+                  <a 
+                    href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded-lg hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 border border-orange-500/30 hover:border-orange-400/50 group"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                    查看详细案例
+                  </a>
+                </CardContent>
+              </Card>
 
-          {/* 联系信息 */}
-          <motion.div variants={childVariants}>
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">联系我们</h2>
-                <div className="flex items-center text-lg">
-                  <span className="text-white mr-3">联系人:</span>
-                  <span className="text-orange-400 font-medium">张兴捷</span>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+              {/* 联系信息 */}
+              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <div className="w-3 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-3"></div>
+                      <h3 className="text-xl font-bold text-white">联系我们</h3>
+                    </div>
+                    <div className="flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 px-4 py-2 rounded-full border border-orange-500/30">
+                      <span className="text-gray-300 mr-2 text-sm">联系人:</span>
+                      <span className="text-orange-400 font-semibold">张兴捷</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </motion.div>
       </main>
     </PageLayout>

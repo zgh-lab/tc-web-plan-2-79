@@ -50,105 +50,134 @@ const TechAIDetail = () => {
 
       <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
         <motion.div 
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
           {/* 头部 */}
-          <motion.div variants={childVariants} className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                <Terminal className="w-8 h-8 text-orange-400" />
+          <motion.div variants={childVariants} className="text-center mb-16">
+            <div className="flex items-center justify-center gap-6 mb-8">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-2xl flex items-center justify-center border border-orange-500/20">
+                <Terminal className="w-10 h-10 text-orange-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white">技术AI组</h1>
+              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                技术AI组
+              </h1>
             </div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。
             </p>
           </motion.div>
 
-          {/* 核心能力 */}
+          {/* 核心能力区域 */}
           <motion.div variants={childVariants} className="mb-12">
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">核心能力</h2>
-                <div className="space-y-6">
-                  {Object.entries(capabilities).map(([category, content]) => (
-                    <div key={category} className="flex items-start">
-                      <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0" />
+            <div className="flex items-center mb-8">
+              <div className="w-4 h-10 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
+              <h2 className="text-3xl font-bold text-white">核心能力</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {Object.entries(capabilities).map(([category, content]) => (
+                <Card key={category} className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm group hover:border-orange-400/50 transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start mb-4">
+                      <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0 group-hover:translate-x-1 transition-transform" />
                       <div>
-                        <h3 className="text-white font-medium mb-2">{category}</h3>
-                        <p className="text-gray-300">{content}</p>
+                        <h3 className="text-white font-semibold mb-3 group-hover:text-orange-300 transition-colors text-lg">
+                          {category}
+                        </h3>
+                        <p className="text-gray-400 leading-relaxed">{content}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </motion.div>
 
-          {/* 核心技术 */}
-          <motion.div variants={childVariants} className="mb-12">
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">核心技术</h2>
-                <div className="flex flex-wrap gap-4">
-                  {['机器学习', '数据分析', '行为决策树', '自然语言处理', '计算机视觉'].map((tech, idx) => (
-                    <span 
-                      key={idx} 
-                      className="px-4 py-2 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+          {/* 底部信息区域 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 核心技术 */}
+            <motion.div variants={childVariants}>
+              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm h-full">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-3 h-8 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
+                    <h2 className="text-2xl font-bold text-white">核心技术</h2>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4">
+                    {['机器学习', '数据分析', '行为决策树', '自然语言处理', '计算机视觉'].map((tech, idx) => (
+                      <div 
+                        key={idx} 
+                        className="group p-4 bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-xl hover:border-orange-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
+                      >
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                          <span className="text-orange-300 font-medium group-hover:text-orange-200 transition-colors">
+                            {tech}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-          {/* 相关案例 */}
-          <motion.div variants={childVariants} className="mb-12">
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">相关案例</h2>
-                <div className="space-y-4">
-                  {cases.map((item, idx) => (
-                    <div key={idx} className="flex items-start">
-                      <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0" />
-                      <div className="flex-1">
-                        <h4 className="text-orange-400 font-medium mb-2">{item.text}</h4>
+            {/* 相关案例和联系信息 */}
+            <motion.div variants={childVariants} className="space-y-6">
+              {/* 相关案例 */}
+              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-6">
+                    <div className="w-3 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-3"></div>
+                    <h3 className="text-xl font-bold text-white">相关案例</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {cases.map((item, idx) => (
+                      <div key={idx} className="group">
+                        <div className="flex items-start mb-2">
+                          <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0 group-hover:translate-x-1 transition-transform" />
+                          <h4 className="text-orange-400 font-medium group-hover:text-orange-300 transition-colors text-sm">
+                            {item.text}
+                          </h4>
+                        </div>
                         {item.link && (
-                          <a 
-                            href={item.link} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-3 py-1 bg-orange-500/20 text-orange-300 rounded-md text-sm hover:bg-orange-500/30 transition-colors"
-                          >
-                            <ExternalLink className="w-3 h-3 mr-1" />
-                            点击链接
-                          </a>
+                          <div className="ml-7">
+                            <a 
+                              href={item.link} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded-md text-xs hover:from-orange-500/30 hover:to-red-500/30 transition-all border border-orange-500/30 hover:border-orange-400/50 group/link"
+                            >
+                              <ExternalLink className="w-3 h-3 mr-1 group-hover/link:scale-110 transition-transform" />
+                              点击链接
+                            </a>
+                          </div>
                         )}
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
 
-          {/* 联系信息 */}
-          <motion.div variants={childVariants}>
-            <Card className="bg-gray-900/80 border border-orange-500/30 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">联系我们</h2>
-                <div className="flex items-center text-lg">
-                  <span className="text-white mr-3">联系人:</span>
-                  <span className="text-orange-400 font-medium">梁钰彬 张文豪</span>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+              {/* 联系信息 */}
+              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <div className="w-3 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-3"></div>
+                      <h3 className="text-xl font-bold text-white">联系我们</h3>
+                    </div>
+                    <div className="flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 px-4 py-2 rounded-full border border-orange-500/30">
+                      <span className="text-gray-300 mr-2 text-sm">联系人:</span>
+                      <span className="text-orange-400 font-semibold">梁钰彬 张文豪</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </motion.div>
       </main>
     </PageLayout>
