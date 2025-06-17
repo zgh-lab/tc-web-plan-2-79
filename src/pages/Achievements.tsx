@@ -170,7 +170,7 @@ const Achievements = () => {
                       onClick={() => window.open(selectedGame.documentUrl, '_blank', 'noopener,noreferrer')}
                       className="flex items-center px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-700 transition-all mb-4"
                     >
-                      查看详情文档
+                      详情文档
                       <ExternalLink className="ml-2 w-4 h-4" />
                     </button>
                   )}
