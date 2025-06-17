@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight, ExternalLink } from 'lucide-react';
@@ -136,21 +135,6 @@ const Achievements = () => {
               <div className="p-6 md:w-3/5 flex flex-col justify-between">
                 <div>
                   <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
-                  
-                  {/* 添加详情文档链接到主标题下方 */}
-                  {game.documentUrl && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(game.documentUrl, '_blank', 'noopener,noreferrer');
-                      }}
-                      className="flex items-center px-3 py-1 bg-blue-600/80 text-white text-sm rounded-lg hover:bg-blue-700 transition-all mb-4"
-                    >
-                      查看详情文档
-                      <ExternalLink className="ml-1 w-3 h-3" />
-                    </button>
-                  )}
-                  
                   <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
                 </div>
                 
@@ -179,6 +163,17 @@ const Achievements = () => {
                       <DialogTitle className="text-2xl font-bold text-white">{selectedGame.title}</DialogTitle>
                     </div>
                   </div>
+                  
+                  {/* 添加详情文档链接到对话框主标题下方 */}
+                  {selectedGame.documentUrl && (
+                    <button
+                      onClick={() => window.open(selectedGame.documentUrl, '_blank', 'noopener,noreferrer')}
+                      className="flex items-center px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-700 transition-all mb-4"
+                    >
+                      查看详情文档
+                      <ExternalLink className="ml-2 w-4 h-4" />
+                    </button>
+                  )}
                 </DialogHeader>
                 
                 <div className="space-y-6">
