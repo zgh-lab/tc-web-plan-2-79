@@ -4,6 +4,7 @@ import { Wrench, ExternalLink, ChevronRight } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const EngineDetail = () => {
   const containerVariants = {
@@ -67,6 +68,35 @@ const EngineDetail = () => {
             </p>
           </motion.div>
 
+          {/* 联系信息卡片 - 移到最前面 */}
+          <motion.div variants={childVariants} className="mb-12">
+            <Card className="bg-gray-900/50 border border-orange-500/30 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <div className="flex items-center">
+                    <div className="w-3 h-8 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
+                    <h2 className="text-2xl font-bold text-white">联系我们</h2>
+                  </div>
+                  <div className="flex items-center gap-6">
+                    <div className="flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 px-4 py-2 rounded-full border border-orange-500/30">
+                      <span className="text-gray-300 mr-2 text-sm">联系人:</span>
+                      <span className="text-orange-400 font-semibold">张兴捷</span>
+                    </div>
+                    <a 
+                      href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded-lg hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 border border-orange-500/30 hover:border-orange-400/50 group"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                      查看详细案例
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
           {/* 核心能力区域 */}
           <motion.div variants={childVariants} className="mb-12">
             <div className="flex items-center mb-8">
@@ -75,12 +105,12 @@ const EngineDetail = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {Object.entries(capabilities).map(([category, content], idx) => (
-                <Card key={category} className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm group hover:border-orange-400/50 transition-all duration-300">
+                <Card key={category} className="bg-gray-900/50 border border-orange-500/30 backdrop-blur-sm group hover:border-orange-400/50 transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start mb-4">
                       <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-3 shrink-0 group-hover:translate-x-1 transition-transform" />
                       <div>
-                        <h3 className="text-white font-semibold mb-3 group-hover:text-orange-300 transition-colors text-lg">
+                        <h3 className="text-orange-400 font-semibold mb-3 group-hover:text-orange-300 transition-colors text-lg">
                           {category}
                         </h3>
                         <p className="text-gray-400 leading-relaxed">{content}</p>
@@ -92,73 +122,28 @@ const EngineDetail = () => {
             </div>
           </motion.div>
 
-          {/* 底部信息区域 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* 核心技术 */}
-            <motion.div variants={childVariants}>
-              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm h-full">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="w-3 h-8 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
-                    <h2 className="text-2xl font-bold text-white">核心技术</h2>
-                  </div>
-                  <div className="grid grid-cols-1 gap-4">
-                    {['图形渲染', '物理模拟', '动画系统', '场景管理', '资源优化'].map((tech, idx) => (
-                      <div 
-                        key={idx} 
-                        className="group p-4 bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-xl hover:border-orange-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
-                      >
-                        <div className="flex items-center">
-                          <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
-                          <span className="text-orange-300 font-medium group-hover:text-orange-200 transition-colors">
-                            {tech}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* 联系信息和案例 */}
-            <motion.div variants={childVariants} className="space-y-6">
-              {/* 相关案例 */}
-              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-3 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-3"></div>
-                    <h3 className="text-xl font-bold text-white">相关案例</h3>
-                  </div>
-                  <a 
-                    href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded-lg hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 border border-orange-500/30 hover:border-orange-400/50 group"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                    查看详细案例
-                  </a>
-                </CardContent>
-              </Card>
-
-              {/* 联系信息 */}
-              <Card className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-orange-500/30 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="w-3 h-6 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-3"></div>
-                      <h3 className="text-xl font-bold text-white">联系我们</h3>
-                    </div>
-                    <div className="flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 px-4 py-2 rounded-full border border-orange-500/30">
-                      <span className="text-gray-300 mr-2 text-sm">联系人:</span>
-                      <span className="text-orange-400 font-semibold">张兴捷</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
+          {/* 核心技术 */}
+          <motion.div variants={childVariants}>
+            <Card className="bg-gray-900/50 border border-orange-500/30 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-3 h-8 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full mr-4"></div>
+                  <h2 className="text-2xl font-bold text-white">核心技术</h2>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {['图形渲染', '物理模拟', '动画系统', '场景管理', '资源优化'].map((tech, idx) => (
+                    <Badge 
+                      key={idx} 
+                      variant="outline"
+                      className="bg-orange-500/10 border-orange-500/30 text-orange-300 hover:bg-orange-500/20 transition-colors px-4 py-2 text-sm"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </motion.div>
       </main>
     </PageLayout>

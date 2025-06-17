@@ -571,10 +571,10 @@ const TechCooperation = () => {
                                         </a>
                                       ) : item.links ? (
                                         <div className="flex flex-wrap gap-2">
-                                          {item.links.map((link, linkIdx) => (
+                                          {item.links.map((linkItem, linkIdx) => (
                                             <a 
                                               key={linkIdx}
-                                              href={link} 
+                                              href={linkItem} 
                                               target="_blank" 
                                               rel="noopener noreferrer"
                                               className="inline-flex items-center px-3 py-1 bg-orange-500/20 text-orange-300 rounded-md text-sm hover:bg-orange-500/30 transition-colors"
