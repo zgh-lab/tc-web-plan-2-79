@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight, ChevronDown, X, ExternalLink } from 'lucide-react';
@@ -252,101 +253,192 @@ const TechCooperation = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-300 max-w-5xl mx-auto text-center mb-12 whitespace-nowrap"
+            className="text-xl text-gray-300 max-w-5xl mx-auto text-center mb-12"
             variants={childVariants}
           >
             我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
           </motion.p>
 
-          {/* 卡片网格部分保持不变 */}
+          {/* 重新设计的卡片网格 - 采用更美观的不规则布局 */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="max-w-6xl mx-auto space-y-6"
+            className="max-w-7xl mx-auto space-y-8"
           >
-            {/* 第一行：2个等宽卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {techTeams.slice(0, 2).map((team) => (
-                <motion.div 
-                  key={team.id}
-                  variants={childVariants}
-                  className="w-full"
-                >
-                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
-                    <CardContent className="p-0">
-                      <div 
-                        className="relative p-6 cursor-pointer overflow-hidden min-h-[240px]"
-                        style={{
-                          backgroundImage: `url(${team.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center'
-                        }}
-                        onClick={() => openModal(team.id)}
-                      >
-                        <div className="absolute inset-0 bg-black/70"></div>
-                        <div className="relative z-10">
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                              <team.icon className="w-6 h-6 text-orange-400" />
-                            </div>
-                            <ChevronDown className="w-6 h-6 text-orange-400" />
+            {/* 第一行：编译器组（大卡片） */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <motion.div 
+                variants={childVariants}
+                className="lg:col-span-2"
+              >
+                <Card className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 border border-purple-500/30 backdrop-blur-sm hover:border-purple-400/60 transition-all shadow-xl hover:shadow-purple-500/20 rounded-2xl h-full">
+                  <CardContent className="p-0">
+                    <div 
+                      className="relative p-8 cursor-pointer overflow-hidden min-h-[280px] flex flex-col justify-between"
+                      style={{
+                        backgroundImage: `url(${techTeams[0].image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                      onClick={() => openModal(techTeams[0].id)}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 to-blue-900/60"></div>
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-6">
+                          <div className="w-16 h-16 bg-purple-500/30 rounded-xl flex items-center justify-center">
+                            <techTeams[0].icon className="w-8 h-8 text-purple-300" />
                           </div>
-                          <h2 className="text-xl font-semibold text-white mb-3">
-                            {team.title}
-                          </h2>
-                          <p className="text-gray-300 text-sm">{team.description}</p>
+                          <ChevronDown className="w-6 h-6 text-purple-300" />
                         </div>
+                        <h2 className="text-3xl font-bold text-white mb-4">
+                          {techTeams[0].title}
+                        </h2>
+                        <p className="text-gray-200 text-lg leading-relaxed">{techTeams[0].description}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* 服务器与工具链组（中等卡片） */}
+              <motion.div 
+                variants={childVariants}
+                className="lg:col-span-1"
+              >
+                <Card className="bg-gradient-to-br from-orange-900/40 to-red-900/40 border border-orange-500/30 backdrop-blur-sm hover:border-orange-400/60 transition-all shadow-xl hover:shadow-orange-500/20 rounded-2xl h-full">
+                  <CardContent className="p-0">
+                    <div 
+                      className="relative p-6 cursor-pointer overflow-hidden min-h-[280px] flex flex-col justify-between"
+                      style={{
+                        backgroundImage: `url(${techTeams[1].image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                      onClick={() => openModal(techTeams[1].id)}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/80 to-red-900/60"></div>
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="w-14 h-14 bg-orange-500/30 rounded-xl flex items-center justify-center">
+                            <techTeams[1].icon className="w-7 h-7 text-orange-300" />
+                          </div>
+                          <ChevronDown className="w-5 h-5 text-orange-300" />
+                        </div>
+                        <h2 className="text-xl font-bold text-white mb-3">
+                          {techTeams[1].title}
+                        </h2>
+                        <p className="text-gray-200 text-sm leading-relaxed">{techTeams[1].description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
 
-            {/* 第二行：3个等宽卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {techTeams.slice(2, 5).map((team) => (
-                <motion.div 
-                  key={team.id}
-                  variants={childVariants}
-                  className="w-full"
-                >
-                  <Card className="bg-gray-900/80 border border-white/10 backdrop-blur-sm hover:border-orange-500/50 transition-all shadow-lg hover:shadow-orange-500/10 overflow-hidden rounded-xl h-full">
-                    <CardContent className="p-0">
-                      <div 
-                        className="relative p-6 cursor-pointer overflow-hidden min-h-[240px]"
-                        style={{
-                          backgroundImage: `url(${team.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center'
-                        }}
-                        onClick={() => openModal(team.id)}
-                      >
-                        <div className="absolute inset-0 bg-black/70"></div>
-                        <div className="relative z-10">
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                              <team.icon className="w-6 h-6 text-orange-400" />
-                            </div>
-                            <ChevronDown className="w-6 h-6 text-orange-400" />
+            {/* 第二行：引擎组 + 技术AI组 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div variants={childVariants}>
+                <Card className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 border border-green-500/30 backdrop-blur-sm hover:border-green-400/60 transition-all shadow-xl hover:shadow-green-500/20 rounded-2xl h-full">
+                  <CardContent className="p-0">
+                    <div 
+                      className="relative p-7 cursor-pointer overflow-hidden min-h-[260px] flex flex-col justify-between"
+                      style={{
+                        backgroundImage: `url(${techTeams[2].image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                      onClick={() => openModal(techTeams[2].id)}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-green-900/80 to-emerald-900/60"></div>
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-5">
+                          <div className="w-15 h-15 bg-green-500/30 rounded-xl flex items-center justify-center">
+                            <techTeams[2].icon className="w-7 h-7 text-green-300" />
                           </div>
-                          <h2 className="text-xl font-semibold text-white mb-3">
-                            {team.title}
-                          </h2>
-                          <p className="text-gray-300 text-sm">{team.description}</p>
+                          <ChevronDown className="w-6 h-6 text-green-300" />
                         </div>
+                        <h2 className="text-2xl font-bold text-white mb-4">
+                          {techTeams[2].title}
+                        </h2>
+                        <p className="text-gray-200 leading-relaxed">{techTeams[2].description}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div variants={childVariants}>
+                <Card className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 border border-cyan-500/30 backdrop-blur-sm hover:border-cyan-400/60 transition-all shadow-xl hover:shadow-cyan-500/20 rounded-2xl h-full">
+                  <CardContent className="p-0">
+                    <div 
+                      className="relative p-7 cursor-pointer overflow-hidden min-h-[260px] flex flex-col justify-between"
+                      style={{
+                        backgroundImage: `url(${techTeams[3].image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                      onClick={() => openModal(techTeams[3].id)}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/80 to-blue-900/60"></div>
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-5">
+                          <div className="w-15 h-15 bg-cyan-500/30 rounded-xl flex items-center justify-center">
+                            <techTeams[3].icon className="w-7 h-7 text-cyan-300" />
+                          </div>
+                          <ChevronDown className="w-6 h-6 text-cyan-300" />
+                        </div>
+                        <h2 className="text-2xl font-bold text-white mb-4">
+                          {techTeams[3].title}
+                        </h2>
+                        <p className="text-gray-200 leading-relaxed">{techTeams[3].description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+
+            {/* 第三行：AIGC组（居中的特色卡片） */}
+            <div className="flex justify-center">
+              <motion.div 
+                variants={childVariants}
+                className="w-full max-w-2xl"
+              >
+                <Card className="bg-gradient-to-br from-pink-900/40 to-purple-900/40 border border-pink-500/30 backdrop-blur-sm hover:border-pink-400/60 transition-all shadow-xl hover:shadow-pink-500/20 rounded-2xl">
+                  <CardContent className="p-0">
+                    <div 
+                      className="relative p-8 cursor-pointer overflow-hidden min-h-[260px] flex flex-col justify-between"
+                      style={{
+                        backgroundImage: `url(${techTeams[4].image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                      onClick={() => openModal(techTeams[4].id)}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-pink-900/80 to-purple-900/60"></div>
+                      <div className="relative z-10 text-center">
+                        <div className="flex items-center justify-center mb-6">
+                          <div className="w-16 h-16 bg-pink-500/30 rounded-xl flex items-center justify-center mr-4">
+                            <techTeams[4].icon className="w-8 h-8 text-pink-300" />
+                          </div>
+                          <h2 className="text-3xl font-bold text-white">
+                            {techTeams[4].title}
+                          </h2>
+                          <ChevronDown className="w-6 h-6 text-pink-300 ml-4" />
+                        </div>
+                        <p className="text-gray-200 text-lg leading-relaxed">{techTeams[4].description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* 浮层模态框 */}
+        {/* 浮层模态框 - 保持原有的模态框代码不变 */}
         <AnimatePresence>
           {activeModal && (
             <motion.div
