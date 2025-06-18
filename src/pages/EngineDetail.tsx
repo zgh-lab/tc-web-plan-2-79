@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Wrench, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -67,35 +68,42 @@ const EngineDetail = () => {
             </p>
           </motion.div>
 
-          {/* 小组成员 Section */}
+          {/* 小组成员 & 查看详细文档 Cards */}
           <motion.div variants={childVariants} className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-            </div>
-            <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
-              <CardContent className="p-8 text-center">
-                <p className="text-cyan-400 font-semibold text-2xl">张兴捷</p>
-              </CardContent>
-            </Card>
-          </motion.div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* 小组成员 */}
+              <div>
+                <div className="text-center mb-8">
+                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                </div>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <CardContent className="p-8 text-center">
+                    <p className="text-cyan-400 font-semibold text-2xl">张兴捷</p>
+                  </CardContent>
+                </Card>
+              </div>
 
-          {/* Documentation Section */}
-          <motion.div variants={childVariants} className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-            </div>
-            <div className="text-center">
-              <a 
-                href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 group text-lg"
-              >
-                <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                查看详细案例
-              </a>
+              {/* 查看详细文档 */}
+              <div>
+                <div className="text-center mb-8">
+                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                </div>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <CardContent className="p-8 text-center">
+                    <a 
+                      href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 group text-lg"
+                    >
+                      <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                      查看详细案例
+                    </a>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </motion.div>
 

@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Code, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -58,27 +59,34 @@ const CompilerDetail = () => {
             </p>
           </motion.div>
 
-          {/* 小组成员 Section */}
+          {/* 小组成员 & 查看详细文档 Cards */}
           <motion.div variants={childVariants} className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-            </div>
-            <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
-              <CardContent className="p-8 text-center">
-                <p className="text-cyan-400 font-semibold text-2xl">楚耀翔 徐鑫荣</p>
-              </CardContent>
-            </Card>
-          </motion.div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* 小组成员 */}
+              <div>
+                <div className="text-center mb-8">
+                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                </div>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <CardContent className="p-8 text-center">
+                    <p className="text-cyan-400 font-semibold text-2xl">楚耀翔 徐鑫荣</p>
+                  </CardContent>
+                </Card>
+              </div>
 
-          {/* Documentation Section */}
-          <motion.div variants={childVariants} className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-            </div>
-            <div className="text-center">
-              <p className="text-gray-300 text-lg mb-8">暂无详细文档链接</p>
+              {/* 查看详细文档 */}
+              <div>
+                <div className="text-center mb-8">
+                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                </div>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <CardContent className="p-8 text-center">
+                    <p className="text-gray-300 text-lg mb-8">暂无详细文档链接</p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </motion.div>
 
