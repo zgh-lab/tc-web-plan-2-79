@@ -133,7 +133,7 @@ const BlogPreview = () => {
             variants={childVariants} 
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white"
             whileHover={{
-              textShadow: '0 0 15px rgba(59, 130, 246, 0.5)',
+              textShadow: '0 0 15px rgba(103, 232, 249, 0.5)',
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
@@ -183,7 +183,7 @@ const BlogPreview = () => {
                   }}
                 >
                   <div 
-                    className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-blue-900/10 transition-all h-full"
+                    className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 group hover:shadow-xl hover:shadow-cyan-300/10 transition-all h-full"
                   >
                     <div className="block h-full">
                       <div className="relative h-64 overflow-hidden">
@@ -197,11 +197,11 @@ const BlogPreview = () => {
                       
                       <div className="p-4">
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-blue-400 text-sm group-hover:text-blue-300 transition-colors">{game.category}</span>
+                          <span className="text-cyan-300 text-sm group-hover:text-cyan-300 transition-colors">{game.category}</span>
                           <span className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{game.year}</span>
                         </div>
                         
-                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">{game.title}</h3>
+                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">{game.title}</h3>
                         <p className="text-gray-300 mb-4 line-clamp-2 text-sm">{game.description}</p>
                       </div>
                     </div>
@@ -218,7 +218,7 @@ const BlogPreview = () => {
         <div className="flex justify-center">
           <Link 
             to="/achievements" 
-            className="px-6 py-3 bg-blue-600/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-900/20 flex items-center hover:scale-105"
+            className="px-6 py-3 bg-cyan-300/80 backdrop-blur-sm text-white rounded-lg hover:bg-cyan-300 transition-all shadow-lg hover:shadow-xl hover:shadow-cyan-300/20 flex items-center hover:scale-105"
           >
             查看更多成果
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
