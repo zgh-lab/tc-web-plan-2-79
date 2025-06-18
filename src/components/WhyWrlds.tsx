@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Code, Server, Wrench, Terminal, Cpu, ArrowRight, ChevronRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -167,8 +168,8 @@ const WhyWrlds = () => {
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-blue-400" />
+                    <div className="w-10 h-10 bg-cyan-300/20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-cyan-300" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {feature.title}
@@ -184,7 +185,7 @@ const WhyWrlds = () => {
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium"
+                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -193,7 +194,7 @@ const WhyWrlds = () => {
                     </div>
                   )}
                   
-                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group">
+                  <div className="inline-flex items-center text-cyan-300 hover:text-cyan-400 transition-colors group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -220,8 +221,8 @@ const WhyWrlds = () => {
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-blue-400" />
+                    <div className="w-10 h-10 bg-cyan-300/20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-cyan-300" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {feature.title}
@@ -237,7 +238,7 @@ const WhyWrlds = () => {
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs font-medium"
+                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -246,21 +247,13 @@ const WhyWrlds = () => {
                     </div>
                   )}
                   
-                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group">
+                  <div className="inline-flex items-center text-cyan-300 hover:text-cyan-400 transition-colors group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-          
-          <div className="flex justify-center mt-16">
-            <div className="text-center">
-              <p className="text-gray-300 text-lg">
-                通过导航栏的技术方向菜单访问各个技术组的详细信息
-              </p>
-            </div>
           </div>
         </motion.div>
       </div>

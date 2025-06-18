@@ -26,7 +26,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
               <NavigationMenuItem key={item.title}>
                 {item.children ? (
                   <>
-                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}>
+                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800")}>
                       {item.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -44,7 +44,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                 ) : item.isAction ? (
                   <button 
                     onClick={() => scrollToSection(item.actionId || '')} 
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}
+                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800")}
                   >
                     {item.title}
                   </button>
@@ -53,7 +53,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                     href={item.path} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800 cursor-pointer")}
+                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800 cursor-pointer")}
                     onClick={(e) => {
                       e.preventDefault();
                       window.open(item.path, '_blank', 'noopener,noreferrer');
@@ -63,7 +63,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                   </a>
                 ) : (
                   <Link to={item.path}>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-sky-300 bg-transparent hover:bg-gray-800")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800")}>
                       {item.title}
                     </NavigationMenuLink>
                   </Link>
