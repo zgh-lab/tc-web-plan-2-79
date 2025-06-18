@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Server, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -73,28 +72,20 @@ const ServerDetail = () => {
                 服务器与工具链组
               </h1>
             </div>
-            <p className="text-lg text-gray-400 max-w-4xl mx-auto font-light">
+            <p className="text-lg text-gray-300 max-w-4xl mx-auto font-light">
               提供游戏项目组覆盖从开发、测试、部署、运维全生命周期的GS解决方案及全方位的技术支持。
             </p>
           </motion.div>
 
-          {/* Contact Section */}
+          {/* 小组成员 Section */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">联系我们</h2>
+              <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
               <CardContent className="p-8 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center border border-cyan-500/20 mr-4">
-                    <Server className="w-8 h-8 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-gray-300 text-lg mb-2">技术负责人</p>
-                    <p className="text-cyan-400 font-semibold text-2xl">吴荣钦</p>
-                  </div>
-                </div>
+                <p className="text-cyan-400 font-semibold text-2xl">吴荣钦</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -142,7 +133,7 @@ const ServerDetail = () => {
                               {subCategory}
                             </span>
                           </div>
-                          <p className="text-gray-400 text-xs leading-relaxed">{subContent}</p>
+                          <p className="text-gray-300 text-xs leading-relaxed">{subContent}</p>
                         </div>
                       ))}
                     </div>
@@ -156,7 +147,7 @@ const ServerDetail = () => {
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-4">技术支持</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full mb-6"></div>
-                <p className="text-gray-400 leading-relaxed text-lg">
+                <p className="text-gray-300 leading-relaxed text-lg">
                   为GS开发生态产品提供快速响应、全方位的技术支持，以及GS服务器性能分析与优化、GS代码质量评审等服务
                 </p>
               </CardContent>

@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Code, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -54,28 +53,20 @@ const CompilerDetail = () => {
                 编译器组
               </h1>
             </div>
-            <p className="text-lg text-gray-400 max-w-4xl mx-auto font-light">
+            <p className="text-lg text-gray-300 max-w-4xl mx-auto font-light">
               负责GS编译器底层相关开发工作，包括底层功能开发、问题修复、性能优化，并持续完善相关模块。
             </p>
           </motion.div>
 
-          {/* Contact Section */}
+          {/* 小组成员 Section */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">联系我们</h2>
+              <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
               <CardContent className="p-8 text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center border border-cyan-500/20 mr-4">
-                    <Code className="w-8 h-8 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-gray-300 text-lg mb-2">技术负责人</p>
-                    <p className="text-cyan-400 font-semibold text-2xl">楚耀翔 徐鑫荣</p>
-                  </div>
-                </div>
+                <p className="text-cyan-400 font-semibold text-2xl">楚耀翔 徐鑫荣</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -87,7 +78,7 @@ const CompilerDetail = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <div className="text-center">
-              <p className="text-gray-400 text-lg mb-8">暂无详细文档链接</p>
+              <p className="text-gray-300 text-lg mb-8">暂无详细文档链接</p>
             </div>
           </motion.div>
 
@@ -127,7 +118,7 @@ const CompilerDetail = () => {
                           <h3 className="text-white font-semibold mb-3 text-lg">
                             {item.title}
                           </h3>
-                          <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                          <p className="text-gray-300 leading-relaxed">{item.desc}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -146,7 +137,7 @@ const CompilerDetail = () => {
                 <CardContent className="p-8">
                   <div className="grid grid-cols-1 gap-4">
                     {['词法分析', '语法分析', '中间代码生成', '代码优化', '目标代码生成'].map((tech, idx) => (
-                      <div key={idx} className="flex items-center justify-center p-4">
+                      <div key={idx} className="flex items-center justify-center p-4 border border-cyan-400/30 rounded-full">
                         <span className="text-cyan-300 text-base font-medium">
                           {tech}
                         </span>
