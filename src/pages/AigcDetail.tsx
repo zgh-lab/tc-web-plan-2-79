@@ -70,7 +70,7 @@ const AigcDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Cpu className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 AIGC组
               </h1>
             </div>
@@ -106,11 +106,11 @@ const AigcDetail = () => {
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
-                  <CardContent className="p-6 pt-8">
-                    <div className="grid grid-cols-2 gap-4 h-full">
+                  <CardContent className="p-4 pt-6">
+                    <div className="grid grid-cols-2 gap-3 h-full">
                       {cases.map((item, idx) => (
                         <div key={idx} className="group flex flex-col justify-center">
-                          <h4 className="font-medium text-white text-xl mb-4">
+                          <h4 className="font-medium text-white text-sm mb-3">
                             {item.text}
                           </h4>
                           <div className="mt-1">
