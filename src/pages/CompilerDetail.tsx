@@ -50,7 +50,7 @@ const CompilerDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Code className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 编译器组
               </h1>
             </div>
@@ -71,7 +71,7 @@ const CompilerDetail = () => {
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
                     <p className="text-white font-semibold text-2xl">
-                      楚耀翔<span className="mx-4">徐鑫荣</span>
+                      楚耀翔<span className="mx-6">徐鑫荣</span>
                     </p>
                   </CardContent>
                 </Card>
