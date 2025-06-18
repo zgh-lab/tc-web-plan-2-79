@@ -70,11 +70,11 @@ const AigcDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Cpu className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 AIGC组
               </h1>
             </div>
-            <p className="text-lg text-gray-300 max-w-4xl mx-auto font-light">
+            <p className="text-lg text-white max-w-4xl mx-auto font-light">
               AIGC应用端口落地并赋能项目，探索落地前沿AIGC应用技术。
             </p>
           </motion.div>
@@ -90,10 +90,10 @@ const AigcDetail = () => {
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
-                    <p className="text-white font-semibold text-xl leading-relaxed">
-                      李智宇 艾伟伟 岑俊咏<br />
-                      利俊达 张冠华 王震<br />
-                      陈俊桡 褚梓淇 郑宗鹏
+                    <p className="text-white font-semibold text-lg leading-relaxed">
+                      李智宇<span className="mx-4">艾伟伟</span><span className="mx-4">岑俊咏</span><br />
+                      利俊达<span className="mx-4">张冠华</span><span className="mx-4">王震</span><br />
+                      陈俊桡<span className="mx-4">褚梓淇</span><span className="mx-4">郑宗鹏</span>
                     </p>
                   </CardContent>
                 </Card>
@@ -106,15 +106,11 @@ const AigcDetail = () => {
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
-                  <CardContent className="p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                  <CardContent className="p-4">
+                    <div className="grid grid-cols-2 gap-4 h-full">
                       {cases.map((item, idx) => (
                         <div key={idx} className="group">
-                          <h4 className={`font-medium text-xs mb-2 transition-colors ${
-                            item.link || item.links
-                              ? 'text-white' 
-                              : 'text-white'
-                          }`}>
+                          <h4 className="font-medium text-white text-sm mb-3">
                             {item.text}
                           </h4>
                           <div className="mt-1">

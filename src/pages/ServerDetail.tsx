@@ -58,11 +58,11 @@ const ServerDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Server className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 服务器与工具链组
               </h1>
             </div>
-            <p className="text-lg text-gray-300 max-w-4xl mx-auto font-light">
+            <p className="text-lg text-white max-w-4xl mx-auto font-light">
               专注于游戏服务端技术研发、分布式系统设计和工具链建设，为游戏项目提供稳定高效的服务端解决方案。
             </p>
           </motion.div>
@@ -78,7 +78,9 @@ const ServerDetail = () => {
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
-                    <p className="text-white font-semibold text-2xl">胡顺涛 李雷</p>
+                    <p className="text-white font-semibold text-2xl">
+                      胡顺涛<span className="mx-4">李雷</span>
+                    </p>
                   </CardContent>
                 </Card>
               </div>
