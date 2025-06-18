@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Server, ExternalLink, ChevronRight } from 'lucide-react';
+import { Server, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent } from "@/components/ui/card";
@@ -66,14 +66,14 @@ const ServerDetail = () => {
           {/* Hero Section */}
           <motion.div variants={childVariants} className="text-center mb-20">
             <div className="flex items-center justify-center gap-6 mb-8">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-2xl flex items-center justify-center border border-orange-500/20">
-                <Server className="w-10 h-10 text-orange-400" />
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                <Server className="w-10 h-10 text-blue-400" />
               </div>
-              <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent">
                 服务器与工具链组
               </h1>
             </div>
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-blue-200/80 max-w-4xl mx-auto font-light">
               提供游戏项目组覆盖从开发、测试、部署、运维全生命周期的GS解决方案及全方位的技术支持。
             </p>
           </motion.div>
@@ -81,61 +81,68 @@ const ServerDetail = () => {
           {/* Contact Section */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">联系我们</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+              <h2 className="text-4xl font-bold text-blue-300 mb-4">联系我们</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
             </div>
-            <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-4xl mx-auto">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between flex-wrap gap-6">
-                  <div className="flex items-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-full flex items-center justify-center border border-orange-500/20 mr-4">
-                      <Server className="w-8 h-8 text-orange-400" />
-                    </div>
-                    <div>
-                      <p className="text-gray-300 text-lg mb-2">技术负责人</p>
-                      <p className="text-orange-400 font-semibold text-2xl">吴荣钦</p>
-                    </div>
+            <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
+              <CardContent className="p-8 text-center">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full flex items-center justify-center border border-blue-500/20 mr-4">
+                    <Server className="w-8 h-8 text-blue-400" />
                   </div>
-                  <a 
-                    href="https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded-lg hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 border border-orange-500/30 hover:border-orange-400/50 group"
-                  >
-                    <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                    查看详细案例
-                  </a>
+                  <div>
+                    <p className="text-blue-200 text-lg mb-2">技术负责人</p>
+                    <p className="text-blue-400 font-semibold text-2xl">吴荣钦</p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
+          {/* Documentation Section */}
+          <motion.div variants={childVariants} className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-blue-300 mb-4">查看详细文档</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+            <div className="text-center">
+              <a 
+                href="https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 rounded-lg hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300 border border-blue-500/30 hover:border-blue-400/50 group text-lg"
+              >
+                <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                查看详细案例
+              </a>
+            </div>
+          </motion.div>
+
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">核心能力</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+              <h2 className="text-4xl font-bold text-blue-300 mb-4">核心能力</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {Object.entries(capabilities).map(([category, content]) => (
-                <Card key={category} className="bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-300">
+                <Card key={category} className="bg-white/5 border border-white/10 backdrop-blur-sm">
                   <CardContent className="p-8">
                     <div className="text-center mb-6">
-                      <h3 className="text-2xl font-semibold text-orange-400 group-hover:text-orange-300 transition-colors mb-4">
+                      <h3 className="text-2xl font-semibold text-white mb-4">
                         {category}
                       </h3>
-                      <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+                      <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
                     </div>
                     <div className="space-y-4">
                       {Object.entries(content).map(([subCategory, subContent]) => (
                         <div key={subCategory} className="group/item">
                           <div className="flex items-start mb-2">
-                            <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-2 shrink-0 group-hover/item:translate-x-1 transition-transform" />
-                            <span className="text-orange-400 font-medium text-sm group-hover/item:text-orange-300 transition-colors">
+                            <span className="text-white font-medium text-sm">
                               {subCategory}
                             </span>
                           </div>
-                          <p className="text-gray-400 text-xs ml-6 leading-relaxed">{subContent}</p>
+                          <p className="text-blue-200/70 text-xs leading-relaxed">{subContent}</p>
                         </div>
                       ))}
                     </div>
@@ -147,9 +154,9 @@ const ServerDetail = () => {
             {/* Technical Support Card */}
             <Card className="mt-8 bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-semibold text-orange-400 mb-4">技术支持</h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full mb-6"></div>
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <h3 className="text-2xl font-semibold text-white mb-4">技术支持</h3>
+                <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full mb-6"></div>
+                <p className="text-blue-200/70 leading-relaxed text-lg">
                   为GS开发生态产品提供快速响应、全方位的技术支持，以及GS服务器性能分析与优化、GS代码质量评审等服务
                 </p>
               </CardContent>
@@ -159,17 +166,17 @@ const ServerDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">核心技术</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+              <h2 className="text-4xl font-bold text-blue-300 mb-4">核心技术</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   {['GS开发生态', '服务器架构设计', '客户端引擎插件', 'DevOps'].map((tech, idx) => (
-                    <div key={idx} className="flex items-center justify-center p-4 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-lg border border-orange-500/20">
+                    <div key={idx} className="flex items-center justify-center p-4 rounded-lg border border-blue-500/20">
                       <Badge 
                         variant="outline"
-                        className="bg-orange-500/20 border-orange-500/40 text-orange-300 hover:bg-orange-500/30 transition-colors px-4 py-2 text-base font-medium"
+                        className="border-blue-500/40 text-blue-300 hover:bg-blue-500/10 transition-colors px-4 py-2 text-base font-medium bg-transparent"
                       >
                         {tech}
                       </Badge>

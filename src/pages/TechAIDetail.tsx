@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Terminal, ExternalLink, ChevronRight } from 'lucide-react';
+import { Terminal, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent } from "@/components/ui/card";
@@ -59,14 +59,14 @@ const TechAIDetail = () => {
           {/* Hero Section */}
           <motion.div variants={childVariants} className="text-center mb-20">
             <div className="flex items-center justify-center gap-6 mb-8">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-2xl flex items-center justify-center border border-orange-500/20">
-                <Terminal className="w-10 h-10 text-orange-400" />
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                <Terminal className="w-10 h-10 text-blue-400" />
               </div>
-              <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent">
                 技术AI组
               </h1>
             </div>
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-blue-200/80 max-w-4xl mx-auto font-light">
               紧跟前沿AI技术，结合业务需求定制高效AI解决方案，开发通用AI工具与平台。
             </p>
           </motion.div>
@@ -74,22 +74,33 @@ const TechAIDetail = () => {
           {/* Contact Section */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">联系我们</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+              <h2 className="text-4xl font-bold text-blue-300 mb-4">联系我们</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm max-w-2xl mx-auto">
               <CardContent className="p-8 text-center">
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-full flex items-center justify-center border border-orange-500/20 mr-4">
-                    <Terminal className="w-8 h-8 text-orange-400" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full flex items-center justify-center border border-blue-500/20 mr-4">
+                    <Terminal className="w-8 h-8 text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-gray-300 text-lg mb-2">技术负责人</p>
-                    <p className="text-orange-400 font-semibold text-2xl">梁钰彬 张文豪</p>
+                    <p className="text-blue-200 text-lg mb-2">技术负责人</p>
+                    <p className="text-blue-400 font-semibold text-2xl">梁钰彬 张文豪</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
+          </motion.div>
+
+          {/* Documentation Section */}
+          <motion.div variants={childVariants} className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-blue-300 mb-4">查看详细文档</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+            <div className="text-center">
+              <p className="text-blue-200/80 text-lg mb-8">暂无详细文档链接</p>
+            </div>
           </motion.div>
 
           {/* Main Content Grid */}
@@ -97,20 +108,19 @@ const TechAIDetail = () => {
             {/* Core Capabilities */}
             <motion.div variants={childVariants}>
               <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold text-white mb-4">核心能力</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+                <h2 className="text-4xl font-bold text-blue-300 mb-4">核心能力</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
               </div>
               <div className="space-y-6">
                 {Object.entries(capabilities).map(([category, content]) => (
-                  <Card key={category} className="bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-300">
+                  <Card key={category} className="bg-white/5 border border-white/10 backdrop-blur-sm">
                     <CardContent className="p-8">
                       <div className="flex items-start">
-                        <ChevronRight className="w-5 h-5 text-orange-400 mt-1 mr-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                         <div>
-                          <h3 className="text-orange-400 font-semibold mb-4 group-hover:text-orange-300 transition-colors text-xl">
+                          <h3 className="text-white font-semibold mb-4 text-xl">
                             {category}
                           </h3>
-                          <p className="text-gray-300 leading-relaxed">{content}</p>
+                          <p className="text-blue-200/70 leading-relaxed">{content}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -124,17 +134,17 @@ const TechAIDetail = () => {
               {/* Core Technologies */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold text-white mb-4">核心技术</h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+                  <h2 className="text-4xl font-bold text-blue-300 mb-4">核心技术</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
                   <CardContent className="p-8">
                     <div className="grid grid-cols-1 gap-4">
                       {['机器学习', '数据分析', '行为决策树', '自然语言处理', '计算机视觉'].map((tech, idx) => (
-                        <div key={idx} className="flex items-center p-4 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-lg border border-orange-500/20">
+                        <div key={idx} className="flex items-center p-4 rounded-lg border border-blue-500/20">
                           <Badge 
                             variant="outline"
-                            className="bg-orange-500/20 border-orange-500/40 text-orange-300 hover:bg-orange-500/30 transition-colors px-4 py-2 text-base font-medium"
+                            className="border-blue-500/40 text-blue-300 hover:bg-blue-500/10 transition-colors px-4 py-2 text-base font-medium bg-transparent"
                           >
                             {tech}
                           </Badge>
@@ -148,35 +158,28 @@ const TechAIDetail = () => {
               {/* Related Cases */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold text-white mb-4">相关案例</h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full"></div>
+                  <h2 className="text-4xl font-bold text-blue-300 mb-4">相关案例</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
                   <CardContent className="p-8">
                     <div className="space-y-6">
                       {cases.map((item, idx) => (
                         <div key={idx} className="group">
-                          <div className="flex items-start mb-2">
-                            {item.link ? (
-                              <ChevronRight className="w-4 h-4 text-orange-400 mt-1 mr-3 shrink-0 group-hover:translate-x-1 transition-transform" />
-                            ) : (
-                              <div className="w-4 h-4 mt-1 mr-3 shrink-0" />
-                            )}
-                            <h4 className={`font-medium text-sm transition-colors ${
-                              item.link 
-                                ? 'text-orange-400 group-hover:text-orange-300' 
-                                : 'text-gray-300'
-                            }`}>
-                              {item.text}
-                            </h4>
-                          </div>
+                          <h4 className={`font-medium text-sm transition-colors ${
+                            item.link 
+                              ? 'text-blue-300' 
+                              : 'text-blue-200/70'
+                          }`}>
+                            {item.text}
+                          </h4>
                           {item.link && (
-                            <div className="ml-7">
+                            <div className="mt-2">
                               <a 
                                 href={item.link} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded-md text-xs hover:from-orange-500/30 hover:to-red-500/30 transition-all border border-orange-500/30 hover:border-orange-400/50 group/link"
+                                className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 rounded-md text-xs hover:from-blue-500/30 hover:to-cyan-500/30 transition-all border border-blue-500/30 hover:border-blue-400/50 group/link"
                               >
                                 <ExternalLink className="w-3 h-3 mr-1 group-hover/link:scale-110 transition-transform" />
                                 点击链接
