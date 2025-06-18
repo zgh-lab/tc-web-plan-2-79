@@ -79,7 +79,7 @@ const Hero = () => {
                 }}
               >
                 <span 
-                  className="text-sky-300"
+                  className="text-cyan-300"
                   style={{
                     textShadow: '0 0 10px rgba(125, 211, 252, 0.3), 0 0 20px rgba(125, 211, 252, 0.1), 0 4px 20px rgba(255, 255, 255, 0.1)'
                   }}

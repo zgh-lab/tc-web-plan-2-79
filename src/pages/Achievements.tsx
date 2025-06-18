@@ -106,7 +106,7 @@ const Achievements = () => {
           variants={containerVariants}
           className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
         >
-          <motion.h1 variants={childVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">项目合作</motion.h1>
+          <motion.h1 variants={childVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-300 bg-clip-text text-transparent">项目合作</motion.h1>
           <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
             展示 G-bits 技术中心的自主研发游戏及技术创新成果
           </motion.p>
@@ -139,7 +139,7 @@ const Achievements = () => {
                   <p className="text-gray-300 mb-4 line-clamp-3">{game.description}</p>
                 </div>
                 
-                <button className="flex items-center text-blue-400 hover:text-blue-300 transition-all group mt-2">
+                <button className="flex items-center text-cyan-300 hover:text-cyan-300 transition-all group mt-2">
                   查看详情 
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
