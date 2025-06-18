@@ -50,7 +50,7 @@ const CompilerDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Code className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 编译器组
               </h1>
             </div>
@@ -68,9 +68,9 @@ const CompilerDetail = () => {
                   <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
-                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
-                  <CardContent className="p-8 text-center">
-                    <p className="text-cyan-400 font-semibold text-2xl">楚耀翔 徐鑫荣</p>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
+                  <CardContent className="p-8 text-center flex items-center justify-center h-full">
+                    <p className="text-white font-semibold text-2xl">楚耀翔 徐鑫荣</p>
                   </CardContent>
                 </Card>
               </div>
@@ -81,9 +81,9 @@ const CompilerDetail = () => {
                   <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
-                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
-                  <CardContent className="p-8 text-center">
-                    <p className="text-gray-300 text-lg mb-8">暂无详细文档链接</p>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
+                  <CardContent className="p-8 text-center flex items-center justify-center h-full">
+                    <p className="text-white text-lg">暂无详细文档链接</p>
                   </CardContent>
                 </Card>
               </div>
@@ -143,13 +143,11 @@ const CompilerDetail = () => {
               </div>
               <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
                 <CardContent className="p-8">
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="flex flex-wrap gap-3 justify-center">
                     {['词法分析', '语法分析', '中间代码生成', '代码优化', '目标代码生成'].map((tech, idx) => (
-                      <div key={idx} className="flex items-center justify-center p-4 border border-cyan-400/30 rounded-full">
-                        <span className="text-cyan-300 text-base font-medium">
-                          {tech}
-                        </span>
-                      </div>
+                      <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-4 py-2 text-sm">
+                        {tech}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>

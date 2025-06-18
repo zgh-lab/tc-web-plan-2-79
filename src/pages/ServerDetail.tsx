@@ -69,7 +69,7 @@ const ServerDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Server className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 服务器与工具链组
               </h1>
             </div>
@@ -87,9 +87,9 @@ const ServerDetail = () => {
                   <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
-                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
-                  <CardContent className="p-8 text-center">
-                    <p className="text-cyan-400 font-semibold text-2xl">吴荣钦</p>
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
+                  <CardContent className="p-8 text-center flex items-center justify-center h-full">
+                    <p className="text-white font-semibold text-2xl">吴荣钦</p>
                   </CardContent>
                 </Card>
               </div>
@@ -100,13 +100,13 @@ const ServerDetail = () => {
                   <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
-                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
-                  <CardContent className="p-8 text-center">
+                <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
+                  <CardContent className="p-8 text-center flex items-center justify-center h-full">
                     <a 
                       href="https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink" 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 group text-lg"
+                      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 group text-lg"
                     >
                       <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                       查看详细案例
@@ -159,13 +159,11 @@ const ServerDetail = () => {
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="flex flex-wrap gap-3 justify-center">
                   {['GS开发生态', '服务器架构设计', '客户端引擎插件', 'DevOps'].map((tech, idx) => (
-                    <div key={idx} className="flex items-center justify-center p-4">
-                      <span className="text-cyan-300 text-base font-medium">
-                        {tech}
-                      </span>
-                    </div>
+                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-4 py-2 text-sm">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
