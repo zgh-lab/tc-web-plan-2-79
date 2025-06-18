@@ -131,7 +131,7 @@ const BlogPreview = () => {
         >
           <motion.h2 
             variants={childVariants} 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white"
+            className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent"
             whileHover={{
               textShadow: '0 0 15px rgba(103, 232, 249, 0.5)',
               scale: 1.02,

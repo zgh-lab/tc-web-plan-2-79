@@ -140,7 +140,7 @@ const WhyWrlds = () => {
           variants={containerVariants}
         >
           <div className="mb-12 text-center">
-            <motion.h2 variants={childVariants} className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <motion.h2 variants={childVariants} className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
               技术方向
             </motion.h2>
             <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-5xl mx-auto whitespace-nowrap opacity-80">
