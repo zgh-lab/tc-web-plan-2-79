@@ -20,10 +20,6 @@ export const navItems: NavItem[] = [
     path: "/tech-cooperation",
     children: [
       {
-        title: "编译器组",
-        path: "/tech-cooperation/compiler"
-      },
-      {
         title: "服务器与工具链组", 
         path: "/tech-cooperation/server"
       },
@@ -38,6 +34,10 @@ export const navItems: NavItem[] = [
       {
         title: "AIGC组",
         path: "/tech-cooperation/aigc"
+      },
+      {
+        title: "编译器组",
+        path: "/tech-cooperation/compiler"
       }
     ]
   },
