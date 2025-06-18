@@ -30,30 +30,19 @@ const ServerDetail = () => {
   };
 
   const capabilities = {
-    "开发工具": {
-      "语言支持": "VSCode的语法插件(GsLang)、GS的PKG包管理工具(Gip)，GS的项目管理工具(GsHub)",
-      "调试分析": "GS的性能分析工具(Profiler)，GS进程的调试连接工具(TelnetClient)",
-      "通用工具": "表格差异合并工具(ExcelMerge)，数字资产管理系统(DAM)"
-    },
-    "游戏框架": {
-      "代码包PKG": "网络框架，数据存储，配置加载，安全校验，业务模块等",
-      "服务器引擎": "集成基础业务的游戏服引擎(engine0)，轻量级的游戏服引擎(server_core)",
-      "公共服模块": "提供常用且通用的公共服务器(auth/social/rank/webgm等)",
-      "引擎插件": "通过ToGS/UEGS 使Unity/Unreal能用GS脚本进行游戏业务开发"
-    },
-    "DevOps": {
-      "CI/CD": "提供GS项目组的自动化构建流程规范，并提供一键打包/部署的解决方案",
-      "监控系统": "报错日志监控系统(WatcherCenter)、游戏统一管理后台(AllInOne)",
-      "协作安全": "提供GS项目组在域内开发与域外发布的代码安全管理方案"
-    }
+    "游戏服务端技术研发": "负责游戏服务端功能开发、架构优化，确保游戏服务的稳定性和高性能",
+    "分布式系统设计": "设计和实现高可用的分布式游戏服务架构，支持大规模并发",
+    "数据存储和处理": "提供高效的数据存储和数据处理方案，支持游戏数据的安全管理",
+    "性能调优与监控": "对服务端性能进行深度调优，建立完善的监控体系",
+    "工具链建设": "开发运维、部署、调试等工具链，提升开发和运维效率"
   };
 
   return (
     <PageLayout backgroundVariant="cooperation">
       <SEO 
         title="服务器与工具链组 - G-bits 技术中心" 
-        description="提供游戏项目组覆盖从开发、测试、部署、运维全生命周期的GS解决方案。"
-        keywords={['服务器架构', '工具链', 'DevOps', 'GS开发生态']}
+        description="专注于游戏服务端技术研发、分布式系统设计和工具链建设，为游戏项目提供稳定高效的服务端解决方案。"
+        keywords={['服务器开发', '分布式系统', '工具链', '性能优化']}
       />
 
       <main className="container mx-auto px-4 py-12 pt-28 min-h-[80vh] relative z-10">
@@ -69,12 +58,12 @@ const ServerDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Server className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 服务器与工具链组
               </h1>
             </div>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto font-light">
-              提供游戏项目组覆盖从开发、测试、部署、运维全生命周期的GS解决方案及全方位的技术支持。
+              专注于游戏服务端技术研发、分布式系统设计和工具链建设，为游戏项目提供稳定高效的服务端解决方案。
             </p>
           </motion.div>
 
@@ -84,12 +73,12 @@ const ServerDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
+                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
-                    <p className="text-white font-semibold text-2xl">吴荣钦</p>
+                    <p className="text-white font-semibold text-2xl">胡顺涛 李雷</p>
                   </CardContent>
                 </Card>
               </div>
@@ -97,20 +86,12 @@ const ServerDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
+                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
-                    <a 
-                      href="https://leiting.feishu.cn/wiki/UExNwkOh2iWf5QkTpBsc7ffSnVe?from=from_copylink" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 group text-lg"
-                    >
-                      <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                      查看详细案例
-                    </a>
+                    <p className="text-white text-lg">暂无详细文档链接</p>
                   </CardContent>
                 </Card>
               </div>
@@ -120,30 +101,20 @@ const ServerDetail = () => {
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">核心能力</h2>
+              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Object.entries(capabilities).map(([category, content]) => (
                 <Card key={category} className="bg-white/5 border border-white/10 backdrop-blur-sm">
                   <CardContent className="p-8">
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-semibold text-white mb-4">
-                        {category}
-                      </h3>
-                      <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-                    </div>
-                    <div className="space-y-4">
-                      {Object.entries(content).map(([subCategory, subContent]) => (
-                        <div key={subCategory} className="group/item">
-                          <div className="flex items-start mb-2">
-                            <span className="text-white font-medium text-sm">
-                              {subCategory}
-                            </span>
-                          </div>
-                          <p className="text-gray-300 text-xs leading-relaxed">{subContent}</p>
-                        </div>
-                      ))}
+                    <div className="flex items-start">
+                      <div>
+                        <h3 className="text-white font-semibold mb-4 text-xl">
+                          {category}
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed">{content}</p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -154,14 +125,14 @@ const ServerDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">核心技术</h2>
+              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
-                <div className="flex flex-wrap gap-3 justify-center">
-                  {['GS开发生态', '服务器架构设计', '客户端引擎插件', 'DevOps'].map((tech, idx) => (
-                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-4 py-2 text-sm">
+                <div className="flex flex-wrap gap-6 justify-center">
+                  {['Go语言开发', '分布式架构', '数据库优化', '容器化部署', '监控运维'].map((tech, idx) => (
+                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
                       {tech}
                     </Badge>
                   ))}

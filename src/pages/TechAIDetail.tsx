@@ -95,10 +95,10 @@ const TechAIDetail = () => {
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-6">
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                       {cases.map((item, idx) => (
                         <div key={idx} className="group">
-                          <h4 className="font-medium text-white text-sm mb-2">
+                          <h4 className="font-medium text-white text-xs mb-2">
                             {item.text}
                           </h4>
                           {item.link && (
@@ -106,7 +106,7 @@ const TechAIDetail = () => {
                               href={item.link} 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-md text-xs hover:from-cyan-500/30 hover:to-blue-500/30 transition-all border border-cyan-500/30 hover:border-cyan-400/50 group/link"
+                              className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-md text-xs hover:from-cyan-500/30 hover:to-blue-500/30 transition-all border border-cyan-500/30 hover:border-cyan-400/50 group/link"
                             >
                               <ExternalLink className="w-3 h-3 mr-1 group-hover/link:scale-110 transition-transform" />
                               点击链接
@@ -153,9 +153,9 @@ const TechAIDetail = () => {
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-wrap gap-6 justify-center">
                   {['机器学习', '数据分析', '行为决策树', '自然语言处理', '计算机视觉'].map((tech, idx) => (
-                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-4 py-2 text-sm">
+                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
                       {tech}
                     </Badge>
                   ))}

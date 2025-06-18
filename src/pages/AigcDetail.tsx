@@ -70,7 +70,7 @@ const AigcDetail = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
                 <Cpu className="w-10 h-10 text-cyan-400" />
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 AIGC组
               </h1>
             </div>
@@ -85,12 +85,16 @@ const AigcDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">小组成员</h2>
+                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
-                    <p className="text-white font-semibold text-2xl">李智宇</p>
+                    <p className="text-white font-semibold text-xl leading-relaxed">
+                      李智宇 艾伟伟 岑俊咏<br />
+                      利俊达 张冠华 王震<br />
+                      陈俊桡 褚梓淇 郑宗鹏
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -98,7 +102,7 @@ const AigcDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
+                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -153,7 +157,7 @@ const AigcDetail = () => {
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">核心能力</h2>
+              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 gap-8">
@@ -177,14 +181,14 @@ const AigcDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-cyan-300 mb-4">核心技术</h2>
+              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-wrap gap-6 justify-center">
                   {['2D AIGC', '3D AIGC', 'AIGC智能体', 'AIGC教学推广'].map((tech, idx) => (
-                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-4 py-2 text-sm">
+                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
                       {tech}
                     </Badge>
                   ))}
