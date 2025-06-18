@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <h1 className="font-light text-2xl">
-                <span className="text-blue-400">G-</span>
+                <span className="text-cyan-300">G-</span>
                 <span className="text-white">bits</span>
                 <span className="text-gray-300">技术中心</span>
               </h1>
@@ -48,27 +48,27 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
                   <div>
-                    <h4 className="text-blue-400 font-medium mb-1">技术中心负责人</h4>
+                    <h4 className="text-cyan-300 font-medium mb-1">技术中心负责人</h4>
                     <p className="text-gray-400">沈予卿</p>
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-medium mb-1">技术AI组</h4>
+                    <h4 className="text-cyan-300 font-medium mb-1">技术AI组</h4>
                     <p className="text-gray-400">梁钰彬、张文豪</p>
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-medium mb-1">编译器组</h4>
+                    <h4 className="text-cyan-300 font-medium mb-1">编译器组</h4>
                     <p className="text-gray-400">楚耀翔、徐鑫荣</p>
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-medium mb-1">AIGC组</h4>
+                    <h4 className="text-cyan-300 font-medium mb-1">AIGC组</h4>
                     <p className="text-gray-400">李智宇</p>
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-medium mb-1">服务器与工具链组</h4>
+                    <h4 className="text-cyan-300 font-medium mb-1">服务器与工具链组</h4>
                     <p className="text-gray-400">吴荣钦</p>
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-medium mb-1">引擎组</h4>
+                    <h4 className="text-cyan-300 font-medium mb-1">引擎组</h4>
                     <p className="text-gray-400">张兴捷</p>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ const Footer = () => {
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-white">联系地址</h3>
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 mr-2 text-cyan-300 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-gray-400">广东省深圳市南山区方大城T2栋17楼技术中心</span>
                 </div>
               </div>

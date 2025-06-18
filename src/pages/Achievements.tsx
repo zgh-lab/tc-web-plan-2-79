@@ -122,7 +122,7 @@ const Achievements = () => {
             <motion.div 
               key={game.id}
               variants={childVariants}
-              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row hover:shadow-lg hover:shadow-blue-900/20 transition-all cursor-pointer"
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex flex-col md:flex-row hover:shadow-lg hover:shadow-cyan-300/20 transition-all cursor-pointer"
               onClick={() => setSelectedGame(game)}
             >
               <div className="md:w-2/5 h-48 md:h-auto relative">
@@ -169,7 +169,7 @@ const Achievements = () => {
                   {selectedGame.documentUrl && (
                     <button
                       onClick={() => window.open(selectedGame.documentUrl, '_blank', 'noopener,noreferrer')}
-                      className="inline-flex items-center px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-700 transition-all mb-4 w-fit"
+                      className="inline-flex items-center px-4 py-2 bg-cyan-300/80 text-white rounded-lg hover:bg-cyan-300 transition-all mb-4 w-fit"
                     >
                       详情文档
                       <ExternalLink className="ml-2 w-4 h-4" />
