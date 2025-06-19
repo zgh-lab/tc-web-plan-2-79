@@ -78,8 +78,8 @@ const ContactInfo = () => {
             }}
           >
             <div className="flex items-center mb-4">
-              <div className="bg-cyan-300/20 rounded-full p-4 mr-4">
-                <Building className="w-8 h-8 text-cyan-300" />
+              <div className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-opacity-20 rounded-full p-4 mr-4">
+                <Building className="w-8 h-8 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent" />
               </div>
               <h3 className="font-bold text-2xl text-white">特定需求合作</h3>
             </div>
@@ -96,7 +96,7 @@ const ContactInfo = () => {
               href="https://leiting.feishu.cn/wiki/WcwtwLJbTi0gRLkIbn0cDjbmnAb" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-cyan-300 hover:text-cyan-300 transition-colors group"
+              className="inline-flex items-center bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity group"
             >
               了解详情 
               <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -115,8 +115,8 @@ const ContactInfo = () => {
             }}
           >
             <div className="flex items-center mb-4">
-              <div className="bg-cyan-300/20 rounded-full p-4 mr-4">
-                <Users className="w-8 h-8 text-cyan-300" />
+              <div className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-opacity-20 rounded-full p-4 mr-4">
+                <Users className="w-8 h-8 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent" />
               </div>
               <h3 className="font-bold text-2xl text-white">驻组合作</h3>
             </div>
@@ -133,7 +133,7 @@ const ContactInfo = () => {
               href="https://leitung.feishu.cn/wiki/WcwtwLJbTi0gRLkIbn0cDjbmnAb" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-cyan-300 hover:text-cyan-300 transition-colors group"
+              className="inline-flex items-center bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity group"
             >
               了解详情 
               <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

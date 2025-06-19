@@ -168,8 +168,8 @@ const WhyWrlds = () => {
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-cyan-300/20 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-cyan-300" />
+                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-opacity-20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {feature.title}
@@ -178,14 +178,14 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 - 显示全部 */}
+                  {/* 核心技术标签 - 使用统一渐变色 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
+                            className="px-2 py-1 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-opacity-20 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -194,7 +194,7 @@ const WhyWrlds = () => {
                     </div>
                   )}
                   
-                  <div className="inline-flex items-center text-cyan-300 hover:text-cyan-400 transition-colors group">
+                  <div className="inline-flex items-center bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -221,8 +221,8 @@ const WhyWrlds = () => {
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-cyan-300/20 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-cyan-300" />
+                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-opacity-20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {feature.title}
@@ -231,14 +231,14 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 - 显示全部 */}
+                  {/* 核心技术标签 - 使用统一渐变色 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
+                            className="px-2 py-1 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-opacity-20 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -247,7 +247,7 @@ const WhyWrlds = () => {
                     </div>
                   )}
                   
-                  <div className="inline-flex items-center text-cyan-300 hover:text-cyan-400 transition-colors group">
+                  <div className="inline-flex items-center bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
