@@ -140,7 +140,7 @@ const WhyWrlds = () => {
           variants={containerVariants}
         >
           <div className="mb-12 text-center">
-            <motion.h2 variants={childVariants} className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+            <motion.h2 variants={childVariants} className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
               技术方向
             </motion.h2>
             <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-5xl mx-auto whitespace-nowrap opacity-80">
@@ -168,8 +168,8 @@ const WhyWrlds = () => {
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-cyan-300/20 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-cyan-300" />
+                    <div className="w-10 h-10 bg-blue-400/20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {feature.title}
@@ -185,7 +185,7 @@ const WhyWrlds = () => {
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
+                            className="px-2 py-1 bg-blue-400/20 text-blue-400 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -194,7 +194,7 @@ const WhyWrlds = () => {
                     </div>
                   )}
                   
-                  <div className="inline-flex items-center text-cyan-300 hover:text-cyan-400 transition-colors group">
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -221,8 +221,8 @@ const WhyWrlds = () => {
                 
                 <div className="absolute inset-0 p-5 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-cyan-300/20 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-cyan-300" />
+                    <div className="w-10 h-10 bg-blue-400/20 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-blue-400" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {feature.title}
@@ -238,7 +238,7 @@ const WhyWrlds = () => {
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
+                            className="px-2 py-1 bg-blue-400/20 text-blue-400 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -247,7 +247,7 @@ const WhyWrlds = () => {
                     </div>
                   )}
                   
-                  <div className="inline-flex items-center text-cyan-300 hover:text-cyan-400 transition-colors group">
+                  <div className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group">
                     了解更多 
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>

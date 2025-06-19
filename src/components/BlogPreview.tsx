@@ -131,7 +131,7 @@ const BlogPreview = () => {
         >
           <motion.h2 
             variants={childVariants} 
-            className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent"
             whileHover={{
               textShadow: '0 0 15px rgba(103, 232, 249, 0.5)',
               scale: 1.02,
@@ -218,7 +218,7 @@ const BlogPreview = () => {
         <div className="flex justify-center">
           <Link 
             to="/achievements" 
-            className="px-6 py-3 bg-cyan-300/80 backdrop-blur-sm text-white rounded-lg hover:bg-cyan-300 transition-all shadow-lg hover:shadow-xl hover:shadow-cyan-300/20 flex items-center hover:scale-105"
+            className="px-6 py-3 bg-blue-400/80 backdrop-blur-sm text-white rounded-lg hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-400/20 flex items-center hover:scale-105"
           >
             查看更多成果
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
