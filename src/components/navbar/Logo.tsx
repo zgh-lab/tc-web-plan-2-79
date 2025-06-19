@@ -13,8 +13,11 @@ const Logo = ({ isScrolled }: LogoProps) => {
         <img 
           src="/lovable-uploads/22875bff-c1ba-4884-b5b8-f1495d4de20d.png" 
           alt="G-bits Logo" 
-          className="h-8 mr-5 filter invert brightness-0 invert"
-          style={{ filter: 'invert(1) brightness(2)' }}
+          className="h-8 mr-5"
+          style={{ 
+            filter: 'sepia(0) saturate(1) hue-rotate(0deg) brightness(1.2) contrast(1.1)',
+            mixBlendMode: 'screen'
+          }}
         />
         <h1 className="font-bold text-xl sm:text-2xl text-white">
           <span className="text-cyan-300">G-</span>
