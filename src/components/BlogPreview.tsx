@@ -218,7 +218,7 @@ const BlogPreview = () => {
         <div className="flex justify-center">
           <Link 
             to="/achievements" 
-            className="px-6 py-3 bg-cyan-300/20 backdrop-blur-sm text-white rounded-lg hover:bg-cyan-300/30 transition-all shadow-lg hover:shadow-xl hover:shadow-cyan-300/20 flex items-center hover:scale-105"
+            className="px-6 py-3 bg-cyan-300/15 backdrop-blur-sm text-white rounded-lg hover:bg-cyan-300/25 transition-all shadow-lg hover:shadow-xl hover:shadow-cyan-300/20 flex items-center hover:scale-105"
           >
             查看更多成果
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
