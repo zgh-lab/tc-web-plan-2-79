@@ -15,7 +15,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
           alt="G-bits Logo" 
           className="h-8 mr-5"
           style={{ 
-            filter: 'brightness(0) saturate(100%) invert(83%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(87%)',
+            filter: 'none',
           }}
         />
         <h1 className="font-bold text-xl sm:text-2xl">
