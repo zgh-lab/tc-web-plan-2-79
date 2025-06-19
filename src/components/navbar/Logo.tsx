@@ -11,7 +11,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
     <div className="flex-shrink-0">
       <Link to="/" className="flex items-center">
         <img 
-          src="/lovable-uploads/ffdf6498-7fdf-4239-9093-11d73d7b3953.png" 
+          src="/lovable-uploads/22875bff-c1ba-4884-b5b8-f1495d4de20d.png" 
           alt="G-bits Logo" 
           className="h-8 mr-5 filter invert brightness-0 invert"
           style={{ filter: 'invert(1) brightness(2)' }}
