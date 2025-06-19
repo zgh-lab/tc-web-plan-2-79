@@ -178,14 +178,14 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 - 稍微放大并应用渐变效果 */}
+                  {/* 核心技术标签 - 显示全部 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-3 py-1.5 bg-cyan-300/20 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent rounded text-sm font-medium"
+                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -231,14 +231,14 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 - 稍微放大并应用渐变效果 */}
+                  {/* 核心技术标签 - 显示全部 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-3 py-1.5 bg-cyan-300/20 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent rounded text-sm font-medium"
+                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
