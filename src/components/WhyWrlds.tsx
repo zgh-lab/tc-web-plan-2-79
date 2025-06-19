@@ -140,10 +140,26 @@ const WhyWrlds = () => {
           variants={containerVariants}
         >
           <div className="mb-12 text-center">
-            <motion.h2 variants={childVariants} className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+            <motion.h2 
+              variants={childVariants} 
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent"
+              whileHover={{
+                textShadow: '0 0 15px rgba(103, 232, 249, 0.5)',
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
+            >
               技术方向
             </motion.h2>
-            <motion.p variants={childVariants} className="text-lg text-gray-300 max-w-5xl mx-auto whitespace-nowrap opacity-80">
+            <motion.p 
+              variants={childVariants} 
+              className="text-lg text-gray-300 max-w-5xl mx-auto whitespace-nowrap opacity-80"
+              whileHover={{
+                color: 'rgba(255, 255, 255, 0.9)',
+                scale: 1.01,
+                transition: { duration: 0.3 }
+              }}
+            >
               我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
             </motion.p>
           </div>
@@ -178,14 +194,14 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 - 显示全部 */}
+                  {/* 核心技术标签 - 稍微放大 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
+                            className="px-3 py-1.5 bg-cyan-300/20 text-cyan-300 rounded text-sm font-medium"
                           >
                             {tech}
                           </span>
@@ -231,14 +247,14 @@ const WhyWrlds = () => {
                   
                   <p className="text-gray-200 flex-grow opacity-90 mb-4">{feature.description}</p>
                   
-                  {/* 核心技术标签 - 显示全部 */}
+                  {/* 核心技术标签 - 稍微放大 */}
                   {feature.technologies && (
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {feature.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2 py-1 bg-cyan-300/20 text-cyan-300 rounded text-xs font-medium"
+                            className="px-3 py-1.5 bg-cyan-300/20 text-cyan-300 rounded text-sm font-medium"
                           >
                             {tech}
                           </span>
