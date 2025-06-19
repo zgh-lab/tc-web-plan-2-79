@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Code, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -47,7 +48,7 @@ const CompilerDetail = () => {
           <motion.div variants={childVariants} className="text-center mb-20">
             <div className="flex items-center justify-center gap-6 mb-8">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
-                <Code className="w-10 h-10 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent" />
+                <Code className="w-10 h-10 text-cyan-400" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 编译器组
@@ -64,7 +65,7 @@ const CompilerDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent mb-4">小组成员</h2>
+                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -79,7 +80,7 @@ const CompilerDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent mb-4">查看详细文档</h2>
+                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -96,7 +97,7 @@ const CompilerDetail = () => {
             {/* Core Capabilities */}
             <motion.div variants={childVariants}>
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent mb-4">核心能力</h2>
+                <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
               </div>
               <div className="space-y-6">
@@ -139,14 +140,14 @@ const CompilerDetail = () => {
             {/* Core Technologies */}
             <motion.div variants={childVariants}>
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent mb-4">核心技术</h2>
+                <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
               </div>
               <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
                 <CardContent className="p-8">
                   <div className="flex flex-wrap gap-6 justify-center">
                     {['词法分析', '语法分析', '中间代码生成', '代码优化', '目标代码生成'].map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="border-cyan-300 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent px-8 py-4 text-lg">
+                      <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
                         {tech}
                       </Badge>
                     ))}
