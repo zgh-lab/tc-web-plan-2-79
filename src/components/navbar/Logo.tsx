@@ -15,14 +15,13 @@ const Logo = ({ isScrolled }: LogoProps) => {
           alt="G-bits Logo" 
           className="h-8 mr-5"
           style={{ 
-            filter: 'sepia(0) saturate(1) hue-rotate(0deg) brightness(1.2) contrast(1.1)',
-            mixBlendMode: 'screen'
+            filter: 'brightness(0) saturate(100%) invert(83%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(87%)',
           }}
         />
-        <h1 className="font-bold text-xl sm:text-2xl text-white">
+        <h1 className="font-bold text-xl sm:text-2xl">
           <span className="text-cyan-300">G-</span>
-          <span className="text-white">bits</span>
-          <span className="text-gray-100">技术中心</span>
+          <span className="text-gray-300">bits</span>
+          <span className="text-gray-300">技术中心</span>
         </h1>
       </Link>
     </div>
