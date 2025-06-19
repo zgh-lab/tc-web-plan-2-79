@@ -112,7 +112,7 @@ const Hero = () => {
                   transition: { duration: 0.4 }
                 }}
               >
-                我们的使命是用技术为项目赋能，我们的愿景是成为行业技术标杆
+                筑基技术生态，智启开发未来
               </motion.p>
             </motion.div>
           </div>
