@@ -1,4 +1,5 @@
 
+
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +11,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
   return (
     <div className="flex-shrink-0">
       <Link to="/" className="flex items-center">
-        <div className="bg-gray-300 rounded-md p-2 mr-3">
+        <div className="bg-gray-300/50 rounded-md p-2 mr-3">
           <img 
             src="/lovable-uploads/22875bff-c1ba-4884-b5b8-f1495d4de20d.png" 
             alt="G-bits Logo" 
@@ -31,3 +32,4 @@ const Logo = ({ isScrolled }: LogoProps) => {
 };
 
 export default Logo;
+
