@@ -1,4 +1,3 @@
-
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -87,12 +86,20 @@ const Hero = () => {
                   G
                 </span>
                 <span 
+                  className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+                  style={{
+                    textShadow: '0 0 10px rgba(125, 211, 252, 0.3), 0 0 20px rgba(125, 211, 252, 0.1), 0 4px 20px rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  -
+                </span>
+                <span 
                   className="text-white"
                   style={{
                     textShadow: '0 4px 20px rgba(255, 255, 255, 0.1)'
                   }}
                 >
-                  -bits 技术中心
+                  bits 技术中心
                 </span>
               </motion.h1>
               
@@ -111,7 +118,6 @@ const Hero = () => {
           </div>
         </motion.div>
         
-        {/* 滚动指示器 */}
         <motion.div 
           className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
           initial={{ opacity: 0 }}
