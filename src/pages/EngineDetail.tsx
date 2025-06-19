@@ -56,10 +56,10 @@ const EngineDetail = () => {
           {/* Hero Section */}
           <motion.div variants={childVariants} className="text-center mb-20">
             <div className="flex items-center justify-center gap-6 mb-8">
-              <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
-                <Wrench className="w-10 h-10 text-cyan-400" />
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500/30 to-indigo-500/30 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                <Wrench className="w-10 h-10 text-blue-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
                 引擎组
               </h1>
             </div>
@@ -74,8 +74,8 @@ const EngineDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">小组成员</h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent mb-4">小组成员</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
@@ -87,8 +87,8 @@ const EngineDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent mb-4">查看详细文档</h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
@@ -96,7 +96,7 @@ const EngineDetail = () => {
                       href="https://leiting.feishu.cn/wiki/wikcnM8bgWhiD0GX4BFygcRL66W?from=from_copylink" 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white rounded-lg hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 group text-lg"
+                      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 text-white rounded-lg hover:from-blue-500/30 hover:to-indigo-500/30 transition-all duration-300 border border-blue-500/30 hover:border-blue-400/50 group text-lg"
                     >
                       <ExternalLink className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                       查看详细案例
@@ -110,8 +110,8 @@ const EngineDetail = () => {
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent mb-4">核心能力</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Object.entries(capabilities).map(([category, content]) => (
@@ -134,14 +134,14 @@ const EngineDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent mb-4">核心技术</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="flex flex-wrap gap-6 justify-center">
                   {['图形渲染', '物理模拟', '动画系统', '场景管理', '资源优化'].map((tech, idx) => (
-                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
+                    <Badge key={idx} variant="outline" className="border-blue-300 text-blue-300 px-8 py-4 text-lg">
                       {tech}
                     </Badge>
                   ))}
