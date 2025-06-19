@@ -38,7 +38,7 @@ const ContactInfo = () => {
         >
           <motion.h2 
             variants={childVariants} 
-            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent"
             whileHover={{
               textShadow: '0 0 15px rgba(103, 232, 249, 0.5)',
               scale: 1.02,
@@ -71,15 +71,15 @@ const ContactInfo = () => {
           {/* 特定需求合作 */}
           <motion.div 
             variants={childVariants} 
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all hover:shadow-xl hover:shadow-blue-400/10"
+            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all hover:shadow-xl hover:shadow-cyan-300/10"
             whileHover={{ 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
           >
             <div className="flex items-center mb-4">
-              <div className="bg-blue-400/20 rounded-full p-4 mr-4">
-                <Building className="w-8 h-8 text-blue-400" />
+              <div className="bg-cyan-300/20 rounded-full p-4 mr-4">
+                <Building className="w-8 h-8 text-cyan-300" />
               </div>
               <h3 className="font-bold text-2xl text-white">特定需求合作</h3>
             </div>
@@ -96,7 +96,7 @@ const ContactInfo = () => {
               href="https://leiting.feishu.cn/wiki/WcwtwLJbTi0gRLkIbn0cDjbmnAb" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
+              className="inline-flex items-center text-cyan-300 hover:text-cyan-300 transition-colors group"
             >
               了解详情 
               <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,15 +108,15 @@ const ContactInfo = () => {
           {/* 驻组合作 */}
           <motion.div 
             variants={childVariants} 
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all hover:shadow-xl hover:shadow-blue-400/10"
+            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-all hover:shadow-xl hover:shadow-cyan-300/10"
             whileHover={{ 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
           >
             <div className="flex items-center mb-4">
-              <div className="bg-blue-400/20 rounded-full p-4 mr-4">
-                <Users className="w-8 h-8 text-blue-400" />
+              <div className="bg-cyan-300/20 rounded-full p-4 mr-4">
+                <Users className="w-8 h-8 text-cyan-300" />
               </div>
               <h3 className="font-bold text-2xl text-white">驻组合作</h3>
             </div>
@@ -133,7 +133,7 @@ const ContactInfo = () => {
               href="https://leitung.feishu.cn/wiki/WcwtwLJbTi0gRLkIbn0cDjbmnAb" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors group"
+              className="inline-flex items-center text-cyan-300 hover:text-cyan-300 transition-colors group"
             >
               了解详情 
               <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
