@@ -13,7 +13,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
         <img 
           src="/lovable-uploads/ffdf6498-7fdf-4239-9093-11d73d7b3953.png" 
           alt="G-bits Logo" 
-          className="h-8 mr-2 filter invert brightness-0 invert"
+          className="h-8 mr-3 filter invert brightness-0 invert"
           style={{ filter: 'invert(1) brightness(2)' }}
         />
         <h1 className="font-bold text-xl sm:text-2xl text-white">
