@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Code, ExternalLink } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -147,7 +146,7 @@ const CompilerDetail = () => {
                 <CardContent className="p-8">
                   <div className="flex flex-wrap gap-6 justify-center">
                     {['词法分析', '语法分析', '中间代码生成', '代码优化', '目标代码生成'].map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
+                      <Badge key={idx} variant="outline" className="bg-gray-500/20 border-gray-400 text-white px-8 py-4 text-lg">
                         {tech}
                       </Badge>
                     ))}
