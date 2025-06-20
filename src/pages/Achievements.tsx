@@ -1,3 +1,4 @@
+
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight, ExternalLink } from 'lucide-react';
@@ -45,7 +46,7 @@ const gameShowcase = [
     imageUrl: "/lovable-uploads/421bed1b-6f82-4bd4-9505-32cec7e98532.png",
     description: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX",
     year: "2024",
-    supportDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX"
+    supportDescription: "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX"
   },
   {
     id: "game4",
@@ -105,9 +106,9 @@ const Achievements = () => {
           variants={containerVariants}
           className="flex flex-col items-center justify-center space-y-6 mb-12 text-center"
         >
-          <motion.h1 variants={childVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">项目合作</motion.h1>
-          <motion.p variants={childVariants} className="text-xl bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent max-w-3xl">
-            展示 G-bits 技术中心的游戏研发技术支持及创新成果
+          <motion.h1 variants={childVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-300 bg-clip-text text-transparent">项目合作</motion.h1>
+          <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
+            展示 G-bits 技术中心的自主研发游戏及技术创新成果
           </motion.p>
         </motion.div>
         
