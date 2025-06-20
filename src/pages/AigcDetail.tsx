@@ -184,7 +184,7 @@ const AigcDetail = () => {
               <CardContent className="p-8">
                 <div className="flex flex-wrap gap-6 justify-center">
                   {['2D AIGC', '3D AIGC', 'AIGC智能体', 'AIGC教学推广'].map((tech, idx) => (
-                    <Badge key={idx} variant="outline" className="border-cyan-300 text-cyan-300 px-8 py-4 text-lg">
+                    <Badge key={idx} variant="outline" className="bg-gray-500/20 border-gray-400 text-white px-8 py-4 text-lg">
                       {tech}
                     </Badge>
                   ))}

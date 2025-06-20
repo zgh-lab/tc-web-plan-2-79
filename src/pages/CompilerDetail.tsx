@@ -91,70 +91,67 @@ const CompilerDetail = () => {
             </div>
           </motion.div>
 
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            {/* Core Capabilities */}
-            <motion.div variants={childVariants}>
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-              </div>
-              <div className="space-y-6">
-                {[
-                  {
-                    title: "GS编译器底层功能开发和问题修复",
-                    desc: "提供编译器核心功能的开发与维护，确保编译器稳定运行",
-                    hasLink: false
-                  },
-                  {
-                    title: "GS编译器底层性能优化",
-                    desc: "持续优化编译器性能，提升编译速度和效率",
-                    hasLink: false
-                  },
-                  {
-                    title: "为上层工具提供底层功能支持",
-                    desc: "为调试、性能工具等上层应用提供必要的底层支持"
-                  },
-                  {
-                    title: "调整GS语言特性和功能",
-                    desc: "根据游戏开发需求，定制化调整GS语言特性"
-                  }
-                ].map((item, idx) => (
-                  <Card key={idx} className="bg-white/5 border border-white/10 backdrop-blur-sm">
-                    <CardContent className="p-6">
-                      <div className="flex items-start">
-                        <div>
-                          <h3 className="text-white font-semibold mb-3 text-lg">
-                            {item.title}
-                          </h3>
-                          <p className="text-gray-300 leading-relaxed">{item.desc}</p>
-                        </div>
+          {/* Core Capabilities */}
+          <motion.div variants={childVariants} className="mb-20">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            <div className="space-y-6">
+              {[
+                {
+                  title: "GS编译器底层功能开发和问题修复",
+                  desc: "提供编译器核心功能的开发与维护，确保编译器稳定运行",
+                  hasLink: false
+                },
+                {
+                  title: "GS编译器底层性能优化",
+                  desc: "持续优化编译器性能，提升编译速度和效率",
+                  hasLink: false
+                },
+                {
+                  title: "为上层工具提供底层功能支持",
+                  desc: "为调试、性能工具等上层应用提供必要的底层支持"
+                },
+                {
+                  title: "调整GS语言特性和功能",
+                  desc: "根据游戏开发需求，定制化调整GS语言特性"
+                }
+              ].map((item, idx) => (
+                <Card key={idx} className="bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-start">
+                      <div>
+                        <h3 className="text-white font-semibold mb-3 text-lg">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed">{item.desc}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </motion.div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </motion.div>
 
-            {/* Core Technologies */}
-            <motion.div variants={childVariants}>
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-              </div>
-              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="flex flex-wrap gap-6 justify-center">
-                    {['词法分析', '语法分析', '中间代码生成', '代码优化', '目标代码生成'].map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="bg-gray-500/20 border-gray-400 text-white px-8 py-4 text-lg">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
+          {/* Core Technologies */}
+          <motion.div variants={childVariants}>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="flex flex-wrap gap-6 justify-center">
+                  {['词法分析', '语法分析', '中间代码生成', '代码优化', '目标代码生成'].map((tech, idx) => (
+                    <Badge key={idx} variant="outline" className="bg-gray-500/20 border-gray-400 text-white px-8 py-4 text-lg">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </motion.div>
       </main>
     </PageLayout>
