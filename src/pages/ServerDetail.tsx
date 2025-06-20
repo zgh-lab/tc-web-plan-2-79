@@ -73,7 +73,7 @@ const ServerDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">小组成员</h2>
+                  <h2 className="text-3xl font-bold text-white mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -88,7 +88,7 @@ const ServerDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
+                  <h2 className="text-3xl font-bold text-white mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -103,7 +103,7 @@ const ServerDetail = () => {
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">核心能力</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -127,14 +127,14 @@ const ServerDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">核心技术</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="flex flex-wrap gap-6 justify-center">
                   {['Go语言开发', '分布式架构', '数据库优化', '容器化部署', '监控运维'].map((tech, idx) => (
-                    <Badge key={idx} variant="outline" className="border-cyan-300 text-white px-8 py-4 text-lg">
+                    <Badge key={idx} variant="outline" className="border-gray-400 text-white px-8 py-4 text-lg">
                       {tech}
                     </Badge>
                   ))}

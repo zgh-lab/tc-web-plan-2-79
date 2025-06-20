@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -56,7 +57,7 @@ const TechCooperation = () => {
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-8">
               技术方向
             </h1>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               我们为各项目提供基于GS语言的前后端框架、GS插件、公共服务器、工具链、图形渲染方案、前后端性能优化等解决方案。
             </p>
           </motion.div>
@@ -124,7 +125,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-gray-400 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -201,7 +202,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-gray-400 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -276,7 +277,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-gray-400 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -353,7 +354,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-gray-400 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -430,7 +431,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-gray-400 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>

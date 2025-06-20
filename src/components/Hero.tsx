@@ -1,3 +1,4 @@
+
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -104,11 +105,11 @@ const Hero = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-gray-300 text-lg md:text-xl lg:text-2xl mb-8 opacity-80 mt-[15px]" 
+                className="text-white text-lg md:text-xl lg:text-2xl mb-8 opacity-80 mt-[15px]" 
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.03,
-                  color: 'rgba(156, 163, 175, 1)',
+                  color: 'rgba(255, 255, 255, 1)',
                   transition: { duration: 0.4 }
                 }}
               >
