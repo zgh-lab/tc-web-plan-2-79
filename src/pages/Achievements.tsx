@@ -108,7 +108,7 @@ const Achievements = () => {
         >
           <motion.h1 variants={childVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-300 bg-clip-text text-transparent">项目合作</motion.h1>
           <motion.p variants={childVariants} className="text-xl text-gray-300 max-w-3xl">
-            展示 G-bits 技术中心的自主研发游戏及技术创新成果
+            展示 G-bits 技术中心的游戏研发支持及技术创新成果
           </motion.p>
         </motion.div>
         

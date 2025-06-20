@@ -47,7 +47,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "工具库",
-    path: "http://www.web-market.jszx.g-bits.com:8080/",
+    path: "https://jszx-home.g-bits.com:8888/",
     isExternal: true
   }
 ];
