@@ -62,7 +62,7 @@ const ServerDetail = () => {
                 服务器与工具链组
               </h1>
             </div>
-            <p className="text-lg text-white max-w-4xl mx-auto font-light">
+            <p className="text-lg bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent max-w-4xl mx-auto font-light">
               专注于游戏服务端技术研发、分布式系统设计和工具链建设，为游戏项目提供稳定高效的服务端解决方案。
             </p>
           </motion.div>
@@ -73,7 +73,7 @@ const ServerDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">小组成员</h2>
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">小组成员</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -88,7 +88,7 @@ const ServerDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">查看详细文档</h2>
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">查看详细文档</h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
@@ -103,7 +103,7 @@ const ServerDetail = () => {
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">核心能力</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">核心能力</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -127,7 +127,7 @@ const ServerDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">核心技术</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">核心技术</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
