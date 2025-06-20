@@ -48,27 +48,27 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold mb-4 text-white">联系人</h3>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
                   <div>
-                    <h4 className="text-cyan-300 font-medium mb-1">技术中心负责人</h4>
+                    <h4 className="text-white font-medium mb-1">技术中心负责人</h4>
                     <p className="text-gray-400">沈予卿</p>
                   </div>
                   <div>
-                    <h4 className="text-cyan-300 font-medium mb-1">技术AI组</h4>
+                    <h4 className="text-white font-medium mb-1">技术AI组</h4>
                     <p className="text-gray-400">梁钰彬、张文豪</p>
                   </div>
                   <div>
-                    <h4 className="text-cyan-300 font-medium mb-1">编译器组</h4>
+                    <h4 className="text-white font-medium mb-1">编译器组</h4>
                     <p className="text-gray-400">楚耀翔、徐鑫荣</p>
                   </div>
                   <div>
-                    <h4 className="text-cyan-300 font-medium mb-1">AIGC组</h4>
+                    <h4 className="text-white font-medium mb-1">AIGC组</h4>
                     <p className="text-gray-400">李智宇</p>
                   </div>
                   <div>
-                    <h4 className="text-cyan-300 font-medium mb-1">服务器与工具链组</h4>
+                    <h4 className="text-white font-medium mb-1">服务器与工具链组</h4>
                     <p className="text-gray-400">吴荣钦</p>
                   </div>
                   <div>
-                    <h4 className="text-cyan-300 font-medium mb-1">引擎组</h4>
+                    <h4 className="text-white font-medium mb-1">引擎组</h4>
                     <p className="text-gray-400">张兴捷</p>
                   </div>
                 </div>

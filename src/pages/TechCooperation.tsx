@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench, Terminal, Cpu, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -125,7 +124,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-orange-300 hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -202,7 +201,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-orange-300 hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -277,7 +276,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-orange-300 hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -354,7 +353,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-orange-300 hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
@@ -431,7 +430,7 @@ const TechCooperation = () => {
                         <Badge 
                           key={idx} 
                           variant="outline"
-                          className="bg-orange-500/10 border-orange-500/30 text-orange-300 hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
+                          className="bg-orange-500/10 border-orange-500/30 text-white hover:bg-orange-500/20 transition-colors px-3 py-1 text-xs"
                         >
                           {tech}
                         </Badge>
