@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { ArrowRight, ExternalLink } from 'lucide-react';
@@ -31,7 +30,7 @@ const gameShowcase = [
     id: "game2",
     title: "问剑长生",
     imageUrl: "/lovable-uploads/e7b5a53f-f4f9-45bc-828a-a909896c792a.png",
-    description: "《问剑长生》是雷霆全新3D御剑飞行修仙手游。在一方荒败的世界中，你将成为一位志在修行的证道者，捡到了寄居着星官真魂的至宝碎片，踏上了一条御剑寻道，叩问长生的修行之路……",
+    description: "《问剑长生》是一款玩家可以通过养成轻松社交的修仙游戏。游戏采用3D空战的形式，还原“御剑飞行”“隔空斗法”“法宝对抗”等修仙战斗体验。",
     year: "2023",
     supportDescription: `为项目组全面接入GS开发生态与Unity引擎支持，提供全链路技术支持：
 - 开发工具：集成gslang/gip/gshub开发工具链，Profiler性能分析保障效率；
