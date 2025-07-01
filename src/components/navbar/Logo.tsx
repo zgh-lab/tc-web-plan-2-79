@@ -15,7 +15,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
             <img 
               src="/lovable-uploads/d2022b75-39a5-4eea-bffc-9d991c10cf31.png" 
               alt="G-bits Logo" 
-              className="h-6 w-auto"
+              className="h-6 w-auto object-contain"
             />
           </div>
           {/* 蓝青渐变背景方块 */}
