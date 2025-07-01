@@ -25,6 +25,11 @@ const Logo = ({ isScrolled }: LogoProps) => {
           <span className="text-gray-300">bits</span>
           <span className="text-gray-300">技术中心</span>
         </h1>
+        
+        {/* 背景方块 */}
+        <div className="ml-3 px-3 py-1 bg-gray-700/80 rounded-md border border-gray-600/50">
+          <span className="text-gray-300 text-sm font-medium">工具库</span>
+        </div>
       </Link>
     </div>
   );
