@@ -24,8 +24,8 @@ const Navbar = () => {
     <motion.nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full", 
       isScrolled 
-        ? "bg-gray-800/85 backdrop-blur-sm shadow-sm" 
-        : "bg-gray-800/70"
+        ? "bg-white/85 backdrop-blur-sm shadow-sm" 
+        : "bg-white/70"
     )} initial={{
       opacity: 1,
       y: 0
