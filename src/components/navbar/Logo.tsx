@@ -13,7 +13,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
         <div className="relative">
           <div className="p-2 mr-3 flex items-center justify-center w-10 h-10">
             <img 
-              src="/lovable-uploads/d2022b75-39a5-4eea-bffc-9d991c10cf31.png" 
+              src="/lovable-uploads/562a0d54-b628-46e2-b833-9b61c0177a7f.png" 
               alt="G-bits Logo" 
               className="h-16 w-auto object-contain"
             />
