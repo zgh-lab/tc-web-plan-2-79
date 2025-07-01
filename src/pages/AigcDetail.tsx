@@ -68,9 +68,9 @@ const AigcDetail = () => {
           <motion.div variants={childVariants} className="text-center mb-20">
             <div className="flex items-center justify-center gap-6 mb-8">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-2xl flex items-center justify-center border border-cyan-500/20">
-                <Cpu className="w-10 h-10 text-cyan-400" />
+                <Cpu className="w-10 h-10" style={{ color: '#85BDFE' }} />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-300 to-blue-300 bg-clip-text text-transparent" style={{ background: `linear-gradient(to right, #85BDFE, #85BDFE)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 AIGC组
               </h1>
             </div>
@@ -85,8 +85,8 @@ const AigcDetail = () => {
               {/* 小组成员 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">小组成员</h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                  <h2 className="text-3xl font-bold mb-4" style={{ color: '#85BDFE' }}>小组成员</h2>
+                  <div className="w-24 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(to right, #85BDFE, #85BDFE)' }}></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-8 text-center flex items-center justify-center h-full">
@@ -102,8 +102,8 @@ const AigcDetail = () => {
               {/* 查看详细文档 */}
               <div>
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-cyan-300 mb-4">查看详细文档</h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+                  <h2 className="text-3xl font-bold mb-4" style={{ color: '#85BDFE' }}>查看详细文档</h2>
+                  <div className="w-24 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(to right, #85BDFE, #85BDFE)' }}></div>
                 </div>
                 <Card className="bg-white/5 border border-white/10 backdrop-blur-sm h-48">
                   <CardContent className="p-4 pt-6">
@@ -119,7 +119,8 @@ const AigcDetail = () => {
                                 href={item.link} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-md text-xs hover:from-cyan-500/30 hover:to-blue-500/30 transition-all border border-cyan-500/30 hover:border-cyan-400/50 group/link"
+                                className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-md text-xs hover:from-cyan-500/30 hover:to-blue-500/30 transition-all border border-cyan-500/30 hover:border-cyan-400/50 group/link"
+                                style={{ color: '#85BDFE' }}
                               >
                                 <ExternalLink className="w-3 h-3 mr-1 group-hover/link:scale-110 transition-transform" />
                                 点击链接
@@ -132,7 +133,8 @@ const AigcDetail = () => {
                                     href={link} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-md text-xs hover:from-cyan-500/30 hover:to-blue-500/30 transition-all border border-cyan-500/30 hover:border-cyan-400/50 group/link"
+                                    className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-md text-xs hover:from-cyan-500/30 hover:to-blue-500/30 transition-all border border-cyan-500/30 hover:border-cyan-400/50 group/link"
+                                    style={{ color: '#85BDFE' }}
                                   >
                                     <ExternalLink className="w-3 h-3 mr-1 group-hover/link:scale-110 transition-transform" />
                                     链接 {linkIdx + 1}
@@ -153,8 +155,8 @@ const AigcDetail = () => {
           {/* Core Capabilities */}
           <motion.div variants={childVariants} className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心能力</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+              <h2 className="text-3xl font-bold mb-4" style={{ color: '#85BDFE' }}>核心能力</h2>
+              <div className="w-24 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(to right, #85BDFE, #85BDFE)' }}></div>
             </div>
             <div className="grid grid-cols-1 gap-8">
               {Object.entries(capabilities).map(([category, content]) => (
@@ -177,8 +179,8 @@ const AigcDetail = () => {
           {/* Core Technologies */}
           <motion.div variants={childVariants}>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-cyan-300 mb-4">核心技术</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+              <h2 className="text-3xl font-bold mb-4" style={{ color: '#85BDFE' }}>核心技术</h2>
+              <div className="w-24 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(to right, #85BDFE, #85BDFE)' }}></div>
             </div>
             <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
               <CardContent className="p-8">
