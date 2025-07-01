@@ -24,7 +24,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
           {/* 蓝青渐变背景方块 */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-md opacity-30 -z-10"></div>
         </div>
-        <h1 className="font-bold text-xl sm:text-2xl">
+        <h1 className="font-bold text-xl sm:text-2xl ml-4">
           <span className="text-cyan-300">G-</span>
           <span className="text-gray-300">bits</span>
           <span className="text-gray-300">技术中心</span>
