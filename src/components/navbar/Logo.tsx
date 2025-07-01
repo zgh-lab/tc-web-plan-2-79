@@ -19,7 +19,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
             />
           </div>
           {/* 蓝青渐变背景方块 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-md opacity-55 -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-md opacity-35 -z-10"></div>
         </div>
         <h1 className="font-bold text-xl sm:text-2xl ml-4">
           <span className="text-gray-300">G-</span>
