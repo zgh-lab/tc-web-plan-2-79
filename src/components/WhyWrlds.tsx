@@ -142,9 +142,9 @@ const WhyWrlds = () => {
           <div className="mb-12 text-center">
             <motion.h2 
               variants={childVariants} 
-              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent"
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
               whileHover={{
-                textShadow: '0 0 15px rgba(103, 232, 249, 0.5)',
+                textShadow: '0 0 15px rgba(139, 69, 193, 0.5)',
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
