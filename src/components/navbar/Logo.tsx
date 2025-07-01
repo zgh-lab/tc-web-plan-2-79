@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
@@ -12,7 +13,7 @@ const Logo = ({ isScrolled }: LogoProps) => {
         <div className="relative">
           <div className="p-4 mr-3 flex items-center justify-center w-20 h-12">
             <img 
-              src="/lovable-uploads/562a0d54-b628-46e2-b833-9b61c0177a7f.png" 
+              src="/lovable-uploads/1929bbdc-b266-4d8b-a72e-fe5d71264410.png" 
               alt="G-bits Logo" 
               className="h-90 w-auto object-contain"
             />
