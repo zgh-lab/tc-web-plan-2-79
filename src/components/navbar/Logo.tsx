@@ -11,11 +11,11 @@ const Logo = ({ isScrolled }: LogoProps) => {
     <div className="flex-shrink-0">
       <Link to="/" className="flex items-center">
         <div className="relative">
-          <div className="p-2 mr-3 flex items-center justify-center">
+          <div className="p-2 mr-3 flex items-center justify-center w-10 h-10">
             <img 
               src="/lovable-uploads/d2022b75-39a5-4eea-bffc-9d991c10cf31.png" 
               alt="G-bits Logo" 
-              className="h-6"
+              className="h-6 w-auto"
             />
           </div>
           {/* 蓝青渐变背景方块 */}
