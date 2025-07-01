@@ -38,9 +38,9 @@ const ContactInfo = () => {
         >
           <motion.h2 
             variants={childVariants} 
-            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 via-blue-600 to-purple-400 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-4 text-orange-400"
             whileHover={{
-              textShadow: '0 0 15px rgba(139, 69, 193, 0.5)',
+              color: 'rgb(251 146 60)',
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
