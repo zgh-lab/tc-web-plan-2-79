@@ -10,15 +10,19 @@ const Logo = ({ isScrolled }: LogoProps) => {
   return (
     <div className="flex-shrink-0">
       <Link to="/" className="flex items-center">
-        <div className="p-2 mr-3">
-          <img 
-            src="/lovable-uploads/22875bff-c1ba-4884-b5b8-f1495d4de20d.png" 
-            alt="G-bits Logo" 
-            className="h-6"
-            style={{ 
-              filter: 'brightness(0) invert(1)',
-            }}
-          />
+        <div className="relative">
+          <div className="p-2 mr-3">
+            <img 
+              src="/lovable-uploads/22875bff-c1ba-4884-b5b8-f1495d4de20d.png" 
+              alt="G-bits Logo" 
+              className="h-6"
+              style={{ 
+                filter: 'brightness(0) invert(1)',
+              }}
+            />
+          </div>
+          {/* 青蓝渐变背景方块 */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md opacity-20 -z-10"></div>
         </div>
         <h1 className="font-bold text-xl sm:text-2xl">
           <span className="text-cyan-300">G-</span>
