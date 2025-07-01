@@ -21,19 +21,14 @@ const Logo = ({ isScrolled }: LogoProps) => {
               }}
             />
           </div>
-          {/* 青蓝渐变背景方块 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md opacity-20 -z-10"></div>
+          {/* 蓝青渐变背景方块 */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-md opacity-30 -z-10"></div>
         </div>
         <h1 className="font-bold text-xl sm:text-2xl">
           <span className="text-cyan-300">G-</span>
           <span className="text-gray-300">bits</span>
           <span className="text-gray-300">技术中心</span>
         </h1>
-        
-        {/* 背景方块 */}
-        <div className="ml-3 px-3 py-1 bg-gray-700/80 rounded-md border border-gray-600/50">
-          <span className="text-gray-300 text-sm font-medium">工具库</span>
-        </div>
       </Link>
     </div>
   );
