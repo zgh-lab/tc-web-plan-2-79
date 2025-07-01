@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin, Instagram } from "lucide-react";
 
@@ -13,7 +12,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <h1 className="font-light text-2xl">
-                <span className="text-cyan-300">G-</span>
+                <span style={{ color: '#85BDFE' }}>G-</span>
                 <span className="text-white">bits</span>
                 <span className="text-gray-300">技术中心</span>
               </h1>
@@ -78,7 +77,7 @@ const Footer = () => {
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-white">联系地址</h3>
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 mr-2 text-cyan-300 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" style={{ color: '#85BDFE' }} />
                   <span className="text-sm text-gray-400">广东省深圳市南山区方大城T2栋17楼技术中心</span>
                 </div>
               </div>

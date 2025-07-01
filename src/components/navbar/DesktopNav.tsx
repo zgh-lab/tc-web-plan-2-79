@@ -1,4 +1,5 @@
 
+
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
@@ -26,7 +27,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
               <NavigationMenuItem key={item.title}>
                 {item.children ? (
                   <>
-                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800")}>
+                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-white bg-transparent hover:bg-gray-800")} style={{ '&:hover': { color: '#85BDFE' } }}>
                       {item.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -44,7 +45,8 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                 ) : item.isAction ? (
                   <button 
                     onClick={() => scrollToSection(item.actionId || '')} 
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800")}
+                    className={cn(navigationMenuTriggerStyle(), "text-white bg-transparent hover:bg-gray-800")}
+                    style={{ '&:hover': { color: '#85BDFE' } }}
                   >
                     {item.title}
                   </button>
@@ -53,7 +55,8 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                     href={item.path} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800 cursor-pointer")}
+                    className={cn(navigationMenuTriggerStyle(), "text-white bg-transparent hover:bg-gray-800 cursor-pointer")}
+                    style={{ '&:hover': { color: '#85BDFE' } }}
                     onClick={(e) => {
                       e.preventDefault();
                       window.open(item.path, '_blank', 'noopener,noreferrer');
@@ -63,7 +66,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                   </a>
                 ) : (
                   <Link to={item.path}>
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-cyan-300 bg-transparent hover:bg-gray-800")}>
+                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white bg-transparent hover:bg-gray-800")} style={{ '&:hover': { color: '#85BDFE' } }}>
                       {item.title}
                     </NavigationMenuLink>
                   </Link>

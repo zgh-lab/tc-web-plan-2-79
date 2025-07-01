@@ -72,7 +72,9 @@ export default {
 					light: '#F6F6F7',
 					accent: '#C8C8C9',
 					muted: '#F1F1F1'
-				}
+				},
+				// Add custom blue color to replace cyan-300
+				'custom-blue': '#85BDFE'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
